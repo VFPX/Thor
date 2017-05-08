@@ -1,0 +1,42 @@
+<div class="wikidoc">
+<h3 align="center">Thor TWEeT #11: IntellisenseX: Aliases for VFP Tables</h3>
+<p>Last week&rsquo;s <a href="https://vfpx.codeplex.com/wikipage?title=Thor%20TWEeT%2010">
+TWEeT #10</a> demonstrated that IntellisenseX recognizes aliases for tables used within SELECT statements.</p>
+<p>IntellisenseX now also recognizes aliases used for VFP tables, in three different varieties:</p>
+<ul>
+<li>In procedures where the table is opened using either USE or by a UDF. </li><li>Where the alias is a constant alias used throughout an application and can be opened by a
+<a href="https://vfpx.codeplex.com/wikipage?title=PlugIns">Plug-In</a>. </li><li>By specifying an special directive in your code that identifies the file that an alias refers to
+</li></ul>
+<p><strong>Procedures where the table is opened using either USE or by a UDF</strong></p>
+<p>IntellisenseX now recognizes aliases of tables opened by USE (when referenced in the same procedure). This happens automatically and is not dependent on the order of the phrases in the USE command.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=783513"><img title="image" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=783514" alt="image" width="567" height="271" border="0" style="padding-top:0px; padding-left:50px; display:inline; padding-right:0px; border-width:0px"></a></p>
+<p>Similarly, IntellisenseX recognizes aliases of tables opened by a UDF as long as the name of the table and its alias are passed as parameters to the UDF. In the following example, the UDF
+<font face="Courier New">UseTable</font> is called with the first parameter being the name of the table and the third being the alias.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=783573"><img title="image" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=783574" alt="image" width="564" height="258" border="0" style="padding-top:0px; padding-left:50px; display:inline; padding-right:0px; border-width:0px"></a></p>
+<p>In order for this to work, you must record the name of your UDF, etc., in the Thor Configuration form:</p>
+<ol>
+<li>Open the Thor Configuration form </li><li>Go to the Options page </li><li>Click on &ldquo;Table Aliases&rdquo; on the left </li><li>Fill in the name of the UDF and the positions in the parameter list for the name of the table and the alias.
+</li></ol>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=783575"><img title="SNAGHTML21515fa" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=783576" alt="SNAGHTML21515fa" width="680" height="376" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-width:0px"></a></p>
+<p><strong>Where the alias is a constant alias used throughout an application</strong></p>
+<p>IntellisenseX also supports the case where an alias refers to the same table throughout an application.</p>
+<blockquote>
+<p><em>In my own environment, tables are never referred to by name. They are always opened by a UDF (called with the alias), which uses a meta-table to determine the name and folder for the table. Thus the alias name can always be used to open the table.</em></p>
+</blockquote>
+<p>&nbsp;</p>
+<p>This is handled by creating the <a href="https://vfpx.codeplex.com/wikipage?title=PlugIns">
+Plug-In</a> &ldquo;OpenTable&rdquo;. This plug-in works very simply &ndash; it is called with a single parameter, the (potential) alias.</p>
+<p>If that alias can be used to open the desired table, do so, and return the alias as a result; if not, return a logical or empty result</p>
+<p>All of this work is done in the (originally empty) procedure OpenMyTable.&nbsp; Just modify to fit your own environment.</p>
+<p><strong>Directives to specify the table than an alias refers to.</strong></p>
+<p>This last alternative is the least satisfying &ndash; you can add directives in you code to indicate the table than an alias refers to.&nbsp; You might use this, for instance, where a table is opened in one procedure or method and referenced in another.</p>
+<p>There are two (very similar) directives:</p>
+<ul>
+<li><font face="Courier New">*#Alias SomeAlias = MyTable</font>&nbsp; &hellip; at the beginning of a line
+</li><li><font face="Courier New">&amp;&amp;#Alias SomeAlias = MyTable</font>&nbsp; &hellip; at the end of a line
+</li></ul>
+<p>For instance,</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=783580"><img title="image" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=783581" alt="image" width="567" height="288" border="0" style="padding-top:0px; padding-left:50px; display:inline; padding-right:0px; border-width:0px"></a>&nbsp;</p>
+<p>See also <a href="https://vfpx.codeplex.com/wikipage?title=TWEeTs">History of all Thor TWEeTs</a> and
+<a href="https://groups.google.com/forum/?fromgroups#!forum/FoxProThor">the Thor Forum</a>.</p>
+</div><div class="ClearBoth"></div>

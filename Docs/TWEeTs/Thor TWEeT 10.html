@@ -1,0 +1,54 @@
+<div class="wikidoc">
+<h3 align="center">Thor TWEeT #10: IntellisenseX: Field Names from SQL Server Tables</h3>
+<p>IntellisenseX now supplies field names from your SQL Server tables, as shown in the following example:</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=780668"><img title="SNAGHTML7951a6a" border="0" alt="SNAGHTML7951a6a" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=780669" width="606" height="341" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:50px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>What your are seeing is a dropdown list of field names from an SQL table named “Terms”. It may occur to you that this looks exactly like the list from a VFP table.&nbsp; You would be completely correct, as IntellisenseX now gives you field lists from
+<u>both</u> FoxPro tables and SQL Tables, and both are accessed the same way.</p>
+<p>You need follow only a few steps&nbsp; to activate this:</p>
+<ol>
+<li>Open the Thor Configuration form </li><li>Go to the Options page </li><li>Click on “Opening Tables” on the left </li><li>Enter your connection string on the right </li></ol>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=780670"><img title="SNAGHTML9c3d9dd" border="0" alt="SNAGHTML9c3d9dd" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=780671" width="720" height="376" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>If you read no further, you have all you need to know to get started using IntellisenseX on SQL tables; what remains in this article is a discussion of the finer points.</p>
+<p>&nbsp;</p>
+<p><strong><font size="3">IntellisenseX recognizes aliases within an SQL statement</font></strong></p>
+<p>As shown below, aliases within an SQL statement are handled as desired.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=780727"><img title="SNAGHTML9eb515e" border="0" alt="SNAGHTML9eb515e" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=780728" width="606" height="341" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:50px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>But something unexpected will occur because you will probably refer to the aliases in the list of fields, at the beginning of your SQL statement, before you have specified the aliases. The way around this is to create your statement in sort of an inside-out
+ fashion – that is, create your FROM and JOIN phrases first (or, at least as much of them as necessary to create the aliases) and then you’ll have the IntellisenseX support when specifying the field list.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=780729"><img title="SNAGHTML9eda2d7" border="0" alt="SNAGHTML9eda2d7" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=780730" width="606" height="190" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:50px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>See also the example further on showing how to access aliases in a plain VFP Select statement (that is, not within a Text/EndText structure).</p>
+<p><strong><font size="3">How does this work, anyway?</font></strong></p>
+<p>When you invoke IntellisenseX, it goes through a lot of hoops to determine whether the name immediately before the dot could refer to an object or an open table/cursor/view. If none of those apply, it then tries to do you a favor and open the table/view
+ for you. (This has been true from day one).</p>
+<p>What has been added is that if you supply a connection string (as previously noted), it will also try to read at least the structure from your SQL table. In doing so, it creates a cursor (with “_SQL4ISX_” prefixed to the name of your SQL table) which can
+ be used by IntellisenseX. (See also the discussion below about how this applies to other tools, such as
+<strong>Super Browse</strong>.)</p>
+<p><strong><font size="3"><a name="SQLDictionary"></a>What is that “SQL Dictionary” referred to on the options page?</font></strong></p>
+<p>An alternative method to using a connection string (which accesses the table each time) is to create a local VFP table with a list of all fields from all your SQL tables.&nbsp; The statement below creates a table with the desired structure.&nbsp; (You can
+ expand the first two character fields as needed.)&nbsp; To create the entries in this table, you can use SQLTables() to get a list of all tables and SQLColumns() on each table to get the list of fields.</p>
+<blockquote>
+<p><font size="2" face="Courier New">Create Table MySQLTableName ( ;<br>
+&nbsp;&nbsp;&nbsp; XTABNAME&nbsp;&nbsp;&nbsp;&nbsp; C(40),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br>
+&nbsp;&nbsp;&nbsp; FIELD_NAME&nbsp;&nbsp; C(30),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br>
+&nbsp;&nbsp;&nbsp; FIELD_TYPE&nbsp;&nbsp; C(1),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br>
+&nbsp;&nbsp;&nbsp; FIELD_LEN&nbsp;&nbsp;&nbsp; N(3),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br>
+&nbsp;&nbsp;&nbsp; FIELD_DEC&nbsp;&nbsp;&nbsp; N(3))</font></p>
+</blockquote>
+<p><strong><font size="3">What if a single connection string is not enough?</font></strong></p>
+<p>There is no provision currently to make it easy to switch between different SQL databases, which would&nbsp; require multiple connection strings. However, it is possible to change the connection string programmatically, by executing the following:</p>
+<blockquote>
+<p><font size="2" face="Courier New">Execscript(_Screen.cThorDispatcher, 'Set Option=', 'Connection String', 'Opening Tables', NewConnectionString)</font></p>
+</blockquote>
+<p>and this could be used in a Thor tool to select which database to read from.</p>
+<p><strong><font size="3">Does any of this apply to other tools?</font></strong></p>
+<p>There are a number of other tools (most notable <strong>Super Browse</strong>) which use the same sub-routine for opening tables as is used by IntellisenseX. Thus, if you use Super Browse to help you create a list of fields for an SQL statement, you can
+ click on the name of the table (be it a VFP table or SQL table) and execute Super Browse and away you will go.</p>
+<p><strong><font size="3">How do you use aliases in SELECT statements not inside a Text/EndText structure?</font></strong></p>
+<p>The strategy for using IntellisenseX to provide field names for aliases in a SELECT statement (as explained above) is the same when not inside a Text/EndText structure , but with one additional consideration.</p>
+<p>Inside a Text/EndText structure, the end of the statement is clearly identified by the keyword “EndText”. In a plain VFP statement, however, there is no such clear ending, so IntellisenseX must rely on the use of the semi-colon to show continuation lines.
+ Thus, the rule that is followed is that the line where you are typing is assumed to have a semi-colon (because you haven’t gotten to the end of the line yet) and the SELECT statement continues through the following lines until one is reached that does not
+ end in a semi-colon.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=781255"><img title="SNAGHTML14226aec" border="0" alt="SNAGHTML14226aec" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=781256" width="606" height="154" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:50px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>See also <a href="https://vfpx.codeplex.com/wikipage?title=TWEeTs">History of all Thor TWEeTs</a> and
+<a href="https://groups.google.com/forum/?fromgroups#!forum/FoxProThor">the Thor Forum</a>.</p>
+</div><div class="ClearBoth"></div>

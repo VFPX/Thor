@@ -1,0 +1,214 @@
+<div class="wikidoc">
+<p><strong>Thor EditorWindow Object</strong></p>
+<p><em>&#160;</em>All of the IDE features of PEM Editor which access and / or modify the text in the currently open editing window use the functions from
+<strong>FoxTools.fll</strong>.</p>
+<p>The Thor EditorWindow Object is made available to make it simple to build Thor tools which can also access or modify the text in the currently open editing window.&#160; This object serves two purposes:</p>
+<ol>
+<li>It provides wrapper methods for the most useful functions in <strong>FoxTools.fll</strong>.
+</li><li>When accessed, it has already determined the handle for the current editing window.&#160; All of its methods reference this handle, eliminating the need for the handle to be otherwise known or referenced.
+</li></ol>
+<p>The Thor EditorWindow Object can be obtained from this single line of code:</p>
+<pre style="padding-left:60px">loEditorWin = Execscript (_Screen.cThorDispatcher, 'class= editorwin from pemeditor')</pre>
+<ol>
+</ol>
+<p>Some further notes:</p>
+<ol>
+<li>Character positions and line counts start at 0, not 1. (i.e., be careful) </li><li>While this object only is available if PEM Editor has been installed, the PEM Editor form itself need not be open for it to work.
+</li><li>There are numerous uses of this object in the tools in the Thor Repository. </li></ol>
+<p>&#160;</p>
+<table border="1">
+<caption><strong>Window manipulation: handles, size, position, title, etc. </strong>
+</caption><caption></caption>
+<tbody>
+<tr>
+<th width="225">Methods (Parameters)</th>
+<th width="785">Description</th>
+</tr>
+<tr>
+<td width="225">CloseWindow()</td>
+<td width="785">Close the current window</td>
+</tr>
+<tr>
+<td width="225">FindLastWindow()</td>
+<td width="785">Returns the handle of the most recently used window which is either of a PRG or method code from the Form or Class Designer.</td>
+</tr>
+<tr>
+<td width="225">FindWindow()</td>
+<td width="785">Saves the handle for the currently active window, and returns its window type:
+<br>
+<br>
+<table border="0" cellspacing="0" cellpadding="2" width="493">
+<tbody>
+<tr>
+<td valign="top" width="19">0</td>
+<td valign="top" width="472">Command Window, Form and Class Designers, other FoxPro windows</td>
+</tr>
+<tr>
+<td valign="top" width="19">1</td>
+<td valign="top" width="472">Program file (MODIFY COMMAND) </td>
+</tr>
+<tr>
+<td valign="top" width="19">2</td>
+<td valign="top" width="472">Text Editor (MODIFY FILE)</td>
+</tr>
+<tr>
+<td valign="top" width="19">8</td>
+<td valign="top" width="472">Menu code edit window</td>
+</tr>
+<tr>
+<td valign="top" width="19">10</td>
+<td valign="top" width="472">Method code edit window of the Class or Form Designer</td>
+</tr>
+<tr>
+<td valign="top" width="19">12</td>
+<td valign="top" width="472">Stored procedure in a DBC (MODIFY PROCEDURE)</td>
+</tr>
+<tr>
+<td valign="top" width="19">-1</td>
+<td valign="top" width="472">None</td>
+</tr>
+</tbody>
+</table>
+&#160;&#160;&#160;&#160; </td>
+</tr>
+<tr>
+<td width="225">GetHeight()</td>
+<td width="785">Returns the height of the editing window, in pixels.</td>
+</tr>
+<tr>
+<td width="225">GetLeft()</td>
+<td width="785">Returns the left position of the editing window, in pixels.</td>
+</tr>
+<tr>
+<td width="225">GetOpenWindows()</td>
+<td width="785">Returns a collection of the handles of all open windows, most recently used first.</td>
+</tr>
+<tr>
+<td width="225">GetTitle()</td>
+<td width="785">Returns the title for the current window</td>
+</tr>
+<tr>
+<td width="225">GetTop()</td>
+<td width="785">Returns the top position of the editing window, in pixels.</td>
+</tr>
+<tr>
+<td width="225">GetWidth()</td>
+<td width="785">Returns the width of the editing window, in pixels.</td>
+</tr>
+<tr>
+<td width="225">GetWindowHandle()</td>
+<td width="785">Returns the handle of the current editing window</td>
+</tr>
+<tr>
+<td width="225">MoveWindow (tnLeft, tnTop)</td>
+<td width="785">Moves the editing window to position {tnLeft}, {tnTop}. Both are in pixels.</td>
+</tr>
+<tr>
+<td width="225">ResizeWindow (tnWidth, tnHeight)</td>
+<td width="785">Resizes the editing window to {tnWidth} by {tHeight}. Both are in pixels.</td>
+</tr>
+<tr>
+<td width="225">SelectWindow (tnHandle)</td>
+<td width="785">Selects (brings to the foreground) window with handle {tnhandle}</td>
+</tr>
+<tr>
+<td width="225">SetHandle (tnHandle)</td>
+<td width="785">Sets the handle (used to indicate the window being referenced in most of these commands/)</td>
+</tr>
+<tr>
+<td width="225">SetTitle (tcNewTitle)</td>
+<td width="785">Sets the title for the editing window to {tcNewTitle}</td>
+</tr>
+</tbody>
+</table>
+<table border="1">
+<caption>
+<p>&#160;</p>
+<p><strong>Text manipulation</strong></p>
+</caption><caption></caption>
+<tbody>
+<tr>
+<th>Methods (Parameters)</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Copy()</td>
+<td>Copies the currently highlighted text into the clipboard</td>
+</tr>
+<tr>
+<td>Cut()</td>
+<td>Cuts the currently highlighted text</td>
+</tr>
+<tr>
+<td>EnsureVisible (tnPosition, tlScroll)</td>
+<td>Ensures that the character at position {tnPosition} is visible in the editing window. If {tlScroll} is true, it is brought to the mid-point of the editing window</td>
+</tr>
+<tr>
+<td>GetCharacter (tnPosition)</td>
+<td>Returns the character at position {tnPosition}</td>
+</tr>
+<tr>
+<td>GetEnvironment {tnIndex}</td>
+<td>Returns a single environment setting. {tnIndex} takes values from 1 to 25. See _EdGetEnv in the help for FoxTools for a description of all the settings. Frequently used values are:
+<table border="0" cellspacing="0" cellpadding="2" width="400">
+<tbody>
+<tr>
+<td valign="top" width="41">2</td>
+<td valign="top" width="359">File Size</td>
+</tr>
+<tr>
+<td valign="top" width="41">17</td>
+<td valign="top" width="359">Selection start</td>
+</tr>
+<tr>
+<td valign="top" width="41">18</td>
+<td valign="top" width="359">Select end</td>
+</tr>
+<tr>
+<td valign="top" width="41">25</td>
+<td valign="top" width="359">Window Type</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>GetFileSize()</td>
+<td>Returns the file size</td>
+</tr>
+<tr>
+<td>GetLineNumber (tnSelStart)</td>
+<td>Returns the line number for the character at position {tnPosition}</td>
+</tr>
+<tr>
+<td>GetLineStart (tnSelStart, tnLineOffset)</td>
+<td>Determines the line number for the character at position {tnPosition} and returns the position for the character at the beginning of that line. If {tnLineOffset} is supplied, it first offsets the line number by that amount. Thus .GetLineStart (tnSelStart,
+ 1) gives the start position of the next line after the line for {tnSelStart}</td>
+</tr>
+<tr>
+<td>GetSelEnd()</td>
+<td>Returns the position for the end of the currently highlighted text</td>
+</tr>
+<tr>
+<td>GetSelStart()</td>
+<td>Returns the position for the start of the currently highlighted text</td>
+</tr>
+<tr>
+<td>GetString (tnSelStart, tnSelEnd)</td>
+<td>Returns the string of characters from position {tnSelStart} through {tnSelEnd}</td>
+</tr>
+<tr>
+<td>Paste(tcText)</td>
+<td>If {tcText} is supplied, pastes it into the editing window, leaving _ClipText unchanged.&#160; Otherwise, pastes the contents of the clipboard into the editing window.</td>
+</tr>
+<tr>
+<td>Select (tnSelStart, tnSelEnd)</td>
+<td>Selects (highlights) the string of characters from position {tnSelStart} through {tnSelEnd}</td>
+</tr>
+<tr>
+<td>SetInsertionPoint (tnPosition)</td>
+<td>Sets the insertion point to {tnPosition}</td>
+</tr>
+</tbody>
+</table>
+</div><div class="ClearBoth"></div>

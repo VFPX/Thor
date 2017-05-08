@@ -1,0 +1,125 @@
+<div class="wikidoc">
+<h2 align="center">Thor TWEeT #24: New Thor Tools</h2>
+<p>There are nine new tools that have been added in the last month to the Thor Repository:
+</p>
+<ul>
+<li><em><a href="#T1">Pack VCXs, SCXs, etc. from a project or folder</a> </em></li><li><em><a href="#T2">Hack Intellisense </a></em></li><li><em><a href="#T3">Dropdown Intellisense Scripts </a></em></li><li><em><a href="#T4">Keyboard Macro Expansion </a></em></li><li><em><a href="#T5">Create SQL Data Dictionary </a></em></li><li><em><a href="#T5">Browse SQL Data Dictionary </a></em></li><li><em><em><a href="#T9">MRU Tables</a></em></em> </li><li><em><a href="#T8">Toggle PEM Editor Event Handler</a> </em></li><li><em><a href="#T7">Toggle Debugger </a></em></li></ul>
+<p>&nbsp;</p>
+<p align="center"><a name="T1"></a><font size="4"><strong>Pack VCXs, SCXs, etc. from a project or folder</strong></font><font size="4"><strong>
+</strong></font></p>
+<p align="left">The new tool <em>Pack VCXs, SCXs, etc. from a project or folder</em> prompts for a project/folder and then packs all the X-files found in that project/folder.</p>
+<p align="left">You can bypass the prompts by invoking the Thor procedure directly:</p>
+<p align="left">[1]&nbsp; To pack files in the current project:</p>
+<blockquote>
+<p align="left"><font size="2" face="Courier New">lcOption = ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_PackProject', .T.)</font></p>
+</blockquote>
+<p align="left">[2]&nbsp; To pack files in a specific project:</p>
+<blockquote>
+<p align="left"><font size="2" face="Courier New">lcOption = ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_PackProject', cProjectName)</font></p>
+</blockquote>
+<p align="left">[3]&nbsp; To pack files in a specific folder:</p>
+<blockquote>
+<p align="left"><font size="2" face="Courier New">lcOption = ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_PackProject', cFolderName)</font></p>
+</blockquote>
+<p align="center"><a name="T2"></a><font size="4"><strong>Hack Intellisense </strong>
+</font></p>
+<p>The new tool <i>Hack Intellisense</i> provides an extremely usable alternative to the native Intellisense Manager (shown below) for working with your custom Intellisense scripts.
+</p>
+<blockquote>
+<blockquote>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=948255"><img title="image" border="0" alt="image" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=948256" width="456" height="328" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+</blockquote>
+</blockquote>
+<p>I always found the Intellisense Manager page to be remarkably opaque, to the point where I simply gave up trying to add any new scripts to it.&nbsp;
+</p>
+<p>The tool <i>Hack Intellisense</i> provides a different UI to update your FoxCode table, making everything much clearer. It also provides a number of niceties, including:
+</p>
+<ul>
+<li>Filtering by text or type of script (I suggest trying &quot;User&quot; filter) </li><li>Sorting </li><li>Buttons to duplicate or remove a script. </li><li>Buffering of your changes, so that you can commit or revert as desired </li><li>Backing up of your FoxCode table. </li><li>Customizable signature </li><li>&quot;Edit&quot; and &quot;Test&quot; buttons for your more intricate code (in field &quot;data&quot;)</li></ul>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=948257"><img title="SNAGHTMLcafcf04" border="0" alt="SNAGHTMLcafcf04" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=948258" width="679" height="448" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a>
+</p>
+<p>In the short time that this tool has been available, I have already found that I am taking advantage of these custom scripts much more frequently.
+</p>
+<p>There are also plans of enhancing <i>Hack Intellisense </i>to facilitate sharing of scripts that we have each created over time. I will keep you posted of any developments.
+</p>
+<p>Note also a related tool, <i>DropDown Intellisense Scripts</i>, announced last week, which helps you find and use scripts you have created without using this form.
+</p>
+<p><i>Hack Intellisense</i> was written by Rick Schummer, with some tweaks by Todd Landrum and myself.
+</p>
+<p><img src="https://ssl.gstatic.com/ui/v1/icons/mail/images/cleardot.gif"> </p>
+<p align="center"><a name="T3"></a><font size="4"><strong>Dropdown Intellisense Scripts
+</strong></font></p>
+<p>Announcing a new tool, <i>Dropdown Intellisense Scripts</i>, to help you find and use Intellisense scripts created using the Intellisense Manager or the new tool
+<i>Hack Intellisense</i> . </p>
+<p>This tool works like a number of other &quot;Dropdown&quot; tools as part of IntellisenseX.&nbsp; It provides a drop-down list of all of the native Intellisense scripts (including any you have added).&nbsp;&nbsp;
+</p>
+<p>The filtering applies not only to the script abbreviation (&quot;TGO&quot; in the example below) but also its description (if any).&nbsp;
+</p>
+<p>Selecting any item from the list will cause that item to be expanded, just as normal Intellisense would have expanded it.
+</p>
+<p>There's also a new wrinkle here -- this works anywhere in a text line, unlike normal Intellisense, which only works at the beginning of a line.
+</p>
+<blockquote>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=948262"><img title="image" border="0" alt="image" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=948263" width="460" height="288" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+</blockquote>
+<p align="center"><a name="T4"></a><font size="4"><strong>Keyboard Macro Expansion
+</strong></font></p>
+<p>The new tool <i>Keyboard Macro Expansion</i> is an extension to native Intellisense. Native Intellisense expands custom scripts, but only at the beginning of a line of code in the command window or code window.
+</p>
+<p>Thus, when I type <b>TGO</b> (one of my custom Intellisense scripts) into the command window and follow it by a space, it is expanded by Intellisense to:
+</p>
+<blockquote>
+<p><font size="2" face="Courier New">ExecScript(_Screen.cThorDispatcher, 'Get Option=', 'KEY', 'TOOL')</font></p>
+</blockquote>
+<p>The new tool <i>Keyboard Macro Expansion</i> also expands Intellinsense scripts, but is not limited to doing so at the beginning of a line.
+</p>
+<p>If I enter the following: </p>
+<blockquote>
+<p><font size="2" face="Courier New">lcOption = TGO</font></p>
+</blockquote>
+<p>and then call this new tool (which I have assigned to the hot key Ctrl&#43;I), it expands to:
+</p>
+<blockquote>
+<p><font size="2" face="Courier New">lcOption = ExecScript(_Screen.cThorDispatcher, 'Get Option=', 'KEY', 'TOOL')</font></p>
+</blockquote>
+<p>(This works by reading the same definitions from the FoxCode table as used by native Intellisense.)
+</p>
+<p>There is a second extension, provided in the plug-in for&nbsp; <i>Keyboard Macro Expansion
+</i>(see <a href="https://vfpx.codeplex.com/wikipage?title=PlugIns">Plug-Ins</a>). The plug-in provides an alternative to the FoxCode table so that you can programmatically evaluate the word that is to be substituted for and replace it as desired.&nbsp; The
+ sample code in the plug-in demonstrates how </p>
+<blockquote>
+<p><font size="2" face="Courier New">loAnything</font></p>
+</blockquote>
+<p>becomes </p>
+<blockquote>
+<p><font size="2" face="Courier New">Local loAnything as Anything of Anything.prg</font></p>
+</blockquote>
+<p align="center"><a name="T5"></a><font size="4"><strong>Create SQL Data Dictionary
+</strong></font></p>
+<p align="center"><a name="T6"></a><font size="4"><strong>Browse SQL Data Dictionary
+</strong></font></p>
+<p>IntellisenseX and Super Browse can both access field names from SQL Tables, as described in&nbsp;
+<a href="https://vfpx.codeplex.com/wikipage?title=Thor%20TWEeT%2010">Thor TWEeT 10</a>.</p>
+<p>The natural way to access these field names is to use a connection string to access the SQL Server database.</p>
+<p>Alternatively, you can create an&nbsp; <a href="https://vfpx.codeplex.com/wikipage?title=Thor%20TWEeT%2010#SQLDictionary">
+SQL Dictionary</a> that contains the names of all tables and their fields, and IntellisenseX will use those field names even if the SQL database is not available.</p>
+<p>The name of the SQL Data Dictionary is entered in the Thor configuration form (and note the typo!)</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=948266"><img title="SNAGHTMLcf077e1" border="0" alt="SNAGHTMLcf077e1" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=948267" width="680" height="376" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>&nbsp;</p>
+<p align="center"><a name="T9"></a><font size="4"><strong>MRU Tables</strong></font><font size="4"><strong>
+</strong></font></p>
+<p align="left">The new tool <em>MRU Tables</em> provides a dropdown list of MRU tables; the selected table is opened with
+<em>Super Browse.</em></p>
+<p align="left">Note that all Thor tools that open tables (including <em>Super Browse</em>,
+<em>Go To Definition</em>, and others) add any table that they open to the system MRU list for tables</p>
+<p align="left">This MRU dropdown list is also available from the right-click context menu of the “File Search” command button in
+<em>Finder</em>.</p>
+<p align="left"><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=948285"><img title="image" border="0" alt="image" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=948286" width="679" height="242" style="border-top:0px; border-right:0px; border-bottom:0px; padding-top:0px; padding-left:0px; border-left:0px; display:inline; padding-right:0px"></a></p>
+<p align="left">&nbsp;</p>
+<p align="center"><a name="T8"></a><font size="4"><strong>Toggle PEM Editor Event Handler</strong></font><font size="4"><strong>
+</strong></font></p>
+<p>PEM Editor, if open, provides design time event handing. The most familiar use is evaluating the Anchor properties when resizing controls so that a form or class resizes as it would at run time. See the PEM Editor help file for more on this.</p>
+<p align="center"><a name="T7"></a><font size="4"><strong>Toggle Debugger</strong></font><font size="4"><strong>
+</strong></font></p>
+<p>Nothing magic about this one, other than it’s handy to have a single tool that is available on a hot key.</p>
+</div><div class="ClearBoth"></div>

@@ -1,0 +1,60 @@
+<div class="wikidoc">
+<h2 align="center">Thor TWEeT #18: IntellisenseX for Nested Objects</h2>
+<p>IntellisenseX provides dropdown lists for nested objects. These dropdown list are available throughout an entire form or class, as shown in this example:</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=835662"><img title="image" border="0" alt="image" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=835663" width="694" height="357" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>The key to making this work is to define a property that can used by IntellisenseX to determine the dropdown list.&nbsp;
+</p>
+<p>The name of the property is the name of the nested property (“oParts” in the example above) with “_Def” added as a suffix.</p>
+<p>The value of the property is basically the same as used for Local Aliases (which apply only to the current procedure; see
+<a href="https://vfpx.codeplex.com/wikipage?title=Thor%20TWEeT%2016">Using Local Aliases in IntellisenseX</a>) or for Global Aliases (which apply everywhere; see
+<a href="https://vfpx.codeplex.com/wikipage?title=Thor%20TWEeT%2015">the Alias Dictionary</a>). It can be any one of a number of things, referring to either tables or objects.
+</p>
+<ul>
+<li>A table, cursor, or view name </li><li>The full or relative path name to a table </li><li>The name of an SQL table </li><li>A reference to class from a class library; thus,&nbsp; “<font face="Courier New">{class, classlibrary}</font>“&nbsp;
+<em>See note below for Forms and VCX classes.</em> </li><li>A reference to class using the same syntax as the LOCAL command; thus,&nbsp; “<font face="Courier New">Local loPAL as PAL of BO_PAL.VCX</font>“
+</li><li>A reference to an object; thus,&nbsp; “<font face="Courier New">Thisform.oParts</font> “
+</li><li>An executable expression that returns an object or the name of an table, cursor, or view. This executable must start with an “=”; thus, something like “<font face="Courier New">= MyGetObject(‘Parts’)</font> “.&nbsp;
+<em>See note below for Forms and VCX classes.</em></li></ul>
+<blockquote>
+<p><em>An unexpected problem arises when when using the Property Sheet or PEM Editor to set the values for the two items noted above – values inside curly braces are converted to dates, and values beginning with an = sign are saved as expressions. To avoid
+ these issues, prefix the values with &amp;&amp; – thus:</em></p>
+<ul>
+<li>“&amp;&amp; <font face="Courier New">{class, classlibrary}</font>“ </li><li>“&amp;&amp; <font face="Courier New">= MyGetObject(‘Parts’)</font> “</li></ul>
+</blockquote>
+<p>This table shows a number of different values that can be used for the value of the “_Def” property:</p>
+<table cellspacing="0" cellpadding="2" width="645" border="1">
+<tbody>
+<tr>
+<td valign="top" width="237">“PartsList”</td>
+<td valign="top" width="406">The name of a table in the path, in the Data Environment of a form, in an open DBC, in the MRU list for tables, or the name of a table in a SQL Server database. It can also be opened by the plug-in “Open Table”.</td>
+</tr>
+<tr>
+<td valign="top" width="237">“..\Tables\PartsList”</td>
+<td valign="top" width="406">The absolute or relative path to a table.</td>
+</tr>
+<tr>
+<td valign="top" width="237">“{NISDetailsForm, NIS.VCX}”</td>
+<td valign="top" width="406">A class in a VCX or PRG</td>
+</tr>
+<tr>
+<td valign="top" width="237">“Local loPAL as PAL of BO_PAL.PRG”</td>
+<td valign="top" width="406">An alternative way to reference a class. This syntax was chosen so that you can copy the LOCAL command directly from a line of code.</td>
+</tr>
+<tr>
+<td valign="top" width="237">“ = GetBusinessObject(‘TableName’)”</td>
+<td valign="top" width="406">A call to your own UDF that returns an object; used, for instance, if you use a factory to return objects instead of direct references.</td>
+</tr>
+</tbody>
+</table>
+<p>Nested objects may take any of a number of forms, including:</p>
+<ul>
+<li><font face="Courier New">ThisForm.oBusObj</font> </li><li><font face="Courier New">This.oData</font> </li><li><font face="Courier New">This.oPartsList.oData</font> </li><li><font face="Courier New">This.oBusObj.oPartsList.oData</font></li></ul>
+<p>Nested objects may appear in forms, VCX-based classes, and PRG-based classes and there can be multiple levels of nesting.</p>
+<p>This TWEeT has addressed Aliases that apply to an entire form or class (both VCX and PRG-based).&nbsp; Earlier TWEeTs have addressed
+<a href="https://vfpx.codeplex.com/wikipage?title=Thor%20TWEeT%2016">Local Aliases</a> and
+<a href="https://vfpx.codeplex.com/wikipage?title=Thor%20TWEeT%2015">the Alias Dictionary</a> addressed global aliases.</p>
+<p>An upcoming TWEeT will describe plug-ins that be used to handle cases that these features do not.</p>
+<p>&nbsp;</p>
+<p>See also <a href="https://vfpx.codeplex.com/wikipage?title=TWEeTs">History of all Thor TWEeTs</a> and
+<a href="https://groups.google.com/forum/?fromgroups#!forum/FoxProThor">the Thor Forum</a>.</p>
+</div><div class="ClearBoth"></div>

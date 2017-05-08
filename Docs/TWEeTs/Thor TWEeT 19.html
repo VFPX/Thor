@@ -1,0 +1,47 @@
+<div class="wikidoc">
+<h2 align="center">Thor TWEeT #19: Deficiencies in IntellisenseX</h2>
+<h2 align="center">(and how to avoid them)</h2>
+<h2 align="center">… The Custom Keyword List …</h2>
+<p>The most serious problem with IntellisenseX is that it is SO SLOW when getting the list of properties and methods in a VCX or SCX.&nbsp; The process of getting the correct case for names in a VCX/SCX, requiring parsing MemberData in parent class(es), takes
+ more time than anybody would be willing to wait each time you enter THISFORM followed by a dot.</p>
+<p>There is a similar problem when working in PRG-based classes where the parent class is anything other than a FoxPro base class. There is no good way to obtain the correct case for inherited names (PRG-based classes don’t even use MemberData), so all inherited
+ custom names end up in lower case.</p>
+<p>The remedy for these two problems is the same – the Custom Keyword List.&nbsp; This is just a simple table with the list of all words from your programming universe, where each word is saved with the mixture of upper/lower case that you prefer. This table
+ can be created easily, updated automatically, and applied to any block of code.&nbsp; Not only does this eliminate the problems mentioned above, it ensures that your words are always used consistently (same upper/lower case).</p>
+<p><strong>Getting Started</strong></p>
+<p>First, create the Custom Keyword List by running Thor Tool <em>Add all words from folder or project.</em> (You can find all the tools referenced here by filtering on “Custom Keyword” in the Thor Launcher.)</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=841407"><img title="SNAGHTML564b40e" border="0" alt="SNAGHTML564b40e" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=841408" width="678" height="282" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>This tool will run for a few minutes as it scours an entire folder or project for all programming words.&nbsp; Eventually, a form will come up showing you the list of all words in found. You can do some editing of the list, but for starters the suggestion
+ is to simply save everything.</p>
+<p>Next, go to the options page for IntellisenseX in the Thor Configuration form to select the settings such that IntellisenseX will use the Custom Keyword List.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=841307"><img title="SNAGHTML4a10555" border="0" alt="SNAGHTML4a10555" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=841308" width="680" height="376" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>Finally, mark these checkboxes for option “Add all words in code window” as well, so that new words you create going forward, including properties and methods created by PEM Editor or any of its related tools, are automatically added to the Custom Keyword
+ List. Do so even if you don’t used BeautifyX (but more on that in a bit).</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=841309"><img title="SNAGHTML4a3ecf5" border="0" alt="SNAGHTML4a3ecf5" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=841310" width="680" height="376" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>After performing these three steps, you’re on your way.</p>
+<p><strong>Updating the Custom Keyword List Programmatically</strong></p>
+<p>You can programmatically add words to this list at any time by using any of the following Thor tools:</p>
+<ul>
+<li><em>Add all words from folder or project</em> </li><li><em>Add all words in code window</em> </li><li><em>Add PEMS from current class or form</em> </li><li><em>Add fields names from current table</em></li></ul>
+<p>If there are any new words encountered, a form opens for you to approve the new words; if there are any words found that conflict with words already in the table, a separate form opens for you to select which you want to use.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=842052"><img title="SNAGHTML18bf731" border="0" alt="SNAGHTML18bf731" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=842053" width="528" height="197" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p><strong>What does “Locked” mean?</strong></p>
+<p>Some words may have inconsistent usages – “Openexcelfile” or “OpenExcelfile” or “OpenExcelFile” or ?&nbsp; Marking a word as “Locked” indicates that that is your preferred usage and you will never be asked about possible conflicts again.</p>
+<p><strong>Updating the Custom Keyword List Manually</strong></p>
+<p>You can&nbsp; use the tool <em>Add highlighted word</em> to add or update a word directly to the Custom Keyword List (this also marks it as Locked – your preferred usage).</p>
+<p>You can also open the table with tool <em>Browse Custom Keyword List</em> and make any modifications as needed. This table is found in your “My Tools” folder.</p>
+<blockquote>
+<p><font face="Courier New">_Screen.cThorFolder &#43; 'Tools\My Tools\KeywordList.DBF'</font></p>
+</blockquote>
+<p><strong>Using BeautifyX</strong></p>
+<p>If you’re not already using Thor tool BeautifyX all the time, it’s time to change.&nbsp; It provides a wide range of features and you can choose which ones work for you – but some of them them definitely will.</p>
+<p>The options include</p>
+<ul>
+<li>Apply native Beautify </li><li>Provide consistent spacing around operators and commas, align semi-colons, indentation for continuation lines
+</li><li>Highly customizable formatting for SQL-SELECT, SQL-UPDATE, SQL-DELETE, and REPLACE statements, (conditionally within TEXT / ENDTEXT structures)
+</li><li>Run Thor tool “Create Locals’ </li><li>Add MDots </li><li>Check for RETURNs between WITH/ENDWITH (these create latent C5 errors) </li><li>Apply Custom Keyword List </li><li>Add words to Custom Keyword List.</li></ul>
+<p>Make it your practice to use BeautifyX on all the code you write.</p>
+<p>&nbsp;</p>
+<p>See also <a href="https://vfpx.codeplex.com/wikipage?title=TWEeTs">History of all Thor TWEeTs</a> and
+<a href="https://groups.google.com/forum/?fromgroups#!forum/FoxProThor">the Thor Forum</a>.</p>
+</div><div class="ClearBoth"></div>

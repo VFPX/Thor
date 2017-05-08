@@ -1,0 +1,94 @@
+<div class="wikidoc">
+<h2 align="center">Thor TWEeT #25: Five New Thor Tools for FoxBin2PRG</h2>
+<p>There are five new tools in the Thor Repository for working with FoxBin2PRG. </p>
+<p>Four of these tools provide different ways for converting the binary files (“X” files) in a project to their corresponding text files or going the other direction, from the text files to the binary files:
+</p>
+<ul>
+<li><em><a href="#T1">Convert all binary files to text files</a> </em></li><li><em><a href="#T2">Convert files with changed internal timestamps</a></em> </li><li><em><a href="#T3">Convert most recently changed binary files</a></em> </li><li><em><a href="#T4">Generate binary files from all text files</a></em> </li></ul>
+<p>Each of these tools are project-related, as they use the active project, if there is one, or else prompt for the name of the project to work on.</p>
+<p>The other tool creates “SendTo” shortcuts in Explorer so that you can convert to/from text files while working in Explorer.</p>
+<ul>
+<li><em><a href="#T5">Create/Edit FoxBin2Prg &quot;SendTo&quot; shortcuts</a></em> </li></ul>
+<p>All of these tools assume that you have downloaded and installed FoxBin2PRG.&nbsp; This works automatically if you have used Thor’s Check For Updates to download it, as they know exactly where to look for it. Otherwise, you can modify the
+<a href="https://vfpx.codeplex.com/wikipage?title=PlugIns">Plug-In</a> “Get FoxBin2PRG Folder” to point to the folder where you have installed FoxBin2PRG.</p>
+<blockquote>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=954606"><img title="image" border="0" alt="image" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=954607" width="554" height="230" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+</blockquote>
+<p>Thanks to Mike Potjer, who wrote three of these tools, which inspired the creation of the other two which are based on the file and internal timestamps.</p>
+<p align="center"><a name="T1"></a><font size="4"><strong>Convert all binary files to text files</strong></font><font size="4"><strong>
+</strong></font></p>
+<p align="left">The tool <em>Convert all binary files to text files </em>converts a VFP .PJX file, and all the binary files in the project, to their FoxBin2Prg text format.&nbsp; This conversion is done through the FoxBin2Prg.EXE, so all your FoxBin2Prg configuration
+ settings will be respected. </p>
+<p align="left">For large projects, this may take a while, so there is a progress bar to demonstrate that it is awake.</p>
+<p align="left">You can run this tool programmatically as well.</p>
+<blockquote>
+<p align="left"><font size="2" face="Courier New">ExecScript(_Screen.cThorDispatcher, ‘Thor_Tool_Repository_FoxBin2PrgConvertProjectToText’)</font></p>
+</blockquote>
+<p align="center"><a name="T2"></a><font size="4"><strong>Convert files with changed internal timestamps</strong></font><font size="4"><strong>
+</strong></font></p>
+<p align="left">The tool <em>Convert files with changed internal timestamps </em>
+converts all binary files where the internal timestamps in the rows of the binary file have changed. These timestamps are changed when you use any of the designers (Form, Class, Report, and so on) or when you make replacements using GoFish, so the effect is
+ that the conversion is only performed for the small number of files you have changed since the last time this tool was run.</p>
+<p align="left">This effect is achieved by setting the timestamp on the each text file to match the most recent timestamp on any of the rows in the corresponding binary file.</p>
+<p align="left">This tool can be dramatically faster than <em>Convert all binary files to text files</em> for those projects where most files are not being changed. (For example, it takes about 40 seconds to run
+<em>Convert all binary files to text files</em> for my largest project, only 2 or 3 seconds to run this tool when I have only changed a handful of files.)</p>
+<p>Note, however, if you hack a file, whether by HackCX or manually, the text file may not be automatically created, as the internal timestamps in the rows of the binary file will not have changed.&nbsp; There are a number of ways you can correct for this</p>
+<ul>
+<li>Use tool <em>Convert most recently changed binary files </em>(below). </li><li>Open the binary file in its Designer, make a slight modification to it, and save it.
+</li><li>Erase the text file manually.</li></ul>
+<p align="left">You can run this tool programmatically as well.</p>
+<blockquote>
+<p align="left"><font size="2" face="Courier New">ExecScript(_Screen.cThorDispatcher, ‘Thor_Tool_Repository_OptimizedFoxBin2PrgConvertProjectToText’)</font></p>
+</blockquote>
+<p align="center"><a name="T3"></a><font size="4"><strong>Convert most recently changed binary files</strong></font><font size="4"><strong>
+</strong></font></p>
+<p align="left">The tool <em>Convert most recently changed binary files </em>converts the most recently changed external timestamp (such as you see in Explorer).&nbsp;&nbsp; You can indicate the definition of “most recently changed” to be based either on the
+ number files to change or the number of days since they have changed:</p>
+<p align="left"><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=954608"><img title="SNAGHTML1264e7cf" border="0" alt="SNAGHTML1264e7cf" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=954609" width="680" height="376" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p align="left">This tool was originally created as a solution to the problem noted above where text files might not be re-created for binary files that have been hacked, but there is no particular reason that this is its only usage.</p>
+<p align="left">You can run this tool programmatically as well.</p>
+<blockquote>
+<p align="left"><font size="2" face="Courier New">ExecScript(_Screen.cThorDispatcher, ‘Thor_Tool_Repository_ConvertMostRecentToText’)</font></p>
+</blockquote>
+<p align="center"><a name="T4"></a><font size="4"><strong>Generate binary files from all text files</strong></font><font size="4"><strong>
+</strong></font></p>
+<p align="left">The tool <em>Generate binary files from all text files </em>works in the other direction, creating binary files from the text files.&nbsp;
+</p>
+<p align="left">This tool currently assumes you are using the PJ2 extension for your project text file, but this easy enough to change via a constant in the tool code.&nbsp; Perhaps in the future the tool can be enhanced to get the extension from an option
+ setting or by reading FoxBin2Prg configuration settings.&nbsp; All other extensions are handled according to the FoxBin2Prg configuration settings.&nbsp;
+</p>
+<p align="left">There are limitations with this tool due to the way VFP leaves VCX files in memory, and thus it will try to execute
+<font size="2" face="Courier New">Clear All</font>, which is only possible when called from a menu or via hotkey.&nbsp; The tool will still run from the Tool Launcher or the Thor toolbar, but you will get a warning, and under certain conditions FoxBin2Prg might
+ give you an error message and not regenerate your .VCX files.</p>
+<p align="left">You can run this tool programmatically as well.</p>
+<blockquote>
+<p align="left"><font size="2" face="Courier New">ExecScript(_Screen.cThorDispatcher, ‘Thor_Tool_Repository_FoxBin2PrgConvertTextToProject’)</font></p>
+</blockquote>
+<p align="center"><a name="T5"></a><font size="4"><strong>Create/Edit FoxBin2Prg &quot;SendTo&quot; shortcuts</strong></font><font size="4"><strong>
+</strong></font></p>
+<p align="left">The tool <em>Create/Edit FoxBin2Prg &quot;SendTo&quot; shortcuts</em> displays a dialog that makes it easy to setup or remove Windows &quot;Send to&quot; shortcuts for the VB scripts included with FoxBin2Prg.&nbsp; If you already manually created shortcuts in the
+ standard user &quot;Send to&quot; folder, this tool should find them and allow you to edit them.</p>
+<blockquote>
+<p><a href="https://lh3.googleusercontent.com/-mrbj23MZCUA/VHS5qnN4MqI/AAAAAAAAAas/B87hMrmHYww/s1600/Screen%2BCapture%2B2.png"><img border="0" src="https://lh3.googleusercontent.com/-mrbj23MZCUA/VHS5qnN4MqI/AAAAAAAAAas/B87hMrmHYww/s1600/Screen%2BCapture%2B2.png"></a></p>
+</blockquote>
+<ol>
+<li>A default name for the shortcut is displayed in a textbox, allowing you to edit the name directly in this form.&nbsp; TAB out of the textbox when you finish editing the name, then either
+</li><li>Click the Create button to add the shortcut, if it doesn't already exist, or </li><li>Click the Save button to update the name if the shortcut already exists.</li></ol>
+<p><a href="https://lh4.googleusercontent.com/-JAAUeKg3SKQ/VHS7oBgDTiI/AAAAAAAAAa4/qR4U6um2fFM/s1600/Screen%2BCapture%2B4.png"><img border="0" src="https://lh4.googleusercontent.com/-JAAUeKg3SKQ/VHS7oBgDTiI/AAAAAAAAAa4/qR4U6um2fFM/s1600/Screen%2BCapture%2B4.png"></a>
+</p>
+<p>After clicking the Create button, </p>
+<ol>
+<li>The caption will change to Edit, allowing you to edit any other settings of the shortcut, and
+</li><li>The shortcut will now appear under the &quot;Send to&quot; context menu in Windows Explorer.</li></ol>
+<p>The Edit button opens the Windows file properties dialog, where you can edit any settings of the shortcut.
+</p>
+<p><a href="https://lh6.googleusercontent.com/-NyUeDAMDZDE/VHS8cP69seI/AAAAAAAAAbA/mMsTZwqv6O8/s1600/Screen%2BCapture%2B3.png"><img border="0" src="https://lh6.googleusercontent.com/-NyUeDAMDZDE/VHS8cP69seI/AAAAAAAAAbA/mMsTZwqv6O8/s1600/Screen%2BCapture%2B3.png"></a>
+</p>
+<p>The Remove button simply deletes the shortcut, moving it to the recycle bin.&nbsp; There is a non-visual class in the Thor_Tool_FoxBin2PrgCreateShortcuts.PRG which performs all the real work of this tool, so if you want to create your own version of the
+ tool with a different interface, or no interface at all, it should be pretty easy to do.&nbsp; There is some code commented out in the .PRG which demonstrates creating all the shortcuts programmatically.
+</p>
+<p><font size="2" face="Courier New"></font>&nbsp; </p>
+<blockquote></blockquote>
+<p>See also <a href="https://vfpx.codeplex.com/wikipage?title=TWEeTs">History of all Thor TWEeTs</a> and
+<a href="https://groups.google.com/forum/?fromgroups#%21forum/FoxProThor">the Thor Forum</a>.</p>
+</div><div class="ClearBoth"></div>

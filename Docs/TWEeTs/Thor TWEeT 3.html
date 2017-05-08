@@ -1,0 +1,41 @@
+<div class="wikidoc">
+<h3 align="center">&nbsp;</h3>
+<h3 align="center">Thor TWEeT #3: Remember MRUs?</h3>
+<p>Remember when you used to live in the Command Window and you would use MRU lists for opening forms, files, classes, etc?&nbsp;&nbsp;</p>
+<p>When you began relying on other tools, like the Project Manager and Class Browser, you couldn't use MRU lists anymore, though, since these other tools did not update the MRU lists, nor were MRUs made available any way other than from the Command Window.</p>
+<p>But now it's time to resume using MRUs since Thor tools resurrect them, maintaining them and providing new ways to access them.</p>
+<p>First of all, all Thor tools, most notably <strong>GoFish, Finder</strong>, and
+<strong>PEM Editor</strong>, but also all other Thor tools that open files, always update the appropriate MRU list when opening a file (whether form, class, table, report, etc.). In addition, they provide two other features:</p>
+<ul>
+<li>They maintain a new MRU list for all <u>class libraries</u> that are opened. </li><li>They open each file using the same case for the file name as is found on disk, so that the case of file names is not changed.
+</li></ul>
+<blockquote>
+<p><em>Note: It might seem that this would not help you if you open files from the Project Manager or Class Browser, but there are simple modifications you can make to both to achieve the same effect as all other Thor tools,&nbsp; See the end of this message.</em></p>
+</blockquote>
+<p>The main Thor tool for access MRU lists is called simply <strong>MRUs</strong>, and it displays a pop-up menu of all the different MRU lists (including, at the top, the list unique to Thor, of MRU class libraries.)</p>
+<blockquote><img src="https://groups.google.com/group/foxprothor/attach/376523a12ac59c7/image.png?part=4&authuser=0" alt="Inline image 1"></blockquote>
+<p>There are a number of other Thor tools that access these same MRU lists:</p>
+<ul>
+<li><strong>MRU class libraries</strong> -- provides a list of only the MRU class libraries (the first item from the menu shown above)
+</li><li><strong>HackCX4 from MRU forms or classes </strong>-- creates a popup menu showing the MRU for forms and class libraries so that they can be they can be opened by HackCX4, (Requires separate installation of HackCX4 from<a href="http://www.whitelightcomputing.com/prodhackcxpro.htm">WhiteLightComputing</a>)
+</li><li><strong>Finder -- </strong>lists are available by right-clicking on either the &quot;File Search&quot; or &quot;Class Search&quot; buttons atop the screen.
+</li><li><strong>PEM Editor</strong> -- lists are available from the &quot;Open File&quot; button atop the screen.
+</li></ul>
+<p>There are also two Thor tools that are slightly mis-named, as they really refer to most-recently-<u>changed</u> classes and files, based on timestamps rather than MRU lists. Note that
+<strong>Finder</strong> can also be used to find most-recently-changed classes and files</p>
+<ul>
+<li><strong>MRU classes in this project </strong>- note that this uses the internal timestamp within a VCX for when a class was last updated, rather than the timestamp of the VCX file itself.
+</li><li><strong>MRU files in this project</strong> </li></ul>
+<p><u><strong>Updating MRU lists from the Project Manager or Class Browser</strong></u></p>
+<p>Thor provides files you can install so that files opened from the Project Manager or Class Browser will update your MRU lists appropriately. These files are found in folder Thor\Tools\Samples.</p>
+<blockquote><em>Note: The MRU lists are updated only if you have run Thor. If you haven't, Project Manager and Class Browser will still work normally.</em></blockquote>
+<ul>
+<li>To change Project Manager, use the code from class BaseProjectHook of BaseProjectHooks.VCX
+<ul>
+<li>If you are not using ProjectHooks, modify the project to use this class (I recommend copying the class library to some other folder)
+</li><li>If you are already using ProjectHooks, simply copy the code from the only method in the class into your project hook file.
+</li></ul>
+</li><li>To change Class Browser, copy the file Browser.APP into the home folder for FoxPro -- Home(1)
+</li></ul>
+<p>See also&nbsp;<a href="https://vfpx.codeplex.com/wikipage?title=TWEeTs">History of all Thor TWEeTs</a>&nbsp;and&nbsp;<a href="https://groups.google.com/forum/?fromgroups#!forum/FoxProThor">the Thor Forum</a>.</p>
+</div><div class="ClearBoth"></div>

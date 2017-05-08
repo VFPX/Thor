@@ -1,0 +1,36 @@
+<div class="wikidoc">
+<h2 align="center">Thor TWEeT #22: Related IntellisenseX Tools</h2>
+<p>There are a number of Thor tools other than <em>IntellisenseX </em>that provide dropdown lists of names to select from.&nbsp; These are not the familiar lists that native FoxPro Intellisense provides (member names or field names), but rather other lists
+ that make sense in your FoxPro IDE.&nbsp; These lists are not activated by pressing the dot (like IntellisenseX), so you will need to access them another way (by assigning a hot key or by adding them to the Thor toolbar or a menu)</p>
+<p>These tools can be found using the Tool Launcher:</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=850011"><img title="SNAGHTML4d52fee" border="0" alt="SNAGHTML4d52fee" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=850012" width="674" height="304" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>The dropdown lists provided by these tools are:</p>
+<ul>
+<li><em>AutoComplete</em> – All names referenced in the current procedure, except for VFP Keywords. Thus, variables, field names, table names and aliases, procedures, objects, property and method names, and so on
+</li><li><em>Dropdown Constants List – </em>All constants defined in the current procedure (#Define statements) as well as all constants defined in referenced #Include statements.
+</li><li><em>Dropdown Procedures List – </em>All procedures and functions referenced in either the current project (if there is one open) or the current path.
+</li><li><em>Dropdown Table Names – </em>All tables in the current path. </li><li><em>DBC Tables by ! – </em>All tables found in a DBC.</li></ul>
+<p>All of these tools work essentially the same way. When you invoke them, you get a dropdown list that you can select from, just as when you select from dropdown lists created by IntellisenseX. The following example demonstrates a use of
+<em>AutoComplete</em>, showing all the names referenced in this procedure.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=850013"><img title="SNAGHTML4ded255" border="0" alt="SNAGHTML4ded255" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=850014" width="694" height="371" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>&nbsp;</p>
+<p>You can also begin typing part of the name before invoking the tool, such as in this example where “Temp” was entered before invoking
+<em>AutoComplete</em>.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=850015"><img title="SNAGHTML4e5d38d" border="0" alt="SNAGHTML4e5d38d" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=850016" width="694" height="371" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>&nbsp;</p>
+<p>Finally, if you type in enough of a name to uniquely identify it (such as “New” in this example, which matches only “lcNewSourceFile”), the match is pasted in immediately without even showing the pop-up.&nbsp; When this becomes familiar, it is extremely
+ handy, reducing both keystrokes and keying errors. </p>
+<p>There are a few things to note about each of these tools:</p>
+<ul>
+<li><em>AutoComplete</em> – has its own plug-in to allow you to change the names that are displayed or their order. (My personal version of this recognizes my convention for naming tables and cursors).
+</li><li><em>Dropdown Constants List – </em>The dropdown list shows not only the names of matching defined constants, but also their values and any comment on the same line.&nbsp; Furthermore, the matching is also done against the comments as well. For instance,
+ in the example below, entering “nisst” matches all the entries that have “NISStatus” (a field name) in the comment.</li></ul>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=850017"><img title="SNAGHTML4efdc54" border="0" alt="SNAGHTML4efdc54" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=850018" width="582" height="252" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<ul>
+<li><em>Dropdown Procedures List – </em>shows the names of procedures and functions, but not their parameters. Though that was the original intent,&nbsp; including the parameters caused it to be so slow it was worthless.&nbsp; Even as it is, without parameters,
+ it can be very slow. </li><li><em>Dropdown Table Names – </em>has its own plug-in to search in different folders, etc.
+</li><li><em>DBC Tables by ! – </em>This one is not quite like the others, as it assigns an On Key Label for when you enter the ‘!’. Thus, you can only use this tool that way (not from menus or the Thor Toolbar, for instance)</li></ul>
+<p>&nbsp;</p>
+<p>See also <a href="https://vfpx.codeplex.com/wikipage?title=TWEeTs">History of all Thor TWEeTs</a> and
+<a href="https://groups.google.com/forum/?fromgroups#!forum/FoxProThor">the Thor Forum</a>.</p>
+</div><div class="ClearBoth"></div>

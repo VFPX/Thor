@@ -1,0 +1,95 @@
+<div class="wikidoc">
+<h3>The Thor Framework: tools to make tools</h3>
+<p>Thor provides a framework of tools to assist in creating tools.</p>
+<p>Each of the tools in the framework can be obtained from a single line of code that looks like this:</p>
+<pre style="padding-left:60px">Result = Execscript (_Screen.cThorDispatcher, cParameter)</pre>
+<p></p>
+<p>This rather unusual approach was chosen because it achieves two goals:</p>
+<ol>
+<li>The tools in the framework are available with only the single dependency (the name of the property in _Screen) and thus can be accessed by tools regardless of the folder where Thor is installed.
+</li><li>The tools in the framework are available even after a ‘Clear All’. </li></ol>
+<p>Note that the tools in the framework are always available from the Thor menu in the VFP system menu, and you can copy the line of code to access the tool directly from there.&#160; Furthermore, if available, there is access to the home page for the tool.</p>
+<p>&#160;</p>
+<h4><a href="http://download.codeplex.com/Download?ProjectName=vfpx&DownloadId=286612"><img title="image" border="0" alt="image" src="http://download.codeplex.com/Download?ProjectName=vfpx&DownloadId=286613" width="644" height="448" style="border-bottom:0px; border-left:0px; display:block; float:none; margin-left:auto; border-top:0px; margin-right:auto; border-right:0px"></a>
+</h4>
+<h4><strong>External APPs: </strong></h4>
+<p>The structure of Thor provides for the inclusion of other objects embedded in APP files.&#160; In particular are these two, developed as part of PEM Editor.
+<br>
+</p>
+<table border="0" cellspacing="0" cellpadding="2" width="800">
+<tbody>
+<tr>
+<td valign="top" width="212"><strong>cParameter</strong></td>
+<td valign="top" width="581"><strong>Result</strong></td>
+</tr>
+<tr>
+<td valign="top" width="212">Class= editorwin from pemeditor</td>
+<td valign="top" width="581">Methods to access and modify the text in the currently open editing window (Select, Cut, Copy, Paste, etc ...)&#160; - see
+<a href="http://vfpx.codeplex.com/wikipage?title=Thor EditorWindow Object&referringTitle=Thor Tools Making Tools">
+Thor EditorWindow Object</a> </td>
+</tr>
+<tr>
+<td valign="top" width="212">Class= tools from pemeditor</td>
+<td valign="top" width="581">A collection of various methods, not related to each other, but of value beyond their use in PEM Editor – see
+<a href="http://vfpx.codeplex.com/wikipage?title=Thor Tools Object&referringTitle=Thor Tools Making Tools">
+Thor Tools Object</a> </td>
+</tr>
+</tbody>
+</table>
+<p><br>
+</p>
+<h4><strong>Internal Tools: </strong></h4>
+<table border="0" cellspacing="0" cellpadding="2" width="800">
+<tbody>
+<tr>
+<td valign="top" width="212"><strong>cParameter</strong></td>
+<td valign="top" width="581"><strong>Result</strong></td>
+</tr>
+<tr>
+<td valign="top" width="212">Class= ContextMenu</td>
+<td valign="top" width="581">Returns an object used to create context menus - see
+<a href="http://vfpx.codeplex.com/wikipage?title=Thor Framework ContextMenu">Thor ContextMenu</a></td>
+</tr>
+<tr>
+<td valign="top" width="212">Class= ThorFormSettings</td>
+<td valign="top" width="581">Returns an object so that forms can save their settings (size, position, etc) and align the form to the mouse or cursor position – see
+<a href="http://vfpx.codeplex.com/wikipage?title=Thor Framework FormSettings">Thor FormSettings</a></td>
+</tr>
+<tr>
+<td valign="top" width="212">Class= FindEXE</td>
+<td valign="top" width="581">(documentation not yet available)</td>
+</tr>
+<tr>
+<td valign="top" width="212">Tool Folder=</td>
+<td valign="top" width="581">Returns the name of Thor’s tool folder</td>
+</tr>
+<tr>
+<td valign="top" width="212">Thor Register=</td>
+<td valign="top" width="581">Returns an object so that an APP can self-register its own tools, such as is done by
+<a href="http://vfpx.codeplex.com/wikipage?title=GoFish">GoFish4</a> and <a href="http://vfpx.codeplex.com/wikipage?title=PEM%20Editor%207%20with%20IDE%20Tool">
+PEM Editor 7</a>.</td>
+</tr>
+<tr>
+<td valign="top" width="212">Run</td>
+<td valign="top" width="581">Runs Thor.&#160; Same as&#160; Do Thor with ‘Run’&#160; or&#160; Do RunThor</td>
+</tr>
+<tr>
+<td valign="top" width="212">Edit</td>
+<td valign="top" width="581">Opens Thor form.&#160; Same as Do Thor with ‘Edit’</td>
+</tr>
+<tr>
+<td valign="top" width="212">Clear HotKeys</td>
+<td valign="top" width="581">Removes all Thor-assigned keyboard macros so that a macros (FKY) file can be saved</td>
+</tr>
+</tbody>
+</table>
+<p>&#160;</p>
+<h4><br>
+<b>See also</b> </h4>
+<ul>
+<li><a href="http://vfpx.codeplex.com/wikipage?title=Thor%20Browsing%20Tools&referringTitle=Thor%20Tools%20Making%20Tools">Browsing the list of tools</a>
+</li><li><a href="http://vfpx.codeplex.com/wikipage?title=Thor%20assign%20tool%20hot%20keys&referringTitle=Thor%20Tools%20Making%20Tools">Assigning hot keys to tools</a>
+</li><li><a href="http://vfpx.codeplex.com/wikipage?title=Editing%20existing%20tools&referringTitle=Thor%20Tools%20Making%20Tools">Editing existing tools</a>
+</li><li><a href="http://vfpx.codeplex.com/wikipage?title=Thor%20Creating%20New%20Tools&referringTitle=Thor%20Tools%20Making%20Tools">Creating new tools</a>
+</li></ul>
+</div><div class="ClearBoth"></div>

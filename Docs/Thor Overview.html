@@ -1,0 +1,87 @@
+<div class="wikidoc">
+<h3>Overview of Thor</h3>
+<br>
+Thor is a tool for managing add-on tools in the IDE. <br>
+<br>
+It provides four different methods for accessing these tools:
+<ol>
+<li>By assigning hot keys to them </li><li>By creating pop-up menus accessible via hot keys </li><li>By adding the tools as bars under any of the VFP system pads (File, Edit, View, etc.)
+</li><li>By creating new pads in the VFP system menu and adding the tools as bars under these new pads
+</li></ol>
+There are four parts to Thor:
+<ol>
+<li>The catalog of tools managed by Thor. These are actually PRGs (see below). </li><li>The underlying free tables, which contain the definitions of the menus hot key assignments, etc.
+</li><li>The Thor form, accessible by either hot key or from a menu pad on the VFP system menu, which manages all the menu and hot key definitions stored in the tables. (Note that this form does not have Save or Cancel buttons; changes made to it are posted immediately.)
+</li><li>An APP which takes the definitions from the tables and updates the VFP system menu (if appropriate), creates the pop-up menus, and assigns the hot keys to the pop-up menus and/or individual tools. Since these definitions survive a CLEAR ALL, this need only
+ be run once at the beginning of an IDE session. </li></ol>
+<p>&#160;</p>
+<h4><b>What are &quot;Tools&quot;?</b> </h4>
+<p>Tools are PRGs that follow a particular structure so that Thor can recognize them.
+<br>
+<br>
+The &quot;header&quot; of each tool is a group of about 40 lines which act as a questionnaire, allowing the tool to tell Thor about itself. When creating a new tool when using the Thor form, it starts out looking like this:
+<br>
+<br>
+<img title="SampleToolHeader.png" alt="SampleToolHeader.png" src="http://i3.codeplex.com/Download?ProjectName=VFPX&DownloadId=253841" style="margin:0px 0px 0px 50px">
+<br>
+<br>
+The actual code for the tool follows this header. As always, it is advantageous to browse other tools (something you can also do within the Thor form), to see examples of how these properties are normally used.
+<br>
+<br>
+The process for creating a new tool (when using the Thor form) will guide the creation of the tool into a folder that Thor recognizes, which can be either the special sub-folder of the 'Thor' folder or any folder in the path. The default folder for new tools
+ is <b>Thor\Tools\My Tools</b> <br>
+<br>
+One suggestion is to assign the same value for&#160; the <strong>.Source </strong>
+property for all of your personal tools, so that the Thor form will group them together.
+</p>
+<h4><strong>The Thor Repository</strong></h4>
+<p>Inherent in the design of Thor is the anticipation that members of the FoxPro community will have utilities of value that can well be shared throughout the community. The structure of the tool PRGs make such sharing simple.
+<br>
+<br>
+The 'Thor Repository' is a catalog of such tools. The intent is that this repository grow over time, as developers submit tools to be included. The starting repository has about a dozen such tools.
+<br>
+<br>
+See the section below on One-Click Updates for downloading updates of the Thor Repository.
+<br>
+<br>
+<a href="/VFPX/wikipage?title=Thor%20Repository&referringTitle=Thor%20Overview">Click here for the home page for the Thor Repository</a>
+<br>
+</p>
+<h4><strong>Tools from PEM Editor</strong> </h4>
+<p><b></b>&#160; <br>
+Version 7 of PEM Editor, now re-named 'PEM Editor w/ IDE Tools', contains more than three dozen tools that can be accessed through Thor. These include some tools released in version 6 of PEM Editor, along with a large number of completely new tools. These can
+ be downloaded from the PEM Editor page. <br>
+<br>
+PEM Editor also &quot;publishes&quot; a pair of objects that simplify building further tools. More than half of the original tools in the Thor Repository use these objects.
+<br>
+<br>
+See the section below on One-Click Updates for downloading updates of the PEM Editor 7 with IDE Tools.</p>
+<p><a href="/VFPX/wikipage?title=PEM%20Editor%207%20with%20IDE%20Tools&referringTitle=Thor%20Overview">Click here for the home page for PEM Editor 7 with IDE Tools</a>
+<br>
+<br>
+<b></b></p>
+<h4><strong>One-Click Updates</strong>&#160; <br>
+</h4>
+<p>Beginning with Thor Version 1.1 (Released Oct. 23, 2011), updates to Thor, the Thor Repository, PEM Editor 7 with IDE Tools, and other tools, are all available through a single menu on the Thor menu (in the FoxPro system menu).&#160; This new item, ‘Check
+ for Updates’, checks to see if there are updates available for any of these tools; if any are found, they are automatically downloaded and installed.</p>
+<p>Beginning with Thor Version 1.10.019 (Released Nov. 17, 2011), One-Click Updates may be performed automatically when starting your first IDE session of the day.&#160; See
+<a href="http://vfpx.codeplex.com/wikipage?title=Running%20Thor">Running Thor</a>.</p>
+<p>&#160;</p>
+<p><a href="http://download.codeplex.com/Download?ProjectName=vfpx&DownloadId=295567"><img title="image" border="0" alt="image" src="http://download.codeplex.com/Download?ProjectName=vfpx&DownloadId=295568" width="474" height="273" style="border-right-width:0px; margin:0px 0px 0px 100px; display:inline; border-top-width:0px; border-bottom-width:0px; border-left-width:0px"></a>
+<br>
+<br>
+</p>
+<h4><strong>Documentation</strong></h4>
+<p>There is complete on-line documentation for Thor, the Thor Setup form, and other features of Thor.&#160;
+<a href="http://vfpx.codeplex.com/wikipage?title=Thor%20Help">Click here</a> </p>
+<h4><strong>Community Forum for Thor</strong></h4>
+<p>Please visit the community forum for Thor at <a href="http://groups.google.com/group/FoxProThor">
+<strong>http://groups.google.com/group/FoxProThor</strong></a> to make suggestions or comments, to report problems, and to see how others are using Thor and its related tools.
+</p>
+<h4><b>A Note on Hot Keys</b></h4>
+<p>Thor provides for a new capability not previously available -- the ability to assign hot keys which use two or three of the Shift, Ctrl, and Alt keys, such as {Ctrl &#43; Alt &#43; A}. (Actually, using all three requires quite some dexterity.)
+<br>
+<br>
+Keyboard macros (using FKY files) are the only VFP feature which recognize usage of two or three of these keys, but macros do not cause program execution, they only place characters into the keyboard buffer.
+</p>
+</div><div class="ClearBoth"></div>

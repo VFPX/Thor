@@ -1,0 +1,33 @@
+<div class="wikidoc">
+<h2 style="text-align:center">Thor TWEeT #16: Custom Keyword List for Field Names</h2>
+<p>The new feature of Custom Keyword List for field names has been shown in a number of images in earlier TWEeTs (including the one below, from
+<a href="https://vfpx.codeplex.com/wikipage?title=Thor%20TWEeT%2011">IntellisenseX: Aliases for VFP Tables</a>), without ever being described.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=783513"><img title="image" border="0" alt="image" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=783514" width="567" height="271" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:50px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>Did you notice that some of the field names use upper case(“Field_Type”, e.g.,) in the middle? The Custom Keyword List allows you to define the case that is to be used for field names.</p>
+<p><strong>How is this done?</strong></p>
+<p>Thor maintains a table of <u>global</u> definitions of field names (and for other names, but that is addressed in another TWEeT,
+<a href="https://vfpx.codeplex.com/wikipage?title=Thor%20TWEeT%2017">Custom Keyword List - all other names</a>).&nbsp; The table has a single field, containing the field names as you want them to be represented.&nbsp; You can open the table for editing by using
+ Thor tool <strong>Browse Custom Keyword List</strong>, although that’s not a very convenient way to go about building the table.</p>
+<p>Instead, there are a number of Thor tools you can use:</p>
+<ul>
+<li><strong>Add highlighted word</strong> – adds the currently highlighted word to the KCL.&nbsp; If the word is already in the list, the highlighted word replaces it.
+</li><li><strong>Add field names from current table</strong> – opens separate forms for words that are new to the list or might replace existing words on the list. You can edit the values in the “New Value” column (but you can’t change the spelling, only which letters
+ are upper case). </li></ul>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=789540"><img title="image" border="0" alt="image" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=789541" width="654" height="194" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<ul>
+<li><strong>Super Browse</strong> – if you mark the checkbox under the list of field names, that list becomes editable, allowing you to change which letters are to be upper case. Simply click on any field name and edit it so that it appears as you would like
+ it to.&nbsp; Any field name that you change is posted immediately to the Custom Keyword List and will be used any time this field name is referenced for
+<span style="text-decoration:underline">any</span> table, not just the current one. (No, you
+<span style="text-decoration:underline">can't</span> modify the structure of the file this way -- all you can change is which characters are upper case.)
+</li></ul>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=789542"><img title="image" border="0" alt="image" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=789543" width="603" height="364" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:50px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<ul>
+<li><strong>Add all words from folder or project</strong> – This is the big papa of them all, as it adds all names (not only field names) from all your code to the KCL. Once processing is complete (which may take a few minutes), it brings up the same two forms
+ as shown above under <strong>Add field names from current table. </strong>(Just with a lot more entries).&nbsp; This is described in more detail in
+<a href="https://vfpx.codeplex.com/wikipage?title=Thor%20TWEeT%2017">Custom Keyword List - all other names</a>.
+</li></ul>
+<p><strong>Where are these field names in the Custom Keyword List used?</strong></p>
+<p>These field names from the Custom Keyword List are used every place in IntellisenseX where tables are referenced (and for both VFP Tables and SQL Server Tables) and as show in SuperBrowse, above.</p>
+<p>See also <a href="https://vfpx.codeplex.com/wikipage?title=TWEeTs">History of all Thor TWEeTs</a> and
+<a href="https://groups.google.com/forum/?fromgroups#!forum/FoxProThor">the Thor Forum</a>.</p>
+</div><div class="ClearBoth"></div>

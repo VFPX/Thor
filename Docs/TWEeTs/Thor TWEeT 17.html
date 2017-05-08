@@ -1,0 +1,44 @@
+<div class="wikidoc">
+<h2 align="center">Thor TWEeT #17: Using Local Aliases in IntellisenseX</h2>
+<p>In an earlier TWEeT about <a href="Aliases for VFP Tables">Aliases for VFP Tables</a>, there was a brief and dismissive discussion about Local Aliases.&nbsp; However, they provide some worthwhile features that are worth discussing.</p>
+<p>Local Aliases are like LOCAL statements (“<font face="Courier New">Local name as class of classlib</font>”) in two ways:
+</p>
+<ul>
+<li>they provide an annotation to your code so that IntellisenseX can provide a drop-down list.
+</li><li>they apply only to the current method or procedure.</li></ul>
+<p>There are three equivalent ways to define Local Aliases: </p>
+<ul>
+<li><font face="Courier New"><strong>{{</strong> SomeAlias = What-It-Stand-For <strong>
+}}</strong></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; … in any comment
+</li><li><font face="Courier New"><strong>*#Alias</strong> SomeAlias = What-It-Stand-For&nbsp;&nbsp;&nbsp;
+</font>… at the beginning of a line </li><li><font face="Courier New"><strong>&amp;&amp;#Alias</strong> SomeAlias = What-It-Stand-For</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; … at the end of a line</li></ul>
+<blockquote>
+<p><em>(The bold text above must be entered exactly as is, with no intervening spaces.)</em></p>
+</blockquote>
+<blockquote>
+<p align="left"><strong>Note: Bowing to popular demand, the first of the statements above (the one with the double curly braces) applies to the
+<u>entire</u> PRG, not merely the Procedure or Function in which it lives.</strong></p>
+</blockquote>
+<p><font face="Courier New">“What-It-Stands-For”</font> can be any one of a number of things, referring to either tables or objects.
+</p>
+<ul>
+<li>A table, cursor, or view name </li><li>The full or relative path name to a table </li><li>The name of an SQL table </li><li>A reference to class from a class library; thus,&nbsp; “<font face="Courier New">{{ loObject == {class, classlibrary} }}</font> “
+</li><li>A reference to an object; thus,&nbsp; “<font face="Courier New">{{ loObject == Thisform.oParts}}</font> “
+</li><li>An executable expression that returns an object or the name of an table, cursor, or view. This executable must start with an “=”; thus, something like “<font face="Courier New">{{ loObject = = MyGetObject(‘Parts’)}}</font> “.&nbsp; (Note the double ‘=’
+ signs.)</li></ul>
+<p>One handy use of this occurs with variables created using the SCATTER NAME command.&nbsp;
+</p>
+<blockquote>
+<p><font face="Courier New">Select MyTable</font></p>
+<p><font face="Courier New">Scatter Name loObject &amp;&amp; {{ loObject = MyTable }}</font></p>
+</blockquote>
+<p>This provides the dropdown list for the table MyTable when the properties of loObject are referenced.</p>
+<p>Note also that <font face="Courier New">“SomeAlias”</font> can also refer to compound names, such as
+<font face="Courier New">This.oMainObj</font> or <font face="Courier New">This.oMainObj.oData</font>; the substitution rules work the same way.</p>
+<p>&nbsp;</p>
+<p>This TWEeT has addressed Local Aliases; the earlier TWEeT on <a href="https://vfpx.codeplex.com/wikipage?title=Thor%20TWEeT%2015">
+the Alias Dictionary</a> addressed global aliases; and an upcoming TWEet will address Aliases that apply to an entire form or class (both VCX and PRG-based).</p>
+<p>&nbsp;</p>
+<p>See also <a href="https://vfpx.codeplex.com/wikipage?title=TWEeTs">History of all Thor TWEeTs</a> and
+<a href="https://groups.google.com/forum/?fromgroups#!forum/FoxProThor">the Thor Forum</a>.</p>
+</div><div class="ClearBoth"></div>

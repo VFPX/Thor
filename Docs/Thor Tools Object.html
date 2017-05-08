@@ -1,0 +1,161 @@
+<div class="wikidoc">
+<p><strong>Thor Tools Object</strong></p>
+<p>This object is a collection of various tools, created for PEM Editor, which have applicability as well outside of the PEM Editor form.</p>
+<p>The Thor Tools Object can be obtained from this single line of code:</p>
+<pre style="padding-left:60px">loTools = Execscript (_Screen.cThorDispatcher, 'class= tools from pemeditor')</pre>
+<p>Note that the PEM Editor form need not be open for these tools to work.</p>
+<table border="1" width="726">
+<tbody>
+<tr>
+<th valign="top" width="215">Methods (Parameters)</th>
+<th>Description</th>
+</tr>
+<tr>
+<td valign="top" width="219">AddMRUFile (tcFileName, tcClassName)</td>
+<td>Adds a file to its appropriate MRU list (in the FoxPro resource file). If the file is a class library, but no class name is supplied, adds the file to the MRU list for class libraries (unique to PEM Editor)</td>
+</tr>
+<tr>
+<td valign="top" width="223">BeautifyCode (lcCode)</td>
+<td>Applies BeautifyX styling to a character string containing normal code text.&nbsp; Note that it does not create locals in this string; see CreateLocals, below</td>
+</tr>
+<tr>
+<td valign="top" width="223">BeautifySelectStatement (lcSelectCode)</td>
+<td>Applies BeautifyX styling to a character string containing a single SQL Select, Update, or Delete statement, to do the following:
+<br>
+<ul>
+<li>Insert CR’s so that each field is on a new line </li><li>Insert CR’s so that major keywords are on new lines </li><li>Apply similar formatting to sub-queries, aligning the new lines for them under their SELECT statements
+</li></ul>
+</td>
+</tr>
+<tr>
+<td valign="top" width="223">CloseForms()</td>
+<td>Close the PEM Editor and Document TreeView forms, if open</td>
+</tr>
+<tr>
+<td valign="top" width="227">CreateLocals (lcSelectCode)</td>
+<td>Creates LOCAL statements in a character string containing normal code text</td>
+</tr>
+<tr>
+<td valign="top" width="227">CreateNewPEM (tcType, tcName, txValue)</td>
+<td>
+<ul>
+<li>Creates a new property or method: <br>
+tcType = 'P' for Property, 'M' for Method <br>
+tcName = Name for new PEM (_Memberdata will be updated) <br>
+txValue = Value (for properties) or method code (for methods) </li></ul>
+</td>
+</tr>
+<tr>
+<td valign="top" width="235">DiskFileName (tcFileName)</td>
+<td>Returns the file name as it is stored on disk (that is, with current upper/lower case).</td>
+</tr>
+<tr>
+<td valign="top" width="239">EditMethod (toObject, tcMethodName)</td>
+<td>
+<p>Opens a method (or event) for editing. {toObject} may be</p>
+<ul>
+<li>an object reference, </li><li>.T. for the current form or class </li><li>empty for the current object. </li></ul>
+</td>
+</tr>
+<tr>
+<td valign="top" width="243">EditSourceX (tcFileName, tcClass, tcMethodName, tnStartRange, tnEndRange)</td>
+<td>
+<p>Opens any file for editing (as <strong>EditSource</strong> does), with additional capabilities:</p>
+<ul>
+<li>The file is added to its appropriate MRU library. </li><li>The file is opened with the correct case for the file name, so that when it is saved the case for the file name will not be changed.
+</li><li>If the file is a class library, and no class name is supplied, the class browser is opened.
+</li><li>You will be asked whether you want to check out the file from Source Code Control (if you use SCC and you have marked the appropriate item in the Preferences file.)
+</li></ul>
+</td>
+</tr>
+<tr>
+<td valign="top" width="247">FindObjects (tcSearchText)</td>
+<td>
+<p>Finds all objects matching the search criteria in {tcSearchText}. <br>
+The search criteria are the same as are specified by the 'Find' (binoculars) search button. The result is a collection, where each item in the collection is an object with two properties:</p>
+<ol>
+<li>Object - a reference to the object </li><li>FullObjectName - the full path name to the object </li></ol>
+<p><em>For example, <strong>.FindObjects ('Exists (&quot;ControlSource&quot;)' )</strong> returns a collection of all objects having a ControlSource.</em></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="251">FindProcedure (tcName)</td>
+<td>Finds a PRG named {tcName}, or a procedure or function named {tcName} within a PRG, or a constant named {tcName}, opens the file for editing, and highlights the searched-for name.</td>
+</tr>
+<tr>
+<td valign="top" width="255">GetBeautifyXOptions<strong>()</strong></td>
+<td>Returns a character result which, when executed with ExecScript, will re-create the current settings used by BeautifyX.&nbsp; Note that this does
+<span style="text-decoration:underline">not</span> include settings from native VFP Beautify.</td>
+</tr>
+<tr>
+<td valign="top" width="255">GetClass()</td>
+<td>Prompts for class, using IDE Tools ‘Open Class’ dialog; returns object with two properties, ‘Class’ and ‘ClassLib’</td>
+</tr>
+<tr>
+<td valign="top" width="255">GetClassList( tcClass, tcClassLib <br>
+, tlSearchClassLibs, tlSearchProcs <br>
+, tlProjectVCXs, tlProjectPRGs <br>
+, tcFolder, tlSubFolders)</td>
+<td>Creates an array of all classes defined in the active project.&nbsp; The array is the only property of the result object.&nbsp; The array has three columns:
+<p>&nbsp;</p>
+<ol>
+<li>Class name </li><li>Class library (full path name) </li><li>Internal timestamp (for VCX classes only) </li></ol>
+<p>The parameters provide for a number of different searches:</p>
+<ul>
+<li>tcClass – name of class to search for (empty for all) </li><li>tcClassLib – name of VCX or PRG (empty for all) </li><li>tlSearchClassLibs – search Set(‘ClassLibs’) </li><li>tlSearchProcs – search Set(‘Procedures’) </li><li>tlProjectsVCXs – search VCXs in active project </li><li>tlProjectPRGs – search PRGs in active project </li><li>tcFolder – search all files in this folder (unless empty) </li><li>tcSubFolders – search sub-folders of tcFolder </li></ul>
+</td>
+</tr>
+<tr>
+<td valign="top" width="255">GetCurrentObject (tlTopOfForm)</td>
+<td>If (tlTopOfForm) is true, returns the current form/class. Otherwise, returns the currently selected object.</td>
+</tr>
+<tr>
+<td valign="top" width="259">GetFullObjectName (toObject)</td>
+<td>Returns the full name path of an object {toObject}</td>
+</tr>
+<tr>
+<td valign="top" width="259">GetPEMList (toObject, tcTypes)</td>
+<td>
+<p>Returns a collection of the names of PEMs for an object.</p>
+<p>{toObject} may be</p>
+<ul>
+<li>an object reference </li><li>.T. for the current form or class </li><li>empty for the current object. </li></ul>
+<p>{tcTypes} may be one or more of</p>
+<ul>
+<li>'P' (for properties), </li><li>'E' (for Events), </li><li>'M' (for Methods) </li></ul>
+<p>or, if empty or missing, the collection will contain all PEMs.</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="263">GetMRUList (tcName)</td>
+<td>Returns a collection of file names in a MRU list. {tcName} may be a file name, a file extension, or the actual MRU-ID (if you know it)</td>
+</tr>
+<tr>
+<td valign="top" width="267">GetThis()</td>
+<td>Returns the object that the current method belongs to.</td>
+</tr>
+<tr>
+<td valign="top" width="267">GetVariablesList(tcCodeBlock, tcTypes)</td>
+<td>Returns an collection of the names of variables in the code block that are either Parameters (‘P’), Locals (‘L’), or assigned (‘!’).&nbsp; An empty list for tcTypes returns a list of all variables that are parameters, locals, or assigned. A value of ‘#’
+ returns an object containing a single array (‘aList’) with two columns, listing all parameters, and local, private and public variables.</td>
+</tr>
+<tr>
+<td valign="top" width="267">SelectObject (toObject)</td>
+<td>Selects {toObject} as the current object displayed in the PEM Editor form and in the Properties Window (if possible).
+</td>
+</tr>
+<tr>
+<td valign="top" width="267">UseHighlightedTable()</td>
+<td>
+<p>SELECTs or USEs the current highlighted file. <br>
+<br>
+If the alias exists, it SELECTs it.&nbsp; Otherwise, it looks for {PEME_OpenTable.PRG} and executes it, assuming that it will open the table (if possible)</p>
+<p>If there is no highlighted text, uses the current cursor or table.<br>
+<br>
+An example of {PEME_OpenTable.PRG} can be found in the sub-folder <strong>Dynamic Snippets\Snippet Samples</strong> of the installation folder for PEM Editor<strong>.
+</strong>You can activate this by copying it to its parent folder (make any adjustments to it as you need.)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div><div class="ClearBoth"></div>

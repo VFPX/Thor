@@ -1,0 +1,62 @@
+<div class="wikidoc">
+<h2 align="center"><font size="4">Thor TWEeT #15:&nbsp; The Alias Dictionary</font></h2>
+<p>There have been some improvements in the handling of table aliases since the earlier TWEet on
+<a href="https://vfpx.codeplex.com/wikipage?title=Thor%20TWEeT%2011">IntellisenseX: Aliases for VFP Tables</a>.</p>
+<p>The difficulty in what was described there is that the solutions do not go far enough.&nbsp; The first example shows that IntellisenseX recognizes aliases create by USE statements:</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=783513"><img title="image" border="0" alt="image" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=783514" width="567" height="271" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:50px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>But this alias is only recognized by IntellisenseX within the same procedure as the USE statement. If this table were opened in the LOAD event of a form, the alias would be available there – and in no other methods.</p>
+<p>And the #Alias directive has the same limitation – to be of value, it must be inserted into every single method referencing the table.</p>
+<p>The solution offered by the <em>Alias Dictionary</em> is that there is a table (maintained by Thor) that contains
+<u>global</u> definitions of tables (or objects – but we will get to that later on).</p>
+<p>You can add records to this table by executing Thor tool <strong>Browse Table/Object Alias List</strong>, which does exactly that – it opens a browse window where you can add records (or edit existing records), like this:</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=797852"><img title="SNAGHTMLc3f38bc" border="0" alt="SNAGHTMLc3f38bc" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=797853" width="653" height="181" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>Henceforward, whenever you enter “SomeAlias” and invoke IntellisenseX as you always do, by pressing the dot (or
+<a href="https://vfpx.codeplex.com/wikipage?title=Thor%20TWEeT%2012">hot key</a>), it will open table “PartsListFields”.</p>
+<blockquote>
+<p>Note well: This is truly a <u>global</u> definition for “SomeAlias”. It is not relative to the current form, class, folder, project, or application, or anything else.</p>
+</blockquote>
+<p>For the table name you can enter also enter full path or relative paths.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=797854"><img title="SNAGHTMLc40a765" border="0" alt="SNAGHTMLc40a765" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=797855" width="653" height="181" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>As noted earlier, you can also add entries to this table that correspond to global objects. To do this, you can enter “=” followed by an executable expression in the Table field.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=797856"><img title="SNAGHTMLc450cdc" border="0" alt="SNAGHTMLc450cdc" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=797857" width="653" height="192" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>There are a few points of interest worth noting:</p>
+<ul>
+<li>NewObject() is used in this example, instead of CreateObject(), because NewObject() accepts a third parameter of zero so that the INIT method does not fire.
+</li><li>If CreateObject() would in fact return the correct object, you can supply an empty (‘’) second parameter to NewObject().
+</li></ul>
+<p>There are two alternatives that can be used instead of calling NewObject():</p>
+<ul>
+<li>You can copy a LOCAL statement and paste it directly into the table. </li><li>You can enclose the class name and class library name in curly braces, such as
+<strong>{ClassName,ClassLib.VCX}. </strong>The class library name is optional if CreateObject() would in fact return the correct object.
+</li></ul>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=797858"><img title="SNAGHTMLc465418" border="0" alt="SNAGHTMLc465418" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=797859" width="653" height="202" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>Actually, <u>any</u> executable expression (preceded by '”=”) will work, as long as the result is one of these:</p>
+<ul>
+<li>an object </li><li>the alias of an open table </li><li>the alias of a table that Thor can open </li><li>an object containing an array named ‘aList’. This array may have up to three columns and the contents of the array will populate the drop down list.
+</li></ul>
+<p><strong>Nested Objects in the Alias Field</strong></p>
+<p>The alias field may also contain references to nested objects.&nbsp; Consider, for instance, the sample below, where oData is actually understood to be populated (at run time) by a Scatter from the Jobs table.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=798426"><img title="image" border="0" alt="image" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=798427" width="650" height="206" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>This is achieved by the entry shown below.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=798428"><img title="SNAGHTMLe16faeb" border="0" alt="SNAGHTMLe16faeb" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=798429" width="653" height="233" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>All of the discussion above describing the various combinations that can be used in the Table field apply equally well when using a nested object in the alias field.&nbsp; Below we have the the definition of “oApp.oAdmin” so that it will present the list
+ of properties from the Admin object defined in the Table field. (Note that any of the values in the Table field for “dataAdmin”, “dataAdmin2”, or “dataAdmin3” would have worked just as well.)</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=798430"><img title="SNAGHTMLe182574" border="0" alt="SNAGHTMLe182574" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=798431" width="653" height="233" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p><strong>Wildcards in the Alias Field</strong></p>
+<p>You can also use a single “*” as a wildcard in the Alias field.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=798432"><img title="SNAGHTMLe23269c" border="0" alt="SNAGHTMLe23269c" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=798433" width="653" height="254" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>This allows you to see the PEMs for the this particular object any time that it is referenced, regardless of the parent object that owns it.</p>
+<p>Finally, the characters that the wildcard represents can be used in the Table field; simply use &lt;*&gt; (as shown below)</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=798434"><img title="SNAGHTMLe2812de" border="0" alt="SNAGHTMLe2812de" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=798435" width="653" height="254" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>Thus, in this example, “*” replaces the text “PartsList”, so the fields from the PartsList table are displayed.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=799494"><img title="image" border="0" alt="image" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=799495" width="651" height="204" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>And similarly for the Customer table ….</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=799496"><img title="image" border="0" alt="image" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=799497" width="651" height="204" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>If you happen to name your objects consistently, you can pass the extracted text as a parameter to your own UDF, which should return the object as a result. (Note the necessary use of quote marks around &lt;*&gt;.)</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=799519"><img title="SNAGHTML128998f5" border="0" alt="SNAGHTML128998f5" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=799520" width="652" height="251" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>The following shows how ‘PartsList’ is passed as a parameter to my UDF “MyLookerUpper”, which returns the object for ‘PartsList’ as a result. As noted before, UDF “MyLookerUpper” should call NewObject() with a third parameter of zero so that its INIT does
+ not execute.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=799521"><img title="image" border="0" alt="image" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=799522" width="653" height="206" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></a></p>
+<p>See also <a href="https://vfpx.codeplex.com/wikipage?title=TWEeTs">History of all Thor TWEeTs</a> and
+<a href="https://groups.google.com/forum/?fromgroups#!forum/FoxProThor">the Thor Forum</a>.</p>
+</div><div class="ClearBoth"></div>

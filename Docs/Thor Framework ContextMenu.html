@@ -1,0 +1,104 @@
+<div class="wikidoc">
+<p><strong>ContextMenu Object</strong></p>
+<p>This object provides a simple mechanism for creating pop-up context menus.</p>
+<p>It can be obtained from this single line of code:</p>
+<pre style="padding-left:60px">loContextMenu = Execscript (_Screen.cThorDispatcher, 'class= Contextmenu')</pre>
+<p>Items are added using the .AddMenuItem method, sub-menus are created by using the AddSubMenu / EndSubMenu pair, and the menu is activated with the Activate method.</p>
+<p>The parameters to AddMenuItem allow you to define either a string to execute or a keyword/parameter pair which can be processed after the Activate method, allowing all processing to be contained in a single method.&#160; See the last example.</p>
+<p>This object can then be used as follows:</p>
+<table border="0" cellspacing="0" cellpadding="2" width="795">
+<tbody>
+<tr>
+<td valign="top" width="212"><strong>Method</strong></td>
+<td valign="top" width="581"><strong>Meaning</strong></td>
+</tr>
+<tr>
+<td valign="top" width="212">.AddMenuItem(lcPrompt, lcExec, lcStatusBar, lcKeyStroke, lcKeyWord, lxParameters)</td>
+<td valign="top" width="581">
+<table border="0" cellspacing="0" cellpadding="2" width="577">
+<tbody>
+<tr>
+<td valign="top" width="126">lcPrompt</td>
+<td valign="top" width="449">Prompt for the menu Item</td>
+</tr>
+<tr>
+<td valign="top" width="126">lcExec</td>
+<td valign="top" width="449">String to be executed.&#160; This may be empty, in which case lcKeyword and lxParameters are used.</td>
+</tr>
+<tr>
+<td valign="top" width="126">lcStatusBar</td>
+<td valign="top" width="449">Text to be displayed on the status bar</td>
+</tr>
+<tr>
+<td valign="top" width="126">lcKeyStroke</td>
+<td valign="top" width="449">Keystroke</td>
+</tr>
+<tr>
+<td valign="top" width="126">lcKeyword</td>
+<td valign="top" width="449">Keyword which will be available from the object if this item is chosen (relevant only if lcExec is empty)</td>
+</tr>
+<tr>
+<td valign="top" width="126">lxParameters</td>
+<td valign="top" width="449">Other parameters which will me made available from the object if this item is chosen (relevant only if lcExec is Empty)</td>
+</tr>
+</tbody>
+</table>
+Note that a separator bar can be created by calling AddMenuItem with no parameters</td>
+</tr>
+<tr>
+<td valign="top" width="212">.AddSubMenu(lcPrompt)</td>
+<td valign="top" width="581">Begins definition of a submenu.&#160; All calls to AddMenuItem until the call to the closing EndSubMenu will be in this submenu.&#160; May itself contain a submenu</td>
+</tr>
+<tr>
+<td valign="top" width="212">.EndSubMenu</td>
+<td valign="top" width="581">Marks the end of a submenu.</td>
+</tr>
+<tr>
+<td valign="top" width="212">.Activate</td>
+<td valign="top" width="581">Activates the pop-up menu.&#160; If the item selected had an empty value for lcExec, returns an integer indicating the item selected.&#160; In this case, loContextMenu.Keyword returns the value for lcKeyword for the selected item,
+ and similarly for loContextMenu.Parameters</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>* Sample 1: simple menu, two choices</strong></p>
+<p><font face="Courier New">loContextMenu = Execscript (_Screen.cThorDispatcher, 'class= Contextmenu')
+<br>
+With loContextMenu <br>
+&#160;&#160;&#160; .AddMenuItem ('Item 1', [MessageBox('Item 1')]) <br>
+&#160;&#160;&#160; .AddMenuItem ('Item 2', [MessageBox('Item 2')]) <br>
+&#160;&#160;&#160; .Activate() <br>
+Endwith </font></p>
+<p><font face="Courier New"></font></p>
+<p><strong>* Sample 2: sub-menus</strong></p>
+<p><font face="Courier New">loContextMenu = Execscript (_Screen.cThorDispatcher, 'class= Contextmenu')
+<br>
+With loContextMenu <br>
+&#160;&#160;&#160; .AddMenuItem ('Item 1', [MessageBox('Item 1')]) <br>
+&#160;&#160;&#160; .AddMenuItem ('Item 2', [MessageBox('Item 2')]) </font></p>
+<p><font face="Courier New">&#160;&#160;&#160; .AddSubMenu ('SubMenu 1') <br>
+&#160;&#160;&#160; .AddMenuItem ('Item 1-1', [MessageBox('Item 1-1')]) <br>
+&#160;&#160;&#160; .AddMenuItem ('Item 1-2', [MessageBox('Item 1-2')]) <br>
+&#160;&#160;&#160; .EndSubMenu() </font></p>
+<p><font face="Courier New">&#160;&#160;&#160; .AddSubMenu ('SubMenu 2') <br>
+&#160;&#160;&#160; .AddMenuItem ('Item 2-1', [MessageBox('Item 2-1')]) <br>
+&#160;&#160;&#160; .AddMenuItem ('Item 2-2', [MessageBox('Item 2-2')]) <br>
+&#160;&#160;&#160; .EndSubMenu() </font></p>
+<p><font face="Courier New">&#160;&#160;&#160; .Activate() <br>
+Endwith </font></p>
+<p><font face="Courier New"></font></p>
+<p><strong>* Sample 3:&#160; Instead of passing something to execute for each menu item, a keyword is associated with each item.&#160; If .Activate() returns .T., the keyword for the selected item is available to be used in the following code.</strong><font face="Courier New"><strong>
+<br>
+</strong>loContextMenu = Execscript (_Screen.cThorDispatcher, 'class= Contextmenu')
+<br>
+With loContextMenu <br>
+&#160;&#160;&#160; .AddMenuItem ('Item 1', , , , 'This is the first item') <br>
+&#160;&#160;&#160; .AddMenuItem ('Item 2', , , , 'This is the second item') <br>
+&#160;&#160;&#160; If .Activate() <br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; lcKeyword = .KeyWord <br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; Messagebox (lcKeyword) <br>
+&#160;&#160;&#160; Endif <br>
+Endwith</font></p>
+<p><font face="Courier New"></font></p>
+</blockquote>
+</div><div class="ClearBoth"></div>

@@ -1,0 +1,36 @@
+<div class="wikidoc">
+<h2 align="center">Thor TWEeT #26: Three New Thor Tools</h2>
+<p>Three new tools have been added recently to the Thor Repository. </p>
+<ul>
+<li><em><a href="#T1">Split a Procedure File</a> </em></li><li><em><a href="#T2">Find Buffer Overrun Threats</a></em> </li><li><em><a href="#T3">Compress Parameters List</a></em></li></ul>
+<p align="center"><a name="T1"></a><font size="4"><strong>Split a Procedure File</strong></font><font size="4"><strong>
+</strong></font></p>
+<p align="left">The tool <em>Split a Procedure File</em> splits out all procedures and functions from a PRG file into separate PRG files.&nbsp;
+</p>
+<p align="left">It first prompts for the name of the procedure file and then for the folder in which the new PRGs are to be created.</p>
+<p align="left">Note that this creates new PRGs for procedures and functions, but does nothing for classes.</p>
+<p align="left">Thanks to Tamar Granor for this contribution.</p>
+<p align="left">&nbsp;</p>
+<p align="center"><a name="T2"></a><font size="4"><strong>Find Buffer Overrun Threats</strong></font><font size="4"><strong>
+</strong></font></p>
+<p align="left">As described in <a href="https://vfpx.codeplex.com/wikipage?title=Thor%20TWEeT%2023">
+TWEeT #23: Buffer Overruns</a>, you may encounter buffer overrun errors when using PEM Editor or IntellisensesX on some forms and classes.&nbsp; This unusual error, which blows away your session like a C5 error, is caused by long Parameter or LParameter statements.</p>
+<p align="left">The tool <em>Find Buffer Overrun Threats </em>searches a project or folder with sub-folders for statements which might cause buffer overrun errors. Note the use of the word “might”; it is difficult to pin down the exact case where these errors
+ occur, as the rules are different in PRGs than in VCXs and are affected by internal comments.</p>
+<p align="left">The result from running this tool is a cursor, shown using <em>Super Browse</em>.</p>
+<p align="left"><img border="0" src="Docs/TWEeTs/ThorTWEeT26_1.png" width="712" height="272" style="border-top:0px; border-right:0px; border-bottom:0px; padding-top:0px; padding-left:0px; border-left:0px; display:inline; padding-right:0px"></p>
+<p align="left">To test whether any of the threats identified in the cursor will actually generate a buffer overrun, run the following:</p>
+<blockquote>
+<p align="left"><font size="2" face="Courier New">oObject = Newobject(‘yourclass’, ‘yourclasslib’, 0)</font></p>
+<p align="left"><font size="2" face="Courier New">?Amembers(laArray, oObject, 3)</font></p>
+</blockquote>
+<p align="center"><a name="T3"></a><font size="4"><strong>Compress Parameters List</strong></font><font size="4"><strong>
+</strong></font></p>
+<p align="left">Use tool <em>Compress Parameters List </em>to fix any long Parameters lists that are causing buffer overrun errors.</p>
+<p align="left">Navigate to the problem code, highlight the entire parameters statement, and run this tool.&nbsp; It will remove all un-necessary characters from the statement (including spaces, tabs, CRs, LFs, semi-colons, and end-of-line comments.)
+</p>
+<p><font size="2" face="Courier New"></font>&nbsp; </p>
+<blockquote></blockquote>
+<p>See also <a href="https://vfpx.codeplex.com/wikipage?title=TWEeTs">History of all Thor TWEeTs</a> and
+<a href="https://groups.google.com/forum/?fromgroups#%21forum/FoxProThor">the Thor Forum</a>.</p>
+</div><div class="ClearBoth"></div>
