@@ -1,6 +1,6 @@
-<div>![](Docs/Thor.png)</div>
+<div><img src="Docs/Thor.png"/></div>
 
-<div style="text-align: right; margin-top: -200px;">![](Docs/Thor_image.png)<span style="font-size: x-large;">Tool manager for FoxPro</span>
+<div style="text-align: right; margin-top: -200px;"><img src="Docs/Thor_image.png"/><br/><span style="font-size: x-large;">Tool manager for FoxPro</span>
 
 Version 1.40 Released 2013-08-26
 
@@ -9,6 +9,8 @@ Version 1.40 Released 2013-08-26
 _Requires VFP9_
 
 </div>
+
+<hr/>
 
 _**Thor** is a tool for managing add-on tools in the IDE, managing menus and hot key assignments for IDE Tools._
 
@@ -24,7 +26,7 @@ _**Thor** is a tool for managing add-on tools in the IDE, managing menus and hot
 
 **Discussions:** [Post questions, bug reports, discussions in the Thor Discussion Group](http://groups.google.com/group/FoxProThor)
 
-**Tools for Thor: [PEM Editor w/IDE Tools](http://vfpx.codeplex.com/wikipage?title=PEM%20Editor%20IDE%20Tools%20Help),  ** [The Thor Repository](Docs/Thor%20Repository.html),   [GoFish4](http://vfpx.codeplex.com/wikipage?title=GoFish)  
+**Tools for Thor: [PEM Editor w/IDE Tools](http://vfpx.codeplex.com/wikipage?title=PEM%20Editor%20IDE%20Tools%20Help),  ** [The Thor Repository](Docs/Thor%20Repository.html),   [GoFish4](https://github.com/mattslay/GoFish)  
 
 Thor:
 
