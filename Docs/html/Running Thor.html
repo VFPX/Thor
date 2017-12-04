@@ -1,0 +1,56 @@
+<div class="wikidoc">
+<h2 align="center"><b>Running Thor</b> </h2>
+<b></b>
+<p><strong>Thor</strong> needs to be started only once each IDE session, since it survives Clear All.</p>
+<p>There is a change in the recommended method for starting Thor, beginning with version 1.10.019, released Nov. 17.&#160; This change allows ‘Check For Updates’ to be called automatically in the first IDE session of the day, at an interval of your choosing.</p>
+There is a PRG named RunThor.PRG, which is created in the Thor sub-folder and which can be copied anywhere (such as to a folder in the path).&#160; It is to be called like this:
+<br>
+<pre>     Do RunThor with tnDays, tlInstallAllUpdates</pre>
+<p>This should be placed as early in the setup for your IDE as possible, certainly before any call to StartPEMEditor, so that any new updates can be downloaded before any other programs are running.&#160; Remember that ‘Check for Updates’ performs a ‘Clear
+ All’ if any updates are installed.</p>
+<p>The parameter tnDays is the interval in days between calls to ‘Check for Updates’.&#160; A value of 1 means that it will be performed in your first IDE session of each day; a value of 7 means once a week.</p>
+<p>The parameter tlInstallAllUpdates is to be set to .T. if you want the updates to proceed without bothering to ask you whether you want to install them.</p>
+<p>&#160;</p>
+<p>The old mechanism for starting Thor, by calling Thor.App directly (see below), still works, but cannot invoke the ‘Check For Updates’ process.</p>
+<pre>     Do Thor.APP</pre>
+<br>
+<p><br>
+<b>Note</b>: The distinction here is that Thor.APP cannot be moved from its installation folder (if so, it has to be re-installed).&#160; RunThor.PRG
+<u>can</u> be moved, as it contains an explicit reference to the folder where Thor.APP is installed.
+</p>
+<p>&#160;</p>
+<p>Thor.App can also be called with a single parameter for a variety of related tasks:</p>
+<table border="0" cellspacing="0" cellpadding="2" width="691">
+<tbody>
+<tr>
+<td valign="top" width="200"><strong>Parameter</strong></td>
+<td valign="top" width="489"><strong>Description</strong></td>
+</tr>
+<tr>
+<td valign="top" width="200">(none)</td>
+<td valign="top" width="489">Runs Thor: Creates system menus and sub-menus, popup menus, and assigns hot keys to tools and popup menus.</td>
+</tr>
+<tr>
+<td valign="top" width="200">‘Edit’</td>
+<td valign="top" width="489">Opens the Thor form</td>
+</tr>
+<tr>
+<td valign="top" width="200">‘Help’</td>
+<td valign="top" width="489">Opens the Thor help page … <a href="http://vfpx.codeplex.com/wikipage?title=Thor%20Help">
+Thor Help</a></td>
+</tr>
+<tr>
+<td valign="top" width="200">‘Clear HotKeys’</td>
+<td valign="top" width="489">Removes all hot key assignments. </td>
+</tr>
+<tr>
+<td valign="top" width="200">‘Install’</td>
+<td valign="top" width="489">Installs the current version of ‘Thor’.</td>
+</tr>
+<tr>
+<td valign="top" width="200">‘Run’</td>
+<td valign="top" width="489">Same as no parameter (deprecated)</td>
+</tr>
+</tbody>
+</table>
+</div><div class="ClearBoth"></div>

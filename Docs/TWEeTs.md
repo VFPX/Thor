@@ -1,4 +1,4 @@
-## <u>T</u>his <u>W</u>eeks <u>E</u>xc<u>e</u>ptional <u>T</u>ools
+## *T*his *W*eeks *E*xc*e*ptional *T*ools
 
 #27: [Go To Definition](Docs/TWEets/Thor%20TWEeT%2027.html) (Jan. 4, 2015)
 
