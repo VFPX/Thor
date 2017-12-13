@@ -26,7 +26,7 @@ _**Thor** is a tool for managing add-on tools in the IDE, managing menus and hot
 
 **Discussions:** [Post questions, bug reports, discussions in the Thor Discussion Group](http://groups.google.com/group/FoxProThor)
 
-**Tools for Thor: [PEM Editor w/IDE Tools](Docs/PEM%20Editor%20IDE%20Tools%20Help.html),  ** [The Thor Repository](Docs/Thor_repository.md),   [GoFish4](https://github.com/mattslay/GoFish)  
+**Tools for Thor: [PEM Editor w/IDE Tools](https://github.com/VFPX/PEMEditor), ** [The Thor Repository](Docs/Thor_repository.md),  [GoFish4](https://github.com/mattslay/GoFish)  
 
 Thor:
 
@@ -72,9 +72,9 @@ Downloading and installation of the Thor Repository occurs automatically as part
 
 ### IDE Tools from PEM Editor
 
-Version 7 of PEM Editor, now re-named 'PEM Editor w/ IDE Tools', contains more than three dozen tools that can be accessed through Thor. These include some tools released in version 6 of PEM Editor, along with a large number of completely new tools. These can be downloaded from the PEM Editor page. Click here for the help page for [Help page for PEM Editor w/IDE Tools](Docs/PEM%20Editor%20IDE%20Tools%20Help.html)  
+Version 7 of PEM Editor, now re-named 'PEM Editor w/ IDE Tools', contains more than three dozen tools that can be accessed through Thor. These include some tools released in version 6 of PEM Editor, along with a large number of completely new tools. These can be downloaded from the PEM Editor page. Click here for the help page for [Help page for PEM Editor w/IDE Tools](https://github.com/VFPX/PEMEditor)  
 
-PEM Editor also "publishes" a pair of objects that simplify building further tools. More than half of the original tools in the Thor Repository use these objects.  
+PEM Editor also "publishes" a pair of objects that simplify building further tools. More than half of the original tools in the Thor Repository use these objects.
 
 Downloading and installation of PEM Editor 7 with IDE Tools occurs automatically as part of the [One-Click Update for Thor](Docs/Thor_one-click_update.md).
 
