@@ -26,7 +26,7 @@ _**Thor** is a tool for managing add-on tools in the IDE, managing menus and hot
 
 **Discussions:** [Post questions, bug reports, discussions in the Thor Discussion Group](http://groups.google.com/group/FoxProThor)
 
-**Tools for Thor: [PEM Editor w/IDE Tools](http://vfpx.codeplex.com/wikipage?title=PEM%20Editor%20IDE%20Tools%20Help),  ** [The Thor Repository](Docs/Thor_repository.md),   [GoFish4](https://github.com/mattslay/GoFish)  
+**Tools for Thor: [PEM Editor w/IDE Tools](Docs/PEM%20Editor%20IDE%20Tools%20Help.html),  ** [The Thor Repository](Docs/Thor_repository.md),   [GoFish4](https://github.com/mattslay/GoFish)  
 
 Thor:
 
@@ -82,32 +82,31 @@ Downloading and installation of PEM Editor 7 with IDE Tools occurs automatically
 
 Two new menu pads in VFP system menu (Thor and personal menu JRN) and the menu options in the Thor menu.
 
-[![image](http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=472384 "image")](http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=472383)
-
+![](Docs/Images/Thor_image_4.png)
 
 <a name="WhatsNew">**What's New**</a>
 
 Thor 1.40 – Released 2013-08-26
 
-Added the Thor ToolBar.  Tools may be added to the Toolbar may using the checkbox shown in the Thor Configuration form,  below (and also available in the [Tool Launcher](http://vfpx.codeplex.com/wikipage?title=Tool%20Launcher).)
+Added the Thor ToolBar.  Tools may be added to the Toolbar may using the checkbox shown in the Thor Configuration form,  below (and also available in the [Tool Launcher](Docs/Thor_launcher.md).)
 
-[![SNAGHTMLf389404](http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=721431 "SNAGHTMLf389404")](http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=721430)
+![](Docs/Images/Thor_SNAGHTMLf389404.png)
 
 When you add a tool to the Thor Toolbar, you can select a caption for the tool or select an image to represent it.  In the sample below, abbreviated captions are used.
 
-[![SNAGHTMLf3b4e2e](http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=721433 "SNAGHTMLf3b4e2e")](http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=721432)
+![](Doc/Images/Thor_SNAGHTMLf3b4e2e.png)
 
 The toolbar’s size, positioning, and docking, persist from one session to the next. (Truth be told, persisting the docking has been problematic.)
 
 Thor 1.30 – Released 2012-08-19
 
-*   Added [Tool Launcher](http://vfpx.codeplex.com/wikipage?title=Tool%20Launcher), available from the Thor menu in the VFP system menu
+*   Added [Tool Launcher](Docs/Thor_launcher.md), available from the Thor menu in the VFP system menu
 
-<a name="WhatsNew"></a>[![SNAGHTML39362d](http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=472140 "SNAGHTML39362d")](http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=472139)
+<a name="WhatsNew"></a>![](Doc/Images/Thor_SNAGHTML39362d.png)
 
-*   Added [Thor IntellisenseX](http://vfpx.codeplex.com/wikipage?title=Thor%20IntellisenseX).
+*   Added [Thor IntellisenseX](https://github.com/VFPX/IntelliSenseX).
 
-[![image](http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=471655 "image")](http://download-codeplex.sec.s-msft.com/Download?ProjectName=vfpx&DownloadId=471654)
+![](Doc/Images/Thor_image_2.png)
 
 Thor 1.1 - Released 2011-10-23  
 
