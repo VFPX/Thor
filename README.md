@@ -1,6 +1,6 @@
-<div><img src="Docs/Thor.png"/></div>
+<div><img src="Docs/Images/Thor.png"/></div>
 
-<div style="text-align: right; margin-top: -200px;"><img src="Docs/Thor_image.png"/><br/><span style="font-size: x-large;">Tool manager for FoxPro</span>
+<div style="text-align: right; margin-top: -200px;"><img src="Docs/Images/Thor_image.png"/><br/><span style="font-size: x-large;">Tool manager for FoxPro</span>
 
 Version 1.40 Released 2013-08-26
 
@@ -16,17 +16,17 @@ _**Thor** is a tool for managing add-on tools in the IDE, managing menus and hot
 
 [**<span style="font-size: medium;">What's new in this release</span>**](#WhatsNew)
 
-<span style="font-size: medium;">[**Get the latest Thor news**](Docs/Thor%20News.html)</span>
+<span style="font-size: medium;">[**Get the latest Thor news**](Docs/Thor_news.md)</span>
 
 **Download App:** [Download the latest build here](http://vfpxrepository.com/dl/thorupdate/thor/Thor.zip)
 
-**Getting Started:** **[Click here for installation instructions](Docs/Thor%20Install.html)**
+**Getting Started:** **[Click here for installation instructions](Docs/Thor_install.md)**
 
-**Help:** **[Click here for complete online documentation](Docs/Thor%20Help.html)**
+**Help:** **[Click here for complete online documentation](Docs/Thor_help.md)**
 
 **Discussions:** [Post questions, bug reports, discussions in the Thor Discussion Group](http://groups.google.com/group/FoxProThor)
 
-**Tools for Thor: [PEM Editor w/IDE Tools](http://vfpx.codeplex.com/wikipage?title=PEM%20Editor%20IDE%20Tools%20Help),  ** [The Thor Repository](Docs/Thor%20Repository.html),   [GoFish4](https://github.com/mattslay/GoFish)  
+**Tools for Thor: [PEM Editor w/IDE Tools](http://vfpx.codeplex.com/wikipage?title=PEM%20Editor%20IDE%20Tools%20Help),  ** [The Thor Repository](Docs/Thor_repository.md),   [GoFish4](https://github.com/mattslay/GoFish)  
 
 Thor:
 
@@ -50,13 +50,13 @@ The 'tools' managed by Thor are simply PRGs with the following characteristics
 
 ### Documentation
 
-**[Click here for complete online documentation of Thor](Docs/Thor%20Help.html)**
+**[Click here for complete online documentation of Thor](Docs/Thor_help.md)**
 
 ### Getting Started
 
 **[Click here to download the latest release of Thor](http://vfpxrepository.com/dl/thorupdate/thor/Thor.zip)**.
 
-**[Click here for installation instructions](Docs/Thor%20Install.html)**.
+**[Click here for installation instructions](Docs/Thor_install.md)**.
 
 ### Community Forum for Thor
 
@@ -66,9 +66,9 @@ Please visit the [Community Forum for Thor](http://groups.google.com/group/FoxPr
 
 Inherent in the design of Thor is the anticipation that members of the FoxPro community will have utilities of value that can well be shared throughout the community. The structure of the tool PRGs make such sharing simple.  
 
-The 'Thor Repository' is a catalog of such tools. The intent is that this repository grow over time, as developers submit tools to be included. The starting repository has about a dozen such tools. Click here for the help page for  [**The Thor Repository**](Docs/Thor%20Repository.html)  
+The 'Thor Repository' is a catalog of such tools. The intent is that this repository grow over time, as developers submit tools to be included. The starting repository has about a dozen such tools. Click here for the help page for  [**The Thor Repository**](Docs/Thor_repository.md)  
 
-Downloading and installation of the Thor Repository occurs automatically as part of the [One-Click Update for Thor](Docs/Thor%20One-Cick%20Update.html)
+Downloading and installation of the Thor Repository occurs automatically as part of the [One-Click Update for Thor](Docs/Thor_one-click_update.md)
 
 ### IDE Tools from PEM Editor
 
@@ -76,7 +76,7 @@ Version 7 of PEM Editor, now re-named 'PEM Editor w/ IDE Tools', contains more t
 
 PEM Editor also "publishes" a pair of objects that simplify building further tools. More than half of the original tools in the Thor Repository use these objects.  
 
-Downloading and installation of PEM Editor 7 with IDE Tools occurs automatically as part of the [One-Click Update for Thor](Docs/Thor%20One-Cick%20Update.html).
+Downloading and installation of PEM Editor 7 with IDE Tools occurs automatically as part of the [One-Click Update for Thor](Docs/Thor_one-click_update.md).
 
 ### Sample
 
