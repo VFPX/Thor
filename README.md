@@ -94,7 +94,7 @@ Added the Thor ToolBar.  Tools may be added to the Toolbar may using the checkb
 
 When you add a tool to the Thor Toolbar, you can select a caption for the tool or select an image to represent it.  In the sample below, abbreviated captions are used.
 
-![](Doc/Images/Thor_SNAGHTMLf3b4e2e.png)
+![](Docs/Images/Thor_SNAGHTMLf3b4e2e.png)
 
 The toolbar’s size, positioning, and docking, persist from one session to the next. (Truth be told, persisting the docking has been problematic.)
 
@@ -102,11 +102,11 @@ Thor 1.30 – Released 2012-08-19
 
 *   Added [Tool Launcher](Docs/Thor_launcher.md), available from the Thor menu in the VFP system menu
 
-<a name="WhatsNew"></a>![](Doc/Images/Thor_SNAGHTML39362d.png)
+![](Docs/Images/Thor_SNAGHTML39362d.png)
 
 *   Added [Thor IntellisenseX](https://github.com/VFPX/IntelliSenseX).
 
-![](Doc/Images/Thor_image_2.png)
+![](Docs/Images/Thor_image_2.png)
 
 Thor 1.1 - Released 2011-10-23  
 
