@@ -1,6 +1,6 @@
 ﻿![](Images/Thor.png)![](Images/Thor_news.png)  
 
-Tool manager for FoxPro
+Tool manager for FoxPro &copy;
 ===
 [Thor Forum](http://groups.google.com/group/FoxProThor)
 
