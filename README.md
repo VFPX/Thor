@@ -2,7 +2,7 @@
 
 <div style="text-align: right; margin-top: -200px;"><img src="Docs/Thor_image.png"/><br/><span style="font-size: x-large;">Tool manager for FoxPro</span>
 
-Version 1.40 Released 2013-08-26 (tb)
+Version 1.40 Released 2013-08-26
 
 [What's new in this release](#WhatsNew)
 
