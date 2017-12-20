@@ -7,7 +7,8 @@
 *   Installing Thor:
     *   [First-time and manual installation](Thor_install.md)
     *   [One-Click Update of Thor (and Thor Tools)](Thor_one-click_update.md)
-*   [Running Thor](Thor_running.md) 
+*   [Running Thor](Thor_running.md)
+*   [Thor videos](Thor_videos.md)
 
 ### **The Thor Configuration Form**
 
