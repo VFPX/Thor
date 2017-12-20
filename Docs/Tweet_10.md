@@ -1,7 +1,7 @@
-﻿Thor TWEeT #10: IntellisenseX: Field Names from SQL Server Tables
+﻿Thor TWEeT #10: <a href="https://github.com/VFPX/IntelliSenseX" target="_blank">IntellisenseX</a>: Field Names from SQL Server Tables
 ---
 
-IntellisenseX now supplies field names from your SQL Server tables, as shown in the following example:
+[IntellisenseX](https://github.com/VFPX/IntelliSenseX) now supplies field names from your SQL Server tables, as shown in the following example:
 
 ![](Images/Tweet10a.png)
 
@@ -18,7 +18,7 @@ You need follow only a few steps  to activate this:
 
 If you read no further, you have all you need to know to get started using IntellisenseX on SQL tables; what remains in this article is a discussion of the finer points.
 
-#### IntellisenseX recognizes aliases within an SQL statement
+#### [IntellisenseX](https://github.com/VFPX/IntelliSenseX) recognizes aliases within an SQL statement
 
 As shown below, aliases within an SQL statement are handled as desired.
 

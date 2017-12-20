@@ -27,7 +27,7 @@ Method|Meaning|
 .Activate|Activates the pop-up menu.  If the item selected had an empty value for lcExec, returns an integer indicating the item selected.  In this case, loContextMenu.Keyword returns the value for lcKeyword for the selected item, and similarly for loContextMenu.Parameters
 
 
-**\* Sample 1: simple menu, two choices**
+### \* Sample 1: simple menu, two choices
 ```foxpro
 loContextMenu = Execscript (_Screen.cThorDispatcher, 'class= Contextmenu')  
 With loContextMenu  
@@ -37,7 +37,7 @@ With loContextMenu
 Endwith
 ```
  
-**\* Sample 2: sub-menus**
+### \* Sample 2: sub-menus
  
 ```foxpro
 loContextMenu = Execscript (_Screen.cThorDispatcher, 'class= Contextmenu')  
@@ -59,7 +59,7 @@ With loContextMenu
 Endwith
 ```
 
-**\* Sample 3:  Instead of passing something to execute for each menu item, a keyword is associated with each item.  If .Activate() returns .T., the keyword for the selected item is available to be used in the following code.**
+### \* Sample 3:  Instead of passing something to execute for each menu item, a keyword is associated with each item.  If .Activate() returns .T., the keyword for the selected item is available to be used in the following code.
 
 ```foxpro
 loContextMenu = Execscript (_Screen.cThorDispatcher, 'class= Contextmenu')  

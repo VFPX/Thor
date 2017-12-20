@@ -1,4 +1,4 @@
-﻿Thor TWEeT #17: Using Local Aliases in IntellisenseX
+﻿Thor TWEeT #17: Using Local Aliases in <a href="https://github.com/VFPX/IntelliSenseX" target="_blank">IntellisenseX</a>
 ===
 
 In an earlier TWEeT about [Aliases for VFP Tables](Tweet_15.md), there was a brief and dismissive discussion about Local Aliases.  However, they provide some worthwhile features that are worth discussing.

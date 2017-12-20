@@ -37,9 +37,9 @@ As always, it is advantageous to browse other tools (something you can also do f
 
 A final suggestion: assign the same value for .**Source** for all of your personal tools, so that the Thor form will group them together. 
 
-See also
+### See also:
 
 * [Browsing the list of tools](Thor_browsing_tools.md)  
 * [Assigning hot keys to tools](Thor_assign_tool_hot_keys.md)
 * [Editing existing tools](Thor_editing_existing_tools.md) 
-* [Tools to make tools](Thor_creating_new_tools.md)
+* [Tools to make tools](Thor_tools_making_tools.md)

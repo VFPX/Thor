@@ -1,7 +1,7 @@
 ﻿One-Click Updates of Thor
 ===
 
-Updates to Thor, the Thor Repository, PEM Editor 7 with IDE Tools, and other tools, as well as all of the projects from VFPXm, are all available through a single menu on the Thor menu (in the FoxPro system menu).  This item, ‘Check for Updates’, checks to see if there are updates available for any of these APPs; if any are found, they are automatically downloaded and installed.
+Updates to [Thor](Thor.md), the [Thor Repository](Thor_repository.md), [PEM Editor 7](https://github.com/VFPX/PEMEditor) with IDE Tools, and other tools, as well as all of the projects from [VFPX](https://github.com/VFPX), are all available through a single menu on the Thor menu (in the FoxPro system menu).  This item, ‘Check for Updates’, checks to see if there are updates available for any of these APPs; if any are found, they are automatically downloaded and installed.
 
 ![](Images/Thor_One-Cick_Update_image_4.png)
 
@@ -10,7 +10,7 @@ Updates to Thor, the Thor Repository, PEM Editor 7 with IDE Tools, and other too
 
 ![](Images/Thor_One-Cick_Update_SNAGHTML17f44631.png)
 
-It then proceeds to check for updates to all of the other available applications and tools, as shown below.  Note that PEM Editor and the Thor Repository are essential parts of Thor; you should download them immediately and update them any time that they show on the “Check for Updates” form. The items in green on the form are those that have been updated recently
+It then proceeds to check for updates to all of the other available applications and tools, as shown below.  Note that [PEM Editor](https://github.com/VFPX/PEMEditor) and the [Thor Repository](Thor_repository.md) are essential parts of [Thor](Thor.md); you should download them immediately and update them any time that they show on the “Check for Updates” form. The items in green on the form are those that have been updated recently
 
 ![](Images/Thor_One-Cick_Update_SNAGHTML1f1f7c63.png)
 
@@ -24,7 +24,7 @@ The projects listed in Check For Updates are listed alphabetically within these 
 
 ### Where are these updates installed?
 
-If you already have versions of Thor, PEM Editor, or GoFish installed, this update process will replace the installed versions with the newer versions.  You will ***not*** lose any work you had already done in the folders for these already installed tools.
+If you already have versions of [Thor](Thor.md), [PEM Editor](https://github.com/VFPX/PEMEditor), or [GoFish](https://github.com/mattslay/GoFish) installed, this update process will replace the installed versions with the newer versions.  You will ***not*** lose any work you had already done in the folders for these already installed tools.
 
 If you did ***not*** have prior versions installed, then the update process will install them in a subfolder of the Thor folder (Thor\Tools\Apps).
 

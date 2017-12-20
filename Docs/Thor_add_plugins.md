@@ -43,7 +43,7 @@ SetGridSortOrder|Sets the index expression used for sorting the rows in the PEM 
 SortAutoComplete|Allows for modification of the drop down list from AutoComplete
 Spell Field Names|Determines the spelling of field names from tables. Note that options already provided are [lower \| UPPER \| Mixed \| Hungarian (cName)]
 
-### <a name="CreateLocalsStatements">**CreateLocalsStatements**</a>  <!-- TBL: Check anchor -->
+### <a name="CreateLocalsStatements">**CreateLocalsStatements**</a>
 
 This plug-in is called after either of the Thor tools that create LOCALs, “Create Locals” and “BeautifyX”, have compiled a list of all the variables assigned in a procedure.
  
@@ -53,7 +53,7 @@ The result is to be a character string, with embedded CRs as desired, that is to
  
 The sample provided is the exact code that is used within Thor. You can thus tailor the content and display of the LOCAL statements to fit your needs.
 
-### <a name="IntellisenseX">**IntellisenseX**</a> <!-- TBL: Check anchor -->
+### <a name="IntellisenseX">**IntellisenseX**</a>
 
 When you press the dot to initiate IntellisenseX, it goes through a number of paces to determine the meaning of the text preceding the dot (is it an alias? is it an object? and so on).
  

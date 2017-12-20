@@ -1,4 +1,4 @@
-﻿Thor TWEeT #19: Deficiencies in IntellisenseX
+﻿Thor TWEeT #19: Deficiencies in [IntellisenseX](https://github.com/VFPX/IntelliSenseX)
 ===
 
 ### (and how to avoid them)
@@ -23,7 +23,7 @@ Next, go to the options page for IntellisenseX in the Thor Configuration form to
 
 ![](Images/Tweet19b.png)
 
-Finally, mark these checkboxes for option “Add all words in code window” as well, so that new words you create going forward, including properties and methods created by PEM Editor or any of its related tools, are automatically added to the Custom Keyword List. Do so even if you don’t used BeautifyX (but more on that in a bit).
+Finally, mark these checkboxes for option “Add all words in code window” as well, so that new words you create going forward, including properties and methods created by [PEM Editor](https://github.com/VFPX/PEMEditor) or any of its related tools, are automatically added to the Custom Keyword List. Do so even if you don’t used BeautifyX (but more on that in a bit).
 
 ![](Images/Tweet19c.png)
 

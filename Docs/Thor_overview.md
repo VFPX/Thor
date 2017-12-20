@@ -39,7 +39,7 @@ The 'Thor Repository' is a catalog of such tools. The intent is that this reposi
 
 See the section below on One-Click Updates for downloading updates of the Thor Repository.  
 
-[Click here for the home page for the Thor Repository](Thor_repository.md)
+### [Click here for the home page for the Thor Repository](Thor_repository.md)
 
 #### **Tools from PEM Editor**
 
@@ -49,7 +49,7 @@ PEM Editor also "publishes" a pair of objects that simplify building further too
 
 See the section below on One-Click Updates for downloading updates of the PEM Editor 7 with IDE Tools.
 
-[Click here for the home page for PEM Editor 7 with IDE Tools](https://github.com/VFPX/PEMEditor) 
+### [Click here for the home page for PEM Editor 7 with IDE Tools](https://github.com/VFPX/PEMEditor) 
 
 
 #### **One-Click Updates**   

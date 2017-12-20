@@ -1,11 +1,11 @@
-﻿Thor TWEeT #20: Quick Start Guide to IntellisenseX
+﻿Thor TWEeT #20: Quick Start Guide to [IntellisenseX](https://github.com/VFPX/IntelliSenseX)
 ===
 
-When I began writing TWEeTs about IntellisenseX (back in **January!**), I could never have guessed that the topic would not be exhausted by now. But writing those TWEeTs engendered discussions and new ideas, so that much of what was described in the most recent TWEeTs was not even imagined back then.
+When I began writing TWEeTs about [IntellisenseX](https://github.com/VFPX/IntelliSenseX) (back in **January!**), I could never have guessed that the topic would not be exhausted by now. But writing those TWEeTs engendered discussions and new ideas, so that much of what was described in the most recent TWEeTs was not even imagined back then.
 
 In re-reading those TWEeTS, one glaring omission jumped out at me – they explain how IntellisenseX works and how you can customize it, but they never touched on the first step – how to get started in the first place.  So here we go.
 
-#### Getting started with IntellisenseX
+#### Getting started with [IntellisenseX](https://github.com/VFPX/IntelliSenseX)
 
 There are only a few steps to getting IntellisenseX up and running to provide a number of extensions to native FoxPro Intellisense.  Once set up, you will find that using the dot (whether after object references or table references) produces the helpful dropdown list in a lot of different places that instantly feel natural. There are also some further customizations you can make, most quite minor, that allow IntellisenseX to provide its assistance in a number of quite surprising ways.
 

@@ -1,9 +1,9 @@
-﻿Thor TWEeT #22: Related IntellisenseX Tools
+﻿Thor TWEeT #22: Related [IntellisenseX](https://github.com/VFPX/IntelliSenseX) Tools
 ===
 
-There are a number of Thor tools other than _IntellisenseX_ that provide dropdown lists of names to select from.  These are not the familiar lists that native FoxPro Intellisense provides (member names or field names), but rather other lists that make sense in your FoxPro IDE.  These lists are not activated by pressing the dot (like IntellisenseX), so you will need to access them another way (by assigning a hot key or by adding them to the Thor toolbar or a menu)
+There are a number of Thor tools other than [_IntellisenseX_](https://github.com/VFPX/IntelliSenseX) that provide dropdown lists of names to select from.  These are not the familiar lists that native FoxPro Intellisense provides (member names or field names), but rather other lists that make sense in your FoxPro IDE.  These lists are not activated by pressing the dot (like IntellisenseX), so you will need to access them another way (by assigning a hot key or by adding them to the Thor toolbar or a menu)
 
-These tools can be found using the Tool Launcher:
+These tools can be found using the Tool [Launcher](Thor_launcher.md):
 
 ![](Images/Tweet22a.png)
 

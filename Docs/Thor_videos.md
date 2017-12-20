@@ -12,11 +12,11 @@
 
 <a name="Videos"></a>
 
-### GoFish 4
+### [GoFish 4](https://github.com/mattslay/GoFish)
 
 *   [GoFish - Code Search Tool](https://www.youtube.com/watch?v=0MdpWyPnfus) (12:13)
 
-### IntellisenseX
+### [IntellisenseX](https://github.com/VFPX/IntelliSenseX)
 
 1.  [Getting started](http://bit.ly/Q3izOd) (5:23)
 2.  [Using and configuring the dropdown box](http://bit.ly/SmMeQw) (4:01)
@@ -30,7 +30,7 @@
 10. [“IntellisenseX by Dot” vs “IntellisenseX by Hot Key”](http://www.youtube.com/watch?v=71psd6RH2Ls&hd=1&rel=0) (3:29)
 11. [Managing Plug-Ins: OpenTable and Intellisense](http://www.youtube.com/watch?v=UGyqlInAfvc&hd=1&rel=0) (5:34)
 
-### Finder
+### [Finder](https://github.com/VFPX/Finder)
 
 1. [Finder introduction](http://youtu.be/uL4a9gsCLlk) (11:25)
 

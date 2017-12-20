@@ -5,8 +5,8 @@ Thor provides quite a range of tools to create new properties and methods. 
 
 There are a couple of common tools that use familiar techniques for creating new properties and methods: 
 
-*   **PEM Editor** (about which no more will be said)
-*   **Add Property/Method**, the diminutive offspring of **PEM Editor**, which uses this simple form:
+*   **[PEM Editor](https://github.com/VFPX/PEMEditor)** (about which no more will be said)
+*   **Add Property/Method**, the diminutive offspring of **[PEM Editor](https://github.com/VFPX/PEMEditor)**, which uses this simple form:
 
 ![](Images/Tweet6a.png)
 

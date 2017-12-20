@@ -11,12 +11,12 @@ Note that not all key combinations can be captured, and some of them will not be
 
 You also are protected from assigning the same hot key to more than one tool.
 
-To review all hot key assignments, including keyboard macros and On Key Label definitions, see the third page of the form ([Hot Key Assignments](Thor-Hot-Key-List)).  You can also change hot key assignments on that page.
+To review all hot key assignments, including keyboard macros and On Key Label definitions, see the third page of the form ([Hot Key Assignments](Thor_hot_key_list.md)).  You can also change hot key assignments on that page.
 
 ![](Images/Thor_Assign_tool_hot_key.png)
 
-**See also**
+### See also:
 * [Browsing the list of tools](Thor_browsing_tools.md)
-* [Editing existing tools](Editing_existing_tools.md)
+* [Editing existing tools](Thor_editing_existing_tools.md)
 * [Creating new tools](Thor_creating_new_tools.md)
 * [Tools to make tools](Thor_tools_making_tools.md)

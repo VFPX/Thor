@@ -7,7 +7,7 @@ When you began relying on other tools, like the Project Manager and Class Browse
 
 But now it's time to resume using MRUs since Thor tools resurrect them, maintaining them and providing new ways to access them.
 
-First of all, all Thor tools, most notably **GoFish, Finder**, and **PEM Editor**, but also all other Thor tools that open files, always update the appropriate MRU list when opening a file (whether form, class, table, report, etc.). In addition, they provide two other features:
+First of all, all Thor tools, most notably **[GoFish](https://github.com/mattslay/GoFish), [Finder](https://github.com/VFPX/Finder)**, and **[PEM Editor](https://github.com/VFPX/PEMEditor)**, but also all other Thor tools that open files, always update the appropriate MRU list when opening a file (whether form, class, table, report, etc.). In addition, they provide two other features:
 
 *   They maintain a new MRU list for all *class libraries* that are opened.
 *   They open each file using the same case for the file name as is found on disk, so that the case of file names is not changed.
@@ -43,4 +43,3 @@ Thor provides files you can install so that files opened from the Project Manage
 
 See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
 
-</div>

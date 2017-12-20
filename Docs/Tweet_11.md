@@ -1,4 +1,4 @@
-﻿Thor TWEeT #11: IntellisenseX: Aliases for VFP Tables
+﻿Thor TWEeT #11: <a href="https://github.com/VFPX/IntelliSenseX" target="_blank">IntellisenseX</a>: Aliases for VFP Tables
 ===
 
 Last week’s [TWEeT #10](Tweet_10.md) demonstrated that IntellisenseX recognizes aliases for tables used within SELECT statements.

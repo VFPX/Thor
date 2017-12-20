@@ -1,7 +1,7 @@
 ﻿Thor TWEeT #2: Set Object Size and Position
 ===
 
-This week's Thor TWeeT is **Set Object Size and Position.**
+This week's Thor TWEeT is **Set Object Size and Position.**
 
 This tool provides enhanced capabilities to the Format menu pad in the FoxPro system menu, shown here:
 

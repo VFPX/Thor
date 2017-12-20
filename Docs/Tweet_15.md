@@ -3,7 +3,7 @@
 
 There have been some improvements in the handling of table aliases since the earlier TWEet on [IntellisenseX: Aliases for VFP Tables](Tweet_11.md).
 
-The difficulty in what was described there is that the solutions do not go far enough.  The first example shows that IntellisenseX recognizes aliases create by USE statements:
+The difficulty in what was described there is that the solutions do not go far enough.  The first example shows that <a href="https://github.com/VFPX/IntelliSenseX" target="_blank">IntellisenseX</a> recognizes aliases create by USE statements:
 
 ![](Images/Tweet11a.png)
 
