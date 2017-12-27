@@ -1,9 +1,13 @@
 ﻿Catalog of Thor Repository Tools
 ===
+<style>
+th, tbody tr:nth-child(1) {font-weight: bold}
+tbody tr:nth-child(even){background-color: #ddd}
+</style>
 
 Tool|Description|Updated|Video
----|---
-||**Code / Highlighted text**||
+:---|:---|:---|:---
+||Code / Highlighted text||
 Comment highlighted text|Improved way to comment highlighted text; also creates comment line with date|2011/06/09
 Un-comment highlighted text|Removes comment \*!\* from each line in the highlighted text. Works in those instances where native VFP uncomment does nothing.|2011/10/22
 Wrap text with IF / ELSE / ENDIF|Wrap highlighted text with IF / ELSE / ENDIF|2011/10/22
