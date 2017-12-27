@@ -1,9 +1,6 @@
 ﻿Catalog of Thor Repository Tools
 ===
-<style>
-th, tbody tr:nth-child(1) {font-weight: bold}
-tbody tr:nth-child(even){background-color: #ddd}
-</style>
+<link rel="stylesheet" href="css/thortable.css">
 
 Tool|Description|Updated|Video
 :---|:---|:---|:---

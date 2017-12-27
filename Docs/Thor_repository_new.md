@@ -1,5 +1,6 @@
 ﻿The Thor Repository
 ===
+<link rel="stylesheet" href="css/thortable.css">
 
 The **Thor Repository** is a collection of IDE tools, accessible thru Thor, that have been written by members of the FoxPro community.
 
@@ -37,10 +38,7 @@ Please visit the community forum for Thor at [**http://groups.google.com/group/F
 ## Thor Repository Tools
 
 <!-- (new tools with this release are **Bold)** -->
-<style>
-th, tbody tr:nth-child(1) {font-weight: bold}
-tbody tr:nth-child(even){background-color: #ddd}
-</style>
+
 Tool |Description|Updated|Video
 :---|:---|:---|:---
 ||Code / Highlighted text
