@@ -1,5 +1,5 @@
-th, tbody tr:nth-child(1) {
-    font-weight: bold
+th  {
+    font-weight: bold;
 }
 
 tbody tr:nth-child(even) {
