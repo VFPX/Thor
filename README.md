@@ -1,5 +1,5 @@
 ![](Docs/Images/Thor.png)
-<div style="text-align: right; margin-top: -200px;"><img src="Docs/Images/Thor_image.png"/><br/><span style="font-size: x-large;">Tool manager for FoxPro</span>
+Tool manager for FoxPro
 
 Version 1.40 Released 2013-08-26
 
@@ -7,7 +7,6 @@ Version 1.40 Released 2013-08-26
 
 _Requires VFP9_
 
-</div>
 
 ***
 
