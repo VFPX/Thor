@@ -1,4 +1,4 @@
-![](Docs/Images/Thor.png)
+![](Docs/Images/Thor.png)  
 Tool manager for FoxPro
 
 Version 1.40 Released 2013-08-26
