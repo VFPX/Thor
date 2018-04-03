@@ -16,7 +16,7 @@ The other tool creates “SendTo” shortcuts in Explorer so that you can conver
 
 *   _[Create/Edit FoxBin2Prg "SendTo" shortcuts](#T5)_
 
-All of these tools assume that you have downloaded and installed FoxBin2PRG.  This works automatically if you have used Thor’s Check For Updates to download it, as they know exactly where to look for it. Otherwise, you can modify the [Plug-In](Thor_add_plugins.md) “Get FoxBin2PRG Folder” to point to the folder where you have installed FoxBin2PRG.
+All of these tools assume that you have downloaded and installed FoxBin2PRG.  This works automatically if you have used Thor’s Check For Updates to download it, as they know exactly where to look for it. Otherwise, you can modify the [Plug-In](../Thor_add_plugins.md) “Get FoxBin2PRG Folder” to point to the folder where you have installed FoxBin2PRG.
 
 ![](Images/Tweet25a.png)
 
@@ -105,4 +105,4 @@ The Edit button opens the Windows file properties dialog, where you can edit any
 
 The Remove button simply deletes the shortcut, moving it to the recycle bin.  There is a non-visual class in the Thor_Tool_FoxBin2PrgCreateShortcuts.PRG which performs all the real work of this tool, so if you want to create your own version of the tool with a different interface, or no interface at all, it should be pretty easy to do.  There is some code commented out in the .PRG which demonstrates creating all the shortcuts programmatically.
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#%21forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#%21forum/FoxProThor).

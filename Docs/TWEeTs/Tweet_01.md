@@ -23,4 +23,4 @@ This will not affect the use of Code References from the VFP Tools Menu. (To be 
 
 **Replace code window context menu items** only needs to be executed once in each IDE session. The recommended way to do this is to check "Run at StartUp" on the Tool Definitions page.
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).

@@ -1,14 +1,14 @@
 ﻿Thor TWEeT #9: Extract to Variable and Extract to Constant
 ===
 
-In [last week's TWEeT](Docs\Tweet_08.md), I showed how you can highlight a block of text from a code window and save it into a new method.
+In [last week's TWEeT](Tweet_08.md), I showed how you can highlight a block of text from a code window and save it into a new method.
 
 There are two other closely related tools:
 
 *   **Extract to Variable**
 *   **Extract to Constant**
 
-Use **Extract to Variable** to replace text in a line of code with a reference to a local variable, such as in this example where `laFileList[lnJ, 1]` is referenced a couple of times:
+Use **Extract to Variable** to replace text in a line of code with a reference to a local variable, such as in this example where `laFileList[lnJ, 1]` is referenced a couple of times:
 
 ![](Images\Tweet9a.png)
 
@@ -30,4 +30,4 @@ I find that these three related tools, **Extract to Method / Variable / Constant
 
 There is a Thor tool to create this popup menu and a number of others.  Just execute **Create Sample menus** once and a number of menus will be created; see the first page of the Thor Configuration screen.
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).

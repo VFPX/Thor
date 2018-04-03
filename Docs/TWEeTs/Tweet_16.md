@@ -18,7 +18,7 @@ Instead, there are a number of Thor tools you can use:
 
 ![](Images/Tweet16b.png)
 
-*   [**SuperBrowse**](Thor_superbrowse.md) – if you mark the checkbox under the list of field names, that list becomes editable, allowing you to change which letters are to be upper case. Simply click on any field name and edit it so that it appears as you would like it to.  Any field name that you change is posted immediately to the Custom Keyword List and will be used any time this field name is referenced for *any* table, not just the current one. (No, you *can't* modify the structure of the file this way -- all you can change is which characters are upper case.)
+*   [**SuperBrowse**](../Thor_superbrowse.md) – if you mark the checkbox under the list of field names, that list becomes editable, allowing you to change which letters are to be upper case. Simply click on any field name and edit it so that it appears as you would like it to.  Any field name that you change is posted immediately to the Custom Keyword List and will be used any time this field name is referenced for *any* table, not just the current one. (No, you *can't* modify the structure of the file this way -- all you can change is which characters are upper case.)
 
 ![](Images/Tweet16c.png)
 
@@ -28,4 +28,4 @@ Instead, there are a number of Thor tools you can use:
 
 These field names from the Custom Keyword List are used every place in IntellisenseX where tables are referenced (and for both VFP Tables and SQL Server Tables) and as show in SuperBrowse, above.
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).

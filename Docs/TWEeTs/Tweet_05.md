@@ -20,4 +20,4 @@ Run this tool as follows:
 
 **NOTE**: Unfortunately, because of the way this tool is invoked, it doesn't work from the Thor Tool Bar.
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).

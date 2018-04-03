@@ -34,7 +34,7 @@ See also the example further on showing how to access aliases in a plain VFP Sel
 
 When you invoke IntellisenseX, it goes through a lot of hoops to determine whether the name immediately before the dot could refer to an object or an open table/cursor/view. If none of those apply, it then tries to do you a favor and open the table/view for you. (This has been true from day one).
 
-What has been added is that if you supply a connection string (as previously noted), it will also try to read at least the structure from your SQL table. In doing so, it creates a cursor (with “_SQL4ISX_” prefixed to the name of your SQL table) which can be used by IntellisenseX. (See also the discussion below about how this applies to other tools, such as [**SuperBrowse**](Thor_superbrowse.md).)
+What has been added is that if you supply a connection string (as previously noted), it will also try to read at least the structure from your SQL table. In doing so, it creates a cursor (with “_SQL4ISX_” prefixed to the name of your SQL table) which can be used by IntellisenseX. (See also the discussion below about how this applies to other tools, such as [**SuperBrowse**](../Thor_superbrowse.md).)
 
 #### <a name="SQLDictionary"></a>What is that “SQL Dictionary” referred to on the options page? <!-- TBL: Check anchor -->
 
@@ -71,4 +71,4 @@ Inside a Text/EndText structure, the end of the statement is clearly identified 
 
 ![](Images/Tweet10e.png)
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).

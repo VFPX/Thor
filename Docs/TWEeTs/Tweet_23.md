@@ -21,4 +21,4 @@ After some testing (and getting blown out of FoxPro many times), I was able to l
 
 I was contacted by Tore Bleken this past week about these Buffer Overun problems in classes based on classes of FoxInCloud.  He has reported that changing the LParameters statements in the parent classes cured the problem.
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).

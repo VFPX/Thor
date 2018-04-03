@@ -41,5 +41,5 @@ Thor provides files you can install so that files opened from the Project Manage
     *   If you are already using ProjectHooks, simply copy the code from the only method in the class into your project hook file.
 *   To change Class Browser, copy the file Browser.APP into the home folder for FoxPro -- Home(1)
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
 

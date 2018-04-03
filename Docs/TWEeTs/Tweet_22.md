@@ -3,7 +3,7 @@
 
 There are a number of Thor tools other than [_IntellisenseX_](https://github.com/VFPX/IntelliSenseX) that provide dropdown lists of names to select from.  These are not the familiar lists that native FoxPro Intellisense provides (member names or field names), but rather other lists that make sense in your FoxPro IDE.  These lists are not activated by pressing the dot (like IntellisenseX), so you will need to access them another way (by assigning a hot key or by adding them to the Thor toolbar or a menu)
 
-These tools can be found using the Tool [Launcher](Thor_launcher.md):
+These tools can be found using the Tool [Launcher](../Thor_launcher.md):
 
 ![](Images/Tweet22a.png)
 
@@ -36,4 +36,4 @@ There are a few things to note about each of these tools:
 *   _Dropdown Table Names –_ has its own plug-in to search in different folders, etc.
 *   _DBC Tables by ! –_ This one is not quite like the others, as it assigns an On Key Label for when you enter the ‘!’. Thus, you can only use this tool that way (not from menus or the Thor Toolbar, for instance)
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).

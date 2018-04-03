@@ -90,4 +90,4 @@ The following shows how ‘PartsList’ is passed as a parameter to my UDF “My
 
 ![](Images/Tweet15n.png)
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).

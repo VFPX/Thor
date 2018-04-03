@@ -31,4 +31,4 @@ Note as well the comments in the form that comes up:
 
 **Extract to Method** works in code windows from VCXs and SCXs, but not PRGs.
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).

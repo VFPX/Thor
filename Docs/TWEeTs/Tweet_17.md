@@ -41,4 +41,4 @@ Note also that `“SomeAlias”` can also refer to compound names, such as `This
 
 This TWEeT has addressed Local Aliases; the earlier TWEeT on [the Alias Dictionary](Tweet_15.md) addressed global aliases; and an upcoming TWEet will address Aliases that apply to an entire form or class (both VCX and PRG-based).
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).

@@ -23,4 +23,4 @@ There are two features that are only available from **IntellisenseX by HotKey:**
 *   If you enter the name of a DBC following by a ‘!’ and then use **IntellisenseX by HotKey**, the selection box lists all tables and views in that DBC.  (If the database is already open, you need not enter the DBC name). This list, curiously, also include files from the Data Environment of a form being edited.
 *   If you enter a ‘*’ followed by **IntellisenseX by HotKey**, the selection box lists all tables in the current folder and the path.
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).

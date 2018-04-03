@@ -1,7 +1,7 @@
 ﻿Thor TWEeT #21: Advanced Features: Plug-Ins for [IntellisenseX](https://github.com/VFPX/IntelliSenseX)
 ===
 
-There are five [Plug-Ins](Thor_add_plugins.md) that provide the last type of customization available for [IntellisenseX](https://github.com/VFPX/IntelliSenseX).  Even though they may seem quite obscure at first, they can each provide quite powerful enhancements, far beyond what you might first expect.  Some personal examples are provided to illustrate how they can be used (although these examples are certainly not the only way they can be used).
+There are five [Plug-Ins](../Thor_add_plugins.md) that provide the last type of customization available for [IntellisenseX](https://github.com/VFPX/IntelliSenseX).  Even though they may seem quite obscure at first, they can each provide quite powerful enhancements, far beyond what you might first expect.  Some personal examples are provided to illustrate how they can be used (although these examples are certainly not the only way they can be used).
 
 To access them, follow these steps:
 
@@ -76,4 +76,4 @@ This plug-in has been essentially superseded by the [Custom Keyword List](Tweet_
 
 There are a number of other IntellisenseX-related tools that show up in the Tool Launcher when you filter by “IntellisenseX”.  These tools use the same framework developed to give the dropdown lists when you press a dot, but provide other features that are activated differently.  They will be described in the next TWEeT.
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).

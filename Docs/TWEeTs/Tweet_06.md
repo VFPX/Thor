@@ -16,13 +16,13 @@ Both of these tools offer features not available from the standard New Property 
 *   MemberData is automatically updated if the name contains any uppercase characters.
 *   If you are creating a new property:
     *   There is an option to set the initial value of the property based on the first character of the property name (‘c’ = Character, ‘n’ = Numeric, etc). Default = ON
-    *   You can create a [Plug-In](Thor_add_plugins.md) to use some other method for assigning the initial values (such as using the second character)
+    *   You can create a [Plug-In](../Thor_add_plugins.md) to use some other method for assigning the initial values (such as using the second character)
 *   If you are creating a new method:
     *   You can open it immediately for editing.
-    *   You can create a [Plug-In](Thor_add_plugins.md) that will populate the header of the newly created method.
+    *   You can create a [Plug-In](../Thor_add_plugins.md) that will populate the header of the newly created method.
 
 When you use either of these tools, you are following the long-established two-step pattern where the process of creating the new property/method is distinct from using a reference to it.
 
-In next week's TWEeT on this topic, I will demonstrate tools that establish a new pattern: you can create a property or method as you refer to it.  Using these tools tends to provide less interruption to your programming flow, as you can create new properties and methods "on the fly".
+In next week's TWEeT on this topic, I will demonstrate tools that establish a new pattern: you can create a property or method as you refer to it. Using these tools tends to provide less interruption to your programming flow, as you can create new properties and methods "on the fly".
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).

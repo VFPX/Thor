@@ -105,7 +105,7 @@ lcOption = ExecScript(_Screen.cThorDispatcher, 'Get Option=', 'KEY', 'TOOL')
 ```
 (This works by reading the same definitions from the FoxCode table as used by native Intellisense.)
 
-There is a second extension, provided in the plug-in for  _Keyboard Macro Expansion_ (see [Plug-Ins](Thor_add_plugins.md)). The plug-in provides an alternative to the FoxCode table so that you can programmatically evaluate the word that is to be substituted for and replace it as desired.  The sample code in the plug-in demonstrates how
+There is a second extension, provided in the plug-in for  _Keyboard Macro Expansion_ (see [Plug-Ins](../Thor_add_plugins.md)). The plug-in provides an alternative to the FoxCode table so that you can programmatically evaluate the word that is to be substituted for and replace it as desired.  The sample code in the plug-in demonstrates how
 
 ```foxpro
 loAnything
@@ -148,4 +148,4 @@ PEM Editor, if open, provides design time event handing. The most familiar use i
 
 Nothing magic about this one, other than it’s handy to have a single tool that is available on a hot key.
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).

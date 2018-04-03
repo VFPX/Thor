@@ -26,4 +26,4 @@ Thor provides a neat tool for browsing the contents of objects and collections, 
 
 _Tool written by Bernard Bout_
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).

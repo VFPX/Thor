@@ -47,4 +47,4 @@ This TWEeT has addressed Aliases that apply to an entire form or class (both VCX
 
 An upcoming TWEeT will describe plug-ins that be used to handle cases that these features do not.
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).

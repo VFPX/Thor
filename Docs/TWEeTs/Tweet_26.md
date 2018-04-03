@@ -41,4 +41,4 @@ Use tool _Compress Parameters List_ to fix any long Parameters lists that are ca
 
 Navigate to the problem code, highlight the entire parameters statement, and run this tool.  It will remove all un-necessary characters from the statement (including spaces, tabs, CRs, LFs, semi-colons, and end-of-line comments.)
 
-See also [History of all Thor TWEeTs](TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#%21forum/FoxProThor).
+See also [History of all Thor TWEeTs](../TWEeTs.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#%21forum/FoxProThor).
