@@ -9,7 +9,7 @@ There are nine new tools that have been added in the last month to the Thor Repo
 *   _[Keyboard Macro Expansion](#T4)_
 *   _[Create SQL Data Dictionary](#T5)_
 *   _[Browse SQL Data Dictionary](#T5)_
-*   __[MRU Tables](#T9)__
+*   _[MRU Tables](#T9)_
 *   _[Toggle PEM Editor Event Handler](#T8)_
 *   _[Toggle Debugger](#T7)_
 
@@ -123,7 +123,7 @@ IntellisenseX and Super Browse can both access field names from SQL Tables, as d
 
 The natural way to access these field names is to use a connection string to access the SQL Server database.
 
-Alternatively, you can create an  [SQL Dictionary](Tweet_10.md#SQLDictionary) that contains the names of all tables and their fields, and IntellisenseX will use those field names even if the SQL database is not available. <!-- TBL: Check anchor -->
+Alternatively, you can create an  [SQL Dictionary](Tweet_10.md#SQLDictionary) that contains the names of all tables and their fields, and IntellisenseX will use those field names even if the SQL database is not available. 
 
 
 The name of the SQL Data Dictionary is entered in the Thor configuration form (and note the typo!)

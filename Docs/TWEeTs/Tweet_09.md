@@ -24,7 +24,7 @@ The modified code looks like this:
 
 ![](Images\Tweet9d.png)
 
-I find that these three related tools, **Extract to Method / Variable / Constant**, to be of considerable value but I do not use any one of them often enough to assign hot keys to each of them.  Instead, I use a  [Popup Men](Thor_create_popup_menu.md), which I bring up by using a single hot key (I have chosen Ctrl+E, for “Extract”).
+I find that these three related tools, **Extract to Method / Variable / Constant**, to be of considerable value but I do not use any one of them often enough to assign hot keys to each of them.  Instead, I use a  [Popup Menu](../Thor_create_popup_menu.md), which I bring up by using a single hot key (I have chosen Ctrl+E, for “Extract”).
 
 ![](Images/Tweet9e.png)
 

@@ -6,7 +6,7 @@ Last week’s [TWEeT #10](Tweet_10.md) demonstrated that IntellisenseX recognize
 IntellisenseX now also recognizes aliases used for VFP tables, in three different varieties:
 
 *   In procedures where the table is opened using either USE or by a UDF.
-*   Where the alias is a constant alias used throughout an application and can be opened by a [Plug-In](Thor_add_plugins.md).
+*   Where the alias is a constant alias used throughout an application and can be opened by a [Plug-In](../Thor_add_plugins.md).
 *   By specifying an special directive in your code that identifies the file that an alias refers to
 
 **Procedures where the table is opened using either USE or by a UDF**
