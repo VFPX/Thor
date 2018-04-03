@@ -11,7 +11,7 @@
 
 **Download:** [Thor Repository.Zip](http://vfpxrepository.com/dl/thorupdate/Tools/Thor_Repository/Thor_Repository.zip)
 
-**Complete Catalog:** **[Catalog of all Thor Repository Tools](Thor_repository_catalog.md)**
+**Complete Catalog:** **[Catalog of all Thor Repository Tools](https://github.com/VFPX/ThorRepository/blob/master/documents/ThorRepositoryCatalog.md)**
 
 **Discussions:** [Post questions, bug reports, discussions in the Thor Discussion Group](http://groups.google.com/group/FoxProThor)
 

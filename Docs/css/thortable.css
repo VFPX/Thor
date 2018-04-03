@@ -1,7 +1,0 @@
-th  {
-    font-weight: bold;
-}
-
-tbody tr:nth-child(even) {
-    background-color: #ddd
-}
