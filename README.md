@@ -16,8 +16,6 @@ _**Thor** is a tool for managing add-on tools in the IDE, managing menus and hot
 
 [Get the latest Thor news](Docs/Thor_news.md)
 
-**Download App:** [Download the latest build here](http://vfpxrepository.com/dl/thorupdate/thor/Thor.zip)
-
 **Getting Started:** [Click here for installation instructions](Docs/Thor_install.md)
 
 **Help:** [Click here for complete online documentation](Docs/Thor_help.md)
@@ -51,8 +49,6 @@ The 'tools' managed by Thor are simply PRGs with the following characteristics
 [Click here for complete online documentation of Thor](Docs/Thor_help.md)
 
 ### Getting Started
-
-[Click here to download the latest release of Thor](http://vfpxrepository.com/dl/thorupdate/thor/Thor.zip).
 
 [Click here for installation instructions](Docs/Thor_install.md).
 
