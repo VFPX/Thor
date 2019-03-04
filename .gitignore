@@ -1,0 +1,30 @@
+# use glob syntax.
+syntax: glob
+
+# VFP generated files
+*.err
+*.ERR
+*.mpr
+*.MPR
+
+# VFP compiled files
+*.fxp
+*.FXP
+*.mpx
+*.MPX
+*.qpx
+*.QPX
+
+# VFP backup files
+*.bak
+*.BAK
+*.tbk
+*.TBK
+
+# Misc backup files
+*.orig
+*.ORIG
+*.save
+*.SAVE
+*.zip
+*.ZIP
