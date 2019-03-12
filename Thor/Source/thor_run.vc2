@@ -699,8 +699,16 @@ DEFINE CLASS thor_run AS custom
 		lcPublishedClassesHelp = Evl (This.GetPublishedClasses (.T.), '[]')
 		lcHomeFolder		   = Addbs(JustPath(tcThorApp))
 		
+		*** DH 2018-10-12: as suggested by Toni Koehler, use ALLTRIM(STR()) instead of
+		*** TRANSFORM() because with SET POINT TO ',' and SET FIXED ON, TRANSFORM(1)
+		*** gives "1,000" which looks like multiple parameters: lcP1,lxP2,000,lxP3,000, etc.
+		*			lcParams = lcParams + ', lxP' + Transform(lnI)
+		** TP 2019-02-28: reducing the size of the code stored in cThorDispatcher
+		** moved the above comment out of the TEXT...ENDTEXT area
+		** Add the PRETEXT 1+2+4 to the TEXT...ENDTEXT to reduce the size of the output
+		* Text To lcThorExecute Noshow TEXTMERGE
 		****************************************************************
-		Text To lcThorExecute Noshow Textmerge
+		Text To lcThorExecute TEXTMERGE NOSHOW PRETEXT 1+2+4 
 		LParameters lcPRGName, lxP1, lxP2, lxP3, lxP4, lxP5, lxP6, lxP7, lxP8, lxP9, lxP10
 		
 		Local loGetThor As 'GetThorRun'
@@ -891,10 +899,6 @@ DEFINE CLASS thor_run AS custom
 			Else
 				lcParams = 'with lxP1'
 				For lnI = 2 To lnPCount - 1
-		*** DH 2018-10-12: as suggested by Toni Koehler, use ALLTRIM(STR()) instead of
-		*** TRANSFORM() because with SET POINT TO ',' and SET FIXED ON, TRANSFORM(1)
-		*** gives "1,000" which looks like multiple parameters: lcP1,lxP2,000,lxP3,000, etc.
-		*			lcParams = lcParams + ', lxP' + Transform(lnI)
 					lcParams = lcParams + ', lxP' + alltrim(str(lnI))
 				Endfor
 			Endif
@@ -976,7 +980,9 @@ DEFINE CLASS thor_run AS custom
 		EndText
 		
 		lcThorExecute = Chrtran(lcThorExecute, ccLF, '')
-		lcThorExecute = Chrtran(lcThorExecute, ccCR + ccCR, ccCR)
+		** TP 2019-02-28: with the changes above, this line is not needed
+		** left the above line in to reduce the stored string a little more
+		* lcThorExecute = Chrtran(lcThorExecute, ccCR + ccCR, ccCR)
 		
 		****************************************************************
 		
