@@ -5,7 +5,7 @@
 
 ### Installing Thor
 
-1. [**Download current version of Thor**](https://github.com/VFPX/Thor/archive/master.zip).
+1. [Download current version of Thor](https://github.com/VFPX/Thor/archive/master.zip).
 2. Extract "Thor" sub-folder from the ZIP file to the installation folder of your choice (see details below on how to choose an installation folder). After this step your installation folder should only contain "Source" sub-folder and the Thor.APP.
 3. Open Visual FoxPro and run the following commands in the command window:
 
