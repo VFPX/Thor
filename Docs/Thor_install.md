@@ -31,7 +31,7 @@ The command does couple of things.
 
 #### Choosing an installation folder
 
-Thor must be installed into permanent folder; it creates some folders and tables which must always be available. We suggest to install Thor into a folder that is backed up on a regular basis. The installation folder doesn't need to be a VFP sub-folder. 
+Thor must be installed into permanent folder; it creates some folders and tables which must always be available. We suggest to install Thor into a folder that is backed up on a regular basis. The installation folder doesn't need to be a VFP sub-folder.
 
 There are two different strategies when selecting an installation folder for Thor:
 
