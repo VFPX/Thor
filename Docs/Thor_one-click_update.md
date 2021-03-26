@@ -26,7 +26,7 @@ The projects listed in Check For Updates are listed alphabetically within these 
 
 If you already have versions of [Thor](Thor.md), [PEM Editor](https://github.com/VFPX/PEMEditor), or [GoFish](https://github.com/mattslay/GoFish) installed, this update process will replace the installed versions with the newer versions.  You will ***not*** lose any work you had already done in the folders for these already installed tools.
 
-If you did ***not*** have prior versions installed, then the update process will install them in a subfolder of the Thor folder named `Thor\Tools\Apps` or `Thor\Tools\Components`. "Apps" are tools typcially used within the FoxPro IDE by developers (i.e. Project Explorer, FoxTabs, GoFish, FoxUnit, etc.), and "Components" are items that are typically used in your distributed apps for end users (i.e. Fox Charts, Dynamic Forms, nfJson, etc.).
+If you did ***not*** have prior versions installed, then the update process will install them in a subfolder of the Thor folder named `Thor\Tools\Apps` or `Thor\Tools\Components`. "Apps" are tools typically used within the FoxPro IDE by developers (i.e. Project Explorer, FoxTabs, GoFish, FoxUnit, etc.), and "Components" are items that are typically used in your distributed apps for end users (i.e. Fox Charts, Dynamic Forms, nfJson, etc.).
 
 
 ### Important Note
