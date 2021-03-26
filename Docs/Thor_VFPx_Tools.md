@@ -30,4 +30,4 @@ GoFish 5 is an advanced code search tool for fast searching of Visual FoxPro sou
 
 ![](Images/Thor_GoFish5.png)
 
-[Click here for GoFish4](https://github.com/mattslay/GoFish)
+[Click here for GoFish 5](https://github.com/mattslay/GoFish)
