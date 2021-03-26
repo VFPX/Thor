@@ -1,4 +1,4 @@
-﻿One-Click Updates of Thor
+﻿One-Click Updates of Thor (aka "Check for Updates")
 ===
 
 Updates to [Thor](Thor.md), the [Thor Repository](Thor_repository.md), [PEM Editor 7](https://github.com/VFPX/PEMEditor) with IDE Tools, and other tools, as well as all of the projects from [VFPX](https://github.com/VFPX), are all available through a single menu on the Thor menu (in the FoxPro system menu).  This item, ‘Check for Updates’, checks to see if there are updates available for any of these APPs; if any are found, they are automatically downloaded and installed.
@@ -26,7 +26,8 @@ The projects listed in Check For Updates are listed alphabetically within these 
 
 If you already have versions of [Thor](Thor.md), [PEM Editor](https://github.com/VFPX/PEMEditor), or [GoFish](https://github.com/mattslay/GoFish) installed, this update process will replace the installed versions with the newer versions.  You will ***not*** lose any work you had already done in the folders for these already installed tools.
 
-If you did ***not*** have prior versions installed, then the update process will install them in a subfolder of the Thor folder (Thor\Tools\Apps).
+If you did ***not*** have prior versions installed, then the update process will install them in a subfolder of the Thor folder named `Thor\Tools\Apps` or `Thor\Tools\Components`. "Apps" are tools typcially used within the FoxPro IDE by developers (i.e. Project Explorer, FoxTabs, GoFish, FoxUnit, etc.), and "Components" are items that are typically used in your distributed apps for end users (i.e. Fox Charts, Dynamic Forms, nfJson, etc.).
+
 
 ### Important Note
 
