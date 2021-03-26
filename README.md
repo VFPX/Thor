@@ -22,7 +22,7 @@ _**Thor** is a tool for managing add-on tools in the IDE, managing menus and hot
 
 **Discussions:** [Post questions, bug reports, discussions in the Thor Discussion Group](http://groups.google.com/group/FoxProThor)
 
-**Tools for Thor: [PEM Editor w/IDE Tools](https://github.com/VFPX/PEMEditor),** [The Thor Repository](Docs/Thor_repository.md),  [GoFish4](https://github.com/mattslay/GoFish)  
+**Tools for Thor: [PEM Editor w/IDE Tools](https://github.com/VFPX/PEMEditor),** [The Thor Repository](Docs/Thor_repository.md),  [GoFish 5](https://github.com/mattslay/GoFish)  
 
 Thor:
 
