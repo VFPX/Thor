@@ -31,7 +31,7 @@ set step on
 	lcCode       = strtran(lcCode, ;
 		'loShellApp.NameSpace(tcDestinationPath).CopyHere(oItem, lnOptions)', ;
 "set step on" + chr(13) + ;
-		"if oItem.Name = 'Thor.app'" + chr(13) + ;
+		"if lower(oItem.Name) = 'thor.app'" + chr(13) + ;
 		"	erase (tcDestinationPath + 'Thor.app')" + chr(13) + ;
 		"endif" + chr(13) + ;
 		"loShellApp.NameSpace(tcDestinationPath).CopyHere(oItem, lnOptions)")
