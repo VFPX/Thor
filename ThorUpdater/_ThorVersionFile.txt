@@ -25,6 +25,7 @@ if 'vfpxrepository' $ lcCode
 		'https://raw.githubusercontent.com/VFPX/Thor/master/ThorUpdater/Updates.zip')
 	strtofile(lcCode, lcUpdaterPRG)
 
+set step on
 	lcExtractPRG = lcProcsFolder + 'Thor_Proc_ExtractFiles.prg'
 	lcCode       = filetostr(lcExtractPRG)
 	lcCode       = strtran(lcCode, ;
