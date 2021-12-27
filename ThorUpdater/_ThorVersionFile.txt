@@ -35,18 +35,17 @@ set step on
 		[	lcUpdateInfo = ''])
 	lcCode       = strtran(lcCode, ;
 		[	Endfor &] + [& lnI = 1 to Alen(laUpdates)], ;
-[set step on] + chr(13) + ;
 		[	Endfor &] + [& lnI = 1 to Alen(laUpdates)] + chr(13) + chr(13) + ;
+[set step on] + chr(13) + ;
 		[	if not 'loException' $ _screen.cThorDispatcher] + chr(13) + ;
-		[		_screen.cThorDispatcher = strtran(_screen.cThorDispatcher, ] + chr(13) + ;
-		["_Screen.AddProperty('oThor', Newobject ('oThor', 'Thor.vcx', lcThorApp, lcThorFolder))", ] + chr(13) + ;
-		["try" + chr(13) + "_Screen.AddProperty('oThor', Newobject ('oThor', 'Thor.vcx', lcThorApp, lcThorFolder))" + ] + chr(13) + ;
+		[		_screen.cThorDispatcher = strtran(_screen.cThorDispatcher, ] + ;
+		["_Screen.AddProperty('oThor', Newobject ('oThor', 'Thor.vcx', lcThorApp, lcThorFolder))", ] + ;
+		["try" + chr(13) + "_Screen.AddProperty('oThor', Newobject ('oThor', 'Thor.vcx', lcThorApp, lcThorFolder))" + ] + ;
 		[chr(13) + "catch to loException" + chr(13) + "endtry")] + chr(13) + ;
 		[	endif] + chr(13) + ;
 		[	if lower(loUpdate.AppName) = 'thor.app'] + chr(13) + ;
 		[		erase (addbs(_screen.cThorAppFolder) + 'Thor.app')] + chr(13) + ;
-		[	endif] + chr(13) + ;
-		[	Return loUpdateList])
+		[	endif])
 	strtofile(lcCode, lcInstallPRG)
 
 	messagebox('The Check for Updates function has itself been updated. VFP will exit. ' + ;
