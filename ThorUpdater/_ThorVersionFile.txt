@@ -24,6 +24,18 @@ if 'vfpxrepository' $ lcCode
 		'http://vfpxrepository.com/dl/thorupdate/Updater_PRGs/Updates.zip', ;
 		'https://raw.githubusercontent.com/VFPX/Thor/master/ThorUpdater/Updates.zip')
 	strtofile(lcCode, lcUpdaterPRG)
+
+	lcExtractPRG = lcProcsFolder + 'Thor_Proc_ExtractFiles.prg'
+	lcCode       = filetostr(lcExtractPRG)
+	lcCode       = strtran(lcCode, ;
+		'loShellApp.NameSpace(tcDestinationPath).CopyHere(oItem, lnOptions)', ;
+"set step on" + chr(13) + ;
+		"if oItem.Name = 'Thor.app'" + chr(13) + ;
+		"	erase (tcDestinationPath + 'Thor.app')" + chr(13) + ;
+		"endif" + chr(13) + ;
+		"loShellApp.NameSpace(tcDestinationPath).CopyHere(oItem, lnOptions)")
+	strtofile(lcCode, lcThorUpdaterPRG)
+
 	messagebox('The Check for Updates function has itself been updated. VFP will exit. ' + ;
 		'Please run the Check for Updates function again to check for other updates.', ;
 		48, 'Thor Updater')
