@@ -35,7 +35,7 @@ set step on
 		"	erase (tcDestinationPath + 'Thor.app')" + chr(13) + ;
 		"endif" + chr(13) + ;
 		"loShellApp.NameSpace(tcDestinationPath).CopyHere(oItem, lnOptions)")
-	strtofile(lcCode, lcThorUpdaterPRG)
+	strtofile(lcCode, lcExtractPRG)
 
 	messagebox('The Check for Updates function has itself been updated. VFP will exit. ' + ;
 		'Please run the Check for Updates function again to check for other updates.', ;
