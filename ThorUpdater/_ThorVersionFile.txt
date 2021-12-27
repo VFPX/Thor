@@ -19,8 +19,8 @@ AddProperty(toUpdateInfo, 'Notes', 				lcNote)
 loThor        = execscript(_screen.cThorDispatcher, 'Thor Engine=')
 lcProcsFolder = addbs(loThor.cToolsFolder) + 'Procs\'
 lcUpdaterPRG  = lcProcsFolder + 'Thor_Proc_Check_For_Updates.prg'
-lcCode        = filetostr(lcUpdaterPRG)
-if 'vfpxrepository' $ lcCode
+lcUpdaterCode = filetostr(lcUpdaterPRG)
+if 'vfpxrepository' $ lcUpdaterCode
 set step on
 	lcInstallPRG = lcProcsFolder + 'Thor_Proc_DownloadAndInstallUpdates.prg'
 	lcCode       = filetostr(lcInstallPRG)
@@ -41,16 +41,16 @@ set step on
 		[	Return loUpdateList])
 	strtofile(lcCode, lcInstallPRG)
 
-	lcCode = strtran(lcCode, ;
+	lcUpdaterCode = strtran(lcUpdaterCode, ;
 		'http://vfpxrepository.com/dl/thorupdate/Updater_PRGs/Updates.zip', ;
 		'https://raw.githubusercontent.com/VFPX/Thor/master/ThorUpdater/Updates.zip')
-	strtofile(lcCode, lcUpdaterPRG)
+	strtofile(lcUpdaterCode, lcUpdaterPRG)
 
 	messagebox('The Check for Updates function has itself been updated. VFP will exit. ' + ;
 		'Please run the Check for Updates function again to check for other updates.', ;
 		48, 'Thor Updater')
 	quit
-endif 'vfpxrepository' $ lcCode
+endif 'vfpxrepository' $ lcUpdaterCode
 
 Execscript (_Screen.cThorDispatcher, 'Result=', toUpdateInfo)
 Return toUpdateInfo
