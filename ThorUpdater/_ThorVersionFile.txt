@@ -26,16 +26,16 @@ if 'vfpxrepository' $ lcCode
 	strtofile(lcCode, lcUpdaterPRG)
 
 set step on
-	lcExtractPRG = lcProcsFolder + 'Thor_Proc_ExtractFiles.prg'
+	lcInstallPRG = lcProcsFolder + 'Thor_Proc_DownloadAndInstallUpdates.prg'
 	lcCode       = filetostr(lcExtractPRG)
 	lcCode       = strtran(lcCode, ;
-		'loShellApp.NameSpace(tcDestinationPath).CopyHere(oItem, lnOptions)', ;
+		'	Return loUpdateList', ;
 "set step on" + chr(13) + ;
-		"if lower(oItem.Name) = 'thor.app'" + chr(13) + ;
-		"	erase (tcDestinationPath + 'Thor.app')" + chr(13) + ;
-		"endif" + chr(13) + ;
-		"loShellApp.NameSpace(tcDestinationPath).CopyHere(oItem, lnOptions)")
-	strtofile(lcCode, lcExtractPRG)
+		"	if lower(loUpdate.AppName) = 'thor.app'" + chr(13) + ;
+		"		erase " + addbs(loThor.cAppFolder) + "Thor.app" + chr(13) + ;
+		"	endif" + chr(13) + ;
+		"	Return loUpdateList")
+	strtofile(lcCode, lcInstallPRG)
 
 	messagebox('The Check for Updates function has itself been updated. VFP will exit. ' + ;
 		'Please run the Check for Updates function again to check for other updates.', ;
