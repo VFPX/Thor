@@ -34,9 +34,9 @@ set step on
 		[	addproperty(_screen, 'cThorFolder', '] + loThor.cAppFolder + ['] + chr(13) + ;
 		[	lcUpdateInfo = ''])
 	lcCode       = strtran(lcCode, ;
-		[	Endfor && lnI = 1 to Alen(laUpdates)], ;
+		[	& lnI = 1 to Alen(laUpdates)], ;
 [set step on] + chr(13) + ;
-		[	Endfor && lnI = 1 to Alen(laUpdates)] + chr(13) + chr(13) + ;
+		[	& lnI = 1 to Alen(laUpdates)] + chr(13) + chr(13) + ;
 		[	if not 'loException' $ _screen.cThorDispatcher] + chr(13) + ;
 		[		_screen.cThorDispatcher = strtran(_screen.cThorDispatcher, ] + chr(13) + ;
 		["_Screen.AddProperty('oThor', Newobject ('oThor', 'Thor.vcx', lcThorApp, lcThorFolder))", ] + chr(13) + ;
