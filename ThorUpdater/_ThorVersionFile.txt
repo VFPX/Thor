@@ -29,6 +29,10 @@ set step on
 	lcInstallPRG = lcProcsFolder + 'Thor_Proc_DownloadAndInstallUpdates.prg'
 	lcCode       = filetostr(lcExtractPRG)
 	lcCode       = strtran(lcCode, ;
+		[	lcUpdateInfo = ''], ;
+		[	addproperty(_screen, 'cThorFolder', '] + loThor.cAppFolder + ['] + chr(13) + ;
+		[	lcUpdateInfo = ''])
+	lcCode       = strtran(lcCode, ;
 		[	Return loUpdateList], ;
 [set step on] + chr(13) + ;
 		[	_screen.cThorDispatcher = strtran(_screen.cThorDispatcher, ] + chr(13) + ;
@@ -36,7 +40,7 @@ set step on
 		["try" + chr(13) + "_Screen.AddProperty('oThor', Newobject ('oThor', 'Thor.vcx', lcThorApp, lcThorFolder))" + ] + chr(13) + ;
 		[chr(13) + "catch" + chr(13) + "endtry")] + chr(13) + ;
 		[	if lower(loUpdate.AppName) = 'thor.app'] + chr(13) + ;
-		[		erase ] + addbs(loThor.cAppFolder) + [Thor.app] + chr(13) + ;
+		[		erase (addbs(_screen.cThorFolder) + 'Thor.app')] + chr(13) + ;
 		[	endif] + chr(13) + ;
 		[	Return loUpdateList])
 	strtofile(lcCode, lcInstallPRG)
