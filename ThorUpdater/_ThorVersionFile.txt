@@ -12,19 +12,15 @@ EndText
 
 AddProperty(toUpdateInfo, 'Notes', 				lcNote)
 
-* If necessary, update Thor_Proc_Check_For_Updates.prg to point to GitHub instead of VFPXRepository.com.
-* In that case, we'll stop the update process and prompt the user to do it again.
+* If necessary, update Thor_Proc_DownloadAndInstallUpdates.prg to delete Thor.app if it's being updated
+* and Thor_Proc_Check_For_Updates.prg to point to GitHub instead of VFPXRepository.com. In that case,
+* we'll stop the update process and prompt the user to do it again.
 
 loThor        = execscript(_screen.cThorDispatcher, 'Thor Engine=')
 lcProcsFolder = addbs(loThor.cToolsFolder) + 'Procs\'
 lcUpdaterPRG  = lcProcsFolder + 'Thor_Proc_Check_For_Updates.prg'
 lcCode        = filetostr(lcUpdaterPRG)
 if 'vfpxrepository' $ lcCode
-	lcCode = strtran(lcCode, ;
-		'http://vfpxrepository.com/dl/thorupdate/Updater_PRGs/Updates.zip', ;
-		'https://raw.githubusercontent.com/VFPX/Thor/master/ThorUpdater/Updates.zip')
-	strtofile(lcCode, lcUpdaterPRG)
-
 set step on
 	lcInstallPRG = lcProcsFolder + 'Thor_Proc_DownloadAndInstallUpdates.prg'
 	lcCode       = filetostr(lcInstallPRG)
@@ -35,15 +31,20 @@ set step on
 	lcCode       = strtran(lcCode, ;
 		[	Return loUpdateList], ;
 [set step on] + chr(13) + ;
-		[	_screen.cThorDispatcher = strtran(_screen.cThorDispatcher, ] + chr(13) + ;
-		["_Screen.AddProperty('oThor', Newobject ('oThor', 'Thor.vcx', lcThorApp, lcThorFolder))", ] + chr(13) + ;
-		["try" + chr(13) + "_Screen.AddProperty('oThor', Newobject ('oThor', 'Thor.vcx', lcThorApp, lcThorFolder))" + ] + chr(13) + ;
+		[	_screen.cThorDispatcher = strtran(_screen.cThorDispatcher, ] + ;
+		["_Screen.AddProperty('oThor', Newobject ('oThor', 'Thor.vcx', lcThorApp, lcThorFolder))", ] + ;
+		["try" + chr(13) + "_Screen.AddProperty('oThor', Newobject ('oThor', 'Thor.vcx', lcThorApp, lcThorFolder))" + ] + ;
 		[chr(13) + "catch" + chr(13) + "endtry")] + chr(13) + ;
 		[	if lower(loUpdate.AppName) = 'thor.app'] + chr(13) + ;
 		[		erase (addbs(_screen.cThorFolder) + 'Thor.app')] + chr(13) + ;
 		[	endif] + chr(13) + ;
 		[	Return loUpdateList])
 	strtofile(lcCode, lcInstallPRG)
+
+	lcCode = strtran(lcCode, ;
+		'http://vfpxrepository.com/dl/thorupdate/Updater_PRGs/Updates.zip', ;
+		'https://raw.githubusercontent.com/VFPX/Thor/master/ThorUpdater/Updates.zip')
+	strtofile(lcCode, lcUpdaterPRG)
 
 	messagebox('The Check for Updates function has itself been updated. VFP will exit. ' + ;
 		'Please run the Check for Updates function again to check for other updates.', ;
