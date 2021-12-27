@@ -27,7 +27,7 @@ if 'vfpxrepository' $ lcCode
 
 set step on
 	lcInstallPRG = lcProcsFolder + 'Thor_Proc_DownloadAndInstallUpdates.prg'
-	lcCode       = filetostr(lcExtractPRG)
+	lcCode       = filetostr(lcInstallPRG)
 	lcCode       = strtran(lcCode, ;
 		[	lcUpdateInfo = ''], ;
 		[	addproperty(_screen, 'cThorFolder', '] + loThor.cAppFolder + ['] + chr(13) + ;
