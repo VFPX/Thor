@@ -1,0 +1,33 @@
+Lparameters toUpdateInfo
+
+Local lcNote
+AddProperty(toUpdateInfo, 'AvailableVersion',	'Thor - 1.43 - December 25, 2021 - 20211225')
+AddProperty(toUpdateInfo, 'SourceFileUrl', 		'https://raw.githubusercontent.com/VFPX/Thor/master/ThorUpdater/Thor.zip')
+AddProperty(toUpdateInfo, 'LinkPrompt', 		'Thor Home Page')
+AddProperty(toUpdateInfo, 'Link', 				'https://github.com/VFPX/Thor')
+
+Text to lcNote NoShow
+This update changes the Thor Check for Updates process to look for updates at GitHub.com rather than VFPXRepository.com, which is being deprecated.
+EndText
+
+AddProperty(toUpdateInfo, 'Notes', 				lcNote)
+
+* If necessary, update Thor_Proc_Check_For_Updates.prg to point to GitHub instead of VFPXRepository.com.
+* In that case, we'll stop the update process and prompt the user to do it again.
+
+loThor        = execscript(_screen.cThorDispatcher, 'Thor Engine=')
+lcProcsFolder = addbs(loThor.cToolsFolder) + 'Procs\'
+lcUpdaterPRG  = lcProcsFolder + 'Thor_Proc_Check_For_Updates.prg'
+lcCode        = filetostr(lcUpdaterPRG)
+if 'vfpxrepository' $ lcCode
+	lcCode = strtran(lcCode, ;
+		'http://vfpxrepository.com/dl/thorupdate/Updater_PRGs/Updates.zip', ;
+		'https://raw.githubusercontent.com/VFPX/Thor/master/ThorUpdater/Updates.zip')
+	strtofile(lcCode, lcUpdaterPRG)
+	messagebox('The Check for Updates function has itself been updated. Please run it again to check for other updates.', ;
+		48, 'Thor Updater')
+	cancel
+endif 'vfpxrepository' $ lcCode
+
+Execscript (_Screen.cThorDispatcher, 'Result=', toUpdateInfo)
+Return toUpdateInfo
