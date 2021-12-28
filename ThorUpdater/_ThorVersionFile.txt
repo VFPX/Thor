@@ -48,8 +48,7 @@ if 'vfpxrepository' $ lcCode
 	messagebox('The Check for Updates function has itself been updated. VFP will exit. ' + ;
 		'Please run the Check for Updates function again to check for other updates.', ;
 		48, 'Thor Updater')
-	*quit
-	cancel
+	quit
 endif 'vfpxrepository' $ lcCode
 
 Execscript (_Screen.cThorDispatcher, 'Result=', toUpdateInfo)
