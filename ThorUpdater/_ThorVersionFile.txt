@@ -25,18 +25,15 @@ if 'vfpxrepository' $ lcCode
 		'https://raw.githubusercontent.com/VFPX/Thor/master/ThorUpdater/Updates.zip')
 	strtofile(lcCode, lcUpdaterPRG)
 
-set step on
 	lcInstallPRG = lcProcsFolder + 'Thor_Proc_DownloadAndInstallUpdates.prg'
 	lcCode       = filetostr(lcInstallPRG)
 	lcCode       = strtran(lcCode, ;
 		[	lcUpdateInfo = ''], ;
-[set step on] + chr(13) + ;
 		[	addproperty(_screen, 'cThorAppFolder', '] + loThor.cAppFolder + [')] + chr(13) + ;
 		[	lcUpdateInfo = ''])
 	lcCode       = strtran(lcCode, ;
 		[	Endfor &] + [& lnI = 1 to Alen(laUpdates)], ;
 		[	Endfor &] + [& lnI = 1 to Alen(laUpdates)] + chr(13) + chr(13) + ;
-[set step on] + chr(13) + ;
 		[	if not 'loException' $ _screen.cThorDispatcher] + chr(13) + ;
 		[		_screen.cThorDispatcher = strtran(_screen.cThorDispatcher, ] + ;
 		["_Screen.AddProperty('oThor', Newobject ('oThor', 'Thor.vcx', lcThorApp, lcThorFolder))", ] + ;
@@ -51,7 +48,8 @@ set step on
 	messagebox('The Check for Updates function has itself been updated. VFP will exit. ' + ;
 		'Please run the Check for Updates function again to check for other updates.', ;
 		48, 'Thor Updater')
-	quit
+	*quit
+	cancel
 endif 'vfpxrepository' $ lcCode
 
 Execscript (_Screen.cThorDispatcher, 'Result=', toUpdateInfo)
