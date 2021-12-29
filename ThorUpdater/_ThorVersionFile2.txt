@@ -57,7 +57,7 @@ define class UpdateTimer as Timer
 	Interval = 3000
 
 	procedure Init
-		messagebox('updating')
+		messagebox('Init: updating')
 	endproc
 
 	procedure Timer
