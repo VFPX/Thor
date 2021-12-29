@@ -46,6 +46,7 @@ if 'vfpxrepository' $ lcCode
 	strtofile(lcCode, lcInstallPRG)
 
 	addproperty(_screen, 'oUpdateTimer', createobject('UpdateTimer'))
+messagebox('updating')
 	cancel
 endif 'vfpxrepository' $ lcCode
 
