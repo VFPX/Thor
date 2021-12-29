@@ -61,6 +61,7 @@ define class UpdateTimer as Timer
 		loThor        = execscript(_screen.cThorDispatcher, 'Thor Engine=')
 		lcProcsFolder = addbs(loThor.cToolsFolder) + 'Procs\'
 		erase (lcProcsFolder + 'Thor_Proc_Check_For_Updates.fxp')
+messagebox('starting update')
 		execscript(_screen.cThorDispatcher, 'Thor_Proc_Check_For_Updates')
 	endproc
 enddefine
