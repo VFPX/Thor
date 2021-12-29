@@ -57,7 +57,7 @@ define class UpdateTimer as Timer
 	Interval = 3000
 
 	procedure Init
-		messagebox('Init: updating')
+		messagebox(This.Enabled)
 	endproc
 
 	procedure Timer
@@ -66,6 +66,7 @@ define class UpdateTimer as Timer
 		lcProcsFolder = addbs(loThor.cToolsFolder) + 'Procs\'
 		erase (lcProcsFolder + 'Thor_Proc_Check_For_Updates.fxp')
 		erase (lcProcsFolder + 'Thor_Proc_DownloadAndInstallUpdates.fxp')
+messagebox('Timer: check FXP')
 		execscript(_screen.cThorDispatcher, 'Thor_Proc_Check_For_Updates')
 	endproc
 enddefine
