@@ -47,7 +47,7 @@ if 'vfpxrepository' $ lcCode
 
 	addproperty(_screen, 'oUpdateTimer', createobject('UpdateTimer'))
 doevents force
-*messagebox('updating')
+messagebox('updating')
 	cancel
 endif 'vfpxrepository' $ lcCode
 
