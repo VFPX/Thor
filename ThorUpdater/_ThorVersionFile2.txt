@@ -56,6 +56,10 @@ Return toUpdateInfo
 define class UpdateTimer as Timer
 	Interval = 3000
 
+procedure Init
+messagebox('starting timer')
+endproc
+
 	procedure Timer
 		This.Enabled = .F.
 		loThor        = execscript(_screen.cThorDispatcher, 'Thor Engine=')
