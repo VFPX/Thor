@@ -845,7 +845,11 @@ Procedure CreateThorInternalTools
 	lnFiles  = adir(laFiles, lcSource + '*.*')
 	for lnI = 1 to lnFiles
 		lcFile = laFiles[lnI, 1]
-		copy file (lcSource + lcFile) to (lcToolsFolder + lcFile)
+*** DH 2021-12-28: added TRY structure
+		try
+			copy file (lcSource + lcFile) to (lcToolsFolder + lcFile)
+		catch
+		endtry
 	next lnI
 *** DH 2018-04-10: end of new code
 
@@ -997,8 +1001,6 @@ Procedure ToolCode
 	loFramework	= Execscript (_Screen.cThorDispatcher, '?')
 
 *** DH 2018-04-10: new URL
-*	lcDisplay = '* ' + [<<lcVersion>>] + ccCRLF + ccCRLF		;
-		+  '*   Thor Framework home page =  http://vfpx.codeplex.com/wikipage?title=Thor%20Tools%20Making%20Tools'
 	lcDisplay = '* ' + [<<lcVersion>>] + ccCRLF + ccCRLF		;
 		+  '*   Thor Framework home page =  https://github.com/VFPX/Thor/blob/master/Docs/Thor_tools_making_tools.md'
 
@@ -1098,7 +1100,7 @@ Procedure GetThor_Tool_ThorInternalFrameworkHelp (tcFolder)
 
 	Local lcCode, lcVersion
 	lcVersion = ccTHORVERSION
-*** DH 2018-04-10: new URL for .Link (formerly http://vfpx.codeplex.com/wikipage?title=Thor%20Help)
+*** DH 2018-04-10: new URL for .Link
 	Text To lcCode Noshow Textmerge
 Lparameters lxParam1
 
@@ -1143,7 +1145,7 @@ Procedure GetThor_Tool_ThorInternalHelp (tcFolder)
 
 	Local lcCode, lcVersion
 	lcVersion = ccTHORVERSION
-*** DH 2018-04-10: new URL for .Link (formerly http://vfpx.codeplex.com/wikipage?title=Thor%20Help)
+*** DH 2018-04-10: new URL for .Link
 	Text To lcCode Noshow Textmerge
 Lparameters lxParam1
 
@@ -1400,7 +1402,7 @@ Procedure GetThor_Tool_ThorInternalRepositoryHomePage (tcFolder)
 
 	Local lcCode, lcVersion
 	lcVersion = ccTHORVERSION
-*** DH 2018-04-10: new URL for #DEFINE (formerly http://vfpx.codeplex.com/wikipage?title=Thor%20Repository)
+*** DH 2018-04-10: new URL for #DEFINE
 	Text To lcCode Noshow Textmerge
 #Define ThorFrameworkURL 		'https://github.com/VFPX/Thor/blob/master/Docs/Thor_repository.md'
 
@@ -1503,7 +1505,7 @@ Procedure Getthor_tool_thorinternalthornews (tcFolder)
 
 	Local lcCode, lcVersion
 	lcVersion = ccTHORVERSION
-*** DH 2018-04-10: new URL for #DEFINE (formerly http://vfpx.codeplex.com/wikipage?title=Thor%20News)
+*** DH 2018-04-10: new URL for #DEFINE
 	Text To lcCode Noshow Textmerge
 #Define 	ccThorNewsURL 		'https://github.com/VFPX/Thor/blob/master/Docs/Thor_news.md'
 
@@ -1862,7 +1864,7 @@ Procedure GetTHOR_TOOL_THORINTERNALTWEETS (tcFolder)
 
 	Local lcCode, lcVersion
 	lcVersion = ccTHORVERSION
-*** DH 2018-04-10: new URL (formerly https://vfpx.codeplex.com/wikipage?title=TWEeTs)
+*** DH 2018-04-10: new URL
 	Text To lcCode Noshow Textmerge
 #Define ccCR  Chr[13]
 
@@ -2169,8 +2171,11 @@ Procedure GetThor_Proc_Check_For_Updates (tcFolder)
 	Text To lcCode Noshow Textmerge
 Local laFiles[1], lcToolFolder, lcUpdateFolder, llAutoRun, lnFileCount, lnI, lnReturn
 
+*** DH 2021-12-28: changed URL from VFPXRepository to GitHub
+#Define UpdaterURL 'https://raw.githubusercontent.com/VFPX/Thor/master/ThorUpdater/Updates.zip'
 
-#Define UpdaterURL 'http://vfpxrepository.com/dl/thorupdate/Updater_PRGs/Updates.zip'
+*** DH 2022-01-06: added SET SAFETY OFF to eliminate overwrite prompts
+set safety off
 
 WritetoCFULog('Begin CFU - ' + Transform(Datetime()))
 
@@ -2601,6 +2606,10 @@ Procedure ClearAll (toUpdateList)
 	Local laMembers[1], laProperties[1], laUpdates[1], lcName, lcProp, lcUpdateInfo, lnDelim, lnI, lnJ
 	Local loUpdate, lxValue
 
+*** DH 2021-12-28: added this line to preserve the folder Thor.app runs from
+	loThor = execscript(_screen.cThorDispatcher, 'Thor Engine=')
+	addproperty(_screen, 'cThorAppFolder', loThor.cAppFolder)
+
 	* saving all custom properties into _Screen._ThorClearAllObject
 	* so that they can be restored after the Clear All
 	lcUpdateInfo = ''
@@ -2647,6 +2656,11 @@ Procedure ClearAll (toUpdateList)
 		Endfor
 		loUpdateList.Add (loUpdate)
 	Endfor && lnI = 1 to Alen(laUpdates)
+
+*** DH 2021-12-28: delete Thor.App if it needs to be updated
+	if lower(loUpdate.AppName) = 'thor.app'
+		erase (addbs(_screen.cThorAppFolder) + 'Thor.app')
+	endif
 
 	Return loUpdateList
 Endproc

@@ -27,8 +27,6 @@
 #define ccIMAGE_POPUP			'Popup'
 
 *** DH 2018-04-10: new URLS
-*#Define ThorHelpURL 			'http://vfpx.codeplex.com/wikipage?title=Thor%20Help'
-*#Define ThorFrameworkURL 		'http://vfpx.codeplex.com/wikipage?title=Thor%20Repository'
 #Define ThorHelpURL 			'https://github.com/VFPX/Thor/blob/master/Docs/Thor_help.md'
 #Define ThorFrameworkURL 		'https://github.com/VFPX/Thor/blob/master/Docs/Thor_repository.md'
 

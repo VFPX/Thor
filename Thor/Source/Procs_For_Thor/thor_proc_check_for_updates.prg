@@ -1,7 +1,7 @@
 Local laFiles[1], lcToolFolder, lcUpdateFolder, llAutoRun, lnFileCount, lnI, lnReturn
 
-
-#Define UpdaterURL 'http://vfpxrepository.com/dl/thorupdate/Updater_PRGs/Updates.zip'
+*** DH 2021-12-28: changed URL from VFPXRepository to GitHub
+#Define UpdaterURL  'https://raw.githubusercontent.com/VFPX/Thor/master/ThorUpdater/Updates.zip'
 
 WritetoCFULog('Begin CFU - ' + Transform(Datetime()))
 
