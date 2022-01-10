@@ -80,6 +80,10 @@ Two new menu pads in VFP system menu (Thor and personal menu JRN) and the menu o
 
 <a name="WhatsNew">**What's New**</a>
 
+Thor 1.43 - Release 2021-12-28
+
+Updated the Check for Updates process to look at the GitHub repository of each project rather than VFPXRepository.com.
+
 Thor 1.40 – Released 2013-08-26
 
 Added the Thor ToolBar.  Tools may be added to the Toolbar may using the checkbox shown in the Thor Configuration form,  below (and also available in the [Tool Launcher](Docs/Thor_launcher.md).)
