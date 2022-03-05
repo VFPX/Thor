@@ -56,25 +56,11 @@ DEFINE CLASS formruntool1 AS formruntool OF "thor_ui.vcx"
 		<memberdata name="left" display="Left"/>
 		<memberdata name="top" display="Top"/>
 		</VFPData>
-	Basecheckbox1.Alignment = 0
-	Basecheckbox1.Left = 42
-	Basecheckbox1.Name = "Basecheckbox1"
-	Basecheckbox1.TabIndex = 4
-	Basecheckbox1.Top = 183
 	cmdEscape.Name = "cmdEscape"
-	cmdRefresh.Left = 12
-	cmdRefresh.Name = "cmdRefresh"
-	cmdRefresh.TabIndex = 2
-	cmdRefresh.Top = 179
 	lblVersion.Left = 466
 	lblVersion.Name = "lblVersion"
 	lblVersion.TabIndex = 3
 	lblVersion.Top = 181
-	oImageList.Height = 26
-	oImageList.Left = 365
-	oImageList.Name = "oImageList"
-	oImageList.Top = 67
-	oImageList.Width = 36
 	Toolkeys1.cmdCreateTool.Name = "cmdCreateTool"
 	Toolkeys1.cmdCreateTool.Top = 184
 	Toolkeys1.cmdOpenToolFolder.Name = "cmdOpenToolFolder"
@@ -210,6 +196,20 @@ DEFINE CLASS formruntool1 AS formruntool OF "thor_ui.vcx"
 	Toolkeys1.Thor_sfsplitterh1.Name = "Thor_sfsplitterh1"
 	Toolkeys1.Top = 6
 	Toolkeys1.Width = 510
+	oImageList.Height = 26
+	oImageList.Left = 365
+	oImageList.Name = "oImageList"
+	oImageList.Top = 67
+	oImageList.Width = 36
+	Basecheckbox1.Alignment = 0
+	Basecheckbox1.Left = 42
+	Basecheckbox1.Name = "Basecheckbox1"
+	Basecheckbox1.TabIndex = 4
+	Basecheckbox1.Top = 183
+	cmdRefresh.Left = 12
+	cmdRefresh.Name = "cmdRefresh"
+	cmdRefresh.TabIndex = 2
+	cmdRefresh.Top = 179
 
 	ADD OBJECT 'lblLink' AS baselabel WITH ;
 		Anchor = 4, ;
@@ -352,7 +352,6 @@ DEFINE CLASS formruntool1 AS formruntool OF "thor_ui.vcx"
 
 	PROCEDURE lblLink.Click
 		*** DH 2018-04-10: new URL
-		*ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_Shell', 'http://vfpx.codeplex.com/wikipage?title=Thor%20Videos')
 		ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_Shell', 'https://github.com/VFPX/Thor/blob/master/Docs/Thor_videos.md')
 		
 	ENDPROC

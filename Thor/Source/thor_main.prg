@@ -3155,7 +3155,8 @@ try
 	loFiles = loShell.NameSpace(tcSource).Items
 	loShell.NameSpace(tcDestinationPath).CopyHere(loFiles)
 	lnResult = 1
-catch
+catch to loException
+	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Error extracting: ' + loException.Message)
 	lnResult = -1
 endtry
 

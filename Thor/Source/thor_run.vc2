@@ -354,7 +354,6 @@ DEFINE CLASS thor_run AS custom
 		
 				Case Upper (lcPRGName) = Upper ('Thor-Videos')
 		*** DH 2018-04-10: new URL
-		*			loContextMenu.AddMenuItem ('Thor Videos', [ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_Shell', 'http://vfpx.codeplex.com/wikipage?title=Thor%20Videos')])
 					loContextMenu.AddMenuItem ('Thor Videos', [ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_Shell', 'https://github.com/VFPX/Thor/blob/master/Docs/Thor_videos.md')])
 		
 				Case Upper (lcPRGName) = Upper (ccDEBUGMODE)
@@ -736,7 +735,11 @@ DEFINE CLASS thor_run AS custom
 		Do Case
 			Case Atc('Thor_', lcPrgName) = 1 
 				If PemStatus(_Screen, 'oThor', 5) = .F. or Vartype(_Screen.oThor) # 'O'
-					_Screen.AddProperty('oThor', Newobject ('oThor', 'Thor.vcx', lcThorApp, lcThorFolder))
+		*** DH 2021-12-28: added TRY structure to prevent an error after Thor.app is deleted while being being updated
+					try
+						_Screen.AddProperty('oThor', Newobject ('oThor', 'Thor.vcx', lcThorApp, lcThorFolder))
+					catch
+					endtry
 				EndIf 
 				Return ExecuteThorProc(lcPRGName, lcThorFolder, llThorInkey, .F., Pcount(), @lxP1, @lxP2, @lxP3, @lxP4, @lxP5, @lxP6, @lxP7, @lxP8, @lxP9, @lxP10)
 		
@@ -1109,13 +1112,11 @@ DEFINE CLASS thor_run AS custom
 		lxResult = lxResult + ccCR + ccLF + [lcFileName   |] + [<<ccFullPath>>] + [" + ToolName) &] + [& e.g., "Thor_Tool_GoFish4]
 		lxResult = lxResult + ccCR + ccLF + [Empty]
 		*** DH 2018-04-10: new URL
-		*lxResult = lxResult + ccCR + ccLF + [* ContextMenu home page = http://vfpx.codeplex.com/wikipage?title=Thor%20Framework%20ContextMenu]
 		lxResult = lxResult + ccCR + ccLF + [* ContextMenu home page = https://github.com/VFPX/Thor/blob/master/Docs/Thor_framework_contextmenu.md]
 		lxResult = lxResult + ccCR + ccLF + [Local loContextMenu as ContextMenu of <<lcQuote + tcFolder>>Source\Thor_Menu.vcx<<lcQuote>>]
 		lxResult = lxResult + ccCR + ccLF + [loContextMenu|] + [<<ccClass + ' ContextMenu'>>]
 		lxResult = lxResult + ccCR + ccLF + [Empty]
 		*** DH 2018-04-10: new URL
-		*lxResult = lxResult + ccCR + ccLF + [* ThorFormSettings home page = http://vfpx.codeplex.com/wikipage?title=Thor%20Framework%20FormSettings]
 		lxResult = lxResult + ccCR + ccLF + [* ThorFormSettings home page = https://github.com/VFPX/Thor/blob/master/Docs/Thor_framework_formsettings.md]
 		lxResult = lxResult + ccCR + ccLF + [Local loSettings as Thor_Form_Settings of <<lcQuote + tcFolder>>Source\Thor_FoxResource.vcx<<lcQuote>>]
 		lxResult = lxResult + ccCR + ccLF + [loSettings   |] + [<<ccClass + ' ThorFormSettings'>>]
@@ -1797,8 +1798,8 @@ DEFINE CLASS thor_toolbar AS toolbar
 	ENDPROC
 
 	PROCEDURE Init
-		*** 2018-04-10: new URL: https://github.com/VFPX/Thor/blob/master/Docs/Thor_framework_formsettings.md
-		* ThorFormSettings home page = http://vfpx.codeplex.com/wikipage?title=Thor%20Framework%20FormSettings
+		*** 2018-04-10: new URL
+		* ThorFormSettings home page = https://github.com/VFPX/Thor/blob/master/Docs/Thor_framework_formsettings.md
 		Local loSettings as Thor_Form_Settings of 'C:\VISUAL FOXPRO\PROGRAMS\9.0\COMMON\Thor\Source\Thor_FoxResource.vcx'
 		Set Talk Off 
 		loSettings    = ExecScript(_Screen.cThorDispatcher, "Class= ThorFormSettings", 'ThorToolBar')

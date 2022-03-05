@@ -1,8 +1,7 @@
-* 1.44
+* 1.45
 
-*** DH 2022-03-04: changed version information
-#Define cnVersion         1.44
-#Define cdVersionDate     March 4, 2022
-#Define	ccThorInternalVERSION     [Thor - 1.44 - March 4, 2022- 20220304]
-#Define	ccThorVERSION     [Thor - 1.44 - March 4, 2022]
+#Define cnVersion         1.45
+#Define cdVersionDate     March 5, 2022
+#Define	ccThorInternalVERSION     [Thor - 1.45 - March 5, 2022- 20220305]
+#Define	ccThorVERSION     [Thor - 1.45 - March 5, 2022]
 #Define	ccThorVERSIONFILE [ThorVersion.txt]

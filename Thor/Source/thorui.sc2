@@ -201,17 +201,6 @@ DEFINE CLASS frmthor AS baseform OF "basecontrols.vcx"
 		Left = 14, ;
 		Name = "oMenu", ;
 		Top = 11, ;
-		cmdAddMenu.Name = "cmdAddMenu", ;
-		cmdAddSeparator.Name = "cmdAddSeparator", ;
-		cmdAddSeparator.Top = 235, ;
-		cmdAddSubMenu.Name = "cmdAddSubMenu", ;
-		cmdAddSubMenu.Top = 235, ;
-		cmdAddTool.Name = "cmdAddTool", ;
-		oImageList.Height = 26, ;
-		oImageList.Left = 150, ;
-		oImageList.Name = "oImageList", ;
-		oImageList.Top = 0, ;
-		oImageList.Width = 36, ;
 		oTree.Height = 231, ;
 		oTree.Left = 0, ;
 		oTree.Name = "oTree", ;
@@ -283,7 +272,18 @@ DEFINE CLASS frmthor AS baseform OF "basecontrols.vcx"
 		pgfProperties.Height = 232, ;
 		pgfProperties.Left = 191, ;
 		pgfProperties.Name = "pgfProperties", ;
-		pgfProperties.Top = 3
+		pgfProperties.Top = 3, ;
+		cmdAddMenu.Name = "cmdAddMenu", ;
+		cmdAddTool.Name = "cmdAddTool", ;
+		cmdAddSubMenu.Name = "cmdAddSubMenu", ;
+		cmdAddSubMenu.Top = 235, ;
+		oImageList.Height = 26, ;
+		oImageList.Left = 150, ;
+		oImageList.Name = "oImageList", ;
+		oImageList.Top = 0, ;
+		oImageList.Width = 36, ;
+		cmdAddSeparator.Name = "cmdAddSeparator", ;
+		cmdAddSeparator.Top = 235
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 
 	ADD OBJECT 'pgfThor.Basepage2.Toolkeys1' AS toolkeys WITH ;
@@ -293,6 +293,29 @@ DEFINE CLASS frmthor AS baseform OF "basecontrols.vcx"
 		Top = 6, ;
 		CMDCREATETOOL.Name = "CMDCREATETOOL", ;
 		cmdOpenToolFolder.Name = "cmdOpenToolFolder", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT1.Name = "GRIPPERDOT1", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT1.SHAPEDARK.Name = "SHAPEDARK", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT1.SHAPELIGHT.Name = "SHAPELIGHT", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT1.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT2.Name = "GRIPPERDOT2", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT2.SHAPEDARK.Name = "SHAPEDARK", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT2.SHAPELIGHT.Name = "SHAPELIGHT", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT2.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT3.Name = "GRIPPERDOT3", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT3.SHAPEDARK.Name = "SHAPEDARK", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT3.SHAPELIGHT.Name = "SHAPELIGHT", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT3.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT4.Name = "GRIPPERDOT4", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT4.SHAPEDARK.Name = "SHAPEDARK", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT4.SHAPELIGHT.Name = "SHAPELIGHT", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT4.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT5.Name = "GRIPPERDOT5", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT5.SHAPEDARK.Name = "SHAPEDARK", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT5.SHAPELIGHT.Name = "SHAPELIGHT", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT5.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
+		THOR_SFSPLITTERH1.GRIPPER.Name = "GRIPPER", ;
+		THOR_SFSPLITTERH1.Name = "THOR_SFSPLITTERH1", ;
+		THOR_SFSPLITTERH1.Top = 0, ;
 		cntToolInfo.chkFavorite.Alignment = 0, ;
 		cntToolInfo.chkFavorite.Name = "chkFavorite", ;
 		cntToolInfo.chkStartup.Alignment = 0, ;
@@ -331,42 +354,13 @@ DEFINE CLASS frmthor AS baseform OF "basecontrols.vcx"
 		SELECTTOOLFORBROWSING1.oTree.Top = 30, ;
 		SELECTTOOLFORBROWSING1.oTree.Width = 265, ;
 		SELECTTOOLFORBROWSING1.Top = 0, ;
-		SELECTTOOLFORBROWSING1.txtcNewFilter.Name = "txtcNewFilter", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT1.Name = "GRIPPERDOT1", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT1.SHAPEDARK.Name = "SHAPEDARK", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT1.SHAPELIGHT.Name = "SHAPELIGHT", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT1.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT2.Name = "GRIPPERDOT2", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT2.SHAPEDARK.Name = "SHAPEDARK", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT2.SHAPELIGHT.Name = "SHAPELIGHT", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT2.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT3.Name = "GRIPPERDOT3", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT3.SHAPEDARK.Name = "SHAPEDARK", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT3.SHAPELIGHT.Name = "SHAPELIGHT", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT3.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT4.Name = "GRIPPERDOT4", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT4.SHAPEDARK.Name = "SHAPEDARK", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT4.SHAPELIGHT.Name = "SHAPELIGHT", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT4.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT5.Name = "GRIPPERDOT5", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT5.SHAPEDARK.Name = "SHAPEDARK", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT5.SHAPELIGHT.Name = "SHAPELIGHT", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT5.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
-		THOR_SFSPLITTERH1.GRIPPER.Name = "GRIPPER", ;
-		THOR_SFSPLITTERH1.Name = "THOR_SFSPLITTERH1", ;
-		THOR_SFSPLITTERH1.Top = 0
+		SELECTTOOLFORBROWSING1.txtcNewFilter.Name = "txtcNewFilter"
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 
 	ADD OBJECT 'pgfThor.Basepage3.Thoroptions1' AS thoroptions WITH ;
 		Left = 14, ;
 		Name = "Thoroptions1", ;
 		Top = 11, ;
-		cntDefault.CHKVALUE.Alignment = 0, ;
-		cntDefault.CHKVALUE.Name = "CHKVALUE", ;
-		cntDefault.EDTVALUE.Name = "EDTVALUE", ;
-		cntDefault.LBLVALUE.Name = "LBLVALUE", ;
-		cntDefault.Name = "cntDefault", ;
-		cntDefault.SPNVALUE.Name = "SPNVALUE", ;
 		cntNonDefault.Name = "cntNonDefault", ;
 		oList.Height = 260, ;
 		oList.Left = 0, ;
@@ -394,7 +388,13 @@ DEFINE CLASS frmthor AS baseform OF "basecontrols.vcx"
 		Thor_sfsplitterh1.GRIPPER.GRIPPERDOT5.SHAPELIGHT.Name = "SHAPELIGHT", ;
 		Thor_sfsplitterh1.GRIPPER.GRIPPERDOT5.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
 		Thor_sfsplitterh1.GRIPPER.Name = "GRIPPER", ;
-		Thor_sfsplitterh1.Name = "Thor_sfsplitterh1"
+		Thor_sfsplitterh1.Name = "Thor_sfsplitterh1", ;
+		cntDefault.CHKVALUE.Alignment = 0, ;
+		cntDefault.CHKVALUE.Name = "CHKVALUE", ;
+		cntDefault.EDTVALUE.Name = "EDTVALUE", ;
+		cntDefault.LBLVALUE.Name = "LBLVALUE", ;
+		cntDefault.Name = "cntDefault", ;
+		cntDefault.SPNVALUE.Name = "SPNVALUE"
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 
 	ADD OBJECT 'pgfThor.Basepage4.Hotkeylist1' AS hotkeylist WITH ;
@@ -403,8 +403,6 @@ DEFINE CLASS frmthor AS baseform OF "basecontrols.vcx"
 		Top = 2, ;
 		Visible = .T., ;
 		Width = 638, ;
-		cmdToClipboard.Name = "cmdToClipboard", ;
-		cmdToClipboard.Top = 234, ;
 		gridKeys.ColDescription.Header1.Name = "Header1", ;
 		gridKeys.ColDescription.Name = "ColDescription", ;
 		gridKeys.ColDescription.Text1.Name = "Text1", ;
@@ -418,7 +416,9 @@ DEFINE CLASS frmthor AS baseform OF "basecontrols.vcx"
 		gridKeys.Left = 6, ;
 		gridKeys.Name = "gridKeys", ;
 		gridKeys.Top = 6, ;
-		gridKeys.Width = 628
+		gridKeys.Width = 628, ;
+		cmdToClipboard.Name = "cmdToClipboard", ;
+		cmdToClipboard.Top = 234
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 
 	ADD OBJECT 'pgfThor.Basepage5.Startuptools1' AS startuptools WITH ;

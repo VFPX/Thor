@@ -258,6 +258,31 @@ DEFINE CLASS formruntool AS baseform OF "basecontrols.vcx"
 		cmdOpenToolFolder.Top = 273, ;
 		cmdOpenToolFolder.Visible = .F., ;
 		cmdOpenToolFolder.ZOrderSet = 2, ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT1.Name = "GRIPPERDOT1", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT1.SHAPEDARK.Name = "SHAPEDARK", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT1.SHAPELIGHT.Name = "SHAPELIGHT", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT1.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT2.Name = "GRIPPERDOT2", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT2.SHAPEDARK.Name = "SHAPEDARK", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT2.SHAPELIGHT.Name = "SHAPELIGHT", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT2.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT3.Name = "GRIPPERDOT3", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT3.SHAPEDARK.Name = "SHAPEDARK", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT3.SHAPELIGHT.Name = "SHAPELIGHT", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT3.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT4.Name = "GRIPPERDOT4", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT4.SHAPEDARK.Name = "SHAPEDARK", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT4.SHAPELIGHT.Name = "SHAPELIGHT", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT4.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT5.Name = "GRIPPERDOT5", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT5.SHAPEDARK.Name = "SHAPEDARK", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT5.SHAPELIGHT.Name = "SHAPELIGHT", ;
+		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT5.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
+		THOR_SFSPLITTERH1.GRIPPER.Name = "GRIPPER", ;
+		THOR_SFSPLITTERH1.Name = "THOR_SFSPLITTERH1", ;
+		THOR_SFSPLITTERH1.nobject1minsize = 100, ;
+		THOR_SFSPLITTERH1.nobject2minsize = 100, ;
+		THOR_SFSPLITTERH1.ZOrderSet = 3, ;
 		cntToolInfo.chkFavorite.Alignment = 0, ;
 		cntToolInfo.chkFavorite.Name = "chkFavorite", ;
 		cntToolInfo.chkStartup.Alignment = 0, ;
@@ -286,32 +311,7 @@ DEFINE CLASS formruntool AS baseform OF "basecontrols.vcx"
 		cntToolInfo.oToolInfo.Name = "oToolInfo", ;
 		cntToolInfo.oToolInfo.Width = 340, ;
 		cntToolInfo.Top = 0, ;
-		cntToolInfo.ZOrderSet = 0, ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT1.Name = "GRIPPERDOT1", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT1.SHAPEDARK.Name = "SHAPEDARK", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT1.SHAPELIGHT.Name = "SHAPELIGHT", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT1.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT2.Name = "GRIPPERDOT2", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT2.SHAPEDARK.Name = "SHAPEDARK", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT2.SHAPELIGHT.Name = "SHAPELIGHT", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT2.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT3.Name = "GRIPPERDOT3", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT3.SHAPEDARK.Name = "SHAPEDARK", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT3.SHAPELIGHT.Name = "SHAPELIGHT", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT3.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT4.Name = "GRIPPERDOT4", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT4.SHAPEDARK.Name = "SHAPEDARK", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT4.SHAPELIGHT.Name = "SHAPELIGHT", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT4.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT5.Name = "GRIPPERDOT5", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT5.SHAPEDARK.Name = "SHAPEDARK", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT5.SHAPELIGHT.Name = "SHAPELIGHT", ;
-		THOR_SFSPLITTERH1.GRIPPER.GRIPPERDOT5.SHAPEMIDDLE.Name = "SHAPEMIDDLE", ;
-		THOR_SFSPLITTERH1.GRIPPER.Name = "GRIPPER", ;
-		THOR_SFSPLITTERH1.Name = "THOR_SFSPLITTERH1", ;
-		THOR_SFSPLITTERH1.nobject1minsize = 100, ;
-		THOR_SFSPLITTERH1.nobject2minsize = 100, ;
-		THOR_SFSPLITTERH1.ZOrderSet = 3
+		cntToolInfo.ZOrderSet = 0
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 
 	ADD OBJECT 'Toolkeys1.cntFrame' AS basecontainer WITH ;
@@ -378,6 +378,9 @@ DEFINE CLASS formruntool AS baseform OF "basecontrols.vcx"
 		Top = 0, ;
 		Visible = .T., ;
 		Width = 265, ;
+		txtcNewFilter.Name = "txtcNewFilter", ;
+		txtcNewFilter.TabIndex = 1, ;
+		txtcNewFilter.Width = 193, ;
 		Baselabel1.Left = 7, ;
 		Baselabel1.Name = "Baselabel1", ;
 		Baselabel1.TabIndex = 3, ;
@@ -387,10 +390,7 @@ DEFINE CLASS formruntool AS baseform OF "basecontrols.vcx"
 		oTree.Name = "oTree", ;
 		oTree.TabIndex = 2, ;
 		oTree.Top = 48, ;
-		oTree.Width = 261, ;
-		txtcNewFilter.Name = "txtcNewFilter", ;
-		txtcNewFilter.TabIndex = 1, ;
-		txtcNewFilter.Width = 193
+		oTree.Width = 261
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 
 	ADD OBJECT 'Toolkeys1.cntFrame.Frame.basepage1.Selecttoolforlauncher1.Basecheckbox2' AS basecheckbox WITH ;
@@ -433,6 +433,9 @@ DEFINE CLASS formruntool AS baseform OF "basecontrols.vcx"
 		Top = 0, ;
 		Visible = .T., ;
 		Width = 265, ;
+		txtcNewFilter.Name = "txtcNewFilter", ;
+		txtcNewFilter.TabIndex = 1, ;
+		txtcNewFilter.Width = 193, ;
 		Baselabel1.Left = 7, ;
 		Baselabel1.Name = "Baselabel1", ;
 		Baselabel1.TabIndex = 3, ;
@@ -442,10 +445,7 @@ DEFINE CLASS formruntool AS baseform OF "basecontrols.vcx"
 		oTree.Name = "oTree", ;
 		oTree.TabIndex = 2, ;
 		oTree.Top = 48, ;
-		oTree.Width = 261, ;
-		txtcNewFilter.Name = "txtcNewFilter", ;
-		txtcNewFilter.TabIndex = 1, ;
-		txtcNewFilter.Width = 193
+		oTree.Width = 261
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 
 	ADD OBJECT 'Toolkeys1.cntFrame.Frame.Basepage3.Selecttoolforlauncher1.Basecheckbox2' AS basecheckbox WITH ;
@@ -2501,10 +2501,10 @@ DEFINE CLASS menus AS basecontainer OF "basecontrols.vcx"
 		Name = "oHotKeyControls", ;
 		TabIndex = 5, ;
 		Top = 98, ;
-		cmdClear.Name = "cmdClear", ;
 		cmdGetHotKey.Name = "cmdGetHotKey", ;
 		lblHotKey.Name = "lblHotKey", ;
-		txtHotKey.Name = "txtHotKey"
+		txtHotKey.Name = "txtHotKey", ;
+		cmdClear.Name = "cmdClear"
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 
 	ADD OBJECT 'pgfProperties.Basepage1.txtPrompt' AS basetextbox WITH ;
@@ -2629,10 +2629,10 @@ DEFINE CLASS menus AS basecontainer OF "basecontrols.vcx"
 		TabIndex = 5, ;
 		Top = 138, ;
 		ZOrderSet = 11, ;
-		cmdClear.Name = "cmdClear", ;
 		cmdGetHotKey.Name = "cmdGetHotKey", ;
 		lblHotKey.Name = "lblHotKey", ;
-		txtHotKey.Name = "txtHotKey"
+		txtHotKey.Name = "txtHotKey", ;
+		cmdClear.Name = "cmdClear"
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 
 	ADD OBJECT 'pgfProperties.Basepage2.oToolInfo' AS toolinfo WITH ;
@@ -2667,24 +2667,14 @@ DEFINE CLASS menus AS basecontainer OF "basecontrols.vcx"
 		Top = 0, ;
 		Width = 424, ;
 		ZOrderSet = 0, ;
-		Baselabel1.Name = "Baselabel1", ;
 		cboCombo.Left = 69, ;
 		cboCombo.Name = "cboCombo", ;
 		cboCombo.Top = 0, ;
 		cboCombo.Width = 355, ;
 		cboCombo.ZOrderSet = 0, ;
-		cmdApply.Left = 325, ;
-		cmdApply.Name = "cmdApply", ;
-		cmdClear.Left = 380, ;
-		cmdClear.Name = "cmdClear", ;
 		lblPrompt1.Left = 3, ;
 		lblPrompt1.Name = "lblPrompt1", ;
-		oImageList.Height = 100, ;
-		oImageList.Left = 120, ;
-		oImageList.Name = "oImageList", ;
-		oImageList.Top = 40, ;
-		oImageList.Width = 100, ;
-		oImageList.ZOrderSet = 3, ;
+		Baselabel1.Name = "Baselabel1", ;
 		oTree.Height = 174, ;
 		oTree.Left = 5, ;
 		oTree.Name = "oTree", ;
@@ -2692,8 +2682,18 @@ DEFINE CLASS menus AS basecontainer OF "basecontrols.vcx"
 		oTree.Width = 166, ;
 		shpTreeView.Name = "shpTreeView", ;
 		shpTreeView.ZOrderSet = 2, ;
+		oImageList.Height = 100, ;
+		oImageList.Left = 120, ;
+		oImageList.Name = "oImageList", ;
+		oImageList.Top = 40, ;
+		oImageList.Width = 100, ;
+		oImageList.ZOrderSet = 3, ;
 		txtcNewFilter.Name = "txtcNewFilter", ;
-		txtcNewFilter.Width = 246
+		txtcNewFilter.Width = 246, ;
+		cmdApply.Left = 325, ;
+		cmdApply.Name = "cmdApply", ;
+		cmdClear.Left = 380, ;
+		cmdClear.Name = "cmdClear"
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 	
 	PROCEDURE addmenu		&& Adds a menu
@@ -4230,14 +4230,14 @@ DEFINE CLASS presskeypromptokl AS presskeyprompt OF "thor_ui.vcx"
 	Name = "presskeypromptokl"
 	Top = 0
 	Width = 200
+	lblPress.Name = "lblPress"
+	lblPress.Top = 16
+	lblEsc.Name = "lblEsc"
+	lblEsc.Top = 40
 	Baselabel1.Name = "Baselabel1"
 	Baselabel2.Caption = "For this tool, you may use only one of [Shift], [Ctrl] or [Alt]"
 	Baselabel2.ForeColor = 255,0,0
 	Baselabel2.Name = "Baselabel2"
-	lblEsc.Name = "lblEsc"
-	lblEsc.Top = 40
-	lblPress.Name = "lblPress"
-	lblPress.Top = 16
 
 ENDDEFINE
 
@@ -4278,12 +4278,6 @@ DEFINE CLASS selecttool AS sfcombotree OF "thor_sfcombotree.vcx"
 	cboCombo.Top = 0
 	cboCombo.Width = 176
 	cboCombo.ZOrderSet = 0
-	oImageList.Height = 100
-	oImageList.Left = 120
-	oImageList.Name = "oImageList"
-	oImageList.Top = 84
-	oImageList.Width = 100
-	oImageList.ZOrderSet = 5
 	oTree.Height = 174
 	oTree.Left = 5
 	oTree.Name = "oTree"
@@ -4294,6 +4288,12 @@ DEFINE CLASS selecttool AS sfcombotree OF "thor_sfcombotree.vcx"
 	shpTreeView.Name = "shpTreeView"
 	shpTreeView.Top = 69
 	shpTreeView.ZOrderSet = 4
+	oImageList.Height = 100
+	oImageList.Left = 120
+	oImageList.Name = "oImageList"
+	oImageList.Top = 84
+	oImageList.Width = 100
+	oImageList.ZOrderSet = 5
 
 	ADD OBJECT 'Baselabel1' AS baselabel WITH ;
 		Caption = "Filter", ;
@@ -4840,6 +4840,10 @@ DEFINE CLASS selecttoolforlauncher AS selecttoolforbrowsing OF "thor_ui.vcx"
 	Height = 172
 	Name = "selecttoolforlauncher"
 	Width = 200
+	txtcNewFilter.Left = 40
+	txtcNewFilter.Name = "txtcNewFilter"
+	txtcNewFilter.Top = 3
+	txtcNewFilter.Width = 129
 	Baselabel1.Left = 3
 	Baselabel1.Name = "Baselabel1"
 	Baselabel1.Top = 7
@@ -4848,10 +4852,6 @@ DEFINE CLASS selecttoolforlauncher AS selecttoolforbrowsing OF "thor_ui.vcx"
 	oTree.Name = "oTree"
 	oTree.Top = 28
 	oTree.Width = 197
-	txtcNewFilter.Left = 40
-	txtcNewFilter.Name = "txtcNewFilter"
-	txtcNewFilter.Top = 3
-	txtcNewFilter.Width = 129
 	
 	PROCEDURE Baselabel1.RightClick
 		Thisform.ResetAllDefaults()
@@ -4903,23 +4903,23 @@ DEFINE CLASS selecttoolformenus AS selecttool OF "thor_ui.vcx"
  	*< CLASSDATA: Baseclass="container" Timestamp="" Scale="Pixels" Uniqueid="" />
 
 	Name = "selecttoolformenus"
-	Baselabel1.Name = "Baselabel1"
 	cboCombo.Name = "cboCombo"
-	cmdApply.Name = "cmdApply"
-	cmdClear.Name = "cmdClear"
+	Baselabel1.Name = "Baselabel1"
 	lblPrompt1.Name = "lblPrompt1"
-	oImageList.Height = 100
-	oImageList.Left = 120
-	oImageList.Name = "oImageList"
-	oImageList.Top = 84
-	oImageList.Width = 100
 	oTree.Height = 174
 	oTree.Left = 5
 	oTree.Name = "oTree"
 	oTree.Top = 73
 	oTree.Width = 166
 	shpTreeView.Name = "shpTreeView"
+	oImageList.Height = 100
+	oImageList.Left = 120
+	oImageList.Name = "oImageList"
+	oImageList.Top = 84
+	oImageList.Width = 100
 	txtcNewFilter.Name = "txtcNewFilter"
+	cmdApply.Name = "cmdApply"
+	cmdClear.Name = "cmdClear"
 	
 	PROCEDURE itemselected
 		* When the user selects a tool, update the tables; we need to reload the
@@ -4978,10 +4978,10 @@ DEFINE CLASS sethotkeyform AS baseform OF "basecontrols.vcx"
 		Left = 0, ;
 		Name = "Hotkeycontrols1", ;
 		Top = 0, ;
-		cmdClear.Name = "cmdClear", ;
 		cmdGetHotKey.Name = "cmdGetHotKey", ;
 		lblHotKey.Name = "lblHotKey", ;
-		txtHotKey.Name = "txtHotKey"
+		txtHotKey.Name = "txtHotKey", ;
+		cmdClear.Name = "cmdClear"
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 	
 	PROCEDURE executecommand
@@ -5341,10 +5341,10 @@ DEFINE CLASS thorhotkey AS basecontainer OF "basecontrols.vcx"
 		Name = "Thorhotkeysource1", ;
 		Top = 6, ;
 		Visible = .T., ;
-		cmdClear.Name = "cmdClear", ;
 		cmdGetHotKey.Name = "cmdGetHotKey", ;
 		lblHotKey.Name = "lblHotKey", ;
-		txtHotKey.Name = "txtHotKey"
+		txtHotKey.Name = "txtHotKey", ;
+		cmdClear.Name = "cmdClear"
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 
 ENDDEFINE
@@ -5355,10 +5355,10 @@ DEFINE CLASS thorhotkeysource AS hotkeycontrols OF "thor_ui.vcx"
 	#INCLUDE "thor_ui.h"
 	Name = "thorhotkeysource"
 	Style = 0
-	cmdClear.Name = "cmdClear"
 	cmdGetHotKey.Name = "cmdGetHotKey"
 	lblHotKey.Name = "lblHotKey"
 	txtHotKey.Name = "txtHotKey"
+	cmdClear.Name = "cmdClear"
 	
 	PROCEDURE clearhotkey
 		*==============================================================================
@@ -6564,25 +6564,6 @@ DEFINE CLASS toolkeys AS toolkeysbase OF "thor_ui.vcx"
 	Name = "toolkeys"
 	cmdCreateTool.Name = "cmdCreateTool"
 	cmdOpenToolFolder.Name = "cmdOpenToolFolder"
-	cntToolInfo.chkStartup.Alignment = 0
-	cntToolInfo.chkStartup.Name = "chkStartup"
-	cntToolInfo.cmdEditTool.Name = "cmdEditTool"
-	cntToolInfo.cmdRemoveTool.Name = "cmdRemoveTool"
-	cntToolInfo.Edittoolbutton1.Name = "Edittoolbutton1"
-	cntToolInfo.Left = 278
-	cntToolInfo.Name = "cntToolInfo"
-	cntToolInfo.oHotKeyControls.cmdClear.Name = "cmdClear"
-	cntToolInfo.oHotKeyControls.cmdGetHotKey.Name = "cmdGetHotKey"
-	cntToolInfo.oHotKeyControls.lblHotKey.Name = "lblHotKey"
-	cntToolInfo.oHotKeyControls.Name = "oHotKeyControls"
-	cntToolInfo.oHotKeyControls.txtHotKey.Name = "txtHotKey"
-	cntToolInfo.oToolInfo.edtToolInfo.Name = "edtToolInfo"
-	cntToolInfo.oToolInfo.lblLink.Name = "lblLink"
-	cntToolInfo.oToolInfo.lblOptions.Name = "lblOptions"
-	cntToolInfo.oToolInfo.lblVideo.Name = "lblVideo"
-	cntToolInfo.oToolInfo.Name = "oToolInfo"
-	cntToolInfo.Top = 0
-	cntToolInfo.Width = 351
 	Thor_sfsplitterh1.gripper.GripperDot1.Name = "GripperDot1"
 	Thor_sfsplitterh1.gripper.GripperDot1.ShapeDark.Name = "ShapeDark"
 	Thor_sfsplitterh1.gripper.GripperDot1.ShapeLight.Name = "ShapeLight"
@@ -6609,6 +6590,25 @@ DEFINE CLASS toolkeys AS toolkeysbase OF "thor_ui.vcx"
 	Thor_sfsplitterh1.Name = "Thor_sfsplitterh1"
 	Thor_sfsplitterh1.Top = 1
 	Thor_sfsplitterh1.Width = 10
+	cntToolInfo.chkStartup.Alignment = 0
+	cntToolInfo.chkStartup.Name = "chkStartup"
+	cntToolInfo.cmdEditTool.Name = "cmdEditTool"
+	cntToolInfo.cmdRemoveTool.Name = "cmdRemoveTool"
+	cntToolInfo.Edittoolbutton1.Name = "Edittoolbutton1"
+	cntToolInfo.Left = 278
+	cntToolInfo.Name = "cntToolInfo"
+	cntToolInfo.oHotKeyControls.cmdClear.Name = "cmdClear"
+	cntToolInfo.oHotKeyControls.cmdGetHotKey.Name = "cmdGetHotKey"
+	cntToolInfo.oHotKeyControls.lblHotKey.Name = "lblHotKey"
+	cntToolInfo.oHotKeyControls.Name = "oHotKeyControls"
+	cntToolInfo.oHotKeyControls.txtHotKey.Name = "txtHotKey"
+	cntToolInfo.oToolInfo.edtToolInfo.Name = "edtToolInfo"
+	cntToolInfo.oToolInfo.lblLink.Name = "lblLink"
+	cntToolInfo.oToolInfo.lblOptions.Name = "lblOptions"
+	cntToolInfo.oToolInfo.lblVideo.Name = "lblVideo"
+	cntToolInfo.oToolInfo.Name = "oToolInfo"
+	cntToolInfo.Top = 0
+	cntToolInfo.Width = 351
 
 	ADD OBJECT 'SELECTTOOLFORBROWSING1' AS selecttoolforbrowsing WITH ;
 		Height = 231, ;
@@ -6616,6 +6616,11 @@ DEFINE CLASS toolkeys AS toolkeysbase OF "thor_ui.vcx"
 		Name = "SELECTTOOLFORBROWSING1", ;
 		Top = 0, ;
 		Width = 268, ;
+		txtcNewFilter.Height = 22, ;
+		txtcNewFilter.Left = 40, ;
+		txtcNewFilter.Name = "txtcNewFilter", ;
+		txtcNewFilter.Top = 1, ;
+		txtcNewFilter.Width = 118, ;
 		Baselabel1.Left = 3, ;
 		Baselabel1.Name = "Baselabel1", ;
 		Baselabel1.Top = 5, ;
@@ -6623,12 +6628,7 @@ DEFINE CLASS toolkeys AS toolkeysbase OF "thor_ui.vcx"
 		oTree.Left = 1, ;
 		oTree.Name = "oTree", ;
 		oTree.Top = 30, ;
-		oTree.Width = 265, ;
-		txtcNewFilter.Height = 22, ;
-		txtcNewFilter.Left = 40, ;
-		txtcNewFilter.Name = "txtcNewFilter", ;
-		txtcNewFilter.Top = 1, ;
-		txtcNewFilter.Width = 118
+		oTree.Width = 265
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 
 ENDDEFINE
@@ -6784,10 +6784,10 @@ DEFINE CLASS toolkeysbase AS basecontainer OF "basecontrols.vcx"
 		Name = "oHotKeyControls", ;
 		TabIndex = 3, ;
 		Top = 1, ;
-		cmdClear.Name = "cmdClear", ;
 		cmdGetHotKey.Name = "cmdGetHotKey", ;
 		lblHotKey.Name = "lblHotKey", ;
-		txtHotKey.Name = "txtHotKey"
+		txtHotKey.Name = "txtHotKey", ;
+		cmdClear.Name = "cmdClear"
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 
 	ADD OBJECT 'cntToolInfo.oToolInfo' AS toolinfo WITH ;
@@ -6812,12 +6812,12 @@ DEFINE CLASS toolkeysbase AS basecontainer OF "basecontrols.vcx"
 		edtToolInfo.Width = 343, ;
 		lblLink.Name = "lblLink", ;
 		lblLink.Top = 161, ;
+		lblVideo.Name = "lblVideo", ;
+		lblVideo.Top = 161, ;
 		lblOptions.Name = "lblOptions", ;
 		lblOptions.Top = 161, ;
 		lblPlugIns.Name = "lblPlugIns", ;
-		lblPlugIns.Top = 161, ;
-		lblVideo.Name = "lblVideo", ;
-		lblVideo.Top = 161
+		lblPlugIns.Top = 161
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 
 	ADD OBJECT 'Thor_sfsplitterh1' AS thor_sfsplitterh WITH ;
@@ -6866,8 +6866,8 @@ DEFINE CLASS toolkeysbase AS basecontainer OF "basecontrols.vcx"
 		#Define ccKey 	'Thor ToolBar Path'
 		
 		
-		*** DH 2018-04-01: new URL: https://github.com/VFPX/Thor/blob/master/Docs/Thor_framework_contextmenu.md
-		* ContextMenu home page = http://vfpx.codeplex.com/wikipage?title=Thor%20Framework%20ContextMenu
+		*** DH 2018-04-01: new URL
+		* ContextMenu home page = https://github.com/VFPX/Thor/blob/master/Docs/Thor_framework_contextmenu.md
 		Local loContextMenu As ContextMenu Of 'C:\VISUAL FOXPRO\PROGRAMS\9.0\COMMON\Thor\Source\Thor_Menu.vcx'
 		Local lcCaption, lcCurdir, lcNewMethodName, lcPRGName, lcPath, lcPicture, loException, loForm
 		Local lxValue
@@ -7347,8 +7347,8 @@ DEFINE CLASS toolkeysbase AS basecontainer OF "basecontrols.vcx"
 	ENDPROC
 
 	PROCEDURE cntToolInfo.cmdEditTool.RightClick
-		*** DH 2018-04-01: new URL: https://github.com/VFPX/Thor/blob/master/Docs/Thor_tools_object.md
-		* tools home page = http://vfpx.codeplex.com/wikipage?title=thor%20tools%20object
+		*** DH 2018-04-01: new URL
+		* tools home page = https://github.com/VFPX/Thor/blob/master/Docs/Thor_tools_object.md
 		Local loTools
 		loTools = Execscript (_Screen.cThorDispatcher, 'Class= tools from pemeditor')
 		loTools.EditSourceX (This.cPRGName)
@@ -7404,8 +7404,8 @@ DEFINE CLASS toolkeysbase AS basecontainer OF "basecontrols.vcx"
 		#Define ccKey 	'Thor ToolBar Path'
 		
 		
-		*** DH 2018-04-10: new URL: https://github.com/VFPX/Thor/blob/master/Docs/Thor_framework_contextmenu.md
-		* ContextMenu home page = http://vfpx.codeplex.com/wikipage?title=Thor%20Framework%20ContextMenu
+		*** DH 2018-04-10: new URL
+		* ContextMenu home page = https://github.com/VFPX/Thor/blob/master/Docs/Thor_framework_contextmenu.md
 		Local loContextMenu As ContextMenu Of 'C:\VISUAL FOXPRO\PROGRAMS\9.0\COMMON\Thor\Source\Thor_Menu.vcx'
 		Local lcCaption, lcCurdir, lcNewMethodName, lcPRGName, lcPath, lcPicture, loException, loForm
 		Local lxValue
@@ -7720,10 +7720,10 @@ DEFINE CLASS toolkeysold AS basecontainer OF "basecontrols.vcx"
 		Name = "oHotKeyControls", ;
 		TabIndex = 3, ;
 		Top = 1, ;
-		cmdClear.Name = "cmdClear", ;
 		cmdGetHotKey.Name = "cmdGetHotKey", ;
 		lblHotKey.Name = "lblHotKey", ;
-		txtHotKey.Name = "txtHotKey"
+		txtHotKey.Name = "txtHotKey", ;
+		cmdClear.Name = "cmdClear"
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 
 	ADD OBJECT 'cntToolInfo.oToolInfo' AS toolinfo WITH ;
@@ -7750,11 +7750,11 @@ DEFINE CLASS toolkeysold AS basecontainer OF "basecontrols.vcx"
 		lblLink.Left = 0, ;
 		lblLink.Name = "lblLink", ;
 		lblLink.Top = 161, ;
-		lblOptions.Name = "lblOptions", ;
-		lblPlugIns.Name = "lblPlugIns", ;
 		lblVideo.Left = 215, ;
 		lblVideo.Name = "lblVideo", ;
-		lblVideo.Top = 161
+		lblVideo.Top = 161, ;
+		lblOptions.Name = "lblOptions", ;
+		lblPlugIns.Name = "lblPlugIns"
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 
 	ADD OBJECT 'SELECTTOOLFORBROWSING1' AS selecttoolforbrowsing WITH ;
@@ -7763,6 +7763,11 @@ DEFINE CLASS toolkeysold AS basecontainer OF "basecontrols.vcx"
 		Name = "SELECTTOOLFORBROWSING1", ;
 		Top = 0, ;
 		Width = 268, ;
+		txtcNewFilter.Height = 22, ;
+		txtcNewFilter.Left = 40, ;
+		txtcNewFilter.Name = "txtcNewFilter", ;
+		txtcNewFilter.Top = 1, ;
+		txtcNewFilter.Width = 118, ;
 		Baselabel1.Left = 3, ;
 		Baselabel1.Name = "Baselabel1", ;
 		Baselabel1.Top = 5, ;
@@ -7770,12 +7775,7 @@ DEFINE CLASS toolkeysold AS basecontainer OF "basecontrols.vcx"
 		oTree.Left = 1, ;
 		oTree.Name = "oTree", ;
 		oTree.Top = 30, ;
-		oTree.Width = 265, ;
-		txtcNewFilter.Height = 22, ;
-		txtcNewFilter.Left = 40, ;
-		txtcNewFilter.Name = "txtcNewFilter", ;
-		txtcNewFilter.Top = 1, ;
-		txtcNewFilter.Width = 118
+		oTree.Width = 265
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 
 	ADD OBJECT 'Thor_sfsplitterh1' AS thor_sfsplitterh WITH ;
@@ -8082,8 +8082,8 @@ DEFINE CLASS toolkeysold AS basecontainer OF "basecontrols.vcx"
 	ENDPROC
 
 	PROCEDURE cntToolInfo.cmdEditTool.RightClick
-		*** DH 2018-04-01: new URL: https://github.com/VFPX/Thor/blob/master/Docs/Thor_tools_object.md
-		* tools home page = http://vfpx.codeplex.com/wikipage?title=thor%20tools%20object
+		*** DH 2018-04-01: new URL
+		* tools home page = https://github.com/VFPX/Thor/blob/master/Docs/Thor_tools_object.md
 		Local loTools
 		loTools = Execscript (_Screen.cThorDispatcher, 'Class= tools from pemeditor')
 		loTools.EditSourceX (This.cPRGName)

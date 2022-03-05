@@ -1,7 +1,7 @@
 ![](Docs/Images/Thor.png)  
 ## Tool manager for FoxPro
 
-Version 1.44 Released 2022-03-04
+Version 1.45 Released 2022-03-05
 
 [What's new in this release](#WhatsNew)
 
@@ -78,6 +78,10 @@ Two new menu pads in VFP system menu (Thor and personal menu JRN) and the menu o
 ![](Docs/Images/Thor_image_4.png)
 
 ## <a name="WhatsNew">What's New</a>
+
+### Thor 1.45 - Release 2022-03-05
+
+Updated the Check for Updates process to log unzipping failure.
 
 ### Thor 1.44 - Release 2022-03-04
 

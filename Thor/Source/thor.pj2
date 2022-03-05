@@ -33,7 +33,6 @@ _AutoIncrement = "0"
 
 
 *<BuildProj>
-*<.HomeDir = 'c:\users\dhennig\desktop\thor\thor\source' />
 
 FOR EACH loProject IN _VFP.Projects FOXOBJECT
 	loProject.Close()
@@ -50,48 +49,49 @@ MODIFY PROJECT 'thor.pjx' NOWAIT NOSHOW NOPROJECTHOOK
 loProject = _VFP.Projects('thor.pjx')
 
 WITH loProject.FILES
-	.ADD('..\..\..\..\..\..\..\program files (x86)\microsoft visual foxpro 9\foxtools.fll')		&& *< FileMetadata: Type="L" Cpid="0" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('basecontrols.vcx')		&& *< FileMetadata: Type="V" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('createtool.scx')		&& *< FileMetadata: Type="K" Cpid="0" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('down.bmp')		&& *< FileMetadata: Type="x" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('filtertool.prg')		&& *< FileMetadata: Type="P" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('foxresource.prg')		&& *< FileMetadata: Type="P" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('hotkeys.dbf')		&& *< FileMetadata: Type="D" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('lockwindow.prg')		&& *< FileMetadata: Type="P" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('menus.ico')		&& *< FileMetadata: Type="x" Cpid="0" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('peme_foxresource.vcx')		&& *< FileMetadata: Type="V" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('peme_winapisupport.prg')		&& *< FileMetadata: Type="P" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('popup.ico')		&& *< FileMetadata: Type="x" Cpid="0" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('programs.ico')		&& *< FileMetadata: Type="x" Cpid="0" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('quotesaroundlongtext.prg')		&& *< FileMetadata: Type="P" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('refhelp.bmp')		&& *< FileMetadata: Type="x" Cpid="0" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('refresh2.bmp')		&& *< FileMetadata: Type="x" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('tables\hotkeydefinitions.dbf')		&& *< FileMetadata: Type="D" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('tables\menudefinitions.dbf')		&& *< FileMetadata: Type="D" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('tables\menutools.dbf')		&& *< FileMetadata: Type="D" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('tables\thor.dbf')		&& *< FileMetadata: Type="D" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('tables\toolhotkeyassignments.dbf')		&& *< FileMetadata: Type="D" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('thor.h')		&& *< FileMetadata: Type="T" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('thor.ico')		&& *< FileMetadata: Type="x" Cpid="0" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('thor.vcx')		&& *< FileMetadata: Type="V" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('thor16.ico')		&& *< FileMetadata: Type="x" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('thor16.png')		&& *< FileMetadata: Type="x" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('thor_english.h')		&& *< FileMetadata: Type="T" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('thor_foxresource.vcx')		&& *< FileMetadata: Type="V" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('thor_left_arrow.bmp')		&& *< FileMetadata: Type="x" Cpid="0" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('thor_main.prg')		&& *< FileMetadata: Type="P" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="BQAJAHRob3JfdWkuaLby0FxMTQYAdGhvci5ovvPQXExNSAAuLlwuLlwuLlwuLlwuLlwuLlxwcm9ncmFtIGZpbGVzICh4ODYpXG1pY3Jvc29mdCB2aXN1YWwgZm94cHJvIDlcZm94cHJvLmjG9AuKiTEOAHRob3JfZW5nbGlzaC5ozvXQXExNDQB0aG9ydmVyc2lvbi5o1vbQXExN" />
-	.ADD('thor_menu.vcx')		&& *< FileMetadata: Type="V" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('thor_right_arrow.bmp')		&& *< FileMetadata: Type="x" Cpid="0" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('thor_run.vcx')		&& *< FileMetadata: Type="V" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('thor_sf_splitter.vcx')		&& *< FileMetadata: Type="V" Cpid="0" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('thor_sfcombotree.vcx')		&& *< FileMetadata: Type="V" Cpid="0" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('thor_starting_prgs.dbf')		&& *< FileMetadata: Type="D" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('thor_ui.h')		&& *< FileMetadata: Type="T" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
-	.ADD('thor_ui.vcx')		&& *< FileMetadata: Type="V" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('thor_utils.vcx')		&& *< FileMetadata: Type="V" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('thorformruntool.scx')		&& *< FileMetadata: Type="K" Cpid="0" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('thorui.scx')		&& *< FileMetadata: Type="K" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" DevInfo="" />
-	.ADD('up.bmp')		&& *< FileMetadata: Type="x" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" DevInfo="" />
+	.ADD('..\..\..\..\..\..\program files (x86)\microsoft visual foxpro 9\foxtools.fll')		&& *< FileMetadata: Type="L" Cpid="0" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('basecontrols.vcx')		&& *< FileMetadata: Type="V" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('createtool.scx')		&& *< FileMetadata: Type="K" Cpid="0" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('down.bmp')		&& *< FileMetadata: Type="x" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('filtertool.prg')		&& *< FileMetadata: Type="P" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('foxresource.prg')		&& *< FileMetadata: Type="P" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('hotkeys.dbf')		&& *< FileMetadata: Type="D" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('lockwindow.prg')		&& *< FileMetadata: Type="P" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('menus.ico')		&& *< FileMetadata: Type="x" Cpid="0" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('peme_foxresource.vcx')		&& *< FileMetadata: Type="V" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('peme_winapisupport.prg')		&& *< FileMetadata: Type="P" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('popup.ico')		&& *< FileMetadata: Type="x" Cpid="0" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('programs.ico')		&& *< FileMetadata: Type="x" Cpid="0" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('quotesaroundlongtext.prg')		&& *< FileMetadata: Type="P" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('refhelp.bmp')		&& *< FileMetadata: Type="x" Cpid="0" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('refresh2.bmp')		&& *< FileMetadata: Type="x" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('tables\hotkeydefinitions.dbf')		&& *< FileMetadata: Type="D" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('tables\menudefinitions.dbf')		&& *< FileMetadata: Type="D" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('tables\menutools.dbf')		&& *< FileMetadata: Type="D" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('tables\thor.dbf')		&& *< FileMetadata: Type="D" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('tables\toolhotkeyassignments.dbf')		&& *< FileMetadata: Type="D" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('thor.h')		&& *< FileMetadata: Type="T" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('thor.ico')		&& *< FileMetadata: Type="x" Cpid="0" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('thor.vcx')		&& *< FileMetadata: Type="V" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('thor16.ico')		&& *< FileMetadata: Type="x" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('thor16.png')		&& *< FileMetadata: Type="x" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('thor_english.h')		&& *< FileMetadata: Type="T" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('thor_foxresource.vcx')		&& *< FileMetadata: Type="V" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('thor_left_arrow.bmp')		&& *< FileMetadata: Type="x" Cpid="0" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('thor_main.prg')		&& *< FileMetadata: Type="P" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('thor_menu.vcx')		&& *< FileMetadata: Type="V" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('thor_right_arrow.bmp')		&& *< FileMetadata: Type="x" Cpid="0" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('thor_run.vcx')		&& *< FileMetadata: Type="V" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('thor_sf_splitter.vcx')		&& *< FileMetadata: Type="V" Cpid="0" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('thor_sfcombotree.vcx')		&& *< FileMetadata: Type="V" Cpid="0" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('thor_starting_prgs.dbf')		&& *< FileMetadata: Type="D" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('thor_ui.h')		&& *< FileMetadata: Type="T" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('thor_ui.vcx')		&& *< FileMetadata: Type="V" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('thor_utils.vcx')		&& *< FileMetadata: Type="V" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('thorformruntool.scx')		&& *< FileMetadata: Type="K" Cpid="0" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('thorui.scx')		&& *< FileMetadata: Type="K" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" />
+	.ADD('thorversion.h')		&& *< FileMetadata: Type="T" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" />
+	.ADD('up.bmp')		&& *< FileMetadata: Type="x" Cpid="1252" Timestamp="0" ID="0" ObjRev="0" User="" />
 	*</BuildProj>
 
 	.ITEM('__newproject.f2b').Remove()
@@ -100,7 +100,7 @@ WITH loProject.FILES
 	*</FileComments>
 
 	*<ExcludedFiles>
-	.ITEM(lcCurdir + '..\..\..\..\..\..\..\program files (x86)\microsoft visual foxpro 9\foxtools.fll').Exclude = .T.
+	.ITEM(lcCurdir + '..\..\..\..\..\..\program files (x86)\microsoft visual foxpro 9\foxtools.fll').Exclude = .T.
 	.ITEM(lcCurdir + 'tables\hotkeydefinitions.dbf').Exclude = .T.
 	.ITEM(lcCurdir + 'tables\menudefinitions.dbf').Exclude = .T.
 	.ITEM(lcCurdir + 'tables\menutools.dbf').Exclude = .T.
@@ -112,6 +112,7 @@ WITH loProject.FILES
 	.ITEM(lcCurdir + 'thor.h').Type = 'T'
 	.ITEM(lcCurdir + 'thor_english.h').Type = 'T'
 	.ITEM(lcCurdir + 'thor_ui.h').Type = 'T'
+	.ITEM(lcCurdir + 'thorversion.h').Type = 'T'
 	*</TextFiles>
 ENDWITH
 
