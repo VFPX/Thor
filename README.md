@@ -141,3 +141,9 @@ Thor Production Release - Released 2011-09-03
 *   The concept for this project started with Jim Nelson (the Project Manager).
 *   The design was created by a group which included Doug Hennig, Eric Selje, and Tore Bleken.
 *   The entire UI was designed and implemented by Doug Hennig.
+
+----
+## Contribution
+See [contribution](./.github/CONTRIBUTING.md)
+
+Last changed: _2022/04/01_ ![Picture](./Docs/Images/vfpxpoweredby_alternative.gif)
