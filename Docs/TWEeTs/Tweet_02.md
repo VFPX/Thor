@@ -5,7 +5,7 @@ This week's Thor TWEeT is **Set Object Size and Position.**
 
 This tool provides enhanced capabilities to the Format menu pad in the FoxPro system menu, shown here:
 
-![](Images\Tweet2a.png)
+![](Images/Tweet2a.png)
 
 **Set Object Size and Position** displays a form that includes all of the features from the Format menu, except for Snap to Grid and Set Grid Scale. In addition,
 
@@ -15,7 +15,7 @@ This tool provides enhanced capabilities to the Format menu pad in the FoxPro sy
 
 The form's size and position is persistent from one use to another. The form is also dockable, and the six containers re-arrange themselves as the width of the form changes, allowing for various desirable docking combinations. 
 
-![](Images\Tweet2b.png)
+![](Images/Tweet2b.png)
 
 Thanks to Cathy Knight for the concept and design.
 
