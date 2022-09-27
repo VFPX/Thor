@@ -10,19 +10,19 @@ There are two other closely related tools:
 
 Use **Extract to Variable** to replace text in a line of code with a reference to a local variable, such as in this example where `laFileList[lnJ, 1]` is referenced a couple of times:
 
-![](Images\Tweet9a.png)
+![](Images/Tweet9a.png)
 
 The form that pops up allows you to enter the name of the new variable, whether all occurrences of the string are to be replaced (if not, only the highlighted one will be), and whether tool ‘Create Locals’ should be run to add this new variable to your LOCAL statements.
 
-![](Images\Tweet9b.png)
+![](Images/Tweet9b.png)
 
 The modified code looks like this:
 
-![](Images\Tweet9c.png)
+![](Images/Tweet9c.png)
 
 **Extract to Constant** works in a similar fashion, except that it creates a #Define statement either at the top of the current code window or in any of the #Include files that apply to the code window:
 
-![](Images\Tweet9d.png)
+![](Images/Tweet9d.png)
 
 I find that these three related tools, **Extract to Method / Variable / Constant**, to be of considerable value but I do not use any one of them often enough to assign hot keys to each of them.  Instead, I use a  [Popup Menu](../Thor_create_popup_menu.md), which I bring up by using a single hot key (I have chosen Ctrl+E, for “Extract”).
 
