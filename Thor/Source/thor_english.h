@@ -36,6 +36,7 @@
 #define ccADD					'\<Add'
 #define ccREMOVE				'\<Remove'
 #define ccREMOVETool			'\<Remove Tool from Menu'
+#define ccREMOVESeparator		'\<Remove Separator from Menu'
 #define cnCOL2WIDTH				80
 #define cnCOL3WIDTH				50
 #define ccSTARTUP				'StartUp'

@@ -2257,6 +2257,11 @@ DEFINE CLASS menus AS basecontainer OF "basecontrols.vcx"
 	*< OBJECTDATA: ObjPath="pgfProperties.Basepage2.oHotKeyControls" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="pgfProperties.Basepage2.Baseeditbox1" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="pgfProperties.Basepage2.Baselabel1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfProperties.Basepage3.cmdMoveUp" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfProperties.Basepage3.lblOrder" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfProperties.Basepage3.cmdMoveDown" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfProperties.Basepage3.oFilter" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfProperties.Basepage3.cmdRemove" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="cmdAddMenu" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="cmdAddTool" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="cmdAddSubMenu" UniqueID="" Timestamp="" />
@@ -2344,7 +2349,7 @@ DEFINE CLASS menus AS basecontainer OF "basecontrols.vcx"
 		Name = "oImageList", ;
 		Top = 0, ;
 		Width = 36
-		*< END OBJECT: BaseClass="olecontrol" OLEObject="c:\windows\syswow64\mscomctl.ocx" Value="0M8R4KGxGuEAAAAAAAAAAAAAAAAAAAAAPgADAP7/CQAGAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAEAAAAgAAAAEAAAD+////AAAAAAAAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9/////v////7////+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////1IAbwBvAHQAIABFAG4AdAByAHkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAUA//////////8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAnIKtITM0BAwAAAEABAAAAAAAAAwBPAGwAZQBPAGIAagBlAGMAdABEAGEAdABhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAgEDAAAAAgAAAP////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXAAAAAAAAAADAEEAYwBjAGUAcwBzAE8AYgBqAFMAaQB0AGUARABhAHQAYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgACAP///////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAABcAAAAAAAAAAMAQwBoAGEAbgBnAGUAZABQAHIAbwBwAHMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAIA////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAQAAAAAAAAABAAAAAIAAAD+/////v////7///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8jfyQskYXREbFqAMDwKDYoIUM0EggAAADtAwAA7QMAAIB+4eYAAAYAIAAAAAAAAADAwMAA//9MAAHvzasAAAUAXAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAACQAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5MzY4MjY1RS04NUZFLTExZDEtOEJFMy0wMDAwRjg3NTREQTEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAUAD/////BQAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" />
+		*< END OBJECT: BaseClass="olecontrol" OLEObject="c:\windows\syswow64\mscomctl.ocx" Value="0M8R4KGxGuEAAAAAAAAAAAAAAAAAAAAAPgADAP7/CQAGAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAEAAAAgAAAAEAAAD+////AAAAAAAAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9/////v////7////+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////1IAbwBvAHQAIABFAG4AdAByAHkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAUA//////////8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHCjzos8/dgBAwAAAEABAAAAAAAAAwBPAGwAZQBPAGIAagBlAGMAdABEAGEAdABhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAgEDAAAAAgAAAP////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXAAAAAAAAAADAEEAYwBjAGUAcwBzAE8AYgBqAFMAaQB0AGUARABhAHQAYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgACAP///////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAABcAAAAAAAAAAMAQwBoAGEAbgBnAGUAZABQAHIAbwBwAHMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAIA////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAQAAAAAAAAABAAAAAIAAAD+/////v////7///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8jfyQskYXREbFqAMDwKDYoIUM0EggAAADtAwAA7QMAAIB+4eYAAAYAIAAAAAAAAADAwMAA//9MAAHvzasAAAUAXAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAACQAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5MzY4MjY1RS04NUZFLTExZDEtOEJFMy0wMDAwRjg3NTREQTEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAUAD/////BQAAgIzpGQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" />
 
 	ADD OBJECT 'oTree' AS basetree WITH ;
 		Anchor = 15, ;
@@ -2354,7 +2359,7 @@ DEFINE CLASS menus AS basecontainer OF "basecontrols.vcx"
 		TabIndex = 1, ;
 		Top = 0, ;
 		Width = 185
-		*< END OBJECT: ClassLib="basecontrols.vcx" BaseClass="olecontrol" OLEObject="c:\windows\syswow64\mscomctl.ocx" Value="0M8R4KGxGuEAAAAAAAAAAAAAAAAAAAAAPgADAP7/CQAGAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAEAAAAgAAAAEAAAD+////AAAAAAAAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9/////v////7///8EAAAA/v///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////1IAbwBvAHQAIABFAG4AdAByAHkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAUA//////////8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALAa5apITM0BAwAAAIACAAAAAAAAAwBPAGwAZQBPAGIAagBlAGMAdABEAGEAdABhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAgEDAAAAAgAAAP////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAagAAAAAAAAADAEEAYwBjAGUAcwBzAE8AYgBqAFMAaQB0AGUARABhAHQAYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgACAP///////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAABcAAAAAAAAAAMAQwBoAGEAbgBnAGUAZABQAHIAbwBwAHMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAIA////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAEQBAAAAAAAACAAAAAIAAAD+////BAAAAAUAAAAGAAAABwAAAAkAAAD+/////v////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+2kEHHiYXREbFqAMDwKDYoIUM0EggAAAAfEwAAxRcAALE8wWoBAAYAIgAAAD0AAAAJAQAADAAAADEvwAAB782rXAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAACQAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5MzY4MjY1RS04NUZFLTExZDEtOEJFMy0wMDAwRjg3NTREQTEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAACADgAAAEhpZGVTZWxlY3Rpb24ABQAAAEwAAAAADAAAAEluZGVudGF0aW9uABEAAABODQAAAAcAAAAAAAAAAAAkQAoAAABMYWJlbEVkaXQACQAAAEkKAAAAAQAAAAoAAABMaW5lU3R5bGUACQAAAEkKAAAAAQAAAA0AAABNb3VzZVBvaW50ZXIACQAAAEkKAAAAAAAAAA4AAABQYXRoU2VwYXJhdG9yAAoAAABIAAAAAAEAAABcDAAAAE9MRURyYWdNb2RlAAkAAABJCgAAAAAAAAAMAAAAT0xFRHJvcE1vZGUACQAAAEkKAAAAAAAAAAsAAABBcHBlYXJhbmNlAAkAAABJCgAAAAAAAAAMAAAAQm9yZGVyU3R5bGUACQAAAEkKAAAAAQAAAAwAAABIb3RUcmFja2luZwAFAAAATAAABQAAMcAAAwAAAAAAAAAFAACAZOkYAAEAAABcAB/e7L0BAAUAqOkYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" />
+		*< END OBJECT: ClassLib="basecontrols.vcx" BaseClass="olecontrol" OLEObject="c:\windows\syswow64\mscomctl.ocx" Value="0M8R4KGxGuEAAAAAAAAAAAAAAAAAAAAAPgADAP7/CQAGAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAEAAAAgAAAAEAAAD+////AAAAAAAAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9/////v////7///8EAAAA/v///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////1IAbwBvAHQAIABFAG4AdAByAHkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAUA//////////8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKuos8/dgBAwAAAIACAAAAAAAAAwBPAGwAZQBPAGIAagBlAGMAdABEAGEAdABhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAgEDAAAAAgAAAP////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAagAAAAAAAAADAEEAYwBjAGUAcwBzAE8AYgBqAFMAaQB0AGUARABhAHQAYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgACAP///////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAABcAAAAAAAAAAMAQwBoAGEAbgBnAGUAZABQAHIAbwBwAHMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAIA////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAEQBAAAAAAAACAAAAAIAAAD+////BAAAAAUAAAAGAAAABwAAAAkAAAD+/////v////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+2kEHHiYXREbFqAMDwKDYoIUM0EggAAAAfEwAAxRcAALE8wWoBAAYAIgAAAD0AAAAJAQAADAAAAAEAAAAB782rXAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAACQAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5MzY4MjY1RS04NUZFLTExZDEtOEJFMy0wMDAwRjg3NTREQTEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAACADgAAAEhpZGVTZWxlY3Rpb24ABQAAAEwAAAAADAAAAEluZGVudGF0aW9uABEAAABODQAAAAcAAAAAAAAAAAAkQAoAAABMYWJlbEVkaXQACQAAAEkKAAAAAQAAAAoAAABMaW5lU3R5bGUACQAAAEkKAAAAAQAAAA0AAABNb3VzZVBvaW50ZXIACQAAAEkKAAAAAAAAAA4AAABQYXRoU2VwYXJhdG9yAAoAAABIAAAAAAEAAABcDAAAAE9MRURyYWdNb2RlAAkAAABJCgAAAAAAAAAMAAAAT0xFRHJvcE1vZGUACQAAAEkKAAAAAAAAAAsAAABBcHBlYXJhbmNlAAkAAABJCgAAAAAAAAAMAAAAQm9yZGVyU3R5bGUACQAAAEkKAAAAAQAAAAwAAABIb3RUcmFja2luZwAFAAAATAAABQAIhtcAAwAAAAAAAAAFAACAROkZAAEAAABcAB/e7L0BAAUAjOkZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" />
 
 	ADD OBJECT 'pgfProperties' AS basepageframe WITH ;
 		Anchor = 13, ;
@@ -2363,15 +2368,17 @@ DEFINE CLASS menus AS basecontainer OF "basecontrols.vcx"
 		Height = 232, ;
 		Left = 190, ;
 		Name = "pgfProperties", ;
-		PageCount = 2, ;
+		PageCount = 3, ;
 		TabIndex = 3, ;
 		Tabs = .F., ;
 		Top = 0, ;
 		Width = 430, ;
-		Basepage1.Caption = "Basepage1", ;
+		Basepage1.Caption = "Menus", ;
 		Basepage1.Name = "Basepage1", ;
-		Basepage2.Caption = "Basepage2", ;
-		Basepage2.Name = "Basepage2"
+		Basepage2.Caption = "Tools", ;
+		Basepage2.Name = "Basepage2", ;
+		Basepage3.Caption = "Separators", ;
+		Basepage3.Name = "Basepage3"
 		*< END OBJECT: ClassLib="basecontrols.vcx" BaseClass="pageframe" />
 
 	ADD OBJECT 'pgfProperties.Basepage1.Basecheckbox1' AS basecheckbox WITH ;
@@ -2655,7 +2662,9 @@ DEFINE CLASS menus AS basecontainer OF "basecontrols.vcx"
 		lblLink.Name = "lblLink", ;
 		lblLink.Top = 38, ;
 		lblLink.Width = 55, ;
-		lblVideo.Name = "lblVideo"
+		lblVideo.Name = "lblVideo", ;
+		lblOptions.Name = "lblOptions", ;
+		lblPlugIns.Name = "lblPlugIns"
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 
 	ADD OBJECT 'pgfProperties.Basepage2.Selecttool1' AS selecttoolformenus WITH ;
@@ -2672,9 +2681,9 @@ DEFINE CLASS menus AS basecontainer OF "basecontrols.vcx"
 		cboCombo.Top = 0, ;
 		cboCombo.Width = 355, ;
 		cboCombo.ZOrderSet = 0, ;
+		Baselabel1.Name = "Baselabel1", ;
 		lblPrompt1.Left = 3, ;
 		lblPrompt1.Name = "lblPrompt1", ;
-		Baselabel1.Name = "Baselabel1", ;
 		oTree.Height = 174, ;
 		oTree.Left = 5, ;
 		oTree.Name = "oTree", ;
@@ -2688,12 +2697,68 @@ DEFINE CLASS menus AS basecontainer OF "basecontrols.vcx"
 		oImageList.Top = 40, ;
 		oImageList.Width = 100, ;
 		oImageList.ZOrderSet = 3, ;
-		txtcNewFilter.Name = "txtcNewFilter", ;
-		txtcNewFilter.Width = 246, ;
 		cmdApply.Left = 325, ;
 		cmdApply.Name = "cmdApply", ;
 		cmdClear.Left = 380, ;
-		cmdClear.Name = "cmdClear"
+		cmdClear.Name = "cmdClear", ;
+		txtcNewFilter.Name = "txtcNewFilter", ;
+		txtcNewFilter.Width = 246
+		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
+
+	ADD OBJECT 'pgfProperties.Basepage3.cmdMoveDown' AS basecommandbutton WITH ;
+		Caption = "", ;
+		Height = 22, ;
+		Left = 70, ;
+		Name = "cmdMoveDown", ;
+		Picture = down.bmp, ;
+		TabIndex = 8, ;
+		Top = 134, ;
+		Width = 22, ;
+		ZOrderSet = 8
+		*< END OBJECT: ClassLib="basecontrols.vcx" BaseClass="commandbutton" />
+
+	ADD OBJECT 'pgfProperties.Basepage3.cmdMoveUp' AS basecommandbutton WITH ;
+		Caption = "", ;
+		Height = 22, ;
+		Left = 70, ;
+		Name = "cmdMoveUp", ;
+		Picture = up.bmp, ;
+		TabIndex = 7, ;
+		Top = 113, ;
+		Width = 22, ;
+		ZOrderSet = 7
+		*< END OBJECT: ClassLib="basecontrols.vcx" BaseClass="commandbutton" />
+
+	ADD OBJECT 'pgfProperties.Basepage3.cmdRemove' AS basecommandbutton WITH ;
+		Anchor = 0, ;
+		Caption = "\<Remove Separator from Menu", ;
+		Height = 23, ;
+		Left = 128, ;
+		Name = "cmdRemove", ;
+		TabIndex = 8, ;
+		Top = 114, ;
+		Width = 193, ;
+		ZOrderSet = 10
+		*< END OBJECT: ClassLib="basecontrols.vcx" BaseClass="commandbutton" />
+
+	ADD OBJECT 'pgfProperties.Basepage3.lblOrder' AS baselabel WITH ;
+		Caption = "Order", ;
+		Left = 5, ;
+		Name = "lblOrder", ;
+		TabIndex = 6, ;
+		Top = 123, ;
+		ZOrderSet = 2
+		*< END OBJECT: ClassLib="basecontrols.vcx" BaseClass="label" />
+
+	ADD OBJECT 'pgfProperties.Basepage3.oFilter' AS filtercontrols WITH ;
+		ctarget = This.Parent.Parent.Parent.Parent, ;
+		Left = 200, ;
+		Name = "oFilter", ;
+		TabIndex = 9, ;
+		Top = -42, ;
+		ZOrderSet = 9, ;
+		lblFilter.Name = "lblFilter", ;
+		txtFilter.Name = "txtFilter"
 		*< END OBJECT: ClassLib="thor_ui.vcx" BaseClass="container" />
 	
 	PROCEDURE addmenu		&& Adds a menu
@@ -3381,11 +3446,15 @@ DEFINE CLASS menus AS basecontainer OF "basecontrols.vcx"
 						= seek(upper(MenuTools.PRGName), 'ToolHotKeyAssignments', 'PRGName')
 						= seek(ToolHotKeyAssignments.HotKeyID, 'HotKeyDefinitions', 'ID')
 						.pgfProperties.Visible    = .T.
-						.pgfProperties.ActivePage = 2
-						If Empty(MenuTools.PrgName)
-							.pgfProperties.BasePage2.Selecttool1.OpenControl()
-						EndIf 
-				endcase
+						If MenuTools.Separator
+							.pgfProperties.ActivePage = 3
+						Else
+							.pgfProperties.ActivePage = 2
+							If Empty(MenuTools.PRGName)
+								.pgfProperties.BasePage2.Selecttool1.OpenControl()
+							Endif
+						Endif
+								endcase
 				.Refresh()
 			endif vartype(loNode) = 'O'
 		endwith
@@ -4106,6 +4175,67 @@ DEFINE CLASS menus AS basecontainer OF "basecontrols.vcx"
 				This.otree.SelectedItem	   = This.otree.nodes (Left (lcKey, Rat ('\', lcKey) - 1))
 			Endif
 		Endif
+	ENDPROC
+
+	PROCEDURE pgfProperties.Basepage3.cmdMoveDown.Click
+		This.Parent.Parent.Parent.MoveItem(1)
+		
+	ENDPROC
+
+	PROCEDURE pgfProperties.Basepage3.cmdMoveDown.Refresh
+		* This isn't allowed if we're already at the last one.
+		
+		local loParent, ;
+			lcKey, ;
+			lnMenuID, ;
+			laOrder[1]
+		with This.Parent.Parent.Parent
+			loParent = .oTree.SelectedItem.Parent
+			lcKey    = .GetItemKey(loParent)
+			lnMenuID = val(substr(lcKey, 2))
+			select max(SortOrder) from MenuTools where MenuID = lnMenuID into array laOrder
+			This.Enabled = MenuTools.SortOrder < Nvl(Evl(laOrder[1],0), 0) 
+		endwith
+		
+	ENDPROC
+
+	PROCEDURE pgfProperties.Basepage3.cmdMoveUp.Click
+		This.Parent.Parent.Parent.MoveItem(-1)
+		
+	ENDPROC
+
+	PROCEDURE pgfProperties.Basepage3.cmdMoveUp.Refresh
+		* This isn't allowed if we're already at 1.
+		
+		This.Enabled = MenuTools.SortOrder > 1
+		
+	ENDPROC
+
+	PROCEDURE pgfProperties.Basepage3.cmdRemove.Click
+		Local loParent
+		loParent     = This.Parent.Parent.Parent
+		loParent.RemoveMenuOrItem()
+		
+	ENDPROC
+
+	PROCEDURE pgfProperties.Basepage3.cmdRemove.Init
+		This.Caption = ccREMOVESeparator
+		dodefault()
+		
+	ENDPROC
+
+	PROCEDURE pgfProperties.Basepage3.cmdRemove.Refresh
+		* We can only remove user-defined menus or items.
+		
+		local lcKey, ;
+			lcType, ;
+			loParent
+		loParent     = This.Parent.Parent.Parent
+		lcKey        = loParent.GetItemKey(loParent.oTree.SelectedItem)
+		lcType       = left(lcKey, 1)
+		This.Enabled = (lcType = ccKEY_MENU and not MenuDefinitions.Internal) or ;
+			lcType = ccKEY_TOOL
+		
 	ENDPROC
 
 ENDDEFINE
