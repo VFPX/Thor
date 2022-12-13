@@ -719,7 +719,11 @@ Define Class RunThor As Session
 
 	Procedure GetThor (lcApp, lcFolder)
 		Return Newobject ('Thor_Run', 'thor_run.vcx', '', lcApp, lcFolder)
-	Endproc
+	EndProc
+	
+	Procedure Destroy
+		Close Tables
+	EndProc 
 
 Enddefine
 
