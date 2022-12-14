@@ -18,7 +18,8 @@ Here are the steps to updating to a new version:
 * Make whatever changes are necessary.
 * Edit _ThorVersion.h_ and change the version constants.
 * Build _Thor_.app using VFP 9, not VFP Advanced, since the APP structure is different. Save the app in the parent folder of the Source folder; that is, in the Thor folder.
-* Update the version number at the top of _README.md_ and describe the changes in the What's New section near the bottom.
+* Update the version number and date at the top of _README.md_ 
+* Describe the changes in _Change Log.md_.
 * Update the AvailableVersion property in _ThorUpdater\\_ThorVersionFile.txt_: note the format of the value must be identical to the value of the `ccThorInternalVERSION` constant in _ThorVersion.h_.
 * Update or recreate _ThorUpdater\Thor.zip_: it should contain the contents of the Thor folder; that is, the _Source_ folder and _Thor.app_.
 
@@ -34,4 +35,4 @@ Just:
 Thanks
 
 ----
-Last changed: _2022/04/03_ ![Picture](../Docs/Images/vfpxpoweredby_alternative.gif)
+Last changed: _2022/12/13_ ![Picture](../Docs/Images/vfpxpoweredby_alternative.gif)
