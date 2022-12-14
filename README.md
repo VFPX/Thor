@@ -1,17 +1,15 @@
 ![](Docs/Images/Thor.png)  
 ## Tool manager for FoxPro
 
-Version 1.45 Released 2022-03-05
+Version 1.45.01 Release 2022-12-13
 
-[What's new in this release](#WhatsNew)
+[What's new in this release](Change%20Log.md)
 
 _Requires VFP9_
 
 ***
 
 _**Thor** is a tool for managing add-on tools in the IDE, managing menus and hot key assignments for IDE Tools._
-
-[What's new in this release](#WhatsNew)
 
 [Get the latest Thor news](Docs/Thor_news.md)
 
@@ -77,64 +75,7 @@ Two new menu pads in VFP system menu (Thor and personal menu JRN) and the menu o
 
 ![](Docs/Images/Thor_image_4.png)
 
-## <a name="WhatsNew">What's New</a>
-
-### Thor 1.45 - Release 2022-03-05
-
-Updated the Check for Updates process to log unzipping failure.
-
-### Thor 1.44 - Release 2022-03-04
-
-Updated the Check for Updates process to use Shell.Application instead of VFPCompression to unzip files.
-
-### Thor 1.43 - Release 2021-12-28
-
-Updated the Check for Updates process to look at the GitHub repository of each project rather than VFPXRepository.com.
-
-### Thor 1.40 – Released 2013-08-26
-
-Added the Thor ToolBar.  Tools may be added to the Toolbar may using the checkbox shown in the Thor Configuration form,  below (and also available in the [Tool Launcher](Docs/Thor_launcher.md).)
-
-![](Docs/Images/Thor_SNAGHTMLf389404.png)
-
-When you add a tool to the Thor Toolbar, you can select a caption for the tool or select an image to represent it.  In the sample below, abbreviated captions are used.
-
-![](Docs/Images/Thor_SNAGHTMLf3b4e2e.png)
-
-The toolbar’s size, positioning, and docking, persist from one session to the next. (Truth be told, persisting the docking has been problematic.)
-
-### Thor 1.30 – Released 2012-08-19
-
-*   Added [Tool Launcher](Docs/Thor_launcher.md), available from the Thor menu in the VFP system menu
-
-![](Docs/Images/Thor_SNAGHTML39362d.png)
-
-*   Added [Thor IntellisenseX](https://github.com/VFPX/IntelliSenseX).
-
-![](Docs/Images/Thor_image_2.png)
-
-### Thor 1.1 - Released 2011-10-23  
-
-Thor Production Release - Released 2011-09-03  
-
-### Thor I Beta 6 - Released 2011-08-22 (88 downloads)
-
-*   a few minor bug fixes
-
-### Thor I Beta 5 - Released 2011-08-09 (91 downloads)
-
-*   Miscellaneous minor adjustments and a couple of bug fixes
-
-### Thor I Beta 4 - Released 2011-07-17 (125 downloads)
-
-*   Re-installation now occurs automatically. Simply using the new version of Thor.App will cause re-installation.
-*   Includes full online documentation.
-
-### Thor I Beta 3 - Released 2011-07-06 (94 downloads)  
-
-### Thor I Beta 2 - Released 2011-07-04 (61 downloads)  
-
-### Thor I Beta - Released 2011-06-03 (237 downloads)
+[What's new in this release](Change%20Log.md)
 
 ## Acknowledgments
 

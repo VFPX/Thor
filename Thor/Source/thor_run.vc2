@@ -1427,6 +1427,11 @@ DEFINE CLASS thor_run AS custom
 		
 	ENDPROC
 
+	PROCEDURE Destroy
+		Close Tables
+		
+	ENDPROC
+
 	PROCEDURE erasefile
 		Lparameters lcFileName
 		
@@ -1637,7 +1642,8 @@ DEFINE CLASS thor_run AS custom
 		*==============================================================================
 		Lparameters llNoStartUps
 		
-		* #Define *   WriteDebugInfo StrToFile(Transform(Lineno()) + ' / ' + Transform(Seconds() - lnSeconds) + chr[13] + chr[10], lcFile, 1) 
+		*	#Define WriteDebugInfo ShowDataSessions('Line ' + Transform(Lineno(1)))
+		*	#Define WriteDebugInfo 
 		lcFile = Sys(2023) + '\Thor_' + Sys(2015) + '.txt'
 		lnSeconds = Seconds()
 		
@@ -1684,6 +1690,8 @@ DEFINE CLASS thor_run AS custom
 			If not llNoStartUps
 				.RunStartupPRGs
 			EndIf 
+		
+			*   WriteDebugInfo
 		
 		Endwith
 		
@@ -1795,6 +1803,8 @@ DEFINE CLASS thor_toolbar AS toolbar
 	PROCEDURE Destroy
 		This.SaveSettings()
 		This.oSettings = .Null.
+		Close Tables
+		
 	ENDPROC
 
 	PROCEDURE Init
