@@ -1,4 +1,4 @@
-﻿
+
 *   [**Videos by Category**](#VideosByCategory)
 *   [**Videos by Date**](#VideosByDate)
 *   [**Upcoming Videos**](#UpcomingVideos)
@@ -51,44 +51,4 @@
 1.   2012-09-30 [“IntellisenseX by Dot” vs “IntellisenseX by Hot Key”](http://www.youtube.com/watch?v=71psd6RH2Ls&hd=1&rel=0) (3:29)
 1.   2012-09-30 [Managing Plug-Ins: OpenTable and Intellisense](http://www.youtube.com/watch?v=UGyqlInAfvc&hd=1&rel=0) (5:34)
 1.   2012-09-26 [GoFish - Code Search Tool](https://www.youtube.com/watch?v=0MdpWyPnfus) (12:13)
-
-## <a name="UpcomingVideos">Upcoming Videos</a>
-
-1.  SuperBrowse
-2.  Go To Definition
-
-Others being considered, in no particular order
-
-*   Analyzing and modifying code (part I)
-    *   BeautifyX
-    *   Create LOCALs
-*   Analyzing and modifying code (part II)
-    *   Highlight / Close Control Structure
-    *   Extract to Method
-    *   Cross References
-    *   Code Listings
-    *   Dynamic Snippets<!--EndFragment-->
-*   Working with Windows
-    *   Cycle thru open code windows
-    *   Close some / all open code windows
-    *   Auto move/resize current code window
-    *   Open files (classes, forms, others)
-    *   Manage favorites
-    *   MRU lists<!--EndFragment-->
-*   Parent Classes, Containing Classes, and re-factoring
-*   RETURNs between WITH/ENDWITH
-*   Document TreeView
-*   Objects and PEMS
-    *   Copy properties and methods
-    *   Compare with copied object
-    *   Paste properties and method code
-    *   Paste object
-    *   Add object
-    *   Find objects
-    *   Object size and position
-    *   Auto-rename<!--EndFragment-->
-*   Extract To ...
-*   Design Time Event Handlers
-*   MDots!
-*   Go To …
 
