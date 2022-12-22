@@ -87,4 +87,4 @@ Two new menu pads in VFP system menu (Thor and personal menu JRN) and the menu o
 ## Contribution
 See [contribution](./.github/CONTRIBUTING.md)
 
-Last changed: _2022/04/01_ ![Picture](./Docs/Images/vfpxpoweredby_alternative.gif)
+Last changed: _2022/12/13_ ![Picture](./Docs/Images/vfpxpoweredby_alternative.gif)

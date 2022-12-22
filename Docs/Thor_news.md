@@ -1,4 +1,4 @@
-﻿![](Images/Thor.png)![](Images/Thor_news.png)  
+![](Images/Thor.png)![](Images/Thor_news.png)  
 
 Tool manager for FoxPro
 ===
@@ -55,49 +55,49 @@ Previous headlines
 
 **[#41, 2015-01-12 Two New Projects added to VFPX](#Headline41)**
 
-**[#40, 2014-01-04 TWEeT #27: Go To Definition](Tweet_27.md)**
+**[#40, 2014-01-04 TWEeT #27: Go To Definition](TWEeTs\Tweet_27.md)**
 
-**[#39, 2014-12-22 TWEeT #26: Three New Thor Tools](Tweet_26.md)**
+**[#39, 2014-12-22 TWEeT #26: Three New Thor Tools](TWEeTs\Tweet_26.md)**
 
 **[#38, 2014-12-17 Two New Projects added to VFPX](#Headline38)**
 
-**[#37, 2014-11-30 TWEeT #25: Five New Thor Tools for FoxBin2PRG](Tweet_25.md)**
+**[#37, 2014-11-30 TWEeT #25: Five New Thor Tools for FoxBin2PRG](TWEeTs\Tweet_25.md)**
 
-**[#36, 2014-11-25 TWEeT #24: Nine New Thor Tools](Tweet_24.md)**
+**[#36, 2014-11-25 TWEeT #24: Nine New Thor Tools](TWEeTs\Tweet_24.md)**
 
-**[#35, 2014-11-17 TWEeT #23: Buffer Overrun Detected!](Tweet_23.md)**
+**[#35, 2014-11-17 TWEeT #23: Buffer Overrun Detected!](TWEeTs\Tweet_23.md)**
 
-**[#34, 2014-06-11 TWEeT #22: Related IntellisenseX Tools](Tweet_22.md)**
+**[#34, 2014-06-11 TWEeT #22: Related IntellisenseX Tools](TWEeTs\Tweet_22.md)**
 
-**[#33, 2014-06-04 TWEeT #21: Advanced Features: Plug-Ins for IntellisenseX](Tweet_21.md)**
+**[#33, 2014-06-04 TWEeT #21: Advanced Features: Plug-Ins for IntellisenseX](TWEeTs\Tweet_21.md)**
 
-**[#32, 2014-05-29 TWEeT #20: Quick Start Guide to IntellisenseX](Tweet_20.md)**
+**[#32, 2014-05-29 TWEeT #20: Quick Start Guide to IntellisenseX](TWEeTs\Tweet_20.md)**
 
-**[#31, 2014-05-21 TWEeT #19: Deficiencies in IntellisenseX (and how to avoid them) … The Custom Keyword List](Tweet_19.md)**
+**[#31, 2014-05-21 TWEeT #19: Deficiencies in IntellisenseX (and how to avoid them) … The Custom Keyword List](TWEeTs\Tweet_19.md)**
 
-**[#30, 2014-05-10 TWEeT #18: IntellisenseX for Nested Objects](Tweet_18.md)**
+**[#30, 2014-05-10 TWEeT #18: IntellisenseX for Nested Objects](TWEeTs\Tweet_18.md)**
 
-**[#29, 2014-04-29 TWEeT #17: Using Local Aliases in IntellisenseX](Tweet_17.md)**
+**[#29, 2014-04-29 TWEeT #17: Using Local Aliases in IntellisenseX](TWEeTs\Tweet_17.md)**
 
-**[#28, 2014-03-03 TWEeT #16: Custom Keyword List for Field Names](Tweet_16.md)**
+**[#28, 2014-03-03 TWEeT #16: Custom Keyword List for Field Names](TWEeTs\Tweet_16.md)**
 
-**[#27, 2014-02-24 TWEeT #15: IntellisenseX and the Alias Dictionary](Tweet_15.md)**
+**[#27, 2014-02-24 TWEeT #15: IntellisenseX and the Alias Dictionary](TWEeTs\Tweet_15.md)**
 
-**[#26, 2014-02-17 TWEeT #14: IntellisenseX for Objects](Tweet_14.md)**
+**[#26, 2014-02-17 TWEeT #14: IntellisenseX for Objects](TWEeTs\Tweet_14.md)**
 
-**[#25, 2014-02-10 TWEeT #13: New (hidden) IntellisenseX Feature](Tweet_13.md)**
+**[#25, 2014-02-10 TWEeT #13: New (hidden) IntellisenseX Feature](TWEeTs\Tweet_13.md)**
 
-**[#24, 2014-02-03 TWEeT #12: IntellisenseX by Dot or by Hot Key?](Tweet_12.md)**
+**[#24, 2014-02-03 TWEeT #12: IntellisenseX by Dot or by Hot Key?](TWEeTs\Tweet_12.md)**
 
-**[#23, 2014-01-27 TWEeT #11: IntellisenseX: Aliases for VFP Tables](Tweet_11.md)**
+**[#23, 2014-01-27 TWEeT #11: IntellisenseX: Aliases for VFP Tables](TWEeTs\Tweet_11.md)**
 
-**[#22, 2014-01-20 TWEeT #10: IntellisenseX: Field Names from SQL Server Tables](Tweet_10.md)**
+**[#22, 2014-01-20 TWEeT #10: IntellisenseX: Field Names from SQL Server Tables](TWEeTs\Tweet_10.md)**
 
-**[#21, 2014-01-13 TWEeT #9: Extract to Variable and Extract to Constant](Tweet_09.md)**
+**[#21, 2014-01-13 TWEeT #9: Extract to Variable and Extract to Constant](TWEeTs\Tweet_09.md)**
 
-**[#20, 2014-01-05 TWEeT #8: Creating Properties and Methods (#3)](Tweet_08.md)**
+**[#20, 2014-01-05 TWEeT #8: Creating Properties and Methods (#3)](TWEeTs\Tweet_08.md)**
 
-**[#19, 2013-12-18 TWEeT #7: Creating Properties and Methods (#2)](Tweet_07.md)**
+**[#19, 2013-12-18 TWEeT #7: Creating Properties and Methods (#2)](TWEeTs\Tweet_07.md)**
 
 **[#18, 2013-08-26 Thor Version 1.40 released: Thor ToolBar](#Headline18)**
 
