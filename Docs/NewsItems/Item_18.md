@@ -17,5 +17,5 @@ The toolbar’s size, positioning, and docking, persist from one session to the 
 
 ---
  
-See also [Thor News](..\Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
+See also [Thor News](../Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
 

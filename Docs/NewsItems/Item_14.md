@@ -9,5 +9,5 @@ There are already a number of videos explaining features of Thor and there are m
 ![](Images/Thor_news_image_thumb_4.png)
 
 ---
-See also [Thor News](..\Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
+See also [Thor News](../Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
 

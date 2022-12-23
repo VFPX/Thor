@@ -8,5 +8,5 @@ Thor now provides ready access to the home pages for all VFPX projects, availabl
 
 ![](Images/Tweet9_vfpxprojects.png)
 ---
-See also [Thor News](..\Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
+See also [Thor News](../Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
 

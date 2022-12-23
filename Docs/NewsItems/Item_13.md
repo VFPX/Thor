@@ -11,5 +11,5 @@ Thor suffers from an over-abundance of tools – there are so many that it may s
 Watch [this short video](http://youtu.be/2ttBR9vQqew) (7:57) to learn all about it.
 
 ---
-See also [Thor News](..\Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
+See also [Thor News](../Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
 

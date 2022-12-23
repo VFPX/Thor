@@ -10,5 +10,5 @@ Two new projects have been added to VFPX and are available from Check For Update
 * [VFP 9 SP2 Hotfix 3 Download](https://github.com/VFPX/VFP9SP2Hotfix3) is the most recent hotfix for VFP 9 SP2. The hotfix includes all three hotfixes released for VFP 9 SP2
 
 ---
-See also [Thor News](..\Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
+See also [Thor News](../Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
 
