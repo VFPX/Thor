@@ -16,5 +16,5 @@ Change logs for the various tools and components of Thor are now available, as w
 ![](Images/Thor_news_image_thumb_5.png)
 
 ---
-See also [Thor News](..\Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
+See also [Thor News](../Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
 

@@ -16,6 +16,6 @@ See the [Finder Home Page](https://github.com/VFPX/Finder) and watch the [Finder
 ![](Images/Thor_News_SNAGHTML3cdc777.png)
 
 ---
-See also [Thor News](..\Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
+See also [Thor News](../Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
 
 

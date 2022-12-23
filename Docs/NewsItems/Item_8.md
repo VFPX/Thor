@@ -14,5 +14,5 @@ IntellisenseX is available from Check For Updates. <!-- TBL -->
 All VFPX projects can be downloaded from Thor.
 
 ---
-See also [Thor News](..\Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
+See also [Thor News](../Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
 

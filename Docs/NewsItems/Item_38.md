@@ -10,5 +10,5 @@ Two new projects have been added to VFPX and are available from Check For Update
 * [StripeX](http://github.com/VFPX/StripeX) is a wrapper class for working with Stripe.com.
  
 ---
-See also [Thor News](..\Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
+See also [Thor News](../Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
 
