@@ -44,12 +44,14 @@ There have been some enhancements to **[SuperBrowse](Thor_superbrowse.md)** as w
     *   Bind column events -- bind events in the grid columns to this class
     *   Grid context menu -- create context menus for the cells in the grid  
 
-See also [History of all Thor NewsItems](NewsItems.md) and [the Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
 
 ---
 
-Previous Headlines
+Headlines History
 ---
+
+**[2015-11-30 : New Thor Tools and SuperBrowse Enhancements](NewsItems/Item_42.md)**
 
 **[2015-01-12 : New VFPX Projects - ThemedTitleBar and VFP 9 SP2 Hotfix 3 Download](NewsItems/Item_41.md)**
 
