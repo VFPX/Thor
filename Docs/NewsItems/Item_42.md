@@ -1,4 +1,4 @@
-**New Thor Tools and [SuperBrowse](Thor_superbrowse.md) Enhancements** 
+**New Thor Tools and [SuperBrowse](..\Thor_superbrowse.md) Enhancements** 
 ---
 
 ### #42, 2015-11-30
@@ -20,7 +20,7 @@ A number of new Thor tools are available in the Thor Repository.
     *   'Download VFP2Text for Beyond Compare V4'
     *   'VFP2Text Home Page'
 
-There have been some enhancements to **[SuperBrowse](Thor_superbrowse.md)** as well:
+There have been some enhancements to **[SuperBrowse](..\Thor_superbrowse.md)** as well:
 
 *   As it can be quite cumbersome switching between Expression and Value in the filter box, you can now overwrite the current setting as follows:
     *   To select Value, use a trailing ‘$’

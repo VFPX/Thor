@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.45.02 - Release 2022-12-26
+
+Thor News back in business.
+
 ### Thor 1.45.01 - Release 2022-12-13
 
 Added ability to move or delete separator lines in menus in Thor Configuration form.
@@ -71,4 +75,4 @@ Thor Production Release - Released 2011-09-03
 ## Contribution
 See [contribution](./.github/CONTRIBUTING.md)
 
-Last changed: _2022/04/01_ ![Picture](./Docs/Images/vfpxpoweredby_alternative.gif)
+Last changed: _2022/12/26_ ![Picture](./Docs/Images/vfpxpoweredby_alternative.gif)
