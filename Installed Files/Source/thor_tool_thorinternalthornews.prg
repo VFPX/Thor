@@ -1,4 +1,5 @@
-#Define 	ccThorNewsURL 		'http://vfpx.codeplex.com/wikipage?title=Thor%20News'
+#Define 	ccThorVersionURL 	'https://raw.githubusercontent.com/VFPX/Thor/master/Docs/NewsItems/ThorNewsVersion.txt'
+#Define 	ccThorNewsURL 		'https://github.com/VFPX/Thor/blob/master/Docs/Thor_news.md'
 
 #Define 	ccTool 				'Thor News'
 #Define     ccCheckForCFU		'Thor News/CFU'
@@ -19,10 +20,10 @@ Lparameters lxParam1
 *   tell Thor about itself.
 
 If Pcount() = 1								;
-		And 'O' = Vartype (lxParam1)		;
-		And 'thorinfo' == Lower (lxParam1.Class)
+		And 'O' = Vartype (m.lxParam1)		;
+		And 'thorinfo' == Lower (m.lxParam1.Class)
 
-	With lxParam1
+	With m.lxParam1
 
 		* Required
 		.Prompt		   = 'Thor News' && used in menus
@@ -37,27 +38,27 @@ If Pcount() = 1								;
 		* For public tools, such as PEM Editor, etc.
 		.Author		   = 'Jim Nelson'
 		.OptionClasses = 'clsCheckForUpdates, clsRunThor, clsRunThorInterval, clsLastNewsDate, clsLastNewsVersion'
-		.OptionTool	   = ccTool 
+		.OptionTool	   = ccTool
 
-		.ForumName 		= GetForumNames()
-		.ForumLink 		= GetForumLinks()
-*!* * Removed 11/16/2012 / JRN
+		.ForumName = GetForumNames()
+		.ForumLink = GetForumLinks()
+		*!* * Removed 11/16/2012 / JRN
 
-*!* 		.BlogName 		= '-Jim Nelson'
-*!* 		.BlogLink 		= 'http://jimrnelson.blogspot.com/'
+		*!* 		.BlogName 		= '-Jim Nelson'
+		*!* 		.BlogLink 		= 'http://jimrnelson.blogspot.com/'
 
-		.ChangeLogName 	= GetChangeLogNames()
-		.ChangeLogLink 	= GetChangeLogLinks()
+		.ChangeLogName = GetChangeLogNames()
+		.ChangeLogLink = GetChangeLogLinks()
 
 	Endwith
 
-	Return lxParam1
+	Return m.lxParam1
 Endif
 
 If Pcount() = 0
 	Do ToolCode
 Else
-	Do ToolCode With lxParam1
+	Do ToolCode With m.lxParam1
 Endif
 
 Return
@@ -108,10 +109,11 @@ Procedure ToolCode
 	Lparameters lxParam1
 
 	Local loShell As 'wscript.shell'
-	Local lcHTMLFileName, ldDataLastSeen, llCheckFirst, llFailed, llShowIt, lnDateInterval
-	Local lnHTMLVersion
+	Local lcHTMLFileName, lcVersionFileName, ldDataLastSeen, llCheckFirst, llFailed, llShowIt
+	Local lnDateInterval, lnHTMLVersion, lnLastVersion
+
 	If Not Execscript (_Screen.cThorDispatcher, 'Thor_Proc_CheckInternetConnection')
-		If 'L' = Vartype (lxParam1)
+		If 'L' = Vartype (m.lxParam1)
 			Messagebox ('No Internet Connection Found!', 16, 'No Internet Connection', 0)
 			Return .F.
 		Endif
@@ -121,73 +123,60 @@ Procedure ToolCode
 	llShowIt	 = .T.
 	llCheckFirst = .F.
 	Do Case
-		Case 'L' = Vartype (lxParam1)
+		Case 'L' = Vartype (m.lxParam1)
 
-		Case Upper (lxParam1) = Upper ('Check For Updates')
-			llShowIt	 = ExecScript(_Screen.cThorDispatcher, "Get Option=", ccCheckForCFU, ccTool)
+		Case Upper (m.lxParam1) = Upper ('Check For Updates')
+			llShowIt	 = Execscript(_Screen.cThorDispatcher, 'Get Option=', ccCheckForCFU, ccTool)
 			llCheckFirst = .T.
 
-		Case Upper (lxParam1) = Upper ('RunThor')
-			ldDataLastSeen = ExecScript(_Screen.cThorDispatcher, "Get Option=", ccDateLastSeen, ccTool)
-			lnDateInterval = ExecScript(_Screen.cThorDispatcher, "Get Option=", ccRunThorInterval, ccTool)
-			llShowIt = ExecScript(_Screen.cThorDispatcher, "Get Option=", ccRunThor, ccTool) And			;
-				(ldDataLastSeen + lnDateInterval) <= Date()
+		Case Upper (m.lxParam1) = Upper ('RunThor')
+			ldDataLastSeen = Execscript(_Screen.cThorDispatcher, 'Get Option=', ccDateLastSeen, ccTool)
+			lnDateInterval = Execscript(_Screen.cThorDispatcher, 'Get Option=', ccRunThorInterval, ccTool)
+			llShowIt = Execscript(_Screen.cThorDispatcher, 'Get Option=', ccRunThor, ccTool) And ;
+				(m.ldDataLastSeen + m.lnDateInterval) <= Date()
 			llCheckFirst = .T.
 	Endcase
 
-	If Not llShowIt
+	If Not m.llShowIt
 		Return
 	Endif
 
-	lcHTMLFileName = Addbs (Sys(2023)) + 'ThorNews' + Sys(2015) + '.html'
+	lcVersionFileName = Addbs (Sys(2023)) + 'ThorNewsVersion' + Sys(2015) + '.txt'
 	Try
-		Execscript (_Screen.cThorDispatcher, 'Thor_Proc_DownloadFileFromURL', ccThorNewsURL, lcHTMLFileName)
-		lnHTMLVersion = GetVersionFromHTML (Filetostr (lcHTMLFileName))
+		Execscript (_Screen.cThorDispatcher, 'Thor_Proc_DownloadFileFromURL', ccThorVersionURL, m.lcVersionFileName)
+		lnHTMLVersion = GetVersionFromHTML (Filetostr (m.lcVersionFileName ))
 		llFailed	  = .F.
 	Catch
 		llFailed = .T.
 	Endtry
 
-	If llFailed
+	If m.llFailed
 		Return
 	Endif
 
-	ExecScript(_Screen.cThorDispatcher, "Set Option=", ccDateLastSeen, ccTool, Date())
+	Execscript(_Screen.cThorDispatcher, 'Set Option=', ccDateLastSeen, ccTool, Date())
 
-	If llCheckFirst And lnHTMLVersion = ExecScript(_Screen.cThorDispatcher, "Get Option=", ccLastVersionSeen, ccTool)
+	lnLastVersion = Execscript(_Screen.cThorDispatcher, 'Get Option=', ccLastVersionSeen, ccTool)
+	If m.llCheckFirst And m.lnHTMLVersion = m.lnLastVersion
 		Return
 	Endif
 
-	ExecScript(_Screen.cThorDispatcher, "Set Option=", ccLastVersionSeen, ccTool, lnHTMLVersion)
+	Execscript(_Screen.cThorDispatcher, 'Set Option=', ccLastVersionSeen, ccTool, m.lnHTMLVersion)
 
 	loShell = Createobject ('wscript.shell')
-	loShell.Run (ccThorNewsURL)
+	m.loShell.Run (ccThorNewsURL)
 
 Endproc
 
 
-Procedure GetVersionFromHTML (lcHTML)
+Procedure GetVersionFromHTML (lcText)
 
-	Local loRegExp As 'VBScript.RegExp'
-	Local lnVersion, loMatches
-	loRegExp = Createobject ('VBScript.RegExp')
+	Local lcVersion, lnVersion
 
-	With loRegExp
-		.IgnoreCase	= .T.
-		.Global		= .T.
-		.MultiLine	= .T.
+	lcVersion = Getwordnum(m.lcText, 2, '=')
+	lnVersion = Val(Alltrim(m.lcVersion, 1, ' ', Chr[9], Chr[10], Chr[13]))
+	Return m.lnVersion
 
-		.Pattern  = '^.*<p>Last edited.*version.*</p>'
-		loMatches = .Execute (lcHTML)
-	Endwith
-
-	If loMatches.Count # 0
-		lnVersion = Val (Strextract (loMatches.Item[0].Value, 'version', '</p>', 1, 1))
-	Else
-		lnVersion = 0
-	Endif
-
-	Return lnVersion
 Endproc
 
 ****************************************************************
@@ -258,7 +247,7 @@ Define Class clsThorNews As Container
 	Procedure Init
 		loRenderEngine = Execscript(_Screen.cThorDispatcher, 'Class= OptionRenderEngine')
 
-		*##*TEXT To loRenderEngine.cBodyMarkup Noshow Textmerge
+		TEXT To loRenderEngine.cBodyMarkup Noshow Textmerge
 		
 			.Class	   = 'Label'
 			.Caption   = 'Check for updates to Thor News:'
@@ -294,7 +283,7 @@ Define Class clsThorNews As Container
 			.Row-Increment = 0
 			.Top       = (.Top - 4)
 			
-		*##*ENDTEXT
+		ENDTEXT
 
 		loRenderEngine.Render(This, ccTool)
 
@@ -302,3 +291,4 @@ Define Class clsThorNews As Container
 
 Enddefine
 
+ 
