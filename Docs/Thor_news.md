@@ -1,11 +1,5 @@
 ![](Images/Thor.png)![](Images/Thor_news.png)  
 
-Tool manager for FoxPro
-===
-[Thor Forum](http://groups.google.com/group/FoxProThor)
-
-[Thor Videos](Thor_videos.md)
-
 ![](Images/Thor_greenline.png)
 
 **Object Explorer Enhancements** 
@@ -32,9 +26,12 @@ The recently added new features include:
    * The public variable is released when Object Explorer closes.  
    * Once a name has been assigned, each time that you open Object Explorer the public variable will be assigned with the value of the object being explored.
 
-Note the "Browse" button that appears on the bottom line if OE can determine the alias of a table from properties _RecordSource_ or _cAlias_.
+Note the "Browse" button that appears on the bottom line of OE can determine the alias of a table from properties _RecordSource_ or _cAlias_.
 
-See also the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
+See also
+* [Thor Forum](http://groups.google.com/group/FoxProThor)
+
+* [Thor Videos](Thor_videos.md)
 
 ---
 
