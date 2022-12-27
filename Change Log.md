@@ -1,6 +1,6 @@
 # Thor Change Log
 
-### Thor 1.45.02 - Release 2022-12-26
+### Thor 1.45.03 - Release 2022-12-26
 
 Thor News back in business.
 
