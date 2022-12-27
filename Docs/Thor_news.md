@@ -8,41 +8,31 @@ Tool manager for FoxPro
 
 ![](Images/Thor_greenline.png)
 
-**New Thor Tools and [SuperBrowse](Thor_superbrowse.md) Enhancements** 
+**Object Explorer Enhancements** 
 ---
 
-### #42, 2015-11-30
+### #43, 2022-12-26
 
-A number of new Thor tools are available in the Thor Repository.
+[Object Explorer](https://github.com/VFPX/ObjectExplorer), one of the most recent projects added to VFPX, is a tool that allows you to explore objects, collections, and array properties in both production and in your IDE. You can invoke Object Explorer at any time by hovering over any object in a form and using a hot key, and Object Explorer will open for that object and the form it belongs to.
 
-*   'Toggle tabs in pageframe' – It can be quite difficult (OK, cumbersome) to navigate between pages of a pageframe when the tabs are not visible.  Use this tools to toggle the tabs in the current pageframe.
-*   'Compare text in two windows' – Use your favorite compare tool to compare the code from two different code windows without exiting FoxPro, as follows:
-    *   Select one text window
-    *   Execute this tool (hot key is recommended)
-    *   Select a second text window
-    *   Execute this tool again  
-            -- and the contents of the two windows will be compared
+The Object Explorer form presents a navigable treeview on the left and the members of the selected node in the grid on the right.
 
-> **Required:**  Thor cannot guess your favorite compare tool, so you must modify the Plug-In so that Thor can call it. The default code for the Plug-in calls Beyond Compare (_personal note: highly recommended!)_ and must be modified to fit your environment.
+![](Images/ObjectExplorerNews43.png)
 
-*   Three new tools for [VFP2Text](http://pfsolutions-mi.com/Product/VFP2Text), a add-on from Frank Perez, Jr. for Beyond Compare, that allow direct comparison of VCXs and SCXs
-    *   'Download VFP2Text for Beyond Compare V3'
-    *   'Download VFP2Text for Beyond Compare V4'
-    *   'VFP2Text Home Page'
+The recently added new features include:
 
-There have been some enhancements to **[SuperBrowse](Thor_superbrowse.md)** as well:
+* Double-click on a row in the grid to edit the value of the property.
+* Double-click on an array property to fill the grid with all the array elements, which can then be edited.
+* Handling of Favorites:
+    * Right-click on a row to bring up context menu where you can indicate whether that the property is a Favorite.
+    * Checkboxes on the bottom indicate how Favorites are to be used.
+* In the IDE, right-click on a node in the TreeView to assign that node into a public variable.  
+   * You will be prompted for the name of the public variable.  
+   * The name will be remembered for re-use.  
+   * The public variable is released when Object Explorer closes.  
+   * Once a name has been assigned, each time that you open Object Explorer the public variable will be assigned with the value of the object being explored.
 
-*   As it can be quite cumbersome switching between Expression and Value in the filter box, you can now overwrite the current setting as follows:
-    *   To select Value, use a trailing ‘$’
-    *   To select Expression, use a leading ‘=’
-*   "Value" filters on all selected fields or, if none, all character fields.
-*   Double-clicking a row (to edit using Dynamic Forms) brings up a read-only form if the table is read-only.
-*   A new setting allows leading characters from memo fields to be displayed instead of "Memo".
-*   Double-clicking a memo fields brings up that field alone for editing.
-*   There are a number of new plug-ins:
-    *   Format field picker -- create alternative formats to those provided on the first page ("Picker") to conform to your own preferences
-    *   Bind column events -- bind events in the grid columns to this class
-    *   Grid context menu -- create context menus for the cells in the grid  
+Note the "Browse" button that appears on the bottom line if OE can determine the alias of a table from properties _RecordSource_ or _cAlias_.
 
 See also the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).
 
@@ -50,6 +40,8 @@ See also the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/Fox
 
 Headlines History
 ---
+
+**[2022-12-26 : Object Explorer Enhancements](NewsItems/Item_43.md)** 
 
 **[2015-11-30 : New Thor Tools and SuperBrowse Enhancements](NewsItems/Item_42.md)**
 
