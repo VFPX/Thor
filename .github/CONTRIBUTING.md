@@ -12,7 +12,7 @@ Here are the steps to updating to a new version:
 2. Make whatever changes are necessary.
 ---
 #### If updating Thor.App
-3. Edit _ThorVersion.h_ and change the version constants.
+3. Edit _Installed Files\Source\ThorVersion.h_ and change the version constants.
 1. Run _BuildThor.PRG_ in folder _"Installed Files.Source"_ to re-create the APP.
 1. Run FoxBin2Prg to create the text files in folder _Installed Files_
    - `DO foxbin2prg.prg WITH 'BIN2PRG','*.*'`
