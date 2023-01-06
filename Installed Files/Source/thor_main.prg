@@ -480,9 +480,9 @@ Procedure AddThorMainMenuItems(tcFolder, loMenuDefs)
 	AddThorMainMenuSeparator (8, 200, 'SEPARATOR1')
 
 	AddThorMainMenuItem (8, ccThorNews, 	205, 	'Thor News', 'All the latest and greatest news about Thor and Thor tools.')
-	AddThorMainMenuItem (8, ccThorTWEeTs, 	206, 	'Thor TWEeTs', "History of all Thor TWEeTs (This Week's Exceptional Tools")
+	RemoveThorMainMenuItem (8, ccThorTWEeTs, 	206, 	'Thor TWEeTs', "History of all Thor TWEeTs (This Week's Exceptional Tools")
 	AddThorMainMenuItem (8, 'Thor-Forums', 	214, 	'Forums', '')
-	AddThorMainMenuItem (8, 'Thor-Blogs', 	217, 	'Blogs', '')
+	RemoveThorMainMenuItem (8, 'Thor-Blogs', 	217, 	'Blogs', '')
 	AddThorMainMenuItem (8, ccINTERNALHELPPRG, 220, 'Home Pages for VFPX Projects', 'Help for Thor')
 	AddThorMainMenuItem (8, 'Thor-Videos', 	230,	'Thor videos', '')
 
@@ -492,7 +492,7 @@ Procedure AddThorMainMenuItems(tcFolder, loMenuDefs)
 	lnMoreID = loMenuDefs.More
 	AddThorMainMenuItem (lnMoreID, ccMANAGEPLUGINS, 210, 'Manage Plug-Ins', 'Manages plug-in PRGS used by some tools')
 	AddThorMainMenuItem (lnMoreID, ccOPENFOLDERS, 220, 'Open Folder', 'Opens various Thor folders')
-	AddThorMainMenuItem (lnMoreID, ccUSAGESUMMARY, 235, 'Thor Usage Summary', 'Summary of usage of Thor tools')
+	RemoveThorMainMenuItem (lnMoreID, ccUSAGESUMMARY, 235, 'Thor Usage Summary', 'Summary of usage of Thor tools')
 
 	AddThorMainMenuSeparator (lnMoreID, 300, 'SEPARATOR3')
 
@@ -501,7 +501,7 @@ Procedure AddThorMainMenuItems(tcFolder, loMenuDefs)
 
 	AddThorMainMenuSeparator (lnMoreID, 400, 'SEPARATOR41')
 	AddThorMainMenuItem	(lnMoreID, 'Thor-ChangeLogs', 410, 'Change Logs', '')
-	AddThorMainMenuItem	(lnMoreID, 'Thor-ERs', 420, 'Thor ERs', '')
+	RemoveThorMainMenuItem 	(lnMoreID, 'Thor-ERs', 420, 'Thor ERs', '')
 Endproc
 
 
@@ -1078,7 +1078,11 @@ Endproc
 Procedure CreateLocalIntellisense (lcVariable, lcThisLine)
 	Local lcClass, lcClassLibrary, lcQuote, lcResult, loObject
 
-	loObject = Execscript (_Screen.cThorDispatcher, lcThisLine)
+ 	Try 
+ 		loObject = Execscript (_Screen.cThorDispatcher, lcThisLine)
+ 	Catch to loException
+ 		loObject = .F.
+ 	EndTry
 	If 'O' # Vartype (loObject)
 		Return ''
 	Endif
@@ -1087,7 +1091,7 @@ Procedure CreateLocalIntellisense (lcVariable, lcThisLine)
 	lcClassLibrary = loObject.ClassLibrary
 	If File (lcClassLibrary)
 		lcQuote	 = Iif (' ' $ lcClassLibrary, '"', '')
-		lcResult = ccCRLF + 'Local ' + Alltrim (lcVariable, 1, ' ', '=' ) + ' as ' + lcClass + ' of ' + lcQuote + lcClassLibrary + lcQuote
+		lcResult = chr(13) + chr(10) + 'Local ' + Alltrim (lcVariable, 1, ' ', '=' ) + ' as ' + lcClass + ' of ' + lcQuote + lcClassLibrary + lcQuote
 		Return lcResult
 	Else
 		Return ''
@@ -1580,40 +1584,35 @@ Return
 Procedure GetForumNames
 	Local lcForums
 	lcForums = '-Thor' && - Causes this to appear first; remainder are alphabetical
-	lcForums = lcForums + chr(13) + 'OFUG'
-	lcForums = lcForums + chr(13) + 'GoFish'
-	lcForums = lcForums + chr(13) + 'Dynamic Forms'
+	lcForums = lcForums + ccCR + 'GoFish'
 	Return lcForums
 Endproc
 
 Procedure GetForumLinks
 	Local lcForums
 	lcForums = 'https://groups.google.com/forum/?fromgroups#!forum/FoxProThor'
-	lcForums = lcForums + chr(13) + 'https://groups.google.com/forum/?fromgroups=#!forum/ofug'
-	lcForums = lcForums + chr(13) + 'https://groups.google.com/forum/?fromgroups#!forum/FoxProGoFish'
-	lcForums = lcForums + chr(13) + 'https://groups.google.com/forum/?fromgroups#!forum/FoxProDynamicForms'
+	lcForums = lcForums + ccCR + 'https://groups.google.com/forum/?fromgroups#!forum/FoxProGoFish'
 	Return lcForums
 Endproc
 
 Procedure GetChangeLogNames
 	Local lcChangeLogs
 	lcChangeLogs = '-Thor'  && - Causes this to appear first; remainder are alphabetical
-	lcChangeLogs = lcChangeLogs + chr(13) + 'PEM Editor'
-	lcChangeLogs = lcChangeLogs + chr(13) + 'Thor Repository'
-	lcChangeLogs = lcChangeLogs + chr(13) + 'IntellisenseX'
-	lcChangeLogs = lcChangeLogs + chr(13) + 'VFPX Projects'
+	lcChangeLogs = lcChangeLogs + ccCR + 'PEM Editor'
+	lcChangeLogs = lcChangeLogs + ccCR + 'Thor Repository'
+	lcChangeLogs = lcChangeLogs + ccCR + 'IntellisenseX'
 	Return lcChangeLogs
 Endproc
 
 Procedure GetChangeLogLinks
 	Local lcChangeLogs
-	lcChangeLogs = 'https://docs.google.com/document/d/1Fs4dwMq3Ckgr4vReP1_YxHc1wQnEyHX94tUfaFsZ4us/edit'
-	lcChangeLogs = lcChangeLogs + chr(13) + 'https://docs.google.com/document/d/1WE_ItHG8JJMCF-YbMCeJCELd08Qjr4HYLzde55rk-oI/edit'
-	lcChangeLogs = lcChangeLogs + chr(13) + 'https://docs.google.com/document/d/1ASU-huMjxQ3hl7rRw3OqoJOGeQ8bAvnxs_2mJINDPKY/edit'
-	lcChangeLogs = lcChangeLogs + chr(13) + 'https://docs.google.com/document/d/1WRfYGzJAdcAWCcpcwbs_BOE8xpSOmK6T8zSPwZKKf54/edit'
-	lcChangeLogs = lcChangeLogs + chr(13) + 'https://docs.google.com/document/d/1Tz5mZGZRu1Ynu4CX2qxaVba1JkaeETHSvMz--O4DzMc/edit'
+	lcChangeLogs = 'https://github.com/VFPX/Thor/blob/master/Change%20Log.md'
+	lcChangeLogs = lcChangeLogs + ccCR + 'https://github.com/VFPX/PEMEditor/blob/master/Change%20Log.md'
+	lcChangeLogs = lcChangeLogs + ccCR + 'https://github.com/VFPX/ThorRepository/blob/master/Change%20Log.md'
+	lcChangeLogs = lcChangeLogs + ccCR + 'https://github.com/VFPX/IntellisenseX/blob/master/Change%20Log.md'
 	Return lcChangeLogs
 Endproc
+
 
 ****************************************************************
 ****************************************************************

@@ -1,5 +1,13 @@
 # Thor Change Log
 
+### Thor 1.45.04 - Net yet released!
+
+Changes to Thor menu pad in VFP system menu
+* Remove outdated/irrelevant menu items
+* Correct links to Forums
+* For "Thor Framework", ignore errors for file not found (bad links, essentially)
+* Correct links to Change Logs
+
 ### Thor 1.45.03 - Release 2022-12-26
 
 Thor News back in business.

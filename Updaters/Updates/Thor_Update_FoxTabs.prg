@@ -1,6 +1,42 @@
 #Define	ccThorToolName 'Thor_Tool_FoxTabs'
 
-Lparameters loUpdateObject
+lparameters toUpdateObject
+local lcAppName, ;
+	lcAppID, ;
+	lcRepositoryURL, ;
+	lcDownloadsURL, ;
+	lcVersionFileURL, ;
+	lcZIPFileURL, ;
+	lcRegisterWithThor
+
+* Set the project settings; edit these for your specific project.
+
+lcAppName       = 'FoxTabs'
+	&& the name of the project
+lcAppID         = 'FoxTabs'
+	&& similar to lcAppName but must be URL-friendly (no spaces or other
+	&& illegal URL characters)
+lcRepositoryURL = 'https://github.com/VFPX/FoxTabs'
+	&& the URL for the project's repository
+
+* If the version file and zip file are in the ThorUpdater folder of the
+* master branch of a GitHub repository, these don't need to be edited.
+* Otherwise, set lcVersionFileURL and lcZIPFileURL to the correct URLs.
+
+lcDownloadsURL   = strtran(lcRepositoryURL, 'github.com', ;
+	'raw.githubusercontent.com') + '/master/ThorUpdater/'
+lcVersionFileURL = lcDownloadsURL + lcAppID + 'Version.txt'
+	&& the URL for the file containing code to get the available version number
+lcZIPFileURL     = lcDownloadsURL + lcAppID + '.zip'
+	&& the URL for the zip file containing the project
+
+* This is code to execute after the project has been installed by Thor for the
+* first time. Edit this if you want do something different (such as running
+* the installed code) or display a different message. You can use code like
+* this if you want to execute the installed code; Thor replaces
+* ##InstallFolder## with the installation path for the project:
+*
+* 'do "##InstallFolder##MyProject.prg"'
 
 Text to lcRegisterWithThor NoShow TextMerge
     
@@ -16,7 +52,7 @@ Text to lcRegisterWithThor NoShow TextMerge
         .Prompt        = 'FoxTabs'
         
         * Optional
-        .Description   = 'DataTabs'
+        .Description   = 'FoxTabs'
 
         * These are used to group and sort tools when they are displayed in menus or the Thor form
         .Category      = 'Applications'
@@ -31,24 +67,24 @@ Do ('##InstallFolder##FoxTabs.APP')
     Endwith
     
 EndText
-
 lcRegisterWithThor = Strtran(lcRegisterWithThor, '@@@')
 
-With loUpdateObject
-    .ApplicationName      = 'FoxTabs'
-    .VersionLocalFilename = 'DataExplorerVersionFile.txt'
-    .RegisterWithThor     = lcRegisterWithThor
-    
-    .VersionNumber	  = 'FoxTabs 1.2'
-    .VersionDate          = Date(2014, 10, 26)
-    .SourceFileUrl        = 'https://github.com/VFPX/FoxTabs/archive/refs/heads/master.zip'
-    .Link                 = 'https://github.com/VFPX/FoxTabs'
-    .LinkPrompt           = 'FoxTabs Home Page'
-    .Notes                = GetNotes()
-Endwith
+* Set the properties of the passed updater object. You likely won't need to edit this code.
 
-Return loUpdateObject
+with toUpdateObject
+	.ApplicationName      = lcAppName
+	.Component            = 'No'
+	.VersionLocalFilename = lcAppID + 'VersionFile.txt'
+	.RegisterWithThor     = lcRegisterWithThor
+	.VersionFileURL       = lcVersionFileURL
+	.SourceFileUrl        = lcZIPFileURL
+	.Link                 = lcRepositoryURL
+	.LinkPrompt           = lcAppName + ' Home Page'
+	.Notes                = GetNotes()
+endwith
+return toUpdateObject
 
+* Get the notes for the project. Edit this code as necessary.
 
 Procedure GetNotes
 
