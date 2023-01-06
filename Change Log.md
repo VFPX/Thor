@@ -1,22 +1,30 @@
 # Thor Change Log
 
-### Thor 1.45.03 - Release 2022-12-26
+### Thor 1.45.04 - Released 2023-01-06
+
+Changes to Thor menu pad in VFP system menu
+* Remove outdated/irrelevant menu items
+* Correct links to Forums
+* For "Thor Framework", ignore errors for file not found (bad links, essentially)
+* Correct links to Change Logs
+
+### Thor 1.45.03 - Released 2022-12-26
 
 Thor News back in business.
 
-### Thor 1.45.01 - Release 2022-12-13
+### Thor 1.45.01 - Released 2022-12-13
 
 Added ability to move or delete separator lines in menus in Thor Configuration form.
 
-### Thor 1.45 - Release 2022-03-05
+### Thor 1.45 - Released 2022-03-05
 
 Updated the Check for Updates process to log unzipping failure.
 
-### Thor 1.44 - Release 2022-03-04
+### Thor 1.44 - Released 2022-03-04
 
 Updated the Check for Updates process to use Shell.Application instead of VFPCompression to unzip files.
 
-### Thor 1.43 - Release 2021-12-28
+### Thor 1.43 - Released 2021-12-28
 
 Updated the Check for Updates process to look at the GitHub repository of each project rather than VFPXRepository.com.
 

@@ -349,10 +349,11 @@ DEFINE CLASS form1 AS form
 			Endwith
 		Endfor && lnI = 1 to loUpdateList.Count
 		
-		Select  *										;
-			From crsr_ThorUpdates						;
-			Into Cursor crsr_ThorUpdates Readwrite		;
-			Order By SortKey
+		Select  *								;
+			From crsr_ThorUpdates				;
+			Where Not Empty(LinkPrompt)			;
+			Order By SortKey					;
+			Into Cursor crsr_ThorUpdates Readwrite
 		Goto Top
 		
 		Return llAnyFound

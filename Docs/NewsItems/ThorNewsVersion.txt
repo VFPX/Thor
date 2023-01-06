@@ -1,1 +1,1 @@
-Thor News Version = 43
+Thor News Version = 44
