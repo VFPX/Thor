@@ -1,18 +1,13 @@
-**Class Browser Enhancements** 
+**FoxTabs Enhancements** 
 ---
 
-### #44, 2023-01-07
+### #44, 2023-01-06
 
-There are two recent enhancements to [Class Browser](https://github.com/VFPX/ClassBrowser).
+There are some recent enhancements to [FoxTabs](https://github.com/VFPX/FoxTabs).
 
-* If Thor is active, adds classes and class libraries opened into VFP's MRU lists
-* Thor tool "Install Class Browser" installs/uninstalls this new version of Class Browser.
-
-Many Thor tools, including PEMEditor, GoFish and Go To Definitionrs, update VFP's native MRU lists.
-
-To get to the MRU lists without going to the command window, use the Thor tool "MRUs", best accessed if assigned to a hot key.
-
-![](../Images/Thor_MRUs.png)
+* BindWinEvent was extracted to a separate repository, and some fixes were applied.
+* Fixed compatibility issues with PEM Editor (some tabs had no label).
+* Improved window type detection and tab icons.
 
 
 ---

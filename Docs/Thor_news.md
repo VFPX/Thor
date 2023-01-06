@@ -2,31 +2,21 @@
 
 ![](Images/Thor_greenline.png)
 
-**Object Explorer Enhancements** 
+**FoxTabs Enhancements** 
 ---
 
-### #43, 2022-12-26
+### #44, 2023-01-06
 
-[Object Explorer](https://github.com/VFPX/ObjectExplorer), one of the most recent projects added to VFPX, is a tool that allows you to explore objects, collections, and array properties in both production and in your IDE. You can invoke Object Explorer at any time by hovering over any object in a form and using a hot key, and Object Explorer will open for that object and the form it belongs to.
+There are some recent enhancements to [FoxTabs](https://github.com/VFPX/FoxTabs).
 
-The Object Explorer form presents a navigable treeview on the left and the members of the selected node in the grid on the right.
+* BindWinEvent was extracted to a separate repository, and some fixes were applied.
+* Fixed compatibility issues with PEM Editor (some tabs had no label).
+* Improved window type detection and tab icons.
 
-![](Images/ObjectExplorerNews43.png)
 
-The recently added new features include:
+---
+See also [Thor News](../Thor_news.md) and the [Thor Forum](https://groups.google.com/forum/?fromgroups#!forum/FoxProThor).  
 
-* Double-click on a row in the grid to edit the value of the property.
-* Double-click on an array property to fill the grid with all the array elements, which can then be edited.
-* Handling of Favorites:
-    * Right-click on a row to bring up context menu where you can indicate whether that the property is a Favorite.
-    * Checkboxes on the bottom indicate how Favorites are to be used.
-* In the IDE, right-click on a node in the TreeView to assign that node into a public variable.  
-   * You will be prompted for the name of the public variable.  
-   * The name will be remembered for re-use.  
-   * The public variable is released when Object Explorer closes.  
-   * Once a name has been assigned, each time that you open Object Explorer the public variable will be assigned with the value of the object being explored.
-
-Note the "Browse" button that appears on the bottom line of OE can determine the alias of a table from properties _RecordSource_ or _cAlias_.
 
 See also
 * [Thor Forum](http://groups.google.com/group/FoxProThor)
@@ -37,6 +27,8 @@ See also
 
 Headlines History
 ---
+
+**[2023-01-06 : FoxTabs Enhancements](NewsItems/Item_44.md)** 
 
 **[2022-12-26 : Object Explorer Enhancements](NewsItems/Item_43.md)** 
 
