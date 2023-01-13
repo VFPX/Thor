@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.45.05 - Released 2023-01-13
+
+New Updater property to indicate that a project is to be installed in the Tools folder instead of a sub-folder of Tools\Apps or Tools\Components.
+
 ### Thor 1.45.04 - Released 2023-01-06
 
 Changes to Thor menu pad in VFP system menu
@@ -83,4 +87,4 @@ Thor Production Release - Released 2011-09-03
 ## Contribution
 See [contribution](./.github/CONTRIBUTING.md)
 
-Last changed: _2022/12/26_ ![Picture](./Docs/Images/vfpxpoweredby_alternative.gif)
+Last changed: _2023/01/13_ ![Picture](./Docs/Images/vfpxpoweredby_alternative.gif)
