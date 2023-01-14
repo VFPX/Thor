@@ -87,4 +87,4 @@ Thor Production Release - Released 2011-09-03
 ## Contribution
 See [contribution](./.github/CONTRIBUTING.md)
 
-Last changed: _2023/01/13_ ![Picture](./Docs/Images/vfpxpoweredby_alternative.gif)
+Last changed: _2023/01/13_ ![Picture](Docs/Images/vfpxpoweredby_alternative.gif)

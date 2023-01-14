@@ -13,12 +13,16 @@ Here are the steps to updating to a new version:
 ---
 #### If updating Thor.App
 3. Edit _Installed Files\Source\ThorVersion.h_ and change the version constants.
-1. Run _BuildThor.PRG_ in folder _"Installed Files.Source"_ to re-create the APP.
+1. Update the AvailableVersion property in _ThorUpdater\\_ThorVersionFile.txt_. Be certain that the value be identical to the value of the `ccThorInternalVERSION` constant in _ThorVersion.h_.
+1. Run _BuildThor.PRG_ in folder _"Installed Files\Source"_ to re-create the APP. You will need to this in an environment where Thor is no longer running:
+    - `Cancel()`
+    - `Close All`
+    - `Clear All`
+    - `Release All`
 1. Run FoxBin2Prg to create the text files in folder _Installed Files_
    - `DO foxbin2prg.prg WITH 'BIN2PRG','*.*'`
 1. Update the version number and date at the top of _README.md_ 
 1. Describe the changes in _Change Log.md_.
-1. Update the AvailableVersion property in _ThorUpdater\\_ThorVersionFile.txt_: note the format of the value must be identical to the value of the `ccThorInternalVERSION` constant in _ThorVersion.h_.
 ---
 #### If updating Thor News
 ---
@@ -30,7 +34,7 @@ Here are the steps to updating to a new version:
 #### If updating version info for VFPX Projects / CFU (most projects)
 ---
 
-This applies to all updaters except those few (15 or so) where the version information is read from a separate URL (.VersionFileURL) which is normally used only for projects within continuing updates.
+This applies to all updaters except those few (15 or so) where the version information is read from a separate URL (.VersionFileURL) which is normally used only for projects with continuing updates.
 
 13. Modify the prg file in Updaters\Updates
 
@@ -54,4 +58,4 @@ Just:
 Thanks
 
 ----
-Last changed: _2022/12/13_ ![Picture](../Docs/Images/vfpxpoweredby_alternative.gif)
+Last changed: _2023/01/13_ ![Picture](vfpxpoweredby_alternative.gif)

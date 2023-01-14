@@ -491,7 +491,7 @@ Procedure AddThorMainMenuItems(tcFolder, loMenuDefs)
 
 	lnMoreID = loMenuDefs.More
 	AddThorMainMenuItem (lnMoreID, ccMANAGEPLUGINS, 210, 'Manage Plug-Ins', 'Manages plug-in PRGS used by some tools')
-	AddThorMainMenuItem (lnMoreID, ccOPENFOLDERS, 220, 'Open Folder', 'Opens various Thor folders')
+	AddThorMainMenuItem (lnMoreID, ccOPENFOLDERS, 220, 'Thor Folders', 'Opens various Thor folders')
 	RemoveThorMainMenuItem (lnMoreID, ccUSAGESUMMARY, 235, 'Thor Usage Summary', 'Summary of usage of Thor tools')
 
 	AddThorMainMenuSeparator (lnMoreID, 300, 'SEPARATOR3')
@@ -3358,29 +3358,24 @@ Procedure AddUpdateFolder (loUpdateList, tlIsThor, lcUpdateFolder, lcNeverUpdate
 			If 'L' # Vartype(tlIsThor) Or tlIsThor = (Upper (loResult.ApplicationName) == 'THOR')
 				loTool = Execscript (_Screen.cThorDispatcher, 'ToolInfo=', loResult.ToolName)
 
-				If Isnull (loTool)
-					If loResult.Component = 'Yes'
-						lcFolder		  = Addbs(Addbs (lcToolFolder) + 'Components') + loResult.ApplicationName
-					Else
-						lcFolder		  = Addbs(Addbs (lcToolFolder) + 'Apps') + loResult.ApplicationName
-					Endif
-					lcLocalVersionFile = Addbs (lcFolder) + loResult.VersionLocalFilename
-					If File (lcLocalVersionFile)
-						lcLocalVersion	   = Filetostr (lcLocalVersionFile)
-						loResult.AlreadyInstalled = 'Yes'
-					Else
-						lcLocalVersion	   = ''
-						loResult.AlreadyInstalled = 'No'
-					Endif
+				Do Case
+					Case loResult.InstallInTools
+						lcFolder = lcToolFolder
+					Case Not Isnull (loTool)
+						lcFolder = loTool.FolderName
+					Case loResult.Component = 'Yes'
+						lcFolder = Addbs(Addbs (lcToolFolder) + 'Components') + loResult.ApplicationName
+					Otherwise
+						lcFolder = Addbs(Addbs (lcToolFolder) + 'Apps') + loResult.ApplicationName
+				Endcase
+				
+				lcLocalVersionFile = Addbs (lcFolder) + loResult.VersionLocalFilename
+				If File (lcLocalVersionFile)
+					lcLocalVersion	   = Filetostr (lcLocalVersionFile)
+					loResult.AlreadyInstalled = 'Yes'
 				Else
-					lcFolder		   = loTool.FolderName
-					lcLocalVersionFile = Addbs (lcFolder) + loResult.VersionLocalFilename
-					If File (lcLocalVersionFile)
-						lcLocalVersion	   = Filetostr (lcLocalVersionFile)
-						loResult.AlreadyInstalled = 'Yes'
-					Else
-						loResult.AlreadyInstalled = 'No'
-					Endif
+					lcLocalVersion	   = ''
+					loResult.AlreadyInstalled = 'No'
 				Endif
 
 				loResult.InstallationFolder	= lcFolder
@@ -3508,13 +3503,25 @@ Return
 
 Define Class clsUpdaterObject As Custom
 
-	* Properties to be defined in Updater PRGs
-	APPName				 = '' && Name of the APP file
+	* If no VersionFileURL, then all properties in sets [1] - [3] 
+	*	are to be defined in the Updater
+	
+	* If there is a VersionFileURL 
+	*	set [1] must be in the updater
+	*	set [2] normally appears in the updater
+	*	set [3] normally appears in the version file
+	
+	* Any properties set in the updater can be over-ridden in the version file
+	
+	* [1] Properties that must be defined in updater
 	ApplicationName		 = '' && Name of the application
+	VersionFileURL		 = '' && URL of the version file in the cloud
+
+	* [2] Properties that normally appear in the updater
+	APPName				 = '' && Name of the APP file
 	ToolName			 = '' && Name of the tool used to determine where the APP is stored
 	Component            = 'No'
 	FindInstalledVersion = 'No'
-	VersionFileURL		 = '' && URL of the version file in the cloud
 	VersionLocalFilename = '' && Name of the local version file
 	RegisterWithThor	 = '' && To be executed to register this APP with Thor
 	ShowErrorMessage	 = 'Yes'
@@ -3524,8 +3531,20 @@ Define Class clsUpdaterObject As Custom
 	NeverUpdateFile		 = ''
 	UpdateNowIfNotInstalled = 'No'	
 	ProjectCreationDate  = Date(2001,1,1)
+	InstallInTools		 = .F.
+	Link				   = ''
+	LinkPrompt			   = ''
 
-	* Properties used along the way by the updater process
+	* [3] Properties that normally appear in the version file
+	AvailableVersion	   = ''
+	VersionNumber		   = ''
+	VersionDate			   = {//}
+	AvailableVersionDate   = ''
+	AvailableVersionNumber = ''
+	SourceFileURL		   = ''
+	Notes				   = ''
+
+	* [4] Properties used along the way by the updater process
 	File			   = ''
 	InstallationFolder = ''
 	LocalVersionFile   = ''
@@ -3536,17 +3555,6 @@ Define Class clsUpdaterObject As Custom
 	NeverUpdate		 = 'No'
 	AlreadyInstalled = 'No'
 	FromMyUpdates    = 'Yes'
-
-	* Properties set by the cloud version file
-	AvailableVersion	   = ''
-	VersionNumber		   = ''
-	VersionDate			   = {//}
-	AvailableVersionDate   = ''
-	AvailableVersionNumber = ''
-	SourceFileURL		   = ''
-	Notes				   = ''
-	Link				   = ''
-	LinkPrompt			   = ''
 
 Enddefine
 
