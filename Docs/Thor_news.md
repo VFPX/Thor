@@ -115,5 +115,5 @@ Headlines History
 ---
 
 
-Last changed: _2022/12/22_ ![Picture](./images/vfpxpoweredby_alternative.gif)
+Last changed: _2023-01-13_ ![Picture](Images/vfpxpoweredby_alternative.gif)
 
