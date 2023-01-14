@@ -13,8 +13,8 @@ Here are the steps to updating to a new version:
 ---
 #### If updating Thor.App
 3. Edit _Installed Files\Source\ThorVersion.h_ and change the version constants.
-1. Update the AvailableVersion property in _ThorUpdater\\_ThorVersionFile.txt_: note that the value must be identical to the value of the `ccThorInternalVERSION` constant in _ThorVersion.h_.
-1. Run _BuildThor.PRG_ in folder _"Installed Files.Source"_ to re-create the APP. You will need to this in an environment where Thor is no longer running:
+1. Update the AvailableVersion property in _ThorUpdater\\_ThorVersionFile.txt_. Be certain that the value be identical to the value of the `ccThorInternalVERSION` constant in _ThorVersion.h_.
+1. Run _BuildThor.PRG_ in folder _"Installed Files\Source"_ to re-create the APP. You will need to this in an environment where Thor is no longer running:
     - `Cancel()`
     - `Close All`
     - `Clear All`
