@@ -473,34 +473,34 @@ Endproc
 Procedure AddThorMainMenuItems(tcFolder, loMenuDefs)
 
 	Local lnMoreID
-	AddThorMainMenuItem (8, 'Thor_Tool_ThorInternalRunTool', 105, 'Launcher', 'Find and run tools, explore descriptions, etc')
-	AddThorMainMenuItem (8, ccINTERNALEDITPRG, 110, 'Configure', 'Assign hot keys, create menus and sub-menus, etc.')
-	AddThorMainMenuItem (8, ccCHECKFORUPDATES, 120, 'Check for Updates', 'Check for and install any outstanding updates')
+	AddThorMainMenuItem (8, 'Thor_Tool_ThorInternalRunTool', 105, '\<Launcher', 'Find and run tools, explore descriptions, etc')
+	AddThorMainMenuItem (8, ccINTERNALEDITPRG, 110, '\<Configure', 'Assign hot keys, create menus and sub-menus, etc.')
+	AddThorMainMenuItem (8, ccCHECKFORUPDATES, 120, 'Check for \<Updates', 'Check for and install any outstanding updates')
 
 	AddThorMainMenuSeparator (8, 200, 'SEPARATOR1')
 
-	AddThorMainMenuItem (8, ccThorNews, 	205, 	'Thor News', 'All the latest and greatest news about Thor and Thor tools.')
+	AddThorMainMenuItem (8, ccThorNews, 	205, 	'Thor \<News', 'All the latest and greatest news about Thor and Thor tools.')
 	RemoveThorMainMenuItem (8, ccThorTWEeTs, 	206, 	'Thor TWEeTs', "History of all Thor TWEeTs (This Week's Exceptional Tools")
-	AddThorMainMenuItem (8, 'Thor-Forums', 	214, 	'Forums', '')
+	AddThorMainMenuItem (8, 'Thor-Forums', 	214, 	'\<Forums', '')
 	RemoveThorMainMenuItem (8, 'Thor-Blogs', 	217, 	'Blogs', '')
-	AddThorMainMenuItem (8, ccINTERNALHELPPRG, 220, 'Home Pages for VFPX Projects', 'Help for Thor')
-	AddThorMainMenuItem (8, 'Thor-Videos', 	230,	'Thor videos', '')
+	AddThorMainMenuItem (8, ccINTERNALHELPPRG, 220, '\<Home Pages for VFPX Projects', 'Help for Thor')
+	AddThorMainMenuItem (8, 'Thor-Videos', 	230,	'Thor \<Videos', '')
 
 	AddThorMainMenuSeparator (8, 300, 'SEPARATOR11')
 	AddThorSubMenu (8, loMenuDefs.More, 999, 'More')
 
 	lnMoreID = loMenuDefs.More
-	AddThorMainMenuItem (lnMoreID, ccMANAGEPLUGINS, 210, 'Manage Plug-Ins', 'Manages plug-in PRGS used by some tools')
-	AddThorMainMenuItem (lnMoreID, ccOPENFOLDERS, 220, 'Thor Folders', 'Opens various Thor folders')
+	AddThorMainMenuItem (lnMoreID, ccMANAGEPLUGINS, 210, 'Manage \<Plug-Ins', 'Manages plug-in PRGS used by some tools')
+	AddThorMainMenuItem (lnMoreID, ccOPENFOLDERS, 220, 'Thor \<Folders', 'Opens various Thor folders')
 	RemoveThorMainMenuItem (lnMoreID, ccUSAGESUMMARY, 235, 'Thor Usage Summary', 'Summary of usage of Thor tools')
 
 	AddThorMainMenuSeparator (lnMoreID, 300, 'SEPARATOR3')
 
 	AddThorMainMenuItem (lnMoreID, ccINTERNALFRAMEWORK, 310, 'Thor Framework', 'Framework of tools to assist in creating tools')
-	AddThorMainMenuItem (lnMoreID, ccDEBUGMODE, 320, 'Debug Mode', 'Toggles debug mode for working on Thor and IDE Tools')
+	AddThorMainMenuItem (lnMoreID, ccDEBUGMODE, 320, '\<Debug Mode', 'Toggles debug mode for working on Thor and IDE Tools')
 
 	AddThorMainMenuSeparator (lnMoreID, 400, 'SEPARATOR41')
-	AddThorMainMenuItem	(lnMoreID, 'Thor-ChangeLogs', 410, 'Change Logs', '')
+	AddThorMainMenuItem	(lnMoreID, 'Thor-ChangeLogs', 410, 'Change \<Logs', '')
 	RemoveThorMainMenuItem 	(lnMoreID, 'Thor-ERs', 420, 'Thor ERs', '')
 Endproc
 

@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.45.06 - Released 2023-01-20
+
+Re-arrangement of options in the Thor menu pad in system menu, including hot key assignments.
+
 ### Thor 1.45.05 - Released 2023-01-13
 
 New Updater property to indicate that a project is to be installed in the Tools folder instead of a sub-folder of Tools\Apps or Tools\Components.
@@ -87,4 +91,4 @@ Thor Production Release - Released 2011-09-03
 ## Contribution
 See [contribution](./.github/CONTRIBUTING.md)
 
-Last changed: _2023/01/13_ ![Picture](Docs/Images/vfpxpoweredby_alternative.gif)
+Last changed: _2023/01/20_ ![Picture](Docs/Images/vfpxpoweredby_alternative.gif)
