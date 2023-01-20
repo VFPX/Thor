@@ -25,5 +25,6 @@ with toUpdateObject
 	.SourceFileUrl        = lcZIPFileURL
 	.Link                 = lcRepositoryURL
 	.LinkPrompt           = 'Thor Repository Home Page'
+	.InstallInTools	      = .T.	
 endwith
 return toUpdateObject
