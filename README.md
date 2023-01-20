@@ -1,7 +1,7 @@
 ![](Docs/Images/Thor.png)  
 ## Tool manager for FoxPro
 
-Version 1.45.05 Release 2023-01-13
+Version 1.45.06 Release 2023-01-20
 
 [What's new in this release](Change%20Log.md)
 
@@ -87,4 +87,4 @@ Two new menu pads in VFP system menu (Thor and personal menu JRN) and the menu o
 ## Contribution
 See [contribution](./.github/CONTRIBUTING.md)
 
-Last changed: _2023-01-13_ ![Picture](Docs/Images/vfpxpoweredby_alternative.gif)
+Last changed: _2023-01-20_ ![Picture](Docs/Images/vfpxpoweredby_alternative.gif)

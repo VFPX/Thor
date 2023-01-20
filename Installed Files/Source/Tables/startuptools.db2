@@ -77,46 +77,30 @@
 		</FIELD>
 	</FIELDS>
 
+	<IndexFiles>
 
-	<indexFile>STARTUPTOOLS.CDX</indexFile>
+		<IndexFile Type="Structural" >
 
-	<INDEXES>
-		<INDEX>
-			<TagName>ID</TagName>
-			<TagType>REGULAR</TagType>
-			<Key>ID</Key>
-			<Filter></Filter>
-			<Order>ASCENDING</Order>
-			<Collate>MACHINE</Collate>
-		</INDEX>
-		<INDEX>
-			<TagName>PRGNAME</TagName>
-			<TagType>REGULAR</TagType>
-			<Key>UPPER(PRGNAME)</Key>
-			<Filter></Filter>
-			<Order>ASCENDING</Order>
-			<Collate>MACHINE</Collate>
-		</INDEX>
-	</INDEXES>
+			<INDEXES>
+				<INDEX>
+					<TagName>ID</TagName>
+					<TagType>REGULAR</TagType>
+					<Key>ID</Key>
+					<Filter></Filter>
+					<Order>ASCENDING</Order>
+					<Collate>MACHINE</Collate>
+				</INDEX>
+				<INDEX>
+					<TagName>PRGNAME</TagName>
+					<TagType>REGULAR</TagType>
+					<Key>UPPER(PRGNAME)</Key>
+					<Filter></Filter>
+					<Order>ASCENDING</Order>
+					<Collate>MACHINE</Collate>
+				</INDEX>
+			</INDEXES>
+		</IndexFile>
 
-
-
-	<RECORDS>
-
-		<RECORD>
-			<ID>1</ID>
-			<PRGNAME>Thor_Tool_PEME_LaunchPEMEditor.PRG</PRGNAME>
-			<STARTUP>.F.</STARTUP>
-		</RECORD>
-
-		<RECORD>
-			<ID>2</ID>
-			<PRGNAME>Thor_Tool_sssssssaaa.PRG</PRGNAME>
-			<STARTUP>.T.</STARTUP>
-		</RECORD>
-
-	</RECORDS>
-
-
+	</IndexFiles>
 </TABLE>
 
