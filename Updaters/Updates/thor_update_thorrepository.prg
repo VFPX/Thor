@@ -7,20 +7,20 @@ local lcRepositoryURL, ;
 
 * Get the URL for the version and ZIP files.
 
-lcRepositoryURL  = 'https://github.com/VFPX/ThorRespository'
+lcRepositoryURL  = 'https://github.com/VFPX/ThorRepository'
 	&& the URL for the project's repository
 lcDownloadsURL   = strtran(lcRepositoryURL, 'github.com', ;
 	'raw.githubusercontent.com') + '/master/ThorUpdater/'
-lcVersionFileURL = lcDownloadsURL + 'ThorRespositoryVersion.txt'
+lcVersionFileURL = lcDownloadsURL + 'ThorRepositoryVersion.txt'
 	&& the URL for the file containing code to get the available version number
-lcZIPFileURL     = lcDownloadsURL + 'ThorRespository.zip'
+lcZIPFileURL     = lcDownloadsURL + 'ThorRepository.zip'
 	&& the URL for the zip file containing the project
 
 * Set the properties of the passed updater object.
 
 with toUpdateObject
 	.ApplicationName      = 'Thor Repository'
-	.VersionLocalFilename = 'ThorRespositoryVersionFile.txt'
+	.VersionLocalFilename = 'ThorRepositoryVersionFile.txt'
 	.VersionFileURL       = lcVersionFileURL
 	.SourceFileUrl        = lcZIPFileURL
 	.Link                 = lcRepositoryURL
