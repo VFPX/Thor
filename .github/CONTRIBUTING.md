@@ -36,7 +36,7 @@ Here are the steps to updating to a new version:
 
 This applies to all updaters except those few (15 or so) where the version information is read from a separate URL (.VersionFileURL) which is normally used only for projects with continuing updates.
 
-13. Modify the prg file in Updaters\Updates
+13. Add / Modify the prg file in Updaters\Updates
 
 ---
 ### Finally
@@ -45,17 +45,6 @@ This applies to all updaters except those few (15 or so) where the version infor
 1. Push to your fork
 1. Create a pull request
 
----
-## Update for Thor some projects
-Some Thor based projects, for example **ThorRepository** maintain their version file inside this repository.   
-There is no need to do the steps above to update this information.   
-Just:
-- There is a zip _ThorUpdater\Updates.zip_.
-- Unzip the file belonging to your project
-- Change necessary information
-- Compress to the same place inside the zip
-
-Thanks
 
 ----
-Last changed: _2023/01/13_ ![Picture](vfpxpoweredby_alternative.gif)
+Last changed: _2023/01/21_ ![Picture](vfpxpoweredby_alternative.gif)

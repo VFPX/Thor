@@ -391,13 +391,13 @@ DEFINE CLASS thor_run AS custom
 		lcToolFolder = Addbs (Execscript (_Screen.cThorDispatcher, 'Tool Folder='))
 		
 		This.AddOpenFolder (loContextMenu, 'My Tools', lcToolFolder + 'My Tools')
-		This.AddOpenFolder (loContextMenu, 'Tools', lcToolFolder )
-		This.AddOpenFolder (loContextMenu, 'Procs', lcToolFolder + 'Procs')
+		This.AddOpenFolder (loContextMenu, 'Apps', lcToolFolder + 'Apps' )
+		This.AddOpenFolder (loContextMenu, 'Components', lcToolFolder + 'Components' )
 		
 		loContextMenu.AddMenuItem ()
 		
-		This.AddOpenFolder (loContextMenu, 'Apps', lcToolFolder + 'Apps' )
-		This.AddOpenFolder (loContextMenu, 'Components', lcToolFolder + 'Components' )
+		This.AddOpenFolder (loContextMenu, 'Tools', lcToolFolder )
+		This.AddOpenFolder (loContextMenu, 'Procs', lcToolFolder + 'Procs')
 		This.AddOpenFolder (loContextMenu, 'Downloads', Addbs(Sys(2023)) + 'Thor Downloads')
 		
 		
