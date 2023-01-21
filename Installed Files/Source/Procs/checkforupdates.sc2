@@ -36,6 +36,10 @@ DEFINE CLASS form1 AS form
 	*< OBJECTDATA: ObjPath="Grid1.Column9.Header1" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="Grid1.Column9.Text1" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="Grid1.Column9.Label" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Grid1.Column3.Header1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Grid1.Column3.Text1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Grid1.Column5.Header1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Grid1.Column5.Text1" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="cmdInstall" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="cmdCancel" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="Label1" UniqueID="" Timestamp="" />
@@ -121,7 +125,7 @@ DEFINE CLASS form1 AS form
 
 	ADD OBJECT 'Grid1' AS grid WITH ;
 		Anchor = 15, ;
-		ColumnCount = 6, ;
+		ColumnCount = 8, ;
 		DeleteMark = .F., ;
 		GridLineColor = 192,192,192, ;
 		GridLines = 2, ;
@@ -144,14 +148,15 @@ DEFINE CLASS form1 AS form
 		Column1.FontSize = 9, ;
 		Column1.Name = "Column1", ;
 		Column1.ReadOnly = .T., ;
-		Column1.Width = 250, ;
-		Column2.ColumnOrder = 3, ;
+		Column1.Width = 225, ;
+		Column2.ColumnOrder = 8, ;
 		Column2.ControlSource = "AllTrim(crsr_ThorUpdates.AvailableVerNumber)", ;
 		Column2.FontSize = 9, ;
 		Column2.Name = "Column2", ;
 		Column2.ReadOnly = .T., ;
-		Column2.Width = 200, ;
-		Column3.ColumnOrder = 4, ;
+		Column2.Visible = .F., ;
+		Column2.Width = 20, ;
+		Column3.ColumnOrder = 5, ;
 		Column3.ControlSource = "Alltrim(crsr_ThorUpdates.Status)", ;
 		Column3.FontSize = 9, ;
 		Column3.Name = "Column4", ;
@@ -170,7 +175,7 @@ DEFINE CLASS form1 AS form
 		Column5.Name = "Column7", ;
 		Column5.Sparse = .F., ;
 		Column5.Width = 89, ;
-		Column6.ColumnOrder = 5, ;
+		Column6.ColumnOrder = 7, ;
 		Column6.ControlSource = "Alltrim(crsr_ThorUpdates.LinkPrompt)", ;
 		Column6.DynamicCurrentControl = 'Iif(Empty(crsr_ThorUpdates.LinkPrompt), "label", "text1")', ;
 		Column6.FontSize = 9, ;
@@ -178,7 +183,16 @@ DEFINE CLASS form1 AS form
 		Column6.ForeColor = 0,0,255, ;
 		Column6.Name = "Column9", ;
 		Column6.Visible = .F., ;
-		Column6.Width = 180
+		Column6.Width = 180, ;
+		Column7.ColumnOrder = 3, ;
+		Column7.ControlSource = "crsr_ThorUpdates.Vernumber", ;
+		Column7.Name = "Column3", ;
+		Column7.Width = 100, ;
+		Column8.Alignment = 2, ;
+		Column8.ColumnOrder = 4, ;
+		Column8.ControlSource = "crsr_ThorUpdates.Verdate", ;
+		Column8.Name = "Column5", ;
+		Column8.Width = 90
 		*< END OBJECT: BaseClass="grid" />
 
 	ADD OBJECT 'Grid1.Column1.Header1' AS header WITH ;
@@ -213,7 +227,21 @@ DEFINE CLASS form1 AS form
 		ForeColor = 0,0,0, ;
 		Margin = 0, ;
 		Name = "Text1", ;
-		ReadOnly = .T.
+		ReadOnly = .T., ;
+		Visible = .F.
+		*< END OBJECT: BaseClass="textbox" />
+
+	ADD OBJECT 'Grid1.Column3.Header1' AS header WITH ;
+		Caption = "Version", ;
+		Name = "Header1"
+		*< END OBJECT: BaseClass="header" />
+
+	ADD OBJECT 'Grid1.Column3.Text1' AS textbox WITH ;
+		BackColor = 255,255,255, ;
+		BorderStyle = 0, ;
+		ForeColor = 0,0,0, ;
+		Margin = 0, ;
+		Name = "Text1"
 		*< END OBJECT: BaseClass="textbox" />
 
 	ADD OBJECT 'Grid1.Column4.Header1' AS header WITH ;
@@ -230,6 +258,21 @@ DEFINE CLASS form1 AS form
 		Margin = 0, ;
 		Name = "Text1", ;
 		ReadOnly = .T.
+		*< END OBJECT: BaseClass="textbox" />
+
+	ADD OBJECT 'Grid1.Column5.Header1' AS header WITH ;
+		Alignment = 2, ;
+		Caption = "Date", ;
+		Name = "Header1"
+		*< END OBJECT: BaseClass="header" />
+
+	ADD OBJECT 'Grid1.Column5.Text1' AS textbox WITH ;
+		Alignment = 2, ;
+		BackColor = 255,255,255, ;
+		BorderStyle = 0, ;
+		ForeColor = 0,0,0, ;
+		Margin = 0, ;
+		Name = "Text1"
 		*< END OBJECT: BaseClass="textbox" />
 
 	ADD OBJECT 'Grid1.Column6.checkbox' AS checkbox WITH ;

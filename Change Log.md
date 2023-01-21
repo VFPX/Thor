@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.45.07 - Released 2023-01-20
+
+Separated version number and date into distinct columns into CFU grid.
+
 ### Thor 1.45.06 - Released 2023-01-20
 
 Re-arrangement of options in the Thor menu pad in system menu, including hot key assignments.

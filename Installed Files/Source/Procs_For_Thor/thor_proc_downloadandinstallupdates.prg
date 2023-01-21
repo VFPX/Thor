@@ -188,7 +188,8 @@ Procedure CreateUpdatesCursor (toUpdateList)
 		  IsNew		       		L,				;
 		  IsCurrent        		L,				;
 		  SortKey			    C(100),			;
-		  VerDate               D				;
+		  VerDate               D,				;
+		  VerNumber				C(100)			;
 		  )
 
 	llAnyFound = .F.
@@ -226,7 +227,8 @@ Procedure CreateUpdatesCursor (toUpdateList)
 					Notes			 With  Transform(.Notes)									;
 					Link			 With  Transform(.Link)										;
 					LinkPrompt		 With  Transform(Evl (.LinkPrompt, .Link))					;
-					VerDate          with  loVersionInfo.VerDate
+					VerDate          with  loVersionInfo.VerDate								;
+					VerNumber         with  loVersionInfo.VerNumber
 
 			Replace	SortKey	 With														;
 					  Icase(UpdateNow, 'A',												;
@@ -303,6 +305,10 @@ Procedure ClearAll (toUpdateList)
 	Local laMembers[1], laProperties[1], laUpdates[1], lcName, lcProp, lcUpdateInfo, lnDelim, lnI, lnJ
 	Local loUpdate, lxValue
 
+*** DH 2021-12-28: added this line to preserve the folder Thor.app runs from
+	loThor = execscript(_screen.cThorDispatcher, 'Thor Engine=')
+	addproperty(_screen, 'cThorAppFolder', loThor.cAppFolder)
+
 	* saving all custom properties into _Screen._ThorClearAllObject
 	* so that they can be restored after the Clear All
 	lcUpdateInfo = ''
@@ -349,6 +355,11 @@ Procedure ClearAll (toUpdateList)
 		Endfor
 		loUpdateList.Add (loUpdate)
 	Endfor && lnI = 1 to Alen(laUpdates)
+
+*** DH 2021-12-28: delete Thor.App if it needs to be updated
+	if lower(loUpdate.AppName) = 'thor.app'
+		erase (addbs(_screen.cThorAppFolder) + 'Thor.app')
+	endif
 
 	Return loUpdateList
 Endproc
