@@ -2483,7 +2483,8 @@ Procedure CreateUpdatesCursor (toUpdateList)
 		  IsNew		       		L,				;
 		  IsCurrent        		L,				;
 		  SortKey			    C(100),			;
-		  VerDate               D				;
+		  VerDate               D,				;
+		  VerNumber				C(100)			;
 		  )
 
 	llAnyFound = .F.
@@ -2521,7 +2522,8 @@ Procedure CreateUpdatesCursor (toUpdateList)
 					Notes			 With  Transform(.Notes)									;
 					Link			 With  Transform(.Link)										;
 					LinkPrompt		 With  Transform(Evl (.LinkPrompt, .Link))					;
-					VerDate          with  loVersionInfo.VerDate
+					VerDate          with  loVersionInfo.VerDate								;
+					VerNumber         with  loVersionInfo.VerNumber
 
 			Replace	SortKey	 With														;
 					  Icase(UpdateNow, 'A',												;
@@ -2822,7 +2824,7 @@ Endfunc
 Procedure WritetoCFULog (tcText, tlDivider)
 	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', tcText, tlDivider, 1)
 EndProc 
-	EndText
+EndText
 	Return Strtran(lcCode, '*##*', '')
 
 EndProc
