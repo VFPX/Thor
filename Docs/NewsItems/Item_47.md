@@ -1,9 +1,9 @@
-**Hidden Gems for getting dropdowns for business objects and data objects** 
+**Hidden Gems for getting dropdown lists of business objects and data objects** 
 ---
 
 ### #47, 2023-01-27
 
-Thor tool **Browse Alias Dictionary** provides some very powerful and almost universally overlooked features for getting dropdowns for business objects and data objects.  IntellisenseX provides many features for getting dropdowns for what are essentially local objects; this is documented elsewhere and available simply by using IntellisenseX.  The Alias Dictionary extends that by recognizing objects are are more "universal" throughout an application.
+Thor tool **Browse Alias Dictionary** provides some very powerful and almost universally overlooked features for getting dropdowns of business objects and data objects.  IntellisenseX provides many features for getting dropdown lists of what are essentially local objects; this is documented elsewhere and available simply by using IntellisenseX.  The Alias Dictionary extends that by recognizing objects that are more "universal" throughout an application.
 
 Here's an example of the Alias Dictionary that we'll use to demonstrate some of the power that is available.
 
@@ -11,7 +11,7 @@ Here's an example of the Alias Dictionary that we'll use to demonstrate some of 
 
 ### Business Object Examples
 
-* Example #1 is that of a object that is referenced globally in code.  Here's the definition in the table for one such object named goKTrack:
+* Example #1 is that of an object that is referenced globally in code.  Here's the definition in the table for one such object named goKTrack:
 
 ![](Images/Item_47_goKTrack.png)
 
@@ -27,7 +27,8 @@ The field _Table_ above contains the definition of the class for goKTrack. The c
 
 ![](Images/Item_47_oAppDotoStar.png)
 
-* Example #4 handles a different issue, where an object can referenced with different (yet very similar) names. 
+* Example #4 handles a different issue, where an object can be referenced with different (yet very similar) names.
+
 ![](Images/Item_47_oNAVSQL.png)
 
     - `ThisForm.oNAVSQL`
