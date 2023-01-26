@@ -29,12 +29,13 @@ The field _Table_ above contains the definition of the class for goKTrack. The c
 
 * Example #4 handles a different issue, where an object can be referenced with different (yet very similar) names.
 
-![](Images/Item_47_oNAVSQL.png)
-
     - `ThisForm.oNAVSQL`
     - `This.oNAVSQL`
     - `loNAVSQL`
     - `toNAVSQL`
+
+![](Images/Item_47_oNAVSQL.png)
+
 
 ![](Images/Item_47_oNAVSQLSample.png)
 
@@ -63,6 +64,18 @@ In this case, the _Table_ field contains just the wildcard (assumed to be the fi
 
 ![](Images/Item_47_crsrStarSample.png)  
 
+#### Interconnection with GoToDefinition
+
+It has only been very recently explicitly recognized that there is a very close logical connection between IntellisenseX and GoToDefinition, namely that if IntellisenseX can provide a dropdown list for an object, then GoToDefinition should also be able to work on that object.
+
+Thus, you will find, in a soon to be released update to GoToDefinition (Feb. 2023),
+in all of the cases documented here and all other uses of IntellisenseX, if you can use IntellisenseX on an object, you can also use GoToDefinition on that object.
+
+This new update to GoToDefinition will take this one step further, related to methods of these objects. Using GoToDefinition on the method will go to that object and the indicated method.
+
+![](Images/Item_47_GoToDefinition.png)  
+
+Will modify the class for _goTrack_ and open method _AddCursorToResult_
 
 #### Other changes
 * New:
