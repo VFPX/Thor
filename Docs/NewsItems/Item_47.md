@@ -68,9 +68,9 @@ In this case, the _Table_ field contains just the wildcard (assumed to be the fi
 
 * New:
     * New keystrokes:
-        * Ctrl+Enter is a special case that applies when the dropdown list is a list of properties and methods.  The second column in the dropdown gives the parameter list, if available.  This keystroke selects the current item from the dropdown and pastes the parameter list into edit window as well.
-        * Ctrl+C copies the contents of the second visible column into the clipboard.
-        * Ctrl+Z closes the popup and leaves the text already entered as is, whether it matches anything in the dropdown or not.
+        * **Ctrl+Enter** is a special case that applies when the dropdown list is a list of properties and methods.  The second column in the dropdown gives the parameter list, if available.  This keystroke selects the current item from the dropdown and pastes the parameter list into edit window as well.
+        * **Ctrl+C** copies the contents of the second visible column into the clipboard.
+        * **Ctrl+Z** closes the popup and leaves the text already entered as is, whether it matches anything in the dropdown or not.
     * Dropdown box is resizable.
         
 * Fixed:
