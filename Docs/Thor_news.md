@@ -1,6 +1,7 @@
-![](Images/Thor.png)![](Images/Thor_news.png)  
 
-![](Images/Thor_greenline.png)
+![](Images/Thor_news.png)  
+
+---
 
 **IntellisenseX: New Thor Tools and Hidden Gems** 
 ---
