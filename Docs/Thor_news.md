@@ -1,7 +1,6 @@
 
-![](Images/Thor_news.png)  
+# Thor News
 
----
 
 **IntellisenseX: New Thor Tools and Hidden Gems** 
 ---
