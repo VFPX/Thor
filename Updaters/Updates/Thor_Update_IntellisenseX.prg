@@ -1,35 +1,30 @@
-#Define VersionFileName 'IntellisenseXVersionFile.txt'
-Lparameters loUpdateObject
+lparameters toUpdateObject
+local lcRepositoryURL, ;
+	lcDownloadsURL, ;
+	lcVersionFileURL, ;
+	lcZIPFileURL, ;
+	lcRegisterWithThor
 
-Text to lcRegisterWithThor NoShow TextMerge
-    Erase (_screen.Cthorfolder + '\Tools\Procs\beautify.h')
-    Erase (_screen.Cthorfolder + '\Tools\Procs\beautifyx.h')
-    Erase (_screen.Cthorfolder + '\Tools\Procs\THOR_PROC_ISX.h')
-EndText
+* Get the URL for the version and ZIP files.
 
-With loUpdateObject
-    .ApplicationName      = 'IntellisenseX'
-    .ToolName             = 'Thor_Tool_ThorInternalRepository'
-    .VersionNumber        = '1.22'
-    .VersionDate          = Date(2022, 06, 04)
-    .SourceFileUrl        = 'https://raw.githubusercontent.com/VFPX/IntelliSenseX/master/Source.zip'
-    .VersionLocalFilename = VersionFileName
-    .RegisterWithThor     = lcRegisterWithThor
-    .Notes                = GetNotes()
-    .Link                 = 'https://github.com/VFPX/IntelliSenseX'
-    .LinkPrompt           = 'IntellisenseX Home Page'
-Endwith
+lcRepositoryURL  = 'https://github.com/VFPX/IntellisenseX'
+	&& the URL for the project's repository
+lcDownloadsURL   = strtran(lcRepositoryURL, 'github.com', ;
+	'raw.githubusercontent.com') + '/master/ThorUpdater/'
+lcVersionFileURL = lcDownloadsURL + 'IntellisenseXVersion.txt'
+	&& the URL for the file containing code to get the available version number
+lcZIPFileURL     = lcDownloadsURL + 'IntellisenseX.zip'
+	&& the URL for the zip file containing the project
 
-AddProperty(loUpdateObject, 'UpdateNowIfNotInstalled', 'Yes')    
+* Set the properties of the passed updater object.
 
-Return loUpdateObject
-
-
-Procedure GetNotes
-
-    Local lcNotes
-    Text to lcNotes NoShow
-
-    EndText
-    Return lcNotes
-EndProc
+with toUpdateObject
+	.ApplicationName      = 'IntellisenseX'
+	.VersionLocalFilename = 'IntellisenseXVersionFile.txt'
+	.VersionFileURL       = lcVersionFileURL
+	.SourceFileUrl        = lcZIPFileURL
+	.Link                 = lcRepositoryURL
+	.LinkPrompt           = 'IntellisenseX Home Page'
+	.InstallInTools	      = .T.
+endwith
+return toUpdateObject
