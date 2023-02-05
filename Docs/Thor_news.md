@@ -8,11 +8,12 @@
 
 This new VFPX project is a completely refactored version of the original Go To Definition (GTD). The code was created before we had Thor, so it was embedded into the older PEMEditor App. This, along with the fact that GTD evolved incrementally over a long period of time, made it a prime candidate for refactoring. GTD is now a standalone tool, simplifying the tasks of updating or documenting. All of the original features of GTD should work as they have always had, with the following enhancements:
 
-* [IntellisenseX (ISX)](..\IntelliSenseX\README.md) provides dropdown lists for PEMs (properties, events, and methods) for objects referenced in code.  GTD now uses ISX in two new ways:
+* [IntelliSenseX (ISX)](https://github.com/VFPX/IntelliSenseX) provides dropdown lists for PEMs (properties, events, and methods) for objects referenced in code.  GTD now uses ISX in two new ways:
     * If ISX can provide a dropdown list of PEMs for an object, then using GTD will open the definition of that object.  
     * In addition, GTD will open an object's definition and associated method code if you use GTD on a method from the object.  
         
-> This is especially useful for objects described in the "Hidden gems" section in [Thor News Item 47](../Thor/Docs/NewsItems/Item_47.md)
+> This is especially useful for objects described in the "Hidden gems" section in [Thor News Item 47](https://github.com/VFPX/Thor/blob/master/Docs/NewsItems/Item_47.md).
+
 
 * GTD now creates bookmarks each time it is used, one placed where GTD was invoked and one at its destination (if in a code window).  Two Thor tools work with these bookmarks
     * **Cycle Bookmarks** takes you through all your current bookmarks.
