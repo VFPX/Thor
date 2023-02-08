@@ -3,7 +3,7 @@ Lparameters loUpdateObject
 With loUpdateObject
     .AppName              = 'PEMEditor.APP'
     .ApplicationName      = 'PEM Editor'
-    .ToolName             = 'Thor_Tool_PEME_GoToDefinition'
+    .ToolName             = 'Thor_Tool_PEME_CreateLOCALs'
     .VersionFileURL       = 'https://raw.githubusercontent.com/VFPX/PEMEditor/master/downloads/ThorUpdater/_PEMEditorVersionFile.txt'
     .VersionLocalFilename = 'PEM Editor Version.txt'
     .RegisterWithThor     = 'Do "##InstallFolder##PEMEditor.APP" with "Thor"'
