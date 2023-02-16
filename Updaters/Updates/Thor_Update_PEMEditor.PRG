@@ -5,7 +5,7 @@ With loUpdateObject
     .ApplicationName      = 'PEM Editor'
     .ToolName             = 'Thor_Tool_PEME_GoToDefinition'
     .VersionFileURL       = 'https://raw.githubusercontent.com/VFPX/PEMEditor/master/ThorUpdater/PEMEditorVersion.txt'
-    .VersionLocalFilename = 'PEM Editor Version.txt'
+    .VersionLocalFilename = 'PEMEditorVersion.txt'
     .RegisterWithThor     = 'Do "##InstallFolder##PEMEditor.APP" with "Thor"'
     .ShowErrorMessage     = 'No'
     .SourceFileURL        = 'https://raw.githubusercontent.com/VFPX/PEMEditor/master/ThorUpdater/PEMEditor.zip'
