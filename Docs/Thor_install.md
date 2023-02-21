@@ -10,9 +10,9 @@
 3. Open Visual FoxPro and run the following commands in the command window:
 
         Clear All
-        Do [C:\MyThorInstallFolder\Thor.APP]
+        Do C:\MyThorInstallFolder\InstalledFiles\Thor.APP
 
-    or, in case your Thor installation folder is in your PATH, simply:
+    where _C:\MyThorInstallFolder_ is the folder you extracted the ZIP file to. Alternatively, if your Thor installation folder is in your PATH, simply:
 
         Clear All
         Do Thor.APP
