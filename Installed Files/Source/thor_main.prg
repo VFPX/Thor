@@ -481,9 +481,9 @@ Procedure AddThorMainMenuItems(tcFolder, loMenuDefs)
 
 	AddThorMainMenuItem (8, ccThorNews, 	205, 	'Thor \<News', 'All the latest and greatest news about Thor and Thor tools.')
 	RemoveThorMainMenuItem (8, ccThorTWEeTs, 	206, 	'Thor TWEeTs', "History of all Thor TWEeTs (This Week's Exceptional Tools")
-	AddThorMainMenuItem (8, 'Thor-Forums', 	214, 	'\<Forums', '')
+	AddThorMainMenuItem (8, 'Thor-Forums', 	224, 	'\<Issues', '')
 	RemoveThorMainMenuItem (8, 'Thor-Blogs', 	217, 	'Blogs', '')
-	AddThorMainMenuItem (8, ccINTERNALHELPPRG, 220, '\<Home Pages for VFPX Projects', 'Help for Thor')
+	AddThorMainMenuItem (8, ccINTERNALHELPPRG, 220, '\<VFPX Home Page', 'Help for Thor')
 	AddThorMainMenuItem (8, 'Thor-Videos', 	230,	'Thor \<Videos', '')
 
 	AddThorMainMenuSeparator (8, 300, 'SEPARATOR11')
@@ -1186,10 +1186,7 @@ Return
 ****************************************************************
 * Normal processing for this tool begins here.
 Procedure ToolCode
-	lcFormFileName = Execscript (_Screen.cThorDispatcher, 'Full Path=Thor_Proc_ProjectHomePages.SCX')
-	Do Form (lcFormFileName)
-EndProc
-
+	ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_Shell', 'http://vfpx.org') 
 	EndText
 	Return Strtran(lcCode, '*##*', '')
 
@@ -1584,14 +1581,16 @@ Return
 Procedure GetForumNames
 	Local lcForums
 	lcForums = '-Thor' && - Causes this to appear first; remainder are alphabetical
+	lcForums = lcForums + ccCR + '-Thor Repository'
 	lcForums = lcForums + ccCR + 'GoFish'
 	Return lcForums
 Endproc
 
 Procedure GetForumLinks
 	Local lcForums
-	lcForums = 'https://groups.google.com/forum/?fromgroups#!forum/FoxProThor'
-	lcForums = lcForums + ccCR + 'https://groups.google.com/forum/?fromgroups#!forum/FoxProGoFish'
+	lcForums = 'https://github.com/VFPX/Thor/issues'
+	lcForums = lcForums + ccCR + 'https://github.com/VFPX/ThorRepository/issues'
+	lcForums = lcForums + ccCR + 'https://github.com/VFPX/GoFish/issues'
 	Return lcForums
 Endproc
 
@@ -2540,7 +2539,7 @@ Procedure CreateUpdatesCursor (toUpdateList)
 						Left(SortKey, 1) = 'C', 'Current',								;
 						Left(SortKey, 1) = 'D', 'Recently Updated',						;
 						'Not Installed') 															
-						
+			Replace SortKey With '0' for FromMyUpdates && "My Updates" items go atop list
 			llAnyFound = llAnyFound Or UpdateNow
 
 		Endwith
