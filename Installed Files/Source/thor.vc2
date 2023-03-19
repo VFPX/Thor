@@ -17,14 +17,16 @@ DEFINE CLASS othor AS custom
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	cappfolder = .F.
-	Name = "othor"
-	_memberdata = <VFPData>
-		<memberdata name="do" display="Do"/>
-		<memberdata name="executethorproc" display="ExecuteThorProc"/>
-		<memberdata name="getfullfilename" display="GetFullFileName"/>
-		<memberdata name="cappfolder" display="cAppFolder"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		cappfolder = .F.
+		Name = "othor"
+		_memberdata = <VFPData>
+			<memberdata name="do" display="Do"/>
+			<memberdata name="executethorproc" display="ExecuteThorProc"/>
+			<memberdata name="getfullfilename" display="GetFullFileName"/>
+			<memberdata name="cappfolder" display="cAppFolder"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE do
 		LParameters lcPRGName, lxP1, lxP2, lxP3, lxP4, lxP5, lxP6, lxP7, lxP8, lxP9, lxP10
@@ -252,55 +254,57 @@ DEFINE CLASS thor_engine AS custom
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	cappfolder = .F.
-	ctablesfolder = 		&& The folder for the Thor tables
-	cthorfolder = 
-	ctoolsfolder = 		&& The folder for the Thor tools
-	cversion = 0.4		&& The Thor version number
-	Name = "thor_engine"
-	Width = 17
-	_memberdata = <VFPData>
-		<memberdata name="findfile" display="FindFile"/>
-		<memberdata name="gettoolscollection" display="GetToolsCollection"/>
-		<memberdata name="createthorfolders" display="CreateThorFolders"/>
-		<memberdata name="addmenu" display="AddMenu"/>
-		<memberdata name="ctablesfolder" display="cTablesFolder"/>
-		<memberdata name="addsubmenu" display="AddSubMenu"/>
-		<memberdata name="additemtomenu" display="AddItemToMenu"/>
-		<memberdata name="getmenubyname" display="GetMenuByName"/>
-		<memberdata name="opentables" display="OpenTables"/>
-		<memberdata name="removemenu" display="RemoveMenu"/>
-		<memberdata name="removeitemfrommenu" display="RemoveItemFromMenu"/>
-		<memberdata name="getitembyposition" display="GetItemByPosition"/>
-		<memberdata name="renumbermenuitems" display="RenumberMenuItems"/>
-		<memberdata name="renumbermenus" display="RenumberMenus"/>
-		<memberdata name="ctoolsfolder" display="cToolsFolder"/>
-		<memberdata name="addtoolhotkey" display="AddToolHotKey"/>
-		<memberdata name="removetoolhotkey" display="RemoveToolHotKey"/>
-		<memberdata name="cversion" display="cVersion"/>
-		<memberdata name="getoption" display="GetOption"/>
-		<memberdata name="getmenuitems" display="GetMenuItems"/>
-		<memberdata name="getkeyvaluefromkeyname" display="GetKeyValueFromKeyName"/>
-		<memberdata name="packtables" display="PackTables"/>
-		<memberdata name="packtable" display="PackTable"/>
-		<memberdata name="addfoldertools" display="AddFolderTools"/>
-		<memberdata name="gettooldescription" display="GetToolDescription"/>
-		<memberdata name="getonkeylabeldefinitions" display="GetOnKeyLabelDefinitions"/>
-		<memberdata name="getmacrodefinitions" display="GetMacroDefinitions"/>
-		<memberdata name="getkeydescriptionfromkeycode" display="GetKeyDescriptionFromKeyCode"/>
-		<memberdata name="getkeydesc" display="GetKeyDesc"/>
-		<memberdata name="diskfilename" display="DiskFileName"/>
-		<memberdata name="cthorfolder" display="cThorFolder"/>
-		<memberdata name="setmenuprompt" display="SetMenuPrompt"/>
-		<memberdata name="removetool" display="RemoveTool"/>
-		<memberdata name="setoption" display="SetOption"/>
-		<memberdata name="findoption" display="FindOption"/>
-		<memberdata name="opentable" display="OpenTable"/>
-		<memberdata name="gettableforalias" display="GetTableForAlias"/>
-		<memberdata name="do" display="Do"/>
-		<memberdata name="executethorproc" display="ExecuteThorProc"/>
-		<memberdata name="getfullfilename" display="GetFullFileName"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		cappfolder = .F.
+		ctablesfolder = 
+		cthorfolder = 
+		ctoolsfolder = 
+		cversion =          0.4
+		Name = "thor_engine"
+		Width = 17
+		_memberdata = <VFPData>
+			<memberdata name="findfile" display="FindFile"/>
+			<memberdata name="gettoolscollection" display="GetToolsCollection"/>
+			<memberdata name="createthorfolders" display="CreateThorFolders"/>
+			<memberdata name="addmenu" display="AddMenu"/>
+			<memberdata name="ctablesfolder" display="cTablesFolder"/>
+			<memberdata name="addsubmenu" display="AddSubMenu"/>
+			<memberdata name="additemtomenu" display="AddItemToMenu"/>
+			<memberdata name="getmenubyname" display="GetMenuByName"/>
+			<memberdata name="opentables" display="OpenTables"/>
+			<memberdata name="removemenu" display="RemoveMenu"/>
+			<memberdata name="removeitemfrommenu" display="RemoveItemFromMenu"/>
+			<memberdata name="getitembyposition" display="GetItemByPosition"/>
+			<memberdata name="renumbermenuitems" display="RenumberMenuItems"/>
+			<memberdata name="renumbermenus" display="RenumberMenus"/>
+			<memberdata name="ctoolsfolder" display="cToolsFolder"/>
+			<memberdata name="addtoolhotkey" display="AddToolHotKey"/>
+			<memberdata name="removetoolhotkey" display="RemoveToolHotKey"/>
+			<memberdata name="cversion" display="cVersion"/>
+			<memberdata name="getoption" display="GetOption"/>
+			<memberdata name="getmenuitems" display="GetMenuItems"/>
+			<memberdata name="getkeyvaluefromkeyname" display="GetKeyValueFromKeyName"/>
+			<memberdata name="packtables" display="PackTables"/>
+			<memberdata name="packtable" display="PackTable"/>
+			<memberdata name="addfoldertools" display="AddFolderTools"/>
+			<memberdata name="gettooldescription" display="GetToolDescription"/>
+			<memberdata name="getonkeylabeldefinitions" display="GetOnKeyLabelDefinitions"/>
+			<memberdata name="getmacrodefinitions" display="GetMacroDefinitions"/>
+			<memberdata name="getkeydescriptionfromkeycode" display="GetKeyDescriptionFromKeyCode"/>
+			<memberdata name="getkeydesc" display="GetKeyDesc"/>
+			<memberdata name="diskfilename" display="DiskFileName"/>
+			<memberdata name="cthorfolder" display="cThorFolder"/>
+			<memberdata name="setmenuprompt" display="SetMenuPrompt"/>
+			<memberdata name="removetool" display="RemoveTool"/>
+			<memberdata name="setoption" display="SetOption"/>
+			<memberdata name="findoption" display="FindOption"/>
+			<memberdata name="opentable" display="OpenTable"/>
+			<memberdata name="gettableforalias" display="GetTableForAlias"/>
+			<memberdata name="do" display="Do"/>
+			<memberdata name="executethorproc" display="ExecuteThorProc"/>
+			<memberdata name="getfullfilename" display="GetFullFileName"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE addfoldertools
 		Lparameters toTools, tcFolder, tlPrivateCopy
@@ -1501,6 +1505,16 @@ DEFINE CLASS thor_engine AS custom
 		This.OpenTable('TableAliases')
 		This.OpenTable('Thor')
 		This.OpenTable('HotKeys')
+		
+		*!* ******** JRN Removed 2023-03-16 ********
+		*!* Local laStack[1], lcCursor, lnI
+		
+		*!* lcCursor = 'Stack' + Sys(2015)
+		*!* Create Cursor (m.lcCursor) (Value C(100))
+		*!* Astackinfo(laStack)
+		*!* For lnI = 1 To Alen(m.laStack)
+		*!* 	Insert Into (m.lcCursor) Values (Transform(m.laStack[m.lnI]))
+		*!* Endfor
 		
 	ENDPROC
 

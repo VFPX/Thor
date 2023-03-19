@@ -15,11 +15,13 @@ DEFINE CLASS findexe AS custom
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Name = "findexe"
-	_memberdata = <VFPData>
-		<memberdata name="find" display="Find"/>
-		<memberdata name="updateexename" display="UpdateEXEName"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Name = "findexe"
+		_memberdata = <VFPData>
+			<memberdata name="find" display="Find"/>
+			<memberdata name="updateexename" display="UpdateEXEName"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE find
 		Lparameters lcFileName
@@ -103,29 +105,31 @@ DEFINE CLASS hotkey AS custom
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	ckey = 		&& The hot key name
-	lalt = .F.		&& .T. if Alt is used
-	lctrl = .F.		&& .T. if Ctrl is used
-	lshift = .F.		&& .T. if Shift is used
-	Name = "hotkey"
-	nscancode = 0		&& The scan code for the key
-	Width = 17
-	_memberdata = <VFPData>
-		<memberdata name="lshift" display="lShift"/>
-		<memberdata name="lctrl" display="lCtrl"/>
-		<memberdata name="lalt" display="lAlt"/>
-		<memberdata name="nscancode" display="nScanCode"/>
-		<memberdata name="findhotkeybyscancode" display="FindHotKeyByScanCode"/>
-		<memberdata name="ckey" display="cKey"/>
-		<memberdata name="getkeystate" display="GetKeyState"/>
-		<memberdata name="isvalid" display="IsValid"/>
-		<memberdata name="gethotkeydescription" display="GetHotKeyDescription"/>
-		<memberdata name="getmodifiersvalue" display="GetModifiersValue"/>
-		<memberdata name="getkeycode" display="GetKeyCode"/>
-		<memberdata name="createmacro" display="CreateMacro"/>
-		<memberdata name="getscancode" display="GetScanCode"/>
-		<memberdata name="getshifts" display="GetShifts"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		ckey = 
+		lalt = .F.
+		lctrl = .F.
+		lshift = .F.
+		Name = "hotkey"
+		nscancode = 0
+		Width = 17
+		_memberdata = <VFPData>
+			<memberdata name="lshift" display="lShift"/>
+			<memberdata name="lctrl" display="lCtrl"/>
+			<memberdata name="lalt" display="lAlt"/>
+			<memberdata name="nscancode" display="nScanCode"/>
+			<memberdata name="findhotkeybyscancode" display="FindHotKeyByScanCode"/>
+			<memberdata name="ckey" display="cKey"/>
+			<memberdata name="getkeystate" display="GetKeyState"/>
+			<memberdata name="isvalid" display="IsValid"/>
+			<memberdata name="gethotkeydescription" display="GetHotKeyDescription"/>
+			<memberdata name="getmodifiersvalue" display="GetModifiersValue"/>
+			<memberdata name="getkeycode" display="GetKeyCode"/>
+			<memberdata name="createmacro" display="CreateMacro"/>
+			<memberdata name="getscancode" display="GetScanCode"/>
+			<memberdata name="getshifts" display="GetShifts"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE createmacro		&& Creates the binary code for a single macro
 		*==============================================================================
@@ -460,17 +464,19 @@ DEFINE CLASS idewindowsevents AS custom
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	ccaption = 		&& The caption of the window to capture events for
-	Name = "idewindowsevents"
-	noldproc = 0		&& The former Windows event handler
-	Width = 17
-	_memberdata = <VFPData>
-		<memberdata name="noldproc" display="nOldProc"/>
-		<memberdata name="ccaption" display="cCaption"/>
-		<memberdata name="findidewindow" display="FindIDEWindow"/>
-		<memberdata name="findideclientwindow" display="FindIDEClientWindow"/>
-		<memberdata name="eventhandler" display="EventHandler"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		ccaption = 
+		Name = "idewindowsevents"
+		noldproc = 0
+		Width = 17
+		_memberdata = <VFPData>
+			<memberdata name="noldproc" display="nOldProc"/>
+			<memberdata name="ccaption" display="cCaption"/>
+			<memberdata name="findidewindow" display="FindIDEWindow"/>
+			<memberdata name="findideclientwindow" display="FindIDEClientWindow"/>
+			<memberdata name="eventhandler" display="EventHandler"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE eventhandler		&& Handles the Windows events we're bound to
 		*==============================================================================
@@ -632,96 +638,98 @@ DEFINE CLASS thorinfo AS custom
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	appname = 
-	author = 
-	bloglink = 
-	blogname = 
-	canrunatstartup = .T.
-	category = 
-	changeloglink = 
-	changelogname = 
-	classdefinitions = 
-	classes = 		&& List of classes to be published for this APP, separated by commas.  e.g.,  'thorinfo of thor_utils'
-	code = 		&& Code  that will be run for this Tool. May be multiple lines, separated by CRs
-	definestatements = 
-	description = 		&& The tool's full description; may be as long as needed, and may include CRs, etc.  Also used for .Summary if .Summary is blank.  REQUIRED.
-	foldername = 
-	forumlink = 
-	forumname = 
-	fullappname = 
-	fullfilename = 
-	internalsort = 
-	link = 		&& A link to a Web page for the tool
-	Name = "thorinfo"
-	onkeylabelonly = .F.
-	optionclasses = 		&& The name of the main APP file, without the path (e.g., GoFish4.App)
-	optiontool = .F.
-	pluginclasses = 
-	plugins = .F.
-	prgname = 		&& The name of the PRG to run the tool
-	privatecopy = 0
-	prompt = 		&& The default prompt for the tool in menus.  REQUIRED
-	sort = 0		&& The sort order; used to sort tools that all have the same Source.
-	source = 		&& The tool's source (e.g., 'PEM Editor' or 'GoFish4')
-	statusbartext = 		&& The status bar text for the menu item for the tool.  If empty, .Summary or the first line of .Description is used.
-	subcategory = 		&& The name of the main APP file, without the path (e.g., GoFish4.App)
-	summary = 		&& A one-line summary for the tool.  If left blank, the first line from .Description is used.
-	updateprg = .F.
-	version = 		&& The version number
-	versionfileurl = 
-	versionlocalfilename = 
-	videolink = 
-	Width = 17
-	_memberdata = <VFPData>
-		<memberdata name="prompt" display="Prompt"/>
-		<memberdata name="description" display="Description"/>
-		<memberdata name="source" display="Source"/>
-		<memberdata name="version" display="Version"/>
-		<memberdata name="sort" display="Sort"/>
-		<memberdata name="link" display="Link"/>
-		<memberdata name="statusbartext" display="StatusBarText"/>
-		<memberdata name="summary" display="Summary"/>
-		<memberdata name="getsampletoolcode" display="GetSampleToolCode"/>
-		<memberdata name="getsampleselfregistercode" display="GetSampleSelfRegisterCode"/>
-		<memberdata name="author" display="Author"/>
-		<memberdata name="category" display="Category"/>
-		<memberdata name="subcategory" display="SubCategory"/>
-		<memberdata name="subcategory_assign" display="SubCategory_Assign"/>
-		<memberdata name="prgname" display="PRGName"/>
-		<memberdata name="fullfilename" display="FullFileName"/>
-		<memberdata name="addquotes" display="AddQuotes"/>
-		<memberdata name="classes" display="Classes"/>
-		<memberdata name="clear" display="Clear"/>
-		<memberdata name="code" display="Code"/>
-		<memberdata name="foldername" display="FolderName"/>
-		<memberdata name="fullappname" display="FullAppName"/>
-		<memberdata name="register" display="Register"/>
-		<memberdata name="versionlocalfilename" display="VersionLocalFileName"/>
-		<memberdata name="versionfileurl" display="VersionFileURL"/>
-		<memberdata name="updateprg" display="UpdatePRG"/>
-		<memberdata name="internalsort" display="InternalSort"/>
-		<memberdata name="videolink" display="VideoLink"/>
-		<memberdata name="optionclasses" display="OptionClasses"/>
-		<memberdata name="optionclasses_assign" display="OptionClasses_Assign"/>
-		<memberdata name="pluginclasses" display="PlugInClasses"/>
-		<memberdata name="classdefinitions" display="ClassDefinitions"/>
-		<memberdata name="onkeylabelonly" display="OnKeyLabelOnly"/>
-		<memberdata name="optiontool" display="OptionTool"/>
-		<memberdata name="addthorproperty" display="AddThorProperty"/>
-		<memberdata name="blogname" display="BlogName"/>
-		<memberdata name="bloglink" display="BlogLink"/>
-		<memberdata name="forumname" display="ForumName"/>
-		<memberdata name="forumlink" display="ForumLink"/>
-		<memberdata name="changeloglink" display="ChangeLogLink"/>
-		<memberdata name="changelogname" display="ChangeLogName"/>
-		<memberdata name="appname" type="property" display="AppName"/>
-		<memberdata name="appname_assign" display="AppName_Assign"/>
-		<memberdata name="fullappname_assign" display="FullAppName_Assign"/>
-		<memberdata name="canrunatstartup" display="CanRunAtStartUp"/>
-		<memberdata name="definestatements" display="DefineStatements"/>
-		<memberdata name="privatecopy" display="PrivateCopy"/>
-		<memberdata name="plugins" display="PlugIns"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		appname = 
+		author = 
+		bloglink = 
+		blogname = 
+		canrunatstartup = .T.
+		category = 
+		changeloglink = 
+		changelogname = 
+		classdefinitions = 
+		classes = 
+		code = 
+		definestatements = 
+		description = 
+		foldername = 
+		forumlink = 
+		forumname = 
+		fullappname = 
+		fullfilename = 
+		internalsort = 
+		link = 
+		Name = "thorinfo"
+		onkeylabelonly = .F.
+		optionclasses = 
+		optiontool = .F.
+		pluginclasses = 
+		plugins = .F.
+		prgname = 
+		privatecopy = 0
+		prompt = 
+		sort = 0
+		source = 
+		statusbartext = 
+		subcategory = 
+		summary = 
+		updateprg = .F.
+		version = 
+		versionfileurl = 
+		versionlocalfilename = 
+		videolink = 
+		Width = 17
+		_memberdata = <VFPData>
+			<memberdata name="prompt" display="Prompt"/>
+			<memberdata name="description" display="Description"/>
+			<memberdata name="source" display="Source"/>
+			<memberdata name="version" display="Version"/>
+			<memberdata name="sort" display="Sort"/>
+			<memberdata name="link" display="Link"/>
+			<memberdata name="statusbartext" display="StatusBarText"/>
+			<memberdata name="summary" display="Summary"/>
+			<memberdata name="getsampletoolcode" display="GetSampleToolCode"/>
+			<memberdata name="getsampleselfregistercode" display="GetSampleSelfRegisterCode"/>
+			<memberdata name="author" display="Author"/>
+			<memberdata name="category" display="Category"/>
+			<memberdata name="subcategory" display="SubCategory"/>
+			<memberdata name="subcategory_assign" display="SubCategory_Assign"/>
+			<memberdata name="prgname" display="PRGName"/>
+			<memberdata name="fullfilename" display="FullFileName"/>
+			<memberdata name="addquotes" display="AddQuotes"/>
+			<memberdata name="classes" display="Classes"/>
+			<memberdata name="clear" display="Clear"/>
+			<memberdata name="code" display="Code"/>
+			<memberdata name="foldername" display="FolderName"/>
+			<memberdata name="fullappname" display="FullAppName"/>
+			<memberdata name="register" display="Register"/>
+			<memberdata name="versionlocalfilename" display="VersionLocalFileName"/>
+			<memberdata name="versionfileurl" display="VersionFileURL"/>
+			<memberdata name="updateprg" display="UpdatePRG"/>
+			<memberdata name="internalsort" display="InternalSort"/>
+			<memberdata name="videolink" display="VideoLink"/>
+			<memberdata name="optionclasses" display="OptionClasses"/>
+			<memberdata name="optionclasses_assign" display="OptionClasses_Assign"/>
+			<memberdata name="pluginclasses" display="PlugInClasses"/>
+			<memberdata name="classdefinitions" display="ClassDefinitions"/>
+			<memberdata name="onkeylabelonly" display="OnKeyLabelOnly"/>
+			<memberdata name="optiontool" display="OptionTool"/>
+			<memberdata name="addthorproperty" display="AddThorProperty"/>
+			<memberdata name="blogname" display="BlogName"/>
+			<memberdata name="bloglink" display="BlogLink"/>
+			<memberdata name="forumname" display="ForumName"/>
+			<memberdata name="forumlink" display="ForumLink"/>
+			<memberdata name="changeloglink" display="ChangeLogLink"/>
+			<memberdata name="changelogname" display="ChangeLogName"/>
+			<memberdata name="appname" type="property" display="AppName"/>
+			<memberdata name="appname_assign" display="AppName_Assign"/>
+			<memberdata name="fullappname_assign" display="FullAppName_Assign"/>
+			<memberdata name="canrunatstartup" display="CanRunAtStartUp"/>
+			<memberdata name="definestatements" display="DefineStatements"/>
+			<memberdata name="privatecopy" display="PrivateCopy"/>
+			<memberdata name="plugins" display="PlugIns"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE addquotes
 		Lparameters tcText

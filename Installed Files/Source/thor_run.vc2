@@ -54,59 +54,61 @@ DEFINE CLASS thor_run AS custom
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	cdebugmenuname = 
-	cdedicatedhotkey = Alt-F12
-	cdedicatedhotkeyfkyvalue = 
-	cthorapp = 
-	cthorfolder = 
-	fullfilename = 
-	Name = "thor_run"
-	ndebugmenubar = 0
-	othorengine = .NULL.
-	otoolscollection = .NULL.
-	_memberdata = <VFPData>
-		<memberdata name="addmenuitems" display="AddMenuItems"/>
-		<memberdata name="createtoplevelbars" display="CreateTopLevelBars"/>
-		<memberdata name="createtoplevelpads" display="CreateTopLevelPads"/>
-		<memberdata name="run" display="Run"/>
-		<memberdata name="assigndedicatedhotkey" display="AssignDedicatedHotKey"/>
-		<memberdata name="assignthordispatcher" display="AssignThorDispatcher"/>
-		<memberdata name="createmacro" display="CreateMacro"/>
-		<memberdata name="addtoolhotkeys" display="AddToolHotKeys"/>
-		<memberdata name="addpopuphotkeys" display="AddPopUpHotKeys"/>
-		<memberdata name="executepopup" display="ExecutePopup"/>
-		<memberdata name="cthorapp" display="cThorApp"/>
-		<memberdata name="othorengine" display="oThorEngine"/>
-		<memberdata name="cthorfolder" display="cThorFolder"/>
-		<memberdata name="addalltools" display="AddAllTools"/>
-		<memberdata name="cdedicatedhotkey" display="cDedicatedHotKey"/>
-		<memberdata name="cdedicatedhotkeyfkyvalue" display="cDedicatedHotKeyFkyValue"/>
-		<memberdata name="add1tool" display="Add1Tool"/>
-		<memberdata name="runstartupprgs" display="RunStartupPRGs"/>
-		<memberdata name="gethotkeyscollection" display="GetHotKeysCollection"/>
-		<memberdata name="clearhotkeys" display="ClearHotKeys"/>
-		<memberdata name="getpublishedclasses" display="GetPublishedClasses"/>
-		<memberdata name="popupalltools" display="PopupAllTools"/>
-		<memberdata name="createtoolonkeylabels" display="CreateToolOnKeyLabels"/>
-		<memberdata name="assignsimplehotkeys" display="AssignSimpleHotKeys"/>
-		<memberdata name="assignmultiplehotkeys" display="AssignMultipleHotKeys"/>
-		<memberdata name="assignhotkeys" display="AssignHotKeys"/>
-		<memberdata name="fullfilename" display="FullFileName"/>
-		<memberdata name="addopenfolders" display="AddOpenFolders"/>
-		<memberdata name="addopenfolder" display="AddOpenFolder"/>
-		<memberdata name="addsourcefiles" display="AddSourceFiles"/>
-		<memberdata name="addsourcefile" display="AddSourceFile"/>
-		<memberdata name="cdebugmenuname" display="cDebugMenuName"/>
-		<memberdata name="ndebugmenubar" display="nDebugMenuBar"/>
-		<memberdata name="assignthordispatcherhelp" display="AssignThorDispatcherHelp"/>
-		<memberdata name="assignthordispatcherclasses" display="AssignThorDispatcherClasses"/>
-		<memberdata name="otoolscollection" display="oToolsCollection"/>
-		<memberdata name="updateoptionslist" display="UpdateOptionsList"/>
-		<memberdata name="addforums" display="AddForums"/>
-		<memberdata name="createtoolbar" display="CreateToolBar"/>
-		<memberdata name="assignallhotkeys" display="AssignAllHotKeys"/>
-		<memberdata name="erasefile" display="EraseFile"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		cdebugmenuname = 
+		cdedicatedhotkey = Alt-F12
+		cdedicatedhotkeyfkyvalue = 
+		cthorapp = 
+		cthorfolder = 
+		fullfilename = 
+		Name = "thor_run"
+		ndebugmenubar = 0
+		othorengine = .NULL.
+		otoolscollection = .NULL.
+		_memberdata = <VFPData>
+			<memberdata name="addmenuitems" display="AddMenuItems"/>
+			<memberdata name="createtoplevelbars" display="CreateTopLevelBars"/>
+			<memberdata name="createtoplevelpads" display="CreateTopLevelPads"/>
+			<memberdata name="run" display="Run"/>
+			<memberdata name="assigndedicatedhotkey" display="AssignDedicatedHotKey"/>
+			<memberdata name="assignthordispatcher" display="AssignThorDispatcher"/>
+			<memberdata name="createmacro" display="CreateMacro"/>
+			<memberdata name="addtoolhotkeys" display="AddToolHotKeys"/>
+			<memberdata name="addpopuphotkeys" display="AddPopUpHotKeys"/>
+			<memberdata name="executepopup" display="ExecutePopup"/>
+			<memberdata name="cthorapp" display="cThorApp"/>
+			<memberdata name="othorengine" display="oThorEngine"/>
+			<memberdata name="cthorfolder" display="cThorFolder"/>
+			<memberdata name="addalltools" display="AddAllTools"/>
+			<memberdata name="cdedicatedhotkey" display="cDedicatedHotKey"/>
+			<memberdata name="cdedicatedhotkeyfkyvalue" display="cDedicatedHotKeyFkyValue"/>
+			<memberdata name="add1tool" display="Add1Tool"/>
+			<memberdata name="runstartupprgs" display="RunStartupPRGs"/>
+			<memberdata name="gethotkeyscollection" display="GetHotKeysCollection"/>
+			<memberdata name="clearhotkeys" display="ClearHotKeys"/>
+			<memberdata name="getpublishedclasses" display="GetPublishedClasses"/>
+			<memberdata name="popupalltools" display="PopupAllTools"/>
+			<memberdata name="createtoolonkeylabels" display="CreateToolOnKeyLabels"/>
+			<memberdata name="assignsimplehotkeys" display="AssignSimpleHotKeys"/>
+			<memberdata name="assignmultiplehotkeys" display="AssignMultipleHotKeys"/>
+			<memberdata name="assignhotkeys" display="AssignHotKeys"/>
+			<memberdata name="fullfilename" display="FullFileName"/>
+			<memberdata name="addopenfolders" display="AddOpenFolders"/>
+			<memberdata name="addopenfolder" display="AddOpenFolder"/>
+			<memberdata name="addsourcefiles" display="AddSourceFiles"/>
+			<memberdata name="addsourcefile" display="AddSourceFile"/>
+			<memberdata name="cdebugmenuname" display="cDebugMenuName"/>
+			<memberdata name="ndebugmenubar" display="nDebugMenuBar"/>
+			<memberdata name="assignthordispatcherhelp" display="AssignThorDispatcherHelp"/>
+			<memberdata name="assignthordispatcherclasses" display="AssignThorDispatcherClasses"/>
+			<memberdata name="otoolscollection" display="oToolsCollection"/>
+			<memberdata name="updateoptionslist" display="UpdateOptionsList"/>
+			<memberdata name="addforums" display="AddForums"/>
+			<memberdata name="createtoolbar" display="CreateToolBar"/>
+			<memberdata name="assignallhotkeys" display="AssignAllHotKeys"/>
+			<memberdata name="erasefile" display="EraseFile"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE add1tool
 		Lparameters loContextMenu, loTool, tcFolder, tcActionPrefix
@@ -335,7 +337,7 @@ DEFINE CLASS thor_run AS custom
 					loContextMenu.EndSubMenu ()
 		
 				Case Upper (lcPRGName) = Upper ('Thor-Forums')
-					loContextMenu.AddSubMenu ('Forums', '')
+					loContextMenu.AddSubMenu ('VFPX \<Issues', '')
 					This.AddForums(loContextMenu, 'ForumName', 'ForumLink')
 					loContextMenu.EndSubMenu ()
 		
@@ -1504,7 +1506,7 @@ DEFINE CLASS thor_run AS custom
 						lcVariable = ''
 					EndIf 
 					If tlForHelp
-						lcClass = Lower (lcClass)
+						*	lcClass = Lower (lcClass)
 					Else
 						lcClass = Lower (Getwordnum (lcClass, 1, '|'))
 					Endif
@@ -1523,7 +1525,7 @@ DEFINE CLASS thor_run AS custom
 		lcResult = ''
 		For lnI = 1 To _Tally
 			lcClassInfo	  = Trim (laClasslist (lnI, 2))
-			lcAppName	  = Evl(Juststem (Trim (laClasslist (lnI, 1))), JustFname(GetWordNum(lcClassInfo,3))) 
+			lcAppName	  = Evl(Juststem (Trim (laClasslist (lnI, 1))), JustFname(GetWordNum(lcClassInfo,3,' |'))) 
 			lcFullAppName = Trim (laClasslist (lnI, 3))
 			lcVariable    = Trim (laClasslist (lnI, 4))
 		
@@ -1531,6 +1533,7 @@ DEFINE CLASS thor_run AS custom
 			lcClassLib = Getwordnum (lcClassInfo, Getwordcount (Class))
 		
 			Do Case
+				*
 				Case tlForHelp
 					TEXT To lcNewText Textmerge Noshow
 		+ ccCR + ccLF + [<<IIF(Empty(lcVariable), '', lcVariable + '||')>><<ccClass>> <<lcClass>> from <<Trim(lcAppName)>><<IIF('|' $ lcClassInfo, Substr(lcClassInfo, At('|', lcClassInfo)), '')>>]
@@ -1541,6 +1544,7 @@ DEFINE CLASS thor_run AS custom
 						lcResult = lcResult + ';' + ccCR + ccLF + Space(19) + lcNewText
 					Endif
 		
+				*
 				Case lcClass == 'tools' And lcAppName = 'pemeditor'
 					TEXT To lcNewText Textmerge Noshow
 			Case Lower(lcClassName) = '<<lcClass>> from <<lcAppName>>'
@@ -1550,6 +1554,7 @@ DEFINE CLASS thor_run AS custom
 					ENDTEXT
 					lcResult = lcResult + lcNewText
 		
+				*
 				Case lcClass == 'editorwin' And lcAppName = 'pemeditor'
 					TEXT To lcNewText Textmerge Noshow
 			Case Lower(lcClassName) = '<<lcClass>> from <<lcAppName>>'
@@ -1561,6 +1566,17 @@ DEFINE CLASS thor_run AS custom
 					ENDTEXT
 					lcResult = lcResult + lcNewText
 		
+			
+				*
+				Case Like('*_proc_*.prg', Lower(lcClassLib))  
+					TEXT To lcNewText Textmerge Noshow
+			Case Lower(lcClassName) = '<<lcClass>> from <<lcAppName>>'
+				Return NewObject('<<lcClass>>',  _screen.cThorFolder + '\Tools\Procs\<<lcClassLib>>', '<<lcFullAppName>>')    			
+		
+					ENDTEXT
+					lcResult = lcResult + lcNewText
+		
+				*
 				Otherwise
 					TEXT To lcNewText Textmerge Noshow
 			Case Lower(lcClassName) = '<<lcClass>> from <<lcAppName>>'
@@ -1782,18 +1798,20 @@ DEFINE CLASS thor_toolbar AS toolbar
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Caption = "THOR Quick Access"
-	DataSession = 2
-	Left = 0
-	Name = "thor_toolbar"
-	ndockposition = 0
-	osettings = .NULL.
-	Top = 0
-	_memberdata = <VFPData>
-		<memberdata name="osettings" display="oSettings"/>
-		<memberdata name="ndockposition" display="nDockPosition"/>
-		<memberdata name="savesettings" display="SaveSettings"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Caption = "THOR Quick Access"
+		DataSession = 2
+		Left = 0
+		Name = "thor_toolbar"
+		ndockposition = 0
+		osettings = .NULL.
+		Top = 0
+		_memberdata = <VFPData>
+			<memberdata name="osettings" display="oSettings"/>
+			<memberdata name="ndockposition" display="nDockPosition"/>
+			<memberdata name="savesettings" display="SaveSettings"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE AfterDock
 		This.SaveSettings()
@@ -1852,21 +1870,23 @@ DEFINE CLASS thor_toolbar_button AS commandbutton
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	caction = 
-	Caption = ""
-	FontSize = 8
-	Height = 24
-	Name = "thor_toolbar_button"
-	Picture = 
-	SpecialEffect = 2
-	Width = 24
-	_memberdata = <VFPData>
-		<memberdata name="caction" display="cAction"/>
-		<memberdata name="caption" display="Caption"/>
-		<memberdata name="caption_assign" display="Caption_Assign"/>
-		<memberdata name="picture" display="Picture"/>
-		<memberdata name="picture_assign" display="Picture_Assign"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		caction = 
+		Caption = ""
+		FontSize = 8
+		Height = 24
+		Name = "thor_toolbar_button"
+		Picture = 
+		SpecialEffect = 2
+		Width = 24
+		_memberdata = <VFPData>
+			<memberdata name="caction" display="cAction"/>
+			<memberdata name="caption" display="Caption"/>
+			<memberdata name="caption_assign" display="Caption_Assign"/>
+			<memberdata name="picture" display="Picture"/>
+			<memberdata name="picture_assign" display="Picture_Assign"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE caption_assign
 		Lparameters tCaption
@@ -1907,11 +1927,13 @@ ENDDEFINE
 DEFINE CLASS thor_toolbar_separator AS separator 
  	*< CLASSDATA: Baseclass="separator" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Height = 0
-	Left = 0
-	Name = "thorseparator"
-	Style = 0
-	Top = 0
-	Width = 0
+	*<PropValue>
+		Height = 0
+		Left = 0
+		Name = "thorseparator"
+		Style = 0
+		Top = 0
+		Width = 0
+	*</PropValue>
 
 ENDDEFINE

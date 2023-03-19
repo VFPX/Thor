@@ -9,9 +9,11 @@ DEFINE CLASS baseprojecthook AS projecthook
  	*< CLASSDATA: Baseclass="projecthook" Timestamp="" Scale="Pixels" Uniqueid="" />
 
 	#INCLUDE "common.h"
-	Height = 22
-	Name = "baseprojecthook"
-	Width = 23
+	*<PropValue>
+		Height = 22
+		Name = "baseprojecthook"
+		Width = 23
+	*</PropValue>
 	
 	PROCEDURE BeforeBuild
 		LPARAMETERS cOutputName, nBuildAction, lRebuildAll, lShowErrors, lBuildNewGuids

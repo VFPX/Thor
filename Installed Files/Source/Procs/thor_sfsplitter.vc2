@@ -23,18 +23,20 @@ DEFINE CLASS gripper AS container
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	BackStyle = 0
-	BorderWidth = 0
-	Height = 19
-	Name = "gripper"
-	ndots = 5		&& Enter a number from 0 to 5 to indicate how many gripper dots to show. Enter 0 for none.
-	Width = 36
-	_memberdata = <VFPData>
-		<memberdata name="ndots" type="property" display="nDots"/>
-		<memberdata name="setupforhorizontalsplitter" type="method" display="SetupForHorizontalSplitter"/>
-		<memberdata name="setupforverticalsplitter" type="method" display="SetupForVerticalSplitter"/>
-		<memberdata name="setupgripper" type="method" display="SetupGripper"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		BackStyle = 0
+		BorderWidth = 0
+		Height = 19
+		Name = "gripper"
+		ndots = 5
+		Width = 36
+		_memberdata = <VFPData>
+			<memberdata name="ndots" type="property" display="nDots"/>
+			<memberdata name="setupforhorizontalsplitter" type="method" display="SetupForHorizontalSplitter"/>
+			<memberdata name="setupforverticalsplitter" type="method" display="SetupForVerticalSplitter"/>
+			<memberdata name="setupgripper" type="method" display="SetupGripper"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'GripperDot1' AS gripperdot WITH ;
 		Left = 2, ;
@@ -207,11 +209,13 @@ DEFINE CLASS gripperdot AS container
 	*< OBJECTDATA: ObjPath="ShapeLight" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="ShapeMiddle" UniqueID="" Timestamp="" />
 
-	BackStyle = 0
-	BorderWidth = 0
-	Height = 4
-	Name = "gripperdot"
-	Width = 4
+	*<PropValue>
+		BackStyle = 0
+		BorderWidth = 0
+		Height = 4
+		Name = "gripperdot"
+		Width = 4
+	*</PropValue>
 
 	ADD OBJECT 'ShapeDark' AS shape WITH ;
 		BackStyle = 1, ;
@@ -324,37 +328,39 @@ DEFINE CLASS thor_sfsplitter AS container
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	BackColor = 192,192,192
-	BackStyle = 0
-	BorderColor = 255,0,0
-	BorderWidth = 2
-	cobject1name = 		&& The name of the object above (for a vertical splitter) or to the left of (for a horizontal splitter) the splitter
-	cobject2name = 		&& The name of the object below (for a vertical splitter) or to the right of (for a horizontal splitter) the splitter
-	Height = 248
-	lshowgripper = .F.		&& .T. to display the splitter visually including the gripper control
-	Name = "sfsplitter"
-	ndots = 5		&& Enter a value between 0 and 5 for the number of dots to be shown on the gripper. Enter 0 for none.
-	nobject1minsize = 0		&& The minimum height (for a vertical splitter) or width (for a horizontal splitter) of Object 1
-	nobject2minsize = 0		&& The minimum height (for a vertical splitter) or width (for a horizontal splitter) of Object 2
-	Width = 10
-	_memberdata = <VFPData>
-		<memberdata name="movesplittertoposition" display="MoveSplitterToPosition"/>
-		<memberdata name="cobject1name" display="cObject1Name"/>
-		<memberdata name="cobject2name" display="cObject2Name"/>
-		<memberdata name="nobject1minsize" display="nObject1MinSize"/>
-		<memberdata name="nobject2minsize" display="nObject2MinSize"/>
-		<memberdata name="getobject1size" display="GetObject1Size"/>
-		<memberdata name="getobject2size" display="GetObject2Size"/>
-		<memberdata name="setposition" display="SetPosition"/>
-		<memberdata name="moveobject1" display="MoveObject1"/>
-		<memberdata name="moveobject2" display="MoveObject2"/>
-		<memberdata name="getposition" display="GetPosition"/>
-		<memberdata name="splittermoved" display="SplitterMoved"/>
-		<memberdata name="lshowgripper" display="lShowGripper"/>
-		<memberdata name="setupgripper" display="SetupGripper"/>
-		<memberdata name="ndots" display="nDots"/>
-		<memberdata name="adjustminimum" display="AdjustMinimum"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		BackColor = 192,192,192
+		BackStyle = 0
+		BorderColor = 255,0,0
+		BorderWidth = 2
+		cobject1name = 
+		cobject2name = 
+		Height = 248
+		lshowgripper = .F.
+		Name = "sfsplitter"
+		ndots = 5
+		nobject1minsize = 0
+		nobject2minsize = 0
+		Width = 10
+		_memberdata = <VFPData>
+			<memberdata name="movesplittertoposition" display="MoveSplitterToPosition"/>
+			<memberdata name="cobject1name" display="cObject1Name"/>
+			<memberdata name="cobject2name" display="cObject2Name"/>
+			<memberdata name="nobject1minsize" display="nObject1MinSize"/>
+			<memberdata name="nobject2minsize" display="nObject2MinSize"/>
+			<memberdata name="getobject1size" display="GetObject1Size"/>
+			<memberdata name="getobject2size" display="GetObject2Size"/>
+			<memberdata name="setposition" display="SetPosition"/>
+			<memberdata name="moveobject1" display="MoveObject1"/>
+			<memberdata name="moveobject2" display="MoveObject2"/>
+			<memberdata name="getposition" display="GetPosition"/>
+			<memberdata name="splittermoved" display="SplitterMoved"/>
+			<memberdata name="lshowgripper" display="lShowGripper"/>
+			<memberdata name="setupgripper" display="SetupGripper"/>
+			<memberdata name="ndots" display="nDots"/>
+			<memberdata name="adjustminimum" display="AdjustMinimum"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Gripper' AS gripper WITH ;
 		Height = 12, ;
@@ -552,30 +558,32 @@ ENDDEFINE
 DEFINE CLASS thor_sfsplitterh AS thor_sfsplitter OF "thor_sfsplitter.vcx" 
  	*< CLASSDATA: Baseclass="container" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Anchor = 13
-	MousePointer = 9
-	Name = "thor_sfsplitterh"
-	gripper.Gripperdot1.Name = "Gripperdot1"
-	gripper.Gripperdot1.ShapeDark.Name = "ShapeDark"
-	gripper.Gripperdot1.ShapeLight.Name = "ShapeLight"
-	gripper.Gripperdot1.ShapeMiddle.Name = "ShapeMiddle"
-	gripper.Gripperdot2.Name = "Gripperdot2"
-	gripper.Gripperdot2.ShapeDark.Name = "ShapeDark"
-	gripper.Gripperdot2.ShapeLight.Name = "ShapeLight"
-	gripper.Gripperdot2.ShapeMiddle.Name = "ShapeMiddle"
-	gripper.Gripperdot3.Name = "Gripperdot3"
-	gripper.Gripperdot3.ShapeDark.Name = "ShapeDark"
-	gripper.Gripperdot3.ShapeLight.Name = "ShapeLight"
-	gripper.Gripperdot3.ShapeMiddle.Name = "ShapeMiddle"
-	gripper.Gripperdot4.Name = "Gripperdot4"
-	gripper.Gripperdot4.ShapeDark.Name = "ShapeDark"
-	gripper.Gripperdot4.ShapeLight.Name = "ShapeLight"
-	gripper.Gripperdot4.ShapeMiddle.Name = "ShapeMiddle"
-	gripper.Gripperdot5.Name = "Gripperdot5"
-	gripper.Gripperdot5.ShapeDark.Name = "ShapeDark"
-	gripper.Gripperdot5.ShapeLight.Name = "ShapeLight"
-	gripper.Gripperdot5.ShapeMiddle.Name = "ShapeMiddle"
-	gripper.Name = "gripper"
+	*<PropValue>
+		Anchor = 13
+		MousePointer = 9
+		Name = "thor_sfsplitterh"
+		gripper.Gripperdot1.Name = "Gripperdot1"
+		gripper.Gripperdot1.ShapeDark.Name = "ShapeDark"
+		gripper.Gripperdot1.ShapeLight.Name = "ShapeLight"
+		gripper.Gripperdot1.ShapeMiddle.Name = "ShapeMiddle"
+		gripper.Gripperdot2.Name = "Gripperdot2"
+		gripper.Gripperdot2.ShapeDark.Name = "ShapeDark"
+		gripper.Gripperdot2.ShapeLight.Name = "ShapeLight"
+		gripper.Gripperdot2.ShapeMiddle.Name = "ShapeMiddle"
+		gripper.Gripperdot3.Name = "Gripperdot3"
+		gripper.Gripperdot3.ShapeDark.Name = "ShapeDark"
+		gripper.Gripperdot3.ShapeLight.Name = "ShapeLight"
+		gripper.Gripperdot3.ShapeMiddle.Name = "ShapeMiddle"
+		gripper.Gripperdot4.Name = "Gripperdot4"
+		gripper.Gripperdot4.ShapeDark.Name = "ShapeDark"
+		gripper.Gripperdot4.ShapeLight.Name = "ShapeLight"
+		gripper.Gripperdot4.ShapeMiddle.Name = "ShapeMiddle"
+		gripper.Gripperdot5.Name = "Gripperdot5"
+		gripper.Gripperdot5.ShapeDark.Name = "ShapeDark"
+		gripper.Gripperdot5.ShapeLight.Name = "ShapeLight"
+		gripper.Gripperdot5.ShapeMiddle.Name = "ShapeMiddle"
+		gripper.Name = "gripper"
+	*</PropValue>
 	
 	PROCEDURE adjustminimum		&& Adjusts the form so it can't be sized too small
 		* Don't allow the form to be sized smaller than the left object should be.
@@ -644,32 +652,34 @@ ENDDEFINE
 DEFINE CLASS thor_sfsplitterv AS thor_sfsplitter OF "thor_sfsplitter.vcx" 
  	*< CLASSDATA: Baseclass="container" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Anchor = 14
-	Height = 10
-	MousePointer = 7
-	Name = "sfsplitterv"
-	Width = 200
-	gripper.Gripperdot1.Name = "Gripperdot1"
-	gripper.Gripperdot1.ShapeDark.Name = "ShapeDark"
-	gripper.Gripperdot1.ShapeLight.Name = "ShapeLight"
-	gripper.Gripperdot1.ShapeMiddle.Name = "ShapeMiddle"
-	gripper.Gripperdot2.Name = "Gripperdot2"
-	gripper.Gripperdot2.ShapeDark.Name = "ShapeDark"
-	gripper.Gripperdot2.ShapeLight.Name = "ShapeLight"
-	gripper.Gripperdot2.ShapeMiddle.Name = "ShapeMiddle"
-	gripper.Gripperdot3.Name = "Gripperdot3"
-	gripper.Gripperdot3.ShapeDark.Name = "ShapeDark"
-	gripper.Gripperdot3.ShapeLight.Name = "ShapeLight"
-	gripper.Gripperdot3.ShapeMiddle.Name = "ShapeMiddle"
-	gripper.Gripperdot4.Name = "Gripperdot4"
-	gripper.Gripperdot4.ShapeDark.Name = "ShapeDark"
-	gripper.Gripperdot4.ShapeLight.Name = "ShapeLight"
-	gripper.Gripperdot4.ShapeMiddle.Name = "ShapeMiddle"
-	gripper.Gripperdot5.Name = "Gripperdot5"
-	gripper.Gripperdot5.ShapeDark.Name = "ShapeDark"
-	gripper.Gripperdot5.ShapeLight.Name = "ShapeLight"
-	gripper.Gripperdot5.ShapeMiddle.Name = "ShapeMiddle"
-	gripper.Name = "gripper"
+	*<PropValue>
+		Anchor = 14
+		Height = 10
+		MousePointer = 7
+		Name = "sfsplitterv"
+		Width = 200
+		gripper.Gripperdot1.Name = "Gripperdot1"
+		gripper.Gripperdot1.ShapeDark.Name = "ShapeDark"
+		gripper.Gripperdot1.ShapeLight.Name = "ShapeLight"
+		gripper.Gripperdot1.ShapeMiddle.Name = "ShapeMiddle"
+		gripper.Gripperdot2.Name = "Gripperdot2"
+		gripper.Gripperdot2.ShapeDark.Name = "ShapeDark"
+		gripper.Gripperdot2.ShapeLight.Name = "ShapeLight"
+		gripper.Gripperdot2.ShapeMiddle.Name = "ShapeMiddle"
+		gripper.Gripperdot3.Name = "Gripperdot3"
+		gripper.Gripperdot3.ShapeDark.Name = "ShapeDark"
+		gripper.Gripperdot3.ShapeLight.Name = "ShapeLight"
+		gripper.Gripperdot3.ShapeMiddle.Name = "ShapeMiddle"
+		gripper.Gripperdot4.Name = "Gripperdot4"
+		gripper.Gripperdot4.ShapeDark.Name = "ShapeDark"
+		gripper.Gripperdot4.ShapeLight.Name = "ShapeLight"
+		gripper.Gripperdot4.ShapeMiddle.Name = "ShapeMiddle"
+		gripper.Gripperdot5.Name = "Gripperdot5"
+		gripper.Gripperdot5.ShapeDark.Name = "ShapeDark"
+		gripper.Gripperdot5.ShapeLight.Name = "ShapeLight"
+		gripper.Gripperdot5.ShapeMiddle.Name = "ShapeMiddle"
+		gripper.Name = "gripper"
+	*</PropValue>
 	
 	PROCEDURE adjustminimum		&& Adjusts the form so it can't be sized too small
 		* Don't allow the form to be sized smaller than the top object should be.

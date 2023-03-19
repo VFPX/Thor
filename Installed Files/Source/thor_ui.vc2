@@ -13,9 +13,11 @@ DEFINE CLASS edittoolbutton AS basecommandbutton OF "basecontrols.vcx"
 		*p: cprgname		&& The PRGname of the tool
 	*</DefinedPropArrayMethod>
 
-	Caption = "\<Edit Tool"
-	cprgname = 		&& The PRGname of the tool
-	Name = "edittoolbutton"
+	*<PropValue>
+		Caption = "\<Edit Tool"
+		cprgname = 
+		Name = "edittoolbutton"
+	*</PropValue>
 	
 	PROCEDURE Click
 		Thisform.EditTool(This.cPRGName)
@@ -42,13 +44,15 @@ DEFINE CLASS filtercontrols AS basecontainer OF "basecontrols.vcx"
 		*p: ctarget		&& The object containing cToolFilter
 	*</DefinedPropArrayMethod>
 
-	ctarget = 		&& The object containing cToolFilter
-	Height = 23
-	Name = "filtercontrols"
-	Width = 228
-	_memberdata = <VFPData>
-		<memberdata name="ctarget" display="cTarget"/>
+	*<PropValue>
+		ctarget = 
+		Height = 23
+		Name = "filtercontrols"
+		Width = 228
+		_memberdata = <VFPData>
+			<memberdata name="ctarget" display="cTarget"/>
 		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'lblFilter' AS baselabel WITH ;
 		Caption = "Tool filter", ;
@@ -136,69 +140,71 @@ DEFINE CLASS formruntool AS baseform OF "basecontrols.vcx"
 		*p: otools		&& A reference to a collection of tools
 	*</DefinedPropArrayMethod>
 
-	AutoCenter = .F.
-	BindControls = .F.
-	Caption = "Run Tool"
-	cfoxuserid = ThorRunTool
-	cfoxusername = ThorRunTool
-	cthorfolder = 
-	DataSession = 2
-	DoCreate = .T.
-	Height = 300
-	Icon = thor16.ico
-	ldockable = .T.
-	Left = 0
-	lfavoritesonly = .F.
-	lopeningform = .T.
-	lrefreshcustomtooltreeview = .F.
-	lrefreshselecttooltreeview = .F.
-	lrefreshtools = .F.		&& Flags that we're refreshing tools
-	lreopen = .F.
-	lsearchtoolnamesonly = .F.
-	MinHeight = 100
-	MinWidth = 100
-	Name = "formruntool"
-	nfontsize = 9
-	noptionssplitterleft = 0
-	nsplitterposition = -1
-	oselecttool = .NULL.
-	othor = .NULL.		&& A reference to a Thor_Engine object
-	otools = .NULL.		&& A reference to a collection of tools
-	Top = 1
-	Visible = .T.
-	Width = 644
-	_memberdata = <VFPData>
-		<memberdata name="otools" display="oTools"/>
-		<memberdata name="opentables" display="OpenTables"/>
-		<memberdata name="ctablesfolder" display="cTablesFolder"/>
-		<memberdata name="othor" display="oThor"/>
-		<memberdata name="refreshtools" display="RefreshTools"/>
-		<memberdata name="lrefreshtools" display="lRefreshTools"/>
-		<memberdata name="cthorfolder" display="cThorFolder"/>
-		<memberdata name="runthor" display="RunThor"/>
-		<memberdata name="edittool" display="EditTool"/>
-		<memberdata name="setfontsize" display="SetFontSize"/>
-		<memberdata name="lrefreshselecttooltreeview" display="lRefreshSelectToolTreeView"/>
-		<memberdata name="help" display="Help"/>
-		<memberdata name="oselecttool" display="oSelectTool"/>
-		<memberdata name="gethotkeydescription" display="GetHotKeyDescription"/>
-		<memberdata name="addpemeditortools" display="AddPEMEditorTools"/>
-		<memberdata name="loadtree" display="LoadTree"/>
-		<memberdata name="nfontsize" display="nFontSize"/>
-		<memberdata name="notthorinternalmenu" display="NotThorInternalMenu"/>
-		<memberdata name="noptionssplitterleft" display="nOptionsSplitterLeft"/>
-		<memberdata name="runtool" display="RunTool"/>
-		<memberdata name="lreopen" display="lReOpen"/>
-		<memberdata name="nsplitterposition" display="nSplitterPosition"/>
-		<memberdata name="lopeningform" display="lOpeningForm"/>
-		<memberdata name="lrefreshcustomtooltreeview" display="lRefreshCustomToolTreeView"/>
-		<memberdata name="setpage" display="SetPage"/>
-		<memberdata name="lsearchtoolnamesonly" display="lSearchToolNamesOnly"/>
-		<memberdata name="lfavoritesonly" display="lFavoritesOnly"/>
-		<memberdata name="createtoolbar" display="CreateToolBar"/>
-		<memberdata name="assignallhotkeys" display="AssignAllHotKeys"/>
+	*<PropValue>
+		AutoCenter = .F.
+		BindControls = .F.
+		Caption = "Run Tool"
+		cfoxuserid = ThorRunTool
+		cfoxusername = ThorRunTool
+		cthorfolder = 
+		DataSession = 2
+		DoCreate = .T.
+		Height = 300
+		Icon = thor16.ico
+		ldockable = .T.
+		Left = 0
+		lfavoritesonly = .F.
+		lopeningform = .T.
+		lrefreshcustomtooltreeview = .F.
+		lrefreshselecttooltreeview = .F.
+		lrefreshtools = .F.
+		lreopen = .F.
+		lsearchtoolnamesonly = .F.
+		MinHeight = 100
+		MinWidth = 100
+		Name = "formruntool"
+		nfontsize = 9
+		noptionssplitterleft = 0
+		nsplitterposition = -1
+		oselecttool = .NULL.
+		othor = .NULL.
+		otools = .NULL.
+		Top = 1
+		Visible = .T.
+		Width = 644
+		_memberdata = <VFPData>
+			<memberdata name="otools" display="oTools"/>
+			<memberdata name="opentables" display="OpenTables"/>
+			<memberdata name="ctablesfolder" display="cTablesFolder"/>
+			<memberdata name="othor" display="oThor"/>
+			<memberdata name="refreshtools" display="RefreshTools"/>
+			<memberdata name="lrefreshtools" display="lRefreshTools"/>
+			<memberdata name="cthorfolder" display="cThorFolder"/>
+			<memberdata name="runthor" display="RunThor"/>
+			<memberdata name="edittool" display="EditTool"/>
+			<memberdata name="setfontsize" display="SetFontSize"/>
+			<memberdata name="lrefreshselecttooltreeview" display="lRefreshSelectToolTreeView"/>
+			<memberdata name="help" display="Help"/>
+			<memberdata name="oselecttool" display="oSelectTool"/>
+			<memberdata name="gethotkeydescription" display="GetHotKeyDescription"/>
+			<memberdata name="addpemeditortools" display="AddPEMEditorTools"/>
+			<memberdata name="loadtree" display="LoadTree"/>
+			<memberdata name="nfontsize" display="nFontSize"/>
+			<memberdata name="notthorinternalmenu" display="NotThorInternalMenu"/>
+			<memberdata name="noptionssplitterleft" display="nOptionsSplitterLeft"/>
+			<memberdata name="runtool" display="RunTool"/>
+			<memberdata name="lreopen" display="lReOpen"/>
+			<memberdata name="nsplitterposition" display="nSplitterPosition"/>
+			<memberdata name="lopeningform" display="lOpeningForm"/>
+			<memberdata name="lrefreshcustomtooltreeview" display="lRefreshCustomToolTreeView"/>
+			<memberdata name="setpage" display="SetPage"/>
+			<memberdata name="lsearchtoolnamesonly" display="lSearchToolNamesOnly"/>
+			<memberdata name="lfavoritesonly" display="lFavoritesOnly"/>
+			<memberdata name="createtoolbar" display="CreateToolBar"/>
+			<memberdata name="assignallhotkeys" display="AssignAllHotKeys"/>
 		</VFPData>
-	cmdEscape.Name = "cmdEscape"
+		cmdEscape.Name = "cmdEscape"
+	*</PropValue>
 
 	ADD OBJECT 'Basecheckbox1' AS basecheckbox WITH ;
 		Alignment = 0, ;
@@ -1467,22 +1473,24 @@ DEFINE CLASS hotkeycontrols AS basecontainer OF "basecontrols.vcx"
 		*p: oform		&& A reference to the PressKeyPrompt form
 	*</DefinedPropArrayMethod>
 
-	calias = 		&& The alias HotKeyID is in
-	chotkeydescription = 		&& The description for the selected hot key
-	csavedmacrosfile = 
-	Height = 25
-	lonkeylabelonly = .F.
-	lrefreshform = .F.
-	Name = "hotkeycontrols"
-	ninkey = 0
-	oeventhandler = .NULL.		&& A reference to a IDEWindowsEvents object
-	oform = .NULL.		&& A reference to the PressKeyPrompt form
-	Width = 236
-	_memberdata = <VFPData>
-		<memberdata name="ninkey" display="nInKey"/>
-		<memberdata name="lonkeylabelonly" display="lOnKeyLabelOnly"/>
-		<memberdata name="lrefreshform" display="lRefreshForm"/>
+	*<PropValue>
+		calias = 
+		chotkeydescription = 
+		csavedmacrosfile = 
+		Height = 25
+		lonkeylabelonly = .F.
+		lrefreshform = .F.
+		Name = "hotkeycontrols"
+		ninkey = 0
+		oeventhandler = .NULL.
+		oform = .NULL.
+		Width = 236
+		_memberdata = <VFPData>
+			<memberdata name="ninkey" display="nInKey"/>
+			<memberdata name="lonkeylabelonly" display="lOnKeyLabelOnly"/>
+			<memberdata name="lrefreshform" display="lRefreshForm"/>
 		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cmdClear' AS basecommandbutton WITH ;
 		Caption = "Clear", ;
@@ -1836,17 +1844,19 @@ DEFINE CLASS hotkeylist AS basecontainer OF "basecontrols.vcx"
 		*p: ignorenextloadlist
 	*</DefinedPropArrayMethod>
 
-	Anchor = 15
-	Height = 212
-	ignorenextloadlist = .F.
-	Name = "hotkeylist"
-	Width = 332
-	_memberdata = <VFPData>
-		<memberdata name="createcursor" display="CreateCursor"/>
-		<memberdata name="ignorenextloadlist" display="IgnoreNextLoadList"/>
-		<memberdata name="loadlist" display="LoadList"/>
-		<memberdata name="griddoubleclick" display="GridDoubleClick"/>
+	*<PropValue>
+		Anchor = 15
+		Height = 212
+		ignorenextloadlist = .F.
+		Name = "hotkeylist"
+		Width = 332
+		_memberdata = <VFPData>
+			<memberdata name="createcursor" display="CreateCursor"/>
+			<memberdata name="ignorenextloadlist" display="IgnoreNextLoadList"/>
+			<memberdata name="loadlist" display="LoadList"/>
+			<memberdata name="griddoubleclick" display="GridDoubleClick"/>
 		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cmdToClipboard' AS basecommandbutton WITH ;
 		Anchor = 4, ;
@@ -2286,16 +2296,18 @@ DEFINE CLASS menus AS basecontainer OF "basecontrols.vcx"
 		*p: olasttoolselected
 	*</DefinedPropArrayMethod>
 
-	Anchor = 15
-	ctoolfilter = 		&& A filter for the tools list
-	Height = 259
-	Name = "menus"
-	ncopymenuid = 0		&& The ID of a copied menu
-	olasttoolselected = .NULL.
-	Width = 622
-	_memberdata = <VFPData>
-		<memberdata name="olasttoolselected" display="oLastToolSelected"/>
+	*<PropValue>
+		Anchor = 15
+		ctoolfilter = 
+		Height = 259
+		Name = "menus"
+		ncopymenuid = 0
+		olasttoolselected = .NULL.
+		Width = 622
+		_memberdata = <VFPData>
+			<memberdata name="olasttoolselected" display="oLastToolSelected"/>
 		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cmdAddMenu' AS basecommandbutton WITH ;
 		Anchor = 4, ;
@@ -4259,19 +4271,21 @@ DEFINE CLASS presskeyprompt AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	BorderStyle = 2
-	Caption = "Form"
-	DoCreate = .T.
-	Height = 124
-	Left = 0
-	Name = "presskeyprompt"
-	oform = .NULL.		&& A reference to the calling form
-	TitleBar = 0
-	Top = 0
-	Width = 200
-	_memberdata = <VFPData>
-		<memberdata name="oform" display="oForm"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		BorderStyle = 2
+		Caption = "Form"
+		DoCreate = .T.
+		Height = 124
+		Left = 0
+		Name = "presskeyprompt"
+		oform = .NULL.
+		TitleBar = 0
+		Top = 0
+		Width = 200
+		_memberdata = <VFPData>
+			<memberdata name="oform" display="oForm"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Baselabel1' AS baselabel WITH ;
 		Caption = "Or press [Esc] to cancel", ;
@@ -4358,20 +4372,22 @@ ENDDEFINE
 DEFINE CLASS presskeypromptokl AS presskeyprompt OF "thor_ui.vcx" 
  	*< CLASSDATA: Baseclass="form" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	DoCreate = .T.
-	Height = 124
-	Left = 0
-	Name = "presskeypromptokl"
-	Top = 0
-	Width = 200
-	lblPress.Name = "lblPress"
-	lblPress.Top = 16
-	lblEsc.Name = "lblEsc"
-	lblEsc.Top = 40
-	Baselabel1.Name = "Baselabel1"
-	Baselabel2.Caption = "For this tool, you may use only one of [Shift], [Ctrl] or [Alt]"
-	Baselabel2.ForeColor = 255,0,0
-	Baselabel2.Name = "Baselabel2"
+	*<PropValue>
+		DoCreate = .T.
+		Height = 124
+		Left = 0
+		Name = "presskeypromptokl"
+		Top = 0
+		Width = 200
+		lblPress.Name = "lblPress"
+		lblPress.Top = 16
+		lblEsc.Name = "lblEsc"
+		lblEsc.Top = 40
+		Baselabel1.Name = "Baselabel1"
+		Baselabel2.Caption = "For this tool, you may use only one of [Shift], [Ctrl] or [Alt]"
+		Baselabel2.ForeColor = 255,0,0
+		Baselabel2.Name = "Baselabel2"
+	*</PropValue>
 
 ENDDEFINE
 
@@ -4393,41 +4409,43 @@ DEFINE CLASS selecttool AS sfcombotree OF "thor_sfcombotree.vcx"
 		*p: cnewfilter
 	*</DefinedPropArrayMethod>
 
-	cfilter = 
-	cnewfilter = 
-	Height = 54
-	lcloseonclick = .T.
-	Name = "selecttool"
-	Width = 250
-	_memberdata = <VFPData>
-		<memberdata name="addpemeditortools" display="AddPEMEditorTools"/>
-		<memberdata name="cfilter" display="cFilter"/>
-		<memberdata name="cnewfilter" display="cNewFilter"/>
+	*<PropValue>
+		cfilter = 
+		cnewfilter = 
+		Height = 54
+		lcloseonclick = .T.
+		Name = "selecttool"
+		Width = 250
+		_memberdata = <VFPData>
+			<memberdata name="addpemeditortools" display="AddPEMEditorTools"/>
+			<memberdata name="cfilter" display="cFilter"/>
+			<memberdata name="cnewfilter" display="cNewFilter"/>
 		</VFPData>
-	cboCombo.Anchor = 11
-	cboCombo.Height = 24
-	cboCombo.Left = 69
-	cboCombo.Name = "cboCombo"
-	cboCombo.Style = 0
-	cboCombo.Top = 0
-	cboCombo.Width = 176
-	cboCombo.ZOrderSet = 0
-	oTree.Height = 174
-	oTree.Left = 5
-	oTree.Name = "oTree"
-	oTree.Top = 73
-	oTree.Width = 166
-	oTree.ZOrderSet = 3
-	shpTreeView.Left = 0
-	shpTreeView.Name = "shpTreeView"
-	shpTreeView.Top = 69
-	shpTreeView.ZOrderSet = 4
-	oImageList.Height = 100
-	oImageList.Left = 120
-	oImageList.Name = "oImageList"
-	oImageList.Top = 84
-	oImageList.Width = 100
-	oImageList.ZOrderSet = 5
+		cboCombo.Anchor = 11
+		cboCombo.Height = 24
+		cboCombo.Left = 69
+		cboCombo.Name = "cboCombo"
+		cboCombo.Style = 0
+		cboCombo.Top = 0
+		cboCombo.Width = 176
+		cboCombo.ZOrderSet = 0
+		oTree.Height = 174
+		oTree.Left = 5
+		oTree.Name = "oTree"
+		oTree.Top = 73
+		oTree.Width = 166
+		oTree.ZOrderSet = 3
+		shpTreeView.Left = 0
+		shpTreeView.Name = "shpTreeView"
+		shpTreeView.Top = 69
+		shpTreeView.ZOrderSet = 4
+		oImageList.Height = 100
+		oImageList.Left = 120
+		oImageList.Name = "oImageList"
+		oImageList.Top = 84
+		oImageList.Width = 100
+		oImageList.ZOrderSet = 5
+	*</PropValue>
 
 	ADD OBJECT 'Baselabel1' AS baselabel WITH ;
 		Caption = "Filter", ;
@@ -4803,22 +4821,24 @@ DEFINE CLASS selecttoolforbrowsing AS basecontainer OF "basecontrols.vcx"
 		*p: cnewfilter
 	*</DefinedPropArrayMethod>
 
-	Anchor = 15
-	BackColor = 255,255,255
-	BackStyle = 1
-	cfilter = 
-	cnewfilter = 
-	Height = 95
-	Name = "selecttoolforbrowsing"
-	Width = 260
-	_memberdata = <VFPData>
-		<memberdata name="backcolor" display="BackColor"/>
-		<memberdata name="cfilter" display="cFilter"/>
-		<memberdata name="cnewfilter" display="cNewFilter"/>
-		<memberdata name="selectitem" display="SelectItem"/>
-		<memberdata name="applyfilter" display="ApplyFilter"/>
-		<memberdata name="reloadtree" display="ReLoadTree"/>
+	*<PropValue>
+		Anchor = 15
+		BackColor = 255,255,255
+		BackStyle = 1
+		cfilter = 
+		cnewfilter = 
+		Height = 95
+		Name = "selecttoolforbrowsing"
+		Width = 260
+		_memberdata = <VFPData>
+			<memberdata name="backcolor" display="BackColor"/>
+			<memberdata name="cfilter" display="cFilter"/>
+			<memberdata name="cnewfilter" display="cNewFilter"/>
+			<memberdata name="selectitem" display="SelectItem"/>
+			<memberdata name="applyfilter" display="ApplyFilter"/>
+			<memberdata name="reloadtree" display="ReLoadTree"/>
 		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Baselabel1' AS baselabel WITH ;
 		Caption = "Filter", ;
@@ -4971,21 +4991,23 @@ DEFINE CLASS selecttoolforlauncher AS selecttoolforbrowsing OF "thor_ui.vcx"
  	*< CLASSDATA: Baseclass="container" Timestamp="" Scale="Pixels" Uniqueid="" />
 
 	#INCLUDE "thor_ui.h"
-	Height = 172
-	Name = "selecttoolforlauncher"
-	Width = 200
-	txtcNewFilter.Left = 40
-	txtcNewFilter.Name = "txtcNewFilter"
-	txtcNewFilter.Top = 3
-	txtcNewFilter.Width = 129
-	Baselabel1.Left = 3
-	Baselabel1.Name = "Baselabel1"
-	Baselabel1.Top = 7
-	oTree.Height = 143
-	oTree.Left = 1
-	oTree.Name = "oTree"
-	oTree.Top = 28
-	oTree.Width = 197
+	*<PropValue>
+		Height = 172
+		Name = "selecttoolforlauncher"
+		Width = 200
+		txtcNewFilter.Left = 40
+		txtcNewFilter.Name = "txtcNewFilter"
+		txtcNewFilter.Top = 3
+		txtcNewFilter.Width = 129
+		Baselabel1.Left = 3
+		Baselabel1.Name = "Baselabel1"
+		Baselabel1.Top = 7
+		oTree.Height = 143
+		oTree.Left = 1
+		oTree.Name = "oTree"
+		oTree.Top = 28
+		oTree.Width = 197
+	*</PropValue>
 	
 	PROCEDURE Baselabel1.RightClick
 		Thisform.ResetAllDefaults()
@@ -5036,24 +5058,26 @@ ENDDEFINE
 DEFINE CLASS selecttoolformenus AS selecttool OF "thor_ui.vcx" 
  	*< CLASSDATA: Baseclass="container" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Name = "selecttoolformenus"
-	cboCombo.Name = "cboCombo"
-	Baselabel1.Name = "Baselabel1"
-	lblPrompt1.Name = "lblPrompt1"
-	oTree.Height = 174
-	oTree.Left = 5
-	oTree.Name = "oTree"
-	oTree.Top = 73
-	oTree.Width = 166
-	shpTreeView.Name = "shpTreeView"
-	oImageList.Height = 100
-	oImageList.Left = 120
-	oImageList.Name = "oImageList"
-	oImageList.Top = 84
-	oImageList.Width = 100
-	txtcNewFilter.Name = "txtcNewFilter"
-	cmdApply.Name = "cmdApply"
-	cmdClear.Name = "cmdClear"
+	*<PropValue>
+		Name = "selecttoolformenus"
+		cboCombo.Name = "cboCombo"
+		Baselabel1.Name = "Baselabel1"
+		lblPrompt1.Name = "lblPrompt1"
+		oTree.Height = 174
+		oTree.Left = 5
+		oTree.Name = "oTree"
+		oTree.Top = 73
+		oTree.Width = 166
+		shpTreeView.Name = "shpTreeView"
+		oImageList.Height = 100
+		oImageList.Left = 120
+		oImageList.Name = "oImageList"
+		oImageList.Top = 84
+		oImageList.Width = 100
+		txtcNewFilter.Name = "txtcNewFilter"
+		cmdApply.Name = "cmdApply"
+		cmdClear.Name = "cmdClear"
+	*</PropValue>
 	
 	PROCEDURE itemselected
 		* When the user selects a tool, update the tables; we need to reload the
@@ -5094,19 +5118,21 @@ DEFINE CLASS sethotkeyform AS baseform OF "basecontrols.vcx"
 		*p: othor
 	*</DefinedPropArrayMethod>
 
-	DataSession = 1
-	DoCreate = .T.
-	Height = 31
-	lsavesettings = .F.
-	Name = "sethotkeyform"
-	othor = .NULL.
-	TitleBar = 0
-	Visible = .T.
-	Width = 180
-	_memberdata = <VFPData>
-		<memberdata name="executecommand" display="ExecuteCommand"/>
-		<memberdata name="othor" display="oThor"/>
+	*<PropValue>
+		DataSession = 1
+		DoCreate = .T.
+		Height = 31
+		lsavesettings = .F.
+		Name = "sethotkeyform"
+		othor = .NULL.
+		TitleBar = 0
+		Visible = .T.
+		Width = 180
+		_memberdata = <VFPData>
+			<memberdata name="executecommand" display="ExecuteCommand"/>
+			<memberdata name="othor" display="oThor"/>
 		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Hotkeycontrols1' AS hotkeycontrols WITH ;
 		Left = 0, ;
@@ -5162,18 +5188,20 @@ DEFINE CLASS startuptools AS basecontainer OF "basecontrols.vcx"
 		*p: ignorenextloadlist
 	*</DefinedPropArrayMethod>
 
-	Anchor = 15
-	Height = 212
-	ignorenextloadlist = .F.
-	Name = "startuptools"
-	Width = 332
-	_memberdata = <VFPData>
-		<memberdata name="createcursor" display="CreateCursor"/>
-		<memberdata name="ignorenextloadlist" display="IgnoreNextLoadList"/>
-		<memberdata name="loadlist" display="LoadList"/>
-		<memberdata name="griddoubleclick" display="GridDoubleClick"/>
-		<memberdata name="togglestartupbit" display="ToggleStartupBit"/>
+	*<PropValue>
+		Anchor = 15
+		Height = 212
+		ignorenextloadlist = .F.
+		Name = "startuptools"
+		Width = 332
+		_memberdata = <VFPData>
+			<memberdata name="createcursor" display="CreateCursor"/>
+			<memberdata name="ignorenextloadlist" display="IgnoreNextLoadList"/>
+			<memberdata name="loadlist" display="LoadList"/>
+			<memberdata name="griddoubleclick" display="GridDoubleClick"/>
+			<memberdata name="togglestartupbit" display="ToggleStartupBit"/>
 		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'gridKeys' AS basegrid WITH ;
 		Anchor = 15, ;
@@ -5410,16 +5438,18 @@ ENDDEFINE
 DEFINE CLASS thor_tree AS basetree OF "basecontrols.vcx" 
  	*< CLASSDATA: Baseclass="olecontrol" Timestamp="" Scale="Pixels" Uniqueid="" Nombre="thor_tree" Parent="" ObjName="thor_tree" OLEObject="C:\WINDOWS\system32\mscomctl.ocx" Value="0M8R4KGxGuEAAAAAAAAAAAAAAAAAAAAAPgADAP7/CQAGAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAEAAAAgAAAAEAAAD+////AAAAAAAAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9/////v////7////+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////1IAbwBvAHQAIABFAG4AdAByAHkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAUA//////////8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALB2m5UpOMwBAwAAAEABAAAAAAAAAwBPAGwAZQBPAGIAagBlAGMAdABEAGEAdABhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAgEDAAAAAgAAAP////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAagAAAAAAAAADAEEAYwBjAGUAcwBzAE8AYgBqAFMAaQB0AGUARABhAHQAYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgACAP///////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAABcAAAAAAAAAAMAQwBoAGEAbgBnAGUAZABQAHIAbwBwAHMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAIA////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAQAAAAAAAAABAAAAAIAAAD+/////v////7///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+2kEHHiYXREbFqAMDwKDYoIUM0EggAAABWCgAAVgoAALE8wWoBAAYAIgAAANwAXADoAwAASAByAEmX4wUB782rXAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAACQAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5MzY4MjY1RS04NUZFLTExZDEtOEJFMy0wMDAwRjg3NTREQTEyAC0AQwA2ADgANgAtADQAYwBkAGEALQA4ADYAOABGAC0AQQABAACARQBEAEUAMQA4ADYAMQA1ADQAfQAgAEMAOgBcAFAAcgBvAGcAcgBhAG0AIABGAGkAbABlAHMAXABDAG8AAAAFABiZ4wUGAGIAAAAAAAUAAIBw6xIAAQAAAFwAH97svQEABQC06xIAZQBkAFwAQQB1AGQAaQBvAFAAbABhAHkAZQByAC4AZABsAGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" />
 
-	cselectednode = 
-	Height = 100
-	Name = "thor_tree"
-	Width = 100
-	_memberdata = <VFPData>
-		<memberdata name="saveexpandednodes" display="SaveExpandedNodes"/>
-		<memberdata name="restoreexpandednodes" display="RestoreExpandedNodes"/>
-		<memberdata name="cselectednode" display="cSelectedNode"/>
-		<memberdata name="anodes" display="aNodes"/>
+	*<PropValue>
+		cselectednode = 
+		Height = 100
+		Name = "thor_tree"
+		Width = 100
+		_memberdata = <VFPData>
+			<memberdata name="saveexpandednodes" display="SaveExpandedNodes"/>
+			<memberdata name="restoreexpandednodes" display="RestoreExpandedNodes"/>
+			<memberdata name="cselectednode" display="cSelectedNode"/>
+			<memberdata name="anodes" display="aNodes"/>
 		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE restoreexpandednodes
 		Local lcKey, lnI, lnPos, loNode
@@ -5466,9 +5496,11 @@ DEFINE CLASS thorhotkey AS basecontainer OF "basecontrols.vcx"
 	*-- OBJECTDATA items order determines ZOrder / El orden de los items OBJECTDATA determina el ZOrder 
 	*< OBJECTDATA: ObjPath="Thorhotkeysource1" UniqueID="" Timestamp="" />
 
-	Height = 80
-	Name = "thorhotkey"
-	Width = 300
+	*<PropValue>
+		Height = 80
+		Name = "thorhotkey"
+		Width = 300
+	*</PropValue>
 
 	ADD OBJECT 'Thorhotkeysource1' AS thorhotkeysource WITH ;
 		Left = 6, ;
@@ -5487,12 +5519,14 @@ DEFINE CLASS thorhotkeysource AS hotkeycontrols OF "thor_ui.vcx"
  	*< CLASSDATA: Baseclass="container" Timestamp="" Scale="Pixels" Uniqueid="" />
 
 	#INCLUDE "thor_ui.h"
-	Name = "thorhotkeysource"
-	Style = 0
-	cmdGetHotKey.Name = "cmdGetHotKey"
-	lblHotKey.Name = "lblHotKey"
-	txtHotKey.Name = "txtHotKey"
-	cmdClear.Name = "cmdClear"
+	*<PropValue>
+		Name = "thorhotkeysource"
+		Style = 0
+		cmdGetHotKey.Name = "cmdGetHotKey"
+		lblHotKey.Name = "lblHotKey"
+		txtHotKey.Name = "txtHotKey"
+		cmdClear.Name = "cmdClear"
+	*</PropValue>
 	
 	PROCEDURE clearhotkey
 		*==============================================================================
@@ -5628,25 +5662,27 @@ DEFINE CLASS thoroptions AS basecontainer OF "basecontrols.vcx"
 		*p: lcolumnsadded
 	*</DefinedPropArrayMethod>
 
-	Anchor = 15
-	BorderWidth = 1
-	cclass = 
-	ctool = <All>
-	Height = 260
-	lcolumnsadded = .F.
-	Name = "thoroptions"
-	Width = 616
-	_memberdata = <VFPData>
-		<memberdata name="loadlist" display="LoadList"/>
-		<memberdata name="selectitem" display="SelectItem"/>
-		<memberdata name="lcolumnsadded" display="lColumnsAdded"/>
-		<memberdata name="cclass" display="cClass"/>
-		<memberdata name="reloadlist" display="ReloadList"/>
-		<memberdata name="ctool" display="cTool"/>
-		<memberdata name="resizecolumn1" display="ResizeColumn1"/>
-		<memberdata name="getoption" display="GetOption"/>
-		<memberdata name="setoption" display="SetOption"/>
+	*<PropValue>
+		Anchor = 15
+		BorderWidth = 1
+		cclass = 
+		ctool = <All>
+		Height = 260
+		lcolumnsadded = .F.
+		Name = "thoroptions"
+		Width = 616
+		_memberdata = <VFPData>
+			<memberdata name="loadlist" display="LoadList"/>
+			<memberdata name="selectitem" display="SelectItem"/>
+			<memberdata name="lcolumnsadded" display="lColumnsAdded"/>
+			<memberdata name="cclass" display="cClass"/>
+			<memberdata name="reloadlist" display="ReloadList"/>
+			<memberdata name="ctool" display="cTool"/>
+			<memberdata name="resizecolumn1" display="ResizeColumn1"/>
+			<memberdata name="getoption" display="GetOption"/>
+			<memberdata name="setoption" display="SetOption"/>
 		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cntDefault' AS thoroptionscontainer WITH ;
 		Anchor = 15, ;
@@ -6123,23 +6159,25 @@ DEFINE CLASS thoroptionscontainer AS basecontainer OF "basecontrols.vcx"
 		*p: odata
 	*</DefinedPropArrayMethod>
 
-	ccaption = 
-	ckey = 
-	ctool = 
-	ctype = C
-	Name = "thoroptionscontainer"
-	odata = .NULL.
-	_memberdata = <VFPData>
-		<memberdata name="getvalue" display="GetValue"/>
-		<memberdata name="setvalue" display="SetValue"/>
-		<memberdata name="getoption" display="GetOption"/>
-		<memberdata name="setoption" display="SetOption"/>
-		<memberdata name="odata" display="oData"/>
-		<memberdata name="ccaption" display="cCaption"/>
-		<memberdata name="ckey" display="cKey"/>
-		<memberdata name="ctool" display="cTool"/>
-		<memberdata name="ctype" display="cType"/>
+	*<PropValue>
+		ccaption = 
+		ckey = 
+		ctool = 
+		ctype = C
+		Name = "thoroptionscontainer"
+		odata = .NULL.
+		_memberdata = <VFPData>
+			<memberdata name="getvalue" display="GetValue"/>
+			<memberdata name="setvalue" display="SetValue"/>
+			<memberdata name="getoption" display="GetOption"/>
+			<memberdata name="setoption" display="SetOption"/>
+			<memberdata name="odata" display="oData"/>
+			<memberdata name="ccaption" display="cCaption"/>
+			<memberdata name="ckey" display="cKey"/>
+			<memberdata name="ctool" display="cTool"/>
+			<memberdata name="ctype" display="cType"/>
 		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE getoption
 		Lparameters tcKey, tcTool
@@ -6188,10 +6226,12 @@ DEFINE CLASS thoroptionscontrols AS basecontainer OF "basecontrols.vcx"
 	*< OBJECTDATA: ObjPath="Basecheckbox2" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="Basecheckbox3" UniqueID="" Timestamp="" />
 
-	BackStyle = 1
-	Height = 260
-	Name = "thoroptionscontrols"
-	Width = 345
+	*<PropValue>
+		BackStyle = 1
+		Height = 260
+		Name = "thoroptionscontrols"
+		Width = 345
+	*</PropValue>
 
 	ADD OBJECT 'Basecheckbox1' AS basecheckbox WITH ;
 		Alignment = 0, ;
@@ -6386,14 +6426,16 @@ DEFINE CLASS toolcontrols AS basecontainer OF "basecontrols.vcx"
 		*p: calias		&& The table PRGName is in
 	*</DefinedPropArrayMethod>
 
-	calias = 		&& The table PRGName is in
-	Height = 23
-	Name = "toolcontrols"
-	Width = 421
-	_memberdata = <VFPData>
-		<memberdata name="calias" display="cAlias"/>
-		<memberdata name="ontoolchanged" display="OnToolChanged"/>
+	*<PropValue>
+		calias = 
+		Height = 23
+		Name = "toolcontrols"
+		Width = 421
+		_memberdata = <VFPData>
+			<memberdata name="calias" display="cAlias"/>
+			<memberdata name="ontoolchanged" display="OnToolChanged"/>
 		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cboTool' AS basecombobox WITH ;
 		Anchor = 8, ;
@@ -6513,12 +6555,14 @@ DEFINE CLASS toolinfo AS basecontainer OF "basecontrols.vcx"
 		*p: cprgname		&& The selected PRGName
 	*</DefinedPropArrayMethod>
 
-	Anchor = 13
-	calias = 		&& The table PRGName is in
-	cprgname = 		&& The selected PRGName
-	Height = 71
-	Name = "toolinfo"
-	Width = 341
+	*<PropValue>
+		Anchor = 13
+		calias = 
+		cprgname = 
+		Height = 71
+		Name = "toolinfo"
+		Width = 341
+	*</PropValue>
 
 	ADD OBJECT 'edtToolInfo' AS baseeditbox WITH ;
 		Anchor = 13, ;
@@ -6695,54 +6739,56 @@ DEFINE CLASS toolkeys AS toolkeysbase OF "thor_ui.vcx"
 	*-- OBJECTDATA items order determines ZOrder / El orden de los items OBJECTDATA determina el ZOrder 
 	*< OBJECTDATA: ObjPath="SELECTTOOLFORBROWSING1" UniqueID="" Timestamp="" />
 
-	Name = "toolkeys"
-	cmdCreateTool.Name = "cmdCreateTool"
-	cmdOpenToolFolder.Name = "cmdOpenToolFolder"
-	Thor_sfsplitterh1.gripper.GripperDot1.Name = "GripperDot1"
-	Thor_sfsplitterh1.gripper.GripperDot1.ShapeDark.Name = "ShapeDark"
-	Thor_sfsplitterh1.gripper.GripperDot1.ShapeLight.Name = "ShapeLight"
-	Thor_sfsplitterh1.gripper.GripperDot1.ShapeMiddle.Name = "ShapeMiddle"
-	Thor_sfsplitterh1.gripper.GripperDot2.Name = "GripperDot2"
-	Thor_sfsplitterh1.gripper.GripperDot2.ShapeDark.Name = "ShapeDark"
-	Thor_sfsplitterh1.gripper.GripperDot2.ShapeLight.Name = "ShapeLight"
-	Thor_sfsplitterh1.gripper.GripperDot2.ShapeMiddle.Name = "ShapeMiddle"
-	Thor_sfsplitterh1.gripper.GripperDot3.Name = "GripperDot3"
-	Thor_sfsplitterh1.gripper.GripperDot3.ShapeDark.Name = "ShapeDark"
-	Thor_sfsplitterh1.gripper.GripperDot3.ShapeLight.Name = "ShapeLight"
-	Thor_sfsplitterh1.gripper.GripperDot3.ShapeMiddle.Name = "ShapeMiddle"
-	Thor_sfsplitterh1.gripper.GripperDot4.Name = "GripperDot4"
-	Thor_sfsplitterh1.gripper.GripperDot4.ShapeDark.Name = "ShapeDark"
-	Thor_sfsplitterh1.gripper.GripperDot4.ShapeLight.Name = "ShapeLight"
-	Thor_sfsplitterh1.gripper.GripperDot4.ShapeMiddle.Name = "ShapeMiddle"
-	Thor_sfsplitterh1.gripper.GripperDot5.Name = "GripperDot5"
-	Thor_sfsplitterh1.gripper.GripperDot5.ShapeDark.Name = "ShapeDark"
-	Thor_sfsplitterh1.gripper.GripperDot5.ShapeLight.Name = "ShapeLight"
-	Thor_sfsplitterh1.gripper.GripperDot5.ShapeMiddle.Name = "ShapeMiddle"
-	Thor_sfsplitterh1.gripper.Name = "gripper"
-	Thor_sfsplitterh1.Height = 232
-	Thor_sfsplitterh1.Left = 268
-	Thor_sfsplitterh1.Name = "Thor_sfsplitterh1"
-	Thor_sfsplitterh1.Top = 1
-	Thor_sfsplitterh1.Width = 10
-	cntToolInfo.chkStartup.Alignment = 0
-	cntToolInfo.chkStartup.Name = "chkStartup"
-	cntToolInfo.cmdEditTool.Name = "cmdEditTool"
-	cntToolInfo.cmdRemoveTool.Name = "cmdRemoveTool"
-	cntToolInfo.Edittoolbutton1.Name = "Edittoolbutton1"
-	cntToolInfo.Left = 278
-	cntToolInfo.Name = "cntToolInfo"
-	cntToolInfo.oHotKeyControls.cmdClear.Name = "cmdClear"
-	cntToolInfo.oHotKeyControls.cmdGetHotKey.Name = "cmdGetHotKey"
-	cntToolInfo.oHotKeyControls.lblHotKey.Name = "lblHotKey"
-	cntToolInfo.oHotKeyControls.Name = "oHotKeyControls"
-	cntToolInfo.oHotKeyControls.txtHotKey.Name = "txtHotKey"
-	cntToolInfo.oToolInfo.edtToolInfo.Name = "edtToolInfo"
-	cntToolInfo.oToolInfo.lblLink.Name = "lblLink"
-	cntToolInfo.oToolInfo.lblOptions.Name = "lblOptions"
-	cntToolInfo.oToolInfo.lblVideo.Name = "lblVideo"
-	cntToolInfo.oToolInfo.Name = "oToolInfo"
-	cntToolInfo.Top = 0
-	cntToolInfo.Width = 351
+	*<PropValue>
+		Name = "toolkeys"
+		cmdCreateTool.Name = "cmdCreateTool"
+		cmdOpenToolFolder.Name = "cmdOpenToolFolder"
+		Thor_sfsplitterh1.gripper.GripperDot1.Name = "GripperDot1"
+		Thor_sfsplitterh1.gripper.GripperDot1.ShapeDark.Name = "ShapeDark"
+		Thor_sfsplitterh1.gripper.GripperDot1.ShapeLight.Name = "ShapeLight"
+		Thor_sfsplitterh1.gripper.GripperDot1.ShapeMiddle.Name = "ShapeMiddle"
+		Thor_sfsplitterh1.gripper.GripperDot2.Name = "GripperDot2"
+		Thor_sfsplitterh1.gripper.GripperDot2.ShapeDark.Name = "ShapeDark"
+		Thor_sfsplitterh1.gripper.GripperDot2.ShapeLight.Name = "ShapeLight"
+		Thor_sfsplitterh1.gripper.GripperDot2.ShapeMiddle.Name = "ShapeMiddle"
+		Thor_sfsplitterh1.gripper.GripperDot3.Name = "GripperDot3"
+		Thor_sfsplitterh1.gripper.GripperDot3.ShapeDark.Name = "ShapeDark"
+		Thor_sfsplitterh1.gripper.GripperDot3.ShapeLight.Name = "ShapeLight"
+		Thor_sfsplitterh1.gripper.GripperDot3.ShapeMiddle.Name = "ShapeMiddle"
+		Thor_sfsplitterh1.gripper.GripperDot4.Name = "GripperDot4"
+		Thor_sfsplitterh1.gripper.GripperDot4.ShapeDark.Name = "ShapeDark"
+		Thor_sfsplitterh1.gripper.GripperDot4.ShapeLight.Name = "ShapeLight"
+		Thor_sfsplitterh1.gripper.GripperDot4.ShapeMiddle.Name = "ShapeMiddle"
+		Thor_sfsplitterh1.gripper.GripperDot5.Name = "GripperDot5"
+		Thor_sfsplitterh1.gripper.GripperDot5.ShapeDark.Name = "ShapeDark"
+		Thor_sfsplitterh1.gripper.GripperDot5.ShapeLight.Name = "ShapeLight"
+		Thor_sfsplitterh1.gripper.GripperDot5.ShapeMiddle.Name = "ShapeMiddle"
+		Thor_sfsplitterh1.gripper.Name = "gripper"
+		Thor_sfsplitterh1.Height = 232
+		Thor_sfsplitterh1.Left = 268
+		Thor_sfsplitterh1.Name = "Thor_sfsplitterh1"
+		Thor_sfsplitterh1.Top = 1
+		Thor_sfsplitterh1.Width = 10
+		cntToolInfo.chkStartup.Alignment = 0
+		cntToolInfo.chkStartup.Name = "chkStartup"
+		cntToolInfo.cmdEditTool.Name = "cmdEditTool"
+		cntToolInfo.cmdRemoveTool.Name = "cmdRemoveTool"
+		cntToolInfo.Edittoolbutton1.Name = "Edittoolbutton1"
+		cntToolInfo.Left = 278
+		cntToolInfo.Name = "cntToolInfo"
+		cntToolInfo.oHotKeyControls.cmdClear.Name = "cmdClear"
+		cntToolInfo.oHotKeyControls.cmdGetHotKey.Name = "cmdGetHotKey"
+		cntToolInfo.oHotKeyControls.lblHotKey.Name = "lblHotKey"
+		cntToolInfo.oHotKeyControls.Name = "oHotKeyControls"
+		cntToolInfo.oHotKeyControls.txtHotKey.Name = "txtHotKey"
+		cntToolInfo.oToolInfo.edtToolInfo.Name = "edtToolInfo"
+		cntToolInfo.oToolInfo.lblLink.Name = "lblLink"
+		cntToolInfo.oToolInfo.lblOptions.Name = "lblOptions"
+		cntToolInfo.oToolInfo.lblVideo.Name = "lblVideo"
+		cntToolInfo.oToolInfo.Name = "oToolInfo"
+		cntToolInfo.Top = 0
+		cntToolInfo.Width = 351
+	*</PropValue>
 
 	ADD OBJECT 'SELECTTOOLFORBROWSING1' AS selecttoolforbrowsing WITH ;
 		Height = 231, ;
@@ -6799,22 +6845,24 @@ DEFINE CLASS toolkeysbase AS basecontainer OF "basecontrols.vcx"
 		*p: otool
 	*</DefinedPropArrayMethod>
 
-	Anchor = 15
-	cprgname = 
-	ctoolfilter = 		&& A filter for tools
-	Height = 260
-	lcnttoolinfovisible = .F.
-	Name = "toolkeysbase"
-	otool = .NULL.
-	Width = 630
-	_memberdata = <VFPData>
-		<memberdata name="cprgname" display="cPRGName"/>
-		<memberdata name="otool" display="oTool"/>
-		<memberdata name="otool_assign" display="oTool_Assign"/>
-		<memberdata name="lcnttoolinfovisible" display="lcntToolInfoVisible"/>
-		<memberdata name="contextmenufortoolbar" display="ContextMenuForToolBar"/>
-		<memberdata name="createtoolbar" display="CreateToolBar"/>
+	*<PropValue>
+		Anchor = 15
+		cprgname = 
+		ctoolfilter = 
+		Height = 260
+		lcnttoolinfovisible = .F.
+		Name = "toolkeysbase"
+		otool = .NULL.
+		Width = 630
+		_memberdata = <VFPData>
+			<memberdata name="cprgname" display="cPRGName"/>
+			<memberdata name="otool" display="oTool"/>
+			<memberdata name="otool_assign" display="oTool_Assign"/>
+			<memberdata name="lcnttoolinfovisible" display="lcntToolInfoVisible"/>
+			<memberdata name="contextmenufortoolbar" display="ContextMenuForToolBar"/>
+			<memberdata name="createtoolbar" display="CreateToolBar"/>
 		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cmdCreateTool' AS basecommandbutton WITH ;
 		Anchor = 4, ;
@@ -7775,18 +7823,20 @@ DEFINE CLASS toolkeysold AS basecontainer OF "basecontrols.vcx"
 		*p: otool
 	*</DefinedPropArrayMethod>
 
-	Anchor = 15
-	cprgname = 
-	ctoolfilter = 		&& A filter for tools
-	Height = 260
-	Name = "toolkeysold"
-	otool = .NULL.
-	Width = 630
-	_memberdata = <VFPData>
-		<memberdata name="cprgname" display="cPRGName"/>
-		<memberdata name="otool" display="oTool"/>
-		<memberdata name="otool_assign" display="oTool_Assign"/>
+	*<PropValue>
+		Anchor = 15
+		cprgname = 
+		ctoolfilter = 
+		Height = 260
+		Name = "toolkeysold"
+		otool = .NULL.
+		Width = 630
+		_memberdata = <VFPData>
+			<memberdata name="cprgname" display="cPRGName"/>
+			<memberdata name="otool" display="oTool"/>
+			<memberdata name="otool_assign" display="oTool_Assign"/>
 		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cmdCreateTool' AS basecommandbutton WITH ;
 		Anchor = 12, ;

@@ -10,12 +10,14 @@
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="2" />
 
-	DataSource = .NULL.
-	Height = 0
-	Left = 0
-	Name = "Dataenvironment"
-	Top = 0
-	Width = 0
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 0
+		Left = 0
+		Name = "Dataenvironment"
+		Top = 0
+		Width = 0
+	*</PropValue>
 
 ENDDEFINE
 
@@ -50,49 +52,51 @@ DEFINE CLASS frmthor AS baseform OF "basecontrols.vcx"
 		*p: otools		&& A reference to a collection of tools
 	*</DefinedPropArrayMethod>
 
-	BindControls = .F.
-	Caption = "Run Tool"
-	cfoxuserid = ThorRunTool
-	cfoxusername = ThorRunTool
-	cthorfolder = 
-	DataSession = 2
-	DoCreate = .T.
-	Height = 300
-	Icon = thor16.ico
-	lrefreshselecttooltreeview = .F.
-	lrefreshtools = .F.		&& Flags that we're refreshing tools
-	MinButton = .F.
-	MinHeight = 200
-	MinWidth = 200
-	Name = "frmThor"
-	nfontsize = 9
-	noptionssplitterleft = 0
-	oselecttool = .NULL.
-	othor = .NULL.		&& A reference to a Thor_Engine object
-	otools = .NULL.		&& A reference to a collection of tools
-	Visible = .T.
-	Width = 630
-	_memberdata = <VFPData>
-		<memberdata name="otools" display="oTools"/>
-		<memberdata name="opentables" display="OpenTables"/>
-		<memberdata name="ctablesfolder" display="cTablesFolder"/>
-		<memberdata name="othor" display="oThor"/>
-		<memberdata name="refreshtools" display="RefreshTools"/>
-		<memberdata name="lrefreshtools" display="lRefreshTools"/>
-		<memberdata name="cthorfolder" display="cThorFolder"/>
-		<memberdata name="runthor" display="RunThor"/>
-		<memberdata name="edittool" display="EditTool"/>
-		<memberdata name="setfontsize" display="SetFontSize"/>
-		<memberdata name="lrefreshselecttooltreeview" display="lRefreshSelectToolTreeView"/>
-		<memberdata name="help" display="Help"/>
-		<memberdata name="oselecttool" display="oSelectTool"/>
-		<memberdata name="gethotkeydescription" display="GetHotKeyDescription"/>
-		<memberdata name="addpemeditortools" display="AddPEMEditorTools"/>
-		<memberdata name="loadtree" display="LoadTree"/>
-		<memberdata name="nfontsize" display="nFontSize"/>
-		<memberdata name="notthorinternalmenu" display="NotThorInternalMenu"/>
-		<memberdata name="noptionssplitterleft" display="nOptionsSplitterLeft"/>
+	*<PropValue>
+		BindControls = .F.
+		Caption = "Run Tool"
+		cfoxuserid = ThorRunTool
+		cfoxusername = ThorRunTool
+		cthorfolder = 
+		DataSession = 2
+		DoCreate = .T.
+		Height = 300
+		Icon = thor16.ico
+		lrefreshselecttooltreeview = .F.
+		lrefreshtools = .F.
+		MinButton = .F.
+		MinHeight = 200
+		MinWidth = 200
+		Name = "frmThor"
+		nfontsize = 9
+		noptionssplitterleft = 0
+		oselecttool = .NULL.
+		othor = .NULL.
+		otools = .NULL.
+		Visible = .T.
+		Width = 630
+		_memberdata = <VFPData>
+			<memberdata name="otools" display="oTools"/>
+			<memberdata name="opentables" display="OpenTables"/>
+			<memberdata name="ctablesfolder" display="cTablesFolder"/>
+			<memberdata name="othor" display="oThor"/>
+			<memberdata name="refreshtools" display="RefreshTools"/>
+			<memberdata name="lrefreshtools" display="lRefreshTools"/>
+			<memberdata name="cthorfolder" display="cThorFolder"/>
+			<memberdata name="runthor" display="RunThor"/>
+			<memberdata name="edittool" display="EditTool"/>
+			<memberdata name="setfontsize" display="SetFontSize"/>
+			<memberdata name="lrefreshselecttooltreeview" display="lRefreshSelectToolTreeView"/>
+			<memberdata name="help" display="Help"/>
+			<memberdata name="oselecttool" display="oSelectTool"/>
+			<memberdata name="gethotkeydescription" display="GetHotKeyDescription"/>
+			<memberdata name="addpemeditortools" display="AddPEMEditorTools"/>
+			<memberdata name="loadtree" display="LoadTree"/>
+			<memberdata name="nfontsize" display="nFontSize"/>
+			<memberdata name="notthorinternalmenu" display="NotThorInternalMenu"/>
+			<memberdata name="noptionssplitterleft" display="nOptionsSplitterLeft"/>
 		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cmdRefresh' AS basecommandbutton WITH ;
 		Alignment = 4, ;
