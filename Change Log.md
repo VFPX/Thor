@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.45.09 - Released 2023-03-19
+
+Fix bad linkes in Framework
+
 ### Thor 1.45.07 - Released 2023-01-20
 
 Separated version number and date into distinct columns into CFU grid.

@@ -47,61 +47,63 @@ DEFINE CLASS sfcombotree AS container
 	*</DefinedPropArrayMethod>
 
 	PROTECTED aparentheights,ninitialformheight,nsavedanchor
-	Anchor = 10
-	BackColor = 255,255,255
-	BackStyle = 1
-	BorderWidth = 0
-	fontname = Tahoma		&& The font name for the control
-	fontsize = 9		&& The font size for the control
-	Height = 24
-	lchanged = .F.		&& .T. if the user selected a different value
-	lcloseonclick = .F.		&& .T. to close the control when an item in the TreeView is clicked
-	lcloseondblclick = .F.		&& .T. to close the control when an item in the TreeView is double-clicked
-	lcombotreeopen = .F.		&& .T. if the TreeView is displayed
-	lloadimagesoninit = .F.		&& .T. to load images from Init
-	lloadtreeoninit = .F.		&& .T. to load the TreeView from Init
-	lmovetoback = .T.		&& .T. to set the ZOrder of the control to the back when it's closed
-	lnoclose = .F.		&& .T. to not have LostFocus close the control
-	Name = "sfcombotree"
-	nfired = 0		&& When cboCombo.DropDown last fired so we can handle multiple firing
-	ninitialformheight = 0
-	noriginalheight = 227		&& The original height of the control
-	nsavedanchor = 0		&& The original Anchor value
-	nspaceabovetreeview = 0
-	Style = 0
-	value = 		&& The value of the control
-	Width = 170
-	_memberdata = <VFPData>
-		<memberdata name="enabled" type="property" display="Enabled"/>
-		<memberdata name="enabled_assign" type="property" display="Enabled_Assign"/>
-		<memberdata name="nsavedanchor" type="property" display="nSavedAnchor"/>
-		<memberdata name="closecontrol" type="method" display="CloseControl"/>
-		<memberdata name="lchanged" type="property" display="lChanged"/>
-		<memberdata name="lcloseonclick" type="property" display="lCloseOnClick"/>
-		<memberdata name="lcloseondblclick" type="property" display="lCloseOnDblClick"/>
-		<memberdata name="lcombotreeopen" type="property" display="lComboTreeOpen"/>
-		<memberdata name="lmovetoback" type="property" display="lMoveToBack"/>
-		<memberdata name="lnoclose" type="property" display="lNoClose"/>
-		<memberdata name="loadexpandednode" type="method" display="LoadExpandedNode"/>
-		<memberdata name="loadtree" type="method" display="LoadTree"/>
-		<memberdata name="nfired" type="property" display="nFired"/>
-		<memberdata name="ninitialformheight" type="property" display="nInitialFormHeight"/>
-		<memberdata name="noriginalheight" type="property" display="nOriginalHeight"/>
-		<memberdata name="opencontrol" type="method" display="OpenControl"/>
-		<memberdata name="value" type="property" display="Value"/>
-		<memberdata name="value_access" type="property" display="Value_Access"/>
-		<memberdata name="value_assign" type="property" display="Value_Assign"/>
-		<memberdata name="fontname" type="property" display="FontName"/>
-		<memberdata name="fontname_assign" type="property" display="FontName_Assign"/>
-		<memberdata name="fontsize" type="property" display="FontSize"/>
-		<memberdata name="fontsize_assign" type="property" display="FontSize_Assign"/>
-		<memberdata name="itemselected" type="method" display="ItemSelected"/>
-		<memberdata name="loadimages" type="method" display="LoadImages"/>
-		<memberdata name="lloadimagesoninit" type="property" display="lLoadImagesOnInit"/>
-		<memberdata name="lloadtreeoninit" type="property" display="lLoadTreeOnInit"/>
-		<memberdata name="aparentheights" display="aParentHeights"/>
-		<memberdata name="nspaceabovetreeview" type="property" display="nSpaceAboveTreeView"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Anchor = 10
+		BackColor = 255,255,255
+		BackStyle = 1
+		BorderWidth = 0
+		fontname = Tahoma
+		fontsize = 9
+		Height = 24
+		lchanged = .F.
+		lcloseonclick = .F.
+		lcloseondblclick = .F.
+		lcombotreeopen = .F.
+		lloadimagesoninit = .F.
+		lloadtreeoninit = .F.
+		lmovetoback = .T.
+		lnoclose = .F.
+		Name = "sfcombotree"
+		nfired = 0
+		ninitialformheight = 0
+		noriginalheight = 227
+		nsavedanchor = 0
+		nspaceabovetreeview = 0
+		Style = 0
+		value = 
+		Width = 170
+		_memberdata = <VFPData>
+			<memberdata name="enabled" type="property" display="Enabled"/>
+			<memberdata name="enabled_assign" type="property" display="Enabled_Assign"/>
+			<memberdata name="nsavedanchor" type="property" display="nSavedAnchor"/>
+			<memberdata name="closecontrol" type="method" display="CloseControl"/>
+			<memberdata name="lchanged" type="property" display="lChanged"/>
+			<memberdata name="lcloseonclick" type="property" display="lCloseOnClick"/>
+			<memberdata name="lcloseondblclick" type="property" display="lCloseOnDblClick"/>
+			<memberdata name="lcombotreeopen" type="property" display="lComboTreeOpen"/>
+			<memberdata name="lmovetoback" type="property" display="lMoveToBack"/>
+			<memberdata name="lnoclose" type="property" display="lNoClose"/>
+			<memberdata name="loadexpandednode" type="method" display="LoadExpandedNode"/>
+			<memberdata name="loadtree" type="method" display="LoadTree"/>
+			<memberdata name="nfired" type="property" display="nFired"/>
+			<memberdata name="ninitialformheight" type="property" display="nInitialFormHeight"/>
+			<memberdata name="noriginalheight" type="property" display="nOriginalHeight"/>
+			<memberdata name="opencontrol" type="method" display="OpenControl"/>
+			<memberdata name="value" type="property" display="Value"/>
+			<memberdata name="value_access" type="property" display="Value_Access"/>
+			<memberdata name="value_assign" type="property" display="Value_Assign"/>
+			<memberdata name="fontname" type="property" display="FontName"/>
+			<memberdata name="fontname_assign" type="property" display="FontName_Assign"/>
+			<memberdata name="fontsize" type="property" display="FontSize"/>
+			<memberdata name="fontsize_assign" type="property" display="FontSize_Assign"/>
+			<memberdata name="itemselected" type="method" display="ItemSelected"/>
+			<memberdata name="loadimages" type="method" display="LoadImages"/>
+			<memberdata name="lloadimagesoninit" type="property" display="lLoadImagesOnInit"/>
+			<memberdata name="lloadtreeoninit" type="property" display="lLoadTreeOnInit"/>
+			<memberdata name="aparentheights" display="aParentHeights"/>
+			<memberdata name="nspaceabovetreeview" type="property" display="nSpaceAboveTreeView"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cboCombo' AS combobox WITH ;
 		FontName = "Tahoma", ;

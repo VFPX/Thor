@@ -13,19 +13,21 @@ DEFINE CLASS basecheckbox AS checkbox
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Alignment = 0
-	AutoSize = .T.
-	BackStyle = 0
-	Caption = "Check1"
-	FontName = "Tahoma"
-	FontSize = 10
-	Name = "basecheckbox"
-	Value = .F.
-	_memberdata = <VFPData>
-		<memberdata name="anychange" type="method" display="AnyChange" favorites="True"/>
-		<memberdata name="lupdatecontrolsourceonchange" type="property" display="lUpdateControlSourceOnChange" favorites="True"/>
-		<memberdata name="updatecontrolsource" display="UpdateControlSource"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Alignment = 0
+		AutoSize = .T.
+		BackStyle = 0
+		Caption = "Check1"
+		FontName = "Tahoma"
+		FontSize = 10
+		Name = "basecheckbox"
+		Value = .F.
+		_memberdata = <VFPData>
+			<memberdata name="anychange" type="method" display="AnyChange" favorites="True"/>
+			<memberdata name="lupdatecontrolsourceonchange" type="property" display="lUpdateControlSourceOnChange" favorites="True"/>
+			<memberdata name="updatecontrolsource" display="UpdateControlSource"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE anychange		&& Called from both InteractiveChange and ProgrammaticChange to consolidate handling any changes
 		* Abstract method
@@ -86,12 +88,14 @@ DEFINE CLASS basecollection AS collection
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Height = 23
-	Name = "buildercollection"
-	Width = 23
-	_memberdata = <VFPData>
+	*<PropValue>
+		Height = 23
+		Name = "buildercollection"
+		Width = 23
+		_memberdata = <VFPData>
 
-		</VFPData>		&& XML Metadata for customizable properties
+		</VFPData>
+	*</PropValue>
 
 ENDDEFINE
 
@@ -104,18 +108,20 @@ DEFINE CLASS basecombobox AS combobox
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	FontName = "Tahoma"
-	FontSize = 10
-	Height = 22
-	ItemTips = .T.
-	Name = "basecombobox"
-	RowSource = "This.aItems"
-	RowSourceType = 5
-	Style = 2
-	_memberdata = <VFPData>
-		<memberdata name="aitems" type="property" display="aItems"/>
-		<memberdata name="anychange" type="method" display="AnyChange" favorites="True"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		FontName = "Tahoma"
+		FontSize = 10
+		Height = 22
+		ItemTips = .T.
+		Name = "basecombobox"
+		RowSource = "This.aItems"
+		RowSourceType = 5
+		Style = 2
+		_memberdata = <VFPData>
+			<memberdata name="aitems" type="property" display="aItems"/>
+			<memberdata name="anychange" type="method" display="AnyChange" favorites="True"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE anychange		&& Called from both InteractiveChange and ProgrammaticChange to consolidate handling any changes
 		* Abstract method.
@@ -196,15 +202,17 @@ DEFINE CLASS basecommandbutton AS commandbutton
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Caption = "Command1"
-	FontName = "Tahoma"
-	FontSize = 10
-	Height = 23
-	Name = "basecommandbutton"
-	Width = 75
-	_memberdata = <VFPData>
+	*<PropValue>
+		Caption = "Command1"
+		FontName = "Tahoma"
+		FontSize = 10
+		Height = 23
+		Name = "basecommandbutton"
+		Width = 75
+		_memberdata = <VFPData>
 
-		</VFPData>		&& XML Metadata for customizable properties
+		</VFPData>
+	*</PropValue>
 
 ENDDEFINE
 
@@ -216,13 +224,15 @@ DEFINE CLASS basecontainer AS container
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	BackStyle = 0
-	BorderWidth = 0
-	Name = "basecontainer"
-	Style = 3
-	_memberdata = <VFPData>
+	*<PropValue>
+		BackStyle = 0
+		BorderWidth = 0
+		Name = "basecontainer"
+		Style = 3
+		_memberdata = <VFPData>
 
-		</VFPData>		&& XML Metadata for customizable properties
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE enabled_assign
 		lparameters tlEnabled
@@ -242,16 +252,18 @@ DEFINE CLASS baseeditbox AS editbox
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	FontName = "Tahoma"
-	FontSize = 10
-	IntegralHeight = .T.
-	Name = "baseeditbox"
-	SelectOnEntry = .T.
-	_memberdata = <VFPData>
-		<memberdata name="anychange" type="method" display="AnyChange" favorites="True"/>
-		<memberdata name="lupdatecontrolsourceonchange" type="property" display="lUpdateControlSourceOnChange" favorites="True"/>
-		<memberdata name="validation" type="method" display="Validation" favorites="True"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		FontName = "Tahoma"
+		FontSize = 10
+		IntegralHeight = .T.
+		Name = "baseeditbox"
+		SelectOnEntry = .T.
+		_memberdata = <VFPData>
+			<memberdata name="anychange" type="method" display="AnyChange" favorites="True"/>
+			<memberdata name="lupdatecontrolsourceonchange" type="property" display="lUpdateControlSourceOnChange" favorites="True"/>
+			<memberdata name="validation" type="method" display="Validation" favorites="True"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE anychange		&& Called from both InteractiveChange and ProgrammaticChange to consolidate handling any changes
 		* Abstract method.
@@ -335,36 +347,38 @@ DEFINE CLASS baseform AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	AllowOutput = .F.
-	AutoCenter = .T.
-	Caption = "Form"
-	cfoxuserid = 		&& The FOXUSER ID to save/restore settings to
-	cfoxusername = 		&& The FOXUSER NAME to save/restore settings to
-	DataSession = 2
-	DoCreate = .T.
-	FontName = "Tahoma"
-	FontSize = 10
-	ldockable = .F.
-	lpersistsizeposition = .T.		&& .T. to persist the size and position of the form
-	lsavesettings = .T.		&& .T. to save and restore settings
-	lsavetopwidth = .T.
-	Name = "baseform"
-	opersist = .NULL.		&& A reference to a FoxResource object
-	ShowTips = .T.
-	Visible = .T.
-	_memberdata = <VFPData>
-		<memberdata name="cfoxuserid" type="property" display="cFoxUserID" favorites="True"/>
-		<memberdata name="cfoxusername" type="property" display="cFoxUserName" favorites="True"/>
-		<memberdata name="lpersistsizeposition" type="property" display="lPersistSizePosition" favorites="True"/>
-		<memberdata name="lsavesettings" type="property" display="lSaveSettings" favorites="True"/>
-		<memberdata name="opersist" type="property" display="oPersist"/>
-		<memberdata name="refreshform" type="method" display="RefreshForm"/>
-		<memberdata name="restoresettings" type="method" display="RestoreSettings" favorites="True"/>
-		<memberdata name="savesettings" type="method" display="SaveSettings" favorites="True"/>
-		<memberdata name="setfocustofirstobject" display="SetFocusToFirstObject"/>
-		<memberdata name="ldockable" display="lDockable"/>
-		<memberdata name="lsavetopwidth" display="lSaveTopWidth"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		AllowOutput = .F.
+		AutoCenter = .T.
+		Caption = "Form"
+		cfoxuserid = 
+		cfoxusername = 
+		DataSession = 2
+		DoCreate = .T.
+		FontName = "Tahoma"
+		FontSize = 10
+		ldockable = .F.
+		lpersistsizeposition = .T.
+		lsavesettings = .T.
+		lsavetopwidth = .T.
+		Name = "baseform"
+		opersist = .NULL.
+		ShowTips = .T.
+		Visible = .T.
+		_memberdata = <VFPData>
+			<memberdata name="cfoxuserid" type="property" display="cFoxUserID" favorites="True"/>
+			<memberdata name="cfoxusername" type="property" display="cFoxUserName" favorites="True"/>
+			<memberdata name="lpersistsizeposition" type="property" display="lPersistSizePosition" favorites="True"/>
+			<memberdata name="lsavesettings" type="property" display="lSaveSettings" favorites="True"/>
+			<memberdata name="opersist" type="property" display="oPersist"/>
+			<memberdata name="refreshform" type="method" display="RefreshForm"/>
+			<memberdata name="restoresettings" type="method" display="RestoreSettings" favorites="True"/>
+			<memberdata name="savesettings" type="method" display="SaveSettings" favorites="True"/>
+			<memberdata name="setfocustofirstobject" display="SetFocusToFirstObject"/>
+			<memberdata name="ldockable" display="lDockable"/>
+			<memberdata name="lsavetopwidth" display="lSaveTopWidth"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cmdEscape' AS basecommandbutton WITH ;
 		Cancel = .T., ;
@@ -602,12 +616,14 @@ ENDDEFINE
 DEFINE CLASS basegrid AS grid 
  	*< CLASSDATA: Baseclass="grid" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	FontName = "Tahoma"
-	FontSize = 10
-	Height = 200
-	Name = "basegrid"
-	RowHeight = 19
-	Width = 320
+	*<PropValue>
+		FontName = "Tahoma"
+		FontSize = 10
+		Height = 200
+		Name = "basegrid"
+		RowHeight = 19
+		Width = 320
+	*</PropValue>
 
 ENDDEFINE
 
@@ -618,15 +634,17 @@ DEFINE CLASS baselabel AS label
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	AutoSize = .T.
-	BackStyle = 0
-	Caption = "Label1"
-	FontName = "Tahoma"
-	FontSize = 10
-	Name = "baselabel"
-	_memberdata = <VFPData>
+	*<PropValue>
+		AutoSize = .T.
+		BackStyle = 0
+		Caption = "Label1"
+		FontName = "Tahoma"
+		FontSize = 10
+		Name = "baselabel"
+		_memberdata = <VFPData>
 
-		</VFPData>		&& XML Metadata for customizable properties
+		</VFPData>
+	*</PropValue>
 
 ENDDEFINE
 
@@ -644,16 +662,18 @@ DEFINE CLASS baselabelledbox AS container
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	BackStyle = 0
-	BorderWidth = 0
-	builder = BaseLabelledBoxBuilder.PRG		&& Specifies the builder for this object
-	Height = 133
-	Name = "baselabelledbox"
-	Style = 3
-	Width = 168
-	_memberdata = <VFPData>
-		<memberdata name="builder" type="property" display="Builder"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		BackStyle = 0
+		BorderWidth = 0
+		builder = BaseLabelledBoxBuilder.PRG
+		Height = 133
+		Name = "baselabelledbox"
+		Style = 3
+		Width = 168
+		_memberdata = <VFPData>
+			<memberdata name="builder" type="property" display="Builder"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'lblBox' AS baselabel WITH ;
 		BackStyle = 1, ;
@@ -695,15 +715,17 @@ DEFINE CLASS baseline3d AS shape
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	BackStyle = 0
-	Height = 1
-	Name = "baseline3d"
-	SpecialEffect = 0
-	Style = 3
-	Width = 100
-	_memberdata = <VFPData>
+	*<PropValue>
+		BackStyle = 0
+		Height = 1
+		Name = "baseline3d"
+		SpecialEffect = 0
+		Style = 3
+		Width = 100
+		_memberdata = <VFPData>
 
-		</VFPData>		&& XML Metadata for customizable properties
+		</VFPData>
+	*</PropValue>
 
 ENDDEFINE
 
@@ -716,18 +738,20 @@ DEFINE CLASS baselistbox AS listbox
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	FontName = "Tahoma"
-	FontSize = 10
-	IntegralHeight = .T.
-	ItemTips = .T.
-	Name = "baselistbox"
-	RowSource = "This.aItems"
-	RowSourceType = 5
-	_memberdata = <VFPData>
-		<memberdata name="anychange" type="method" display="AnyChange" favorites="True"/>
-		<memberdata name="aitems" display="aItems"/>
-		<memberdata name="rowsource" display="RowSource"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		FontName = "Tahoma"
+		FontSize = 10
+		IntegralHeight = .T.
+		ItemTips = .T.
+		Name = "baselistbox"
+		RowSource = "This.aItems"
+		RowSourceType = 5
+		_memberdata = <VFPData>
+			<memberdata name="anychange" type="method" display="AnyChange" favorites="True"/>
+			<memberdata name="aitems" display="aItems"/>
+			<memberdata name="rowsource" display="RowSource"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE anychange		&& Called from both InteractiveChange and ProgrammaticChange to consolidate handling any changes
 		* Abstract method.
@@ -777,15 +801,17 @@ DEFINE CLASS baseoptionbutton AS optionbutton
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	AutoSize = .T.
-	BackStyle = 0
-	Caption = "Option1"
-	FontName = "Tahoma"
-	FontSize = 10
-	Name = "baseoptionbutton"
-	_memberdata = <VFPData>
+	*<PropValue>
+		AutoSize = .T.
+		BackStyle = 0
+		Caption = "Option1"
+		FontName = "Tahoma"
+		FontSize = 10
+		Name = "baseoptionbutton"
+		_memberdata = <VFPData>
 
-		</VFPData>		&& XML Metadata for customizable properties
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE KeyPress
 		* Prevent Ctrl-0 from inserting a null value.
@@ -808,24 +834,26 @@ DEFINE CLASS baseoptiongroup AS optiongroup
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	BackStyle = 0
-	BorderStyle = 0
-	ButtonCount = 2
-	Height = 46
-	MemberClass = "baseoptionbutton"
-	MemberClassLibrary = basecontrols.vcx
-	Name = "baseoptiongroup"
-	Value = 0
-	Width = 71
-	_memberdata = <VFPData>
-		<memberdata name="anychange" type="method" display="AnyChange" favorites="True"/>
-		</VFPData>		&& XML Metadata for customizable properties
-	Baseoptionbutton1.Left = 5
-	Baseoptionbutton1.Name = "Baseoptionbutton1"
-	Baseoptionbutton1.Top = 5
-	Baseoptionbutton2.Left = 5
-	Baseoptionbutton2.Name = "Baseoptionbutton2"
-	Baseoptionbutton2.Top = 23
+	*<PropValue>
+		BackStyle = 0
+		BorderStyle = 0
+		ButtonCount = 2
+		Height = 46
+		MemberClass = "baseoptionbutton"
+		MemberClassLibrary = basecontrols.vcx
+		Name = "baseoptiongroup"
+		Value = 0
+		Width = 71
+		_memberdata = <VFPData>
+			<memberdata name="anychange" type="method" display="AnyChange" favorites="True"/>
+		</VFPData>
+		Baseoptionbutton1.Left = 5
+		Baseoptionbutton1.Name = "Baseoptionbutton1"
+		Baseoptionbutton1.Top = 5
+		Baseoptionbutton2.Left = 5
+		Baseoptionbutton2.Name = "Baseoptionbutton2"
+		Baseoptionbutton2.Top = 23
+	*</PropValue>
 	
 	PROCEDURE anychange		&& Called from both InteractiveChange and ProgrammaticChange to consolidate handling any changes
 		* Abstract method.
@@ -875,15 +903,17 @@ DEFINE CLASS basepage AS page
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Caption = "Page1"
-	FontName = "Tahoma"
-	FontSize = 10
-	Height = 139
-	Name = "basepage"
-	Width = 139
-	_memberdata = <VFPData>
+	*<PropValue>
+		Caption = "Page1"
+		FontName = "Tahoma"
+		FontSize = 10
+		Height = 139
+		Name = "basepage"
+		Width = 139
+		_memberdata = <VFPData>
 
-		</VFPData>		&& XML Metadata for customizable properties
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE Activate
 		* Refresh all controls.
@@ -916,27 +946,31 @@ DEFINE CLASS basepageframe AS pageframe
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	ErasePage = .T.
-	Height = 250
-	MemberClass = "basepage"
-	MemberClassLibrary = basecontrols.vcx
-	Name = "basepageframe"
-	PageCount = 1
-	TabStyle = 1
-	_memberdata = <VFPData>
+	*<PropValue>
+		ErasePage = .T.
+		Height = 250
+		MemberClass = "basepage"
+		MemberClassLibrary = basecontrols.vcx
+		Name = "basepageframe"
+		PageCount = 1
+		TabStyle = 1
+		_memberdata = <VFPData>
 
-		</VFPData>		&& XML Metadata for customizable properties
-	Basepage1.Name = "Basepage1"
+		</VFPData>
+		Basepage1.Name = "Basepage1"
+	*</PropValue>
 
 ENDDEFINE
 
 DEFINE CLASS baseshape AS shape 
  	*< CLASSDATA: Baseclass="shape" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	BackStyle = 0
-	Height = 17
-	Name = "baseshape"
-	Width = 100
+	*<PropValue>
+		BackStyle = 0
+		Height = 17
+		Name = "baseshape"
+		Width = 100
+	*</PropValue>
 
 ENDDEFINE
 
@@ -948,14 +982,16 @@ DEFINE CLASS basespinner AS spinner
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	FontName = "Tahoma"
-	FontSize = 10
-	Height = 24
-	Name = "basespinner"
-	SelectOnEntry = .T.
-	_memberdata = <VFPData>
-		<memberdata name="anychange" type="method" display="AnyChange"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		FontName = "Tahoma"
+		FontSize = 10
+		Height = 24
+		Name = "basespinner"
+		SelectOnEntry = .T.
+		_memberdata = <VFPData>
+			<memberdata name="anychange" type="method" display="AnyChange"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE anychange		&& Called from both InteractiveChange and ProgrammaticChange to consolidate handling any changes
 		* Abstract method.
@@ -1054,19 +1090,21 @@ DEFINE CLASS basetextbox AS textbox
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	conentryvalue = 		&& The value when the textbox receives focus
-	FontName = "Tahoma"
-	FontSize = 10
-	Format = "T"
-	Height = 22
-	Name = "basetextbox"
-	SelectOnEntry = .T.
-	_memberdata = <VFPData>
-		<memberdata name="anychange" type="method" display="AnyChange" favorites="True"/>
-		<memberdata name="lupdatecontrolsourceonchange" type="property" display="lUpdateControlSourceOnChange" favorites="True"/>
-		<memberdata name="validation" type="method" display="Validation" favorites="True"/>
-		<memberdata name="conentryvalue" display="cOnEntryValue"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		conentryvalue = 
+		FontName = "Tahoma"
+		FontSize = 10
+		Format = "T"
+		Height = 22
+		Name = "basetextbox"
+		SelectOnEntry = .T.
+		_memberdata = <VFPData>
+			<memberdata name="anychange" type="method" display="AnyChange" favorites="True"/>
+			<memberdata name="lupdatecontrolsourceonchange" type="property" display="lUpdateControlSourceOnChange" favorites="True"/>
+			<memberdata name="validation" type="method" display="Validation" favorites="True"/>
+			<memberdata name="conentryvalue" display="cOnEntryValue"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE anychange		&& Called from both InteractiveChange and ProgrammaticChange to consolidate handling any changes
 		* Abstract method.
@@ -1151,16 +1189,18 @@ DEFINE CLASS basetree AS olecontrol
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	cselectednode = 
-	Height = 100
-	Name = "basetree"
-	Width = 100
-	_memberdata = <VFPData>
-		<memberdata name="anodes" display="aNodes"/>
-		<memberdata name="cselectednode" display="cSelectedNode"/>
-		<memberdata name="saveexpandednodes" display="SaveExpandedNodes"/>
-		<memberdata name="restoreexpandednodes" display="RestoreExpandedNodes"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		cselectednode = 
+		Height = 100
+		Name = "basetree"
+		Width = 100
+		_memberdata = <VFPData>
+			<memberdata name="anodes" display="aNodes"/>
+			<memberdata name="cselectednode" display="cSelectedNode"/>
+			<memberdata name="saveexpandednodes" display="SaveExpandedNodes"/>
+			<memberdata name="restoreexpandednodes" display="RestoreExpandedNodes"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE getitemkey
 	ENDPROC

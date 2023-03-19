@@ -13,10 +13,12 @@ DEFINE CLASS parameterx AS custom
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Name = "parameterx"
-	_memberdata = <VFPData>
-		<memberdata name="this_access" display="This_Access"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Name = "parameterx"
+		_memberdata = <VFPData>
+			<memberdata name="this_access" display="This_Access"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE Init
 		Lparameters loDefaults
@@ -73,33 +75,35 @@ DEFINE CLASS peme_resource AS parameterx OF "peme_foxresource.vcx"
 		*p: oprefs
 	*</DefinedPropArrayMethod>
 
-	cxid = 
-	cxname = 
-	cxresourcefile = 
-	cxresourcetype = PREFW
-	Name = "peme_resource"
-	ocopiedsettings = .NULL.
-	_memberdata = <VFPData>
-		<memberdata name="oprefs" display="oPrefs"/>
-		<memberdata name="setresourcefile" display="SetResourceFile"/>
-		<memberdata name="odefaults" display="oDefaults"/>
-		<memberdata name="cxid" display="cxID"/>
-		<memberdata name="cxname" display="cxName"/>
-		<memberdata name="cxresourcefile" display="cxResourceFile"/>
-		<memberdata name="cxresourcetype" display="cxResourceType"/>
-		<memberdata name="createresourcefile" display="CreateResourceFile"/>
-		<memberdata name="loadvalues" display="LoadValues"/>
-		<memberdata name="savevalues" display="SaveValues"/>
-		<memberdata name="usedefaults" display="UseDefaults"/>
-		<memberdata name="readme" display="Readme"/>
-		<memberdata name="release" display="Release"/>
-		<memberdata name="ocopiedsettings" display="oCopiedSettings"/>
-		<memberdata name="closeresource" display="CloseResource"/>
-		<memberdata name="copysettings" display="CopySettings"/>
-		<memberdata name="openresource" display="OpenResource"/>
-		<memberdata name="resetdefaults" display="ResetDefaults"/>
-		<memberdata name="restorecopiedsettings" display="RestoreCopiedSettings"/>
+	*<PropValue>
+		cxid = 
+		cxname = 
+		cxresourcefile = 
+		cxresourcetype = PREFW
+		Name = "peme_resource"
+		ocopiedsettings = .NULL.
+		_memberdata = <VFPData>
+			<memberdata name="oprefs" display="oPrefs"/>
+			<memberdata name="setresourcefile" display="SetResourceFile"/>
+			<memberdata name="odefaults" display="oDefaults"/>
+			<memberdata name="cxid" display="cxID"/>
+			<memberdata name="cxname" display="cxName"/>
+			<memberdata name="cxresourcefile" display="cxResourceFile"/>
+			<memberdata name="cxresourcetype" display="cxResourceType"/>
+			<memberdata name="createresourcefile" display="CreateResourceFile"/>
+			<memberdata name="loadvalues" display="LoadValues"/>
+			<memberdata name="savevalues" display="SaveValues"/>
+			<memberdata name="usedefaults" display="UseDefaults"/>
+			<memberdata name="readme" display="Readme"/>
+			<memberdata name="release" display="Release"/>
+			<memberdata name="ocopiedsettings" display="oCopiedSettings"/>
+			<memberdata name="closeresource" display="CloseResource"/>
+			<memberdata name="copysettings" display="CopySettings"/>
+			<memberdata name="openresource" display="OpenResource"/>
+			<memberdata name="resetdefaults" display="ResetDefaults"/>
+			<memberdata name="restorecopiedsettings" display="RestoreCopiedSettings"/>
 		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE closeresource
 		Lparameters llPack

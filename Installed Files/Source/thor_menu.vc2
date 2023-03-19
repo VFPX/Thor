@@ -33,61 +33,63 @@ DEFINE CLASS contextmenu AS custom
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	cmenuname = 
-	keyword = .F.
-	Name = "contextmenu"
-	nchoice = 0
-	nchoices = 0
-	ncurrentlevel = 1
-	nhandle = 0
-	nmenubar = 0
-	parameters = .F.
-	_memberdata = <VFPData>
-		<memberdata name="ncurrentlevel" display="nCurrentLevel"/>
-		<memberdata name="abarcounts" display="aBarCounts"/>
-		<memberdata name="amenunames" display="aMenuNames"/>
-		<memberdata name="nchoices" display="nChoices"/>
-		<memberdata name="activate" display="Activate"/>
-		<memberdata name="nchoice" display="nChoice"/>
-		<memberdata name="keyword" display="Keyword"/>
-		<memberdata name="parameters" display="Parameters"/>
-		<memberdata name="createcontextmenu" display="CreateContextMenu"/>
-		<memberdata name="calculateshortcutmenuposition" display="CalculateShortcutMenuPosition"/>
-		<memberdata name="pix2fox" display="Pix2Fox"/>
-		<memberdata name="addmenuitem" display="AddMenuItem"/>
-		<memberdata name="addsubmenu" display="AddSubMenu"/>
-		<memberdata name="endsubmenu" display="EndSubMenu"/>
-		<memberdata name="addmenuitemx" display="AddMenuItemX"/>
-		<memberdata name="setdatasession" display="SetDataSession"/>
-		<memberdata name="init" display="Init"/>
-		<memberdata name="addobject" display="AddObject"/>
-		<memberdata name="addproperty" display="AddProperty"/>
-		<memberdata name="destroy" display="Destroy"/>
-		<memberdata name="error" display="Error"/>
-		<memberdata name="newobject" display="Newobject"/>
-		<memberdata name="readexpression" display="ReadExpression"/>
-		<memberdata name="readmethod" display="ReadMethod"/>
-		<memberdata name="removeobject" display="RemoveObject"/>
-		<memberdata name="resettodefault" display="ResetToDefault"/>
-		<memberdata name="saveasclass" display="SaveAsClass"/>
-		<memberdata name="showwhatsthis" display="ShowWhatsThis"/>
-		<memberdata name="writeexpression" display="WriteExpression"/>
-		<memberdata name="writemethod" display="WriteMethod"/>
-		<memberdata name="height" display="Height"/>
-		<memberdata name="width" display="Width"/>
-		<memberdata name="comment" display="Comment"/>
-		<memberdata name="helpcontextid" display="HelpContextID"/>
-		<memberdata name="picture" display="Picture"/>
-		<memberdata name="tag" display="Tag"/>
-		<memberdata name="whatsthishelpid" display="WhatsThisHelpID"/>
-		<memberdata name="_memberdata" display="_MemberData"/>
-		<memberdata name="aallmenunames" display="aAllMenuNames"/>
-		<memberdata name="achoices" display="aChoices"/>
-		<memberdata name="nhandle" display="nHandle"/>
-		<memberdata name="cmenuname" display="cMenuName"/>
-		<memberdata name="nmenubar" display="nMenuBar"/>
-		<memberdata name="releasepopups" display="ReleasePopups"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		cmenuname = 
+		keyword = .F.
+		Name = "contextmenu"
+		nchoice = 0
+		nchoices = 0
+		ncurrentlevel = 1
+		nhandle = 0
+		nmenubar = 0
+		parameters = .F.
+		_memberdata = <VFPData>
+			<memberdata name="ncurrentlevel" display="nCurrentLevel"/>
+			<memberdata name="abarcounts" display="aBarCounts"/>
+			<memberdata name="amenunames" display="aMenuNames"/>
+			<memberdata name="nchoices" display="nChoices"/>
+			<memberdata name="activate" display="Activate"/>
+			<memberdata name="nchoice" display="nChoice"/>
+			<memberdata name="keyword" display="Keyword"/>
+			<memberdata name="parameters" display="Parameters"/>
+			<memberdata name="createcontextmenu" display="CreateContextMenu"/>
+			<memberdata name="calculateshortcutmenuposition" display="CalculateShortcutMenuPosition"/>
+			<memberdata name="pix2fox" display="Pix2Fox"/>
+			<memberdata name="addmenuitem" display="AddMenuItem"/>
+			<memberdata name="addsubmenu" display="AddSubMenu"/>
+			<memberdata name="endsubmenu" display="EndSubMenu"/>
+			<memberdata name="addmenuitemx" display="AddMenuItemX"/>
+			<memberdata name="setdatasession" display="SetDataSession"/>
+			<memberdata name="init" display="Init"/>
+			<memberdata name="addobject" display="AddObject"/>
+			<memberdata name="addproperty" display="AddProperty"/>
+			<memberdata name="destroy" display="Destroy"/>
+			<memberdata name="error" display="Error"/>
+			<memberdata name="newobject" display="Newobject"/>
+			<memberdata name="readexpression" display="ReadExpression"/>
+			<memberdata name="readmethod" display="ReadMethod"/>
+			<memberdata name="removeobject" display="RemoveObject"/>
+			<memberdata name="resettodefault" display="ResetToDefault"/>
+			<memberdata name="saveasclass" display="SaveAsClass"/>
+			<memberdata name="showwhatsthis" display="ShowWhatsThis"/>
+			<memberdata name="writeexpression" display="WriteExpression"/>
+			<memberdata name="writemethod" display="WriteMethod"/>
+			<memberdata name="height" display="Height"/>
+			<memberdata name="width" display="Width"/>
+			<memberdata name="comment" display="Comment"/>
+			<memberdata name="helpcontextid" display="HelpContextID"/>
+			<memberdata name="picture" display="Picture"/>
+			<memberdata name="tag" display="Tag"/>
+			<memberdata name="whatsthishelpid" display="WhatsThisHelpID"/>
+			<memberdata name="_memberdata" display="_MemberData"/>
+			<memberdata name="aallmenunames" display="aAllMenuNames"/>
+			<memberdata name="achoices" display="aChoices"/>
+			<memberdata name="nhandle" display="nHandle"/>
+			<memberdata name="cmenuname" display="cMenuName"/>
+			<memberdata name="nmenubar" display="nMenuBar"/>
+			<memberdata name="releasepopups" display="ReleasePopups"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE activate		&& Occurs when a FormSet, Form, or Page object becomes active or when a ToolBar object is shown.
 		Local lcMenu, lnChoice

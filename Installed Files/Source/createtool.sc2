@@ -10,12 +10,14 @@
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="2" />
 
-	DataSource = .NULL.
-	Height = 0
-	Left = 0
-	Name = "Dataenvironment"
-	Top = 0
-	Width = 0
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 0
+		Left = 0
+		Name = "Dataenvironment"
+		Top = 0
+		Width = 0
+	*</PropValue>
 
 ENDDEFINE
 
@@ -57,37 +59,39 @@ DEFINE CLASS frmthor AS baseform OF "basecontrols.vcx"
 		*a: afilenames[1,0]
 	*</DefinedPropArrayMethod>
 
-	BorderStyle = 3
-	Caption = "Create Tool"
-	ccurrentfolder = 
-	ccustomtemplate = 
-	cdefaultfolder = 
-	cfoxuserid = Thor
-	cfoxusername = ThorCreateTool
-	cpath = 
-	csearchstring = 
-	cthorfolder = 
-	ctoolfilename = 
-	DataSession = 2
-	DoCreate = .T.
-	Height = 285
-	Icon = thor16.ico
-	ldefaulttemplate = .F.
-	lrefreshtools = .F.		&& Flags that we're refreshing tools
-	lsaveok = .F.
-	Name = "frmThor"
-	ncustomtemplates = 0
-	othor = .NULL.		&& A reference to a Thor_Engine object
-	otools = .NULL.		&& A reference to a collection of tools
-	Visible = .T.
-	Width = 403
-	WindowType = 1
-	_memberdata = <VFPData>
-		<memberdata name="ccurrentfolder" display="cCurrentFolder"/>
-		<memberdata name="ldefaulttemplate" display="lDefaultTemplate"/>
-		<memberdata name="ccustomtemplate" display="cCustomTemplate"/>
-		<memberdata name="ncustomtemplates" display="nCustomTemplates"/>
+	*<PropValue>
+		BorderStyle = 3
+		Caption = "Create Tool"
+		ccurrentfolder = 
+		ccustomtemplate = 
+		cdefaultfolder = 
+		cfoxuserid = Thor
+		cfoxusername = ThorCreateTool
+		cpath = 
+		csearchstring = 
+		cthorfolder = 
+		ctoolfilename = 
+		DataSession = 2
+		DoCreate = .T.
+		Height = 285
+		Icon = thor16.ico
+		ldefaulttemplate = .F.
+		lrefreshtools = .F.
+		lsaveok = .F.
+		Name = "frmThor"
+		ncustomtemplates = 0
+		othor = .NULL.
+		otools = .NULL.
+		Visible = .T.
+		Width = 403
+		WindowType = 1
+		_memberdata = <VFPData>
+			<memberdata name="ccurrentfolder" display="cCurrentFolder"/>
+			<memberdata name="ldefaulttemplate" display="lDefaultTemplate"/>
+			<memberdata name="ccustomtemplate" display="cCustomTemplate"/>
+			<memberdata name="ncustomtemplates" display="nCustomTemplates"/>
 		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Baselabel1' AS baselabel WITH ;
 		Alignment = 0, ;

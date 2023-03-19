@@ -37,51 +37,53 @@ DEFINE CLASS baseform AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Caption = "Form"
-	ccolumnfilter = 
-	ccolumnfilters = 
-	ccolumninfo = 
-	chomedir = 
-	cpanelfilter = 
-	csortorder = |COLFILENAME|
-	DoCreate = .T.
-	ladddescendants = .F.
-	Left = 0
-	lformaddobject = .F.
-	lsearchclass = .F.
-	Name = "baseform"
-	ncolumnfiltercount = 0
-	ndockable = 1
-	osettings = .NULL.
-	otools = .NULL.
-	Top = 0
-	_memberdata = <VFPData>
-		<memberdata name="lockwindow" display="LockWindow"/>
-		<memberdata name="savedraginfo" display="SaveDragInfo"/>
-		<memberdata name="chomedir" display="cHomeDir"/>
-		<memberdata name="lsearchclass" display="lSearchClass"/>
-		<memberdata name="getrelativepath" display="GetRelativePath"/>
-		<memberdata name="setsortorder" display="SetSortOrder"/>
-		<memberdata name="csortorder" display="cSortOrder"/>
-		<memberdata name="refreshresults" display="RefreshResults"/>
-		<memberdata name="selectresults" display="SelectResults"/>
-		<memberdata name="ccolumnfilter" display="cColumnFilter"/>
-		<memberdata name="getcolumnfilters" display="GetColumnFilters"/>
-		<memberdata name="setcolumnfilter" display="SetColumnFilter"/>
-		<memberdata name="setcolumnfilters" display="SetColumnFilters"/>
-		<memberdata name="acolumnfilters" display="aColumnFilters"/>
-		<memberdata name="ccolumnfilters" display="cColumnFilters"/>
-		<memberdata name="ncolumnfiltercount" display="nColumnFilterCount"/>
-		<memberdata name="getallsettings" display="GetAllSettings"/>
-		<memberdata name="osettings" display="oSettings"/>
-		<memberdata name="otools" display="oTools"/>
-		<memberdata name="ccolumninfo" display="cColumnInfo"/>
-		<memberdata name="ndockable" display="nDockable"/>
-		<memberdata name="lformaddobject" display="lFormAddObject"/>
-		<memberdata name="ladddescendants" display="lAddDescendants"/>
-		<memberdata name="cpanelfilter" display="cPanelFilter"/>
-		<memberdata name="editsourcefile" display="EditSourceFile"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Caption = "Form"
+		ccolumnfilter = 
+		ccolumnfilters = 
+		ccolumninfo = 
+		chomedir = 
+		cpanelfilter = 
+		csortorder = |COLFILENAME|
+		DoCreate = .T.
+		ladddescendants = .F.
+		Left = 0
+		lformaddobject = .F.
+		lsearchclass = .F.
+		Name = "baseform"
+		ncolumnfiltercount = 0
+		ndockable = 1
+		osettings = .NULL.
+		otools = .NULL.
+		Top = 0
+		_memberdata = <VFPData>
+			<memberdata name="lockwindow" display="LockWindow"/>
+			<memberdata name="savedraginfo" display="SaveDragInfo"/>
+			<memberdata name="chomedir" display="cHomeDir"/>
+			<memberdata name="lsearchclass" display="lSearchClass"/>
+			<memberdata name="getrelativepath" display="GetRelativePath"/>
+			<memberdata name="setsortorder" display="SetSortOrder"/>
+			<memberdata name="csortorder" display="cSortOrder"/>
+			<memberdata name="refreshresults" display="RefreshResults"/>
+			<memberdata name="selectresults" display="SelectResults"/>
+			<memberdata name="ccolumnfilter" display="cColumnFilter"/>
+			<memberdata name="getcolumnfilters" display="GetColumnFilters"/>
+			<memberdata name="setcolumnfilter" display="SetColumnFilter"/>
+			<memberdata name="setcolumnfilters" display="SetColumnFilters"/>
+			<memberdata name="acolumnfilters" display="aColumnFilters"/>
+			<memberdata name="ccolumnfilters" display="cColumnFilters"/>
+			<memberdata name="ncolumnfiltercount" display="nColumnFilterCount"/>
+			<memberdata name="getallsettings" display="GetAllSettings"/>
+			<memberdata name="osettings" display="oSettings"/>
+			<memberdata name="otools" display="oTools"/>
+			<memberdata name="ccolumninfo" display="cColumnInfo"/>
+			<memberdata name="ndockable" display="nDockable"/>
+			<memberdata name="lformaddobject" display="lFormAddObject"/>
+			<memberdata name="ladddescendants" display="lAddDescendants"/>
+			<memberdata name="cpanelfilter" display="cPanelFilter"/>
+			<memberdata name="editsourcefile" display="EditSourceFile"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE editsourcefile
 		Lparameters lcFileName, lcClass, lcMethod, lnStartRange, lnEndRange
@@ -443,12 +445,14 @@ DEFINE CLASS cbofinder AS combobox
 		*p: _memberdata
 	*</DefinedPropArrayMethod>
 
-	Height = 24
-	Name = "cbofinder"
-	Width = 100
-	_memberdata = <VFPData>
-		<memberdata name="refreshitems" display="RefreshItems"/>
+	*<PropValue>
+		Height = 24
+		Name = "cbofinder"
+		Width = 100
+		_memberdata = <VFPData>
+			<memberdata name="refreshitems" display="RefreshItems"/>
 		</VFPData>
+	*</PropValue>
 
 ENDDEFINE
 
@@ -460,16 +464,18 @@ DEFINE CLASS chkfinder AS checkbox
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Alignment = 0
-	Caption = "Check1"
-	ccontrolsource = 
-	Height = 17
-	Name = "chkfinder"
-	Value = .F.
-	Width = 60
-	_memberdata = <VFPData>
-		<memberdata name="ccontrolsource" display="cControlSource"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Alignment = 0
+		Caption = "Check1"
+		ccontrolsource = 
+		Height = 17
+		Name = "chkfinder"
+		Value = .F.
+		Width = 60
+		_memberdata = <VFPData>
+			<memberdata name="ccontrolsource" display="cControlSource"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE InteractiveChange
 		Local lcControlSource
@@ -496,10 +502,12 @@ ENDDEFINE
 DEFINE CLASS cmdfinder AS commandbutton 
  	*< CLASSDATA: Baseclass="commandbutton" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Caption = "Command1"
-	Height = 27
-	Name = "cmdfinder"
-	Width = 84
+	*<PropValue>
+		Caption = "Command1"
+		Height = 27
+		Name = "cmdfinder"
+		Width = 84
+	*</PropValue>
 
 ENDDEFINE
 
@@ -528,40 +536,42 @@ DEFINE CLASS custdragdrop AS custom
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	cbaseclass = 
-	cclass = 
-	cfilename = 
-	lbrowser = .T.
-	ldragdrop = .F.
-	lerror = .F.
-	lformaddobject = .F.
-	lignoreerrors = .F.
-	Name = "custdragdrop"
-	natpos = 0
-	nmousebutton = 0
-	nshift = 0
-	osource = .NULL.
-	_memberdata = <VFPData>
-		<memberdata name="dragdrop" display="DragDrop"/>
-		<memberdata name="dragover" display="DragOver"/>
-		<memberdata name="formaddobject" display="FormAddObject"/>
-		<memberdata name="savedraginfo" display="SaveDragInfo"/>
-		<memberdata name="cbaseclass" display="cBaseClass"/>
-		<memberdata name="cclass" display="cClass"/>
-		<memberdata name="cfilename" display="cFileName"/>
-		<memberdata name="lbrowser" display="lBrowser"/>
-		<memberdata name="ldragdrop" display="lDragDrop"/>
-		<memberdata name="lerror" display="lError"/>
-		<memberdata name="lformaddobject" display="lFormAddObject"/>
-		<memberdata name="lignoreerrors" display="lIgnoreErrors"/>
-		<memberdata name="natpos" display="nAtPos"/>
-		<memberdata name="nmousebutton" display="nMouseButton"/>
-		<memberdata name="nshift" display="nShift"/>
-		<memberdata name="osource" display="oSource"/>
-		<memberdata name="mousedown" display="MouseDown"/>
-		<memberdata name="removetext1fromcolumn" display="RemoveText1FromColumn"/>
-		<memberdata name="addinmethod" display="AddInMethod"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		cbaseclass = 
+		cclass = 
+		cfilename = 
+		lbrowser = .T.
+		ldragdrop = .F.
+		lerror = .F.
+		lformaddobject = .F.
+		lignoreerrors = .F.
+		Name = "custdragdrop"
+		natpos = 0
+		nmousebutton = 0
+		nshift = 0
+		osource = .NULL.
+		_memberdata = <VFPData>
+			<memberdata name="dragdrop" display="DragDrop"/>
+			<memberdata name="dragover" display="DragOver"/>
+			<memberdata name="formaddobject" display="FormAddObject"/>
+			<memberdata name="savedraginfo" display="SaveDragInfo"/>
+			<memberdata name="cbaseclass" display="cBaseClass"/>
+			<memberdata name="cclass" display="cClass"/>
+			<memberdata name="cfilename" display="cFileName"/>
+			<memberdata name="lbrowser" display="lBrowser"/>
+			<memberdata name="ldragdrop" display="lDragDrop"/>
+			<memberdata name="lerror" display="lError"/>
+			<memberdata name="lformaddobject" display="lFormAddObject"/>
+			<memberdata name="lignoreerrors" display="lIgnoreErrors"/>
+			<memberdata name="natpos" display="nAtPos"/>
+			<memberdata name="nmousebutton" display="nMouseButton"/>
+			<memberdata name="nshift" display="nShift"/>
+			<memberdata name="osource" display="oSource"/>
+			<memberdata name="mousedown" display="MouseDown"/>
+			<memberdata name="removetext1fromcolumn" display="RemoveText1FromColumn"/>
+			<memberdata name="addinmethod" display="AddInMethod"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE addinmethod
 		Lparameters tcMethodName
@@ -1415,30 +1425,32 @@ DEFINE CLASS custpanel AS custom
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	ccolumninfo = 
-	cpanel = 
-	cpanelfilter = 
-	cpanelkey = 
-	cpropertieslist = cPanel, cPanelFilter, cPanelKey, lUsePanel, nPanelWidth, cSortOrder, cColumnInfo, lSubDirectories
-	csortorder = |COLFILENAME|
-	lsubdirectories = .F.
-	lusepanel = .T.
-	Name = "custpanel"
-	npanelwidth = 175
-	_memberdata = <VFPData>
-		<memberdata name="cpanel" display="cPanel"/>
-		<memberdata name="cpanelfilter" display="cPanelFilter"/>
-		<memberdata name="cpanelkey" display="cPanelKey"/>
-		<memberdata name="npanelwidth" display="nPanelWidth"/>
-		<memberdata name="setvalues" display="SetValues"/>
-		<memberdata name="getvalues" display="GetValues"/>
-		<memberdata name="cpropertieslist" display="cPropertiesList"/>
-		<memberdata name="csortorder" display="cSortOrder"/>
-		<memberdata name="ccolumninfo" display="cColumnInfo"/>
-		<memberdata name="lsubdirectories" display="lSubDirectories"/>
-		<memberdata name="lusepanel" display="lUsePanel"/>
-		<memberdata name="getclassfilename" display="GetClassFileName"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		ccolumninfo = 
+		cpanel = 
+		cpanelfilter = 
+		cpanelkey = 
+		cpropertieslist = cPanel, cPanelFilter, cPanelKey, lUsePanel, nPanelWidth, cSortOrder, cColumnInfo, lSubDirectories
+		csortorder = |COLFILENAME|
+		lsubdirectories = .F.
+		lusepanel = .T.
+		Name = "custpanel"
+		npanelwidth = 175
+		_memberdata = <VFPData>
+			<memberdata name="cpanel" display="cPanel"/>
+			<memberdata name="cpanelfilter" display="cPanelFilter"/>
+			<memberdata name="cpanelkey" display="cPanelKey"/>
+			<memberdata name="npanelwidth" display="nPanelWidth"/>
+			<memberdata name="setvalues" display="SetValues"/>
+			<memberdata name="getvalues" display="GetValues"/>
+			<memberdata name="cpropertieslist" display="cPropertiesList"/>
+			<memberdata name="csortorder" display="cSortOrder"/>
+			<memberdata name="ccolumninfo" display="cColumnInfo"/>
+			<memberdata name="lsubdirectories" display="lSubDirectories"/>
+			<memberdata name="lusepanel" display="lUsePanel"/>
+			<memberdata name="getclassfilename" display="GetClassFileName"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE getclassfilename
 		Lparameters tcClassLoc, tcPath
@@ -1541,150 +1553,152 @@ DEFINE CLASS frmscopefinder AS baseform OF "thor_proc_scopeprocessor.vcx"
 		*p: oscope
 	*</DefinedPropArrayMethod>
 
-	AllowOutput = .F.
-	BindControls = .F.
-	Caption = "Scope Processor"
-	ccaption = 
-	cdirectorymrus = 
-	cpathandclasslibs = << Path or ClassLibs >>
-	cprojectmrus = 
-	cscope = 
-	cscreenproperty = 
-	DataSession = 2
-	DoCreate = .T.
-	FontSize = 8
-	Height = 150
-	lactiveproject = .F.
-	ladddescendants = .T.
-	lcurrentdirectory = .F.
-	Left = 0
-	lformaddobject = .F.
-	lpathandclasslibs = .F.
-	lprojecthomedirectory = .F.
-	lsubdirectories = .T.
-	MaxHeight = 150
-	Name = "frmscopefinder"
-	nmrudisplaycount = 6
-	oscope = .NULL.
-	ShowTips = .T.
-	Top = 0
-	Width = 429
-	_memberdata = <VFPData>
-		<memberdata name="csortorder" display="cSortOrder"/>
-		<memberdata name="cscope" display="cScope"/>
-		<memberdata name="lprojecthomedirectory" display="lProjectHomeDirectory"/>
-		<memberdata name="lsubdirectories" display="lSubDirectories"/>
-		<memberdata name="lstayopen" display="lStayOpen"/>
-		<memberdata name="lcurrentdirectory" display="lCurrentDirectory"/>
-		<memberdata name="clookfor" display="cLookFor"/>
-		<memberdata name="cscope_assign" display="cScope_Assign"/>
-		<memberdata name="otools" display="oTools"/>
-		<memberdata name="ndockable" display="nDockable"/>
-		<memberdata name="csearchengineclass" display="cSearchEngineClass"/>
-		<memberdata name="osearchengine" display="oSearchEngine"/>
-		<memberdata name="csearchengineclasslibrary" display="cSearchEngineClassLibrary"/>
-		<memberdata name="refreshresults" display="RefreshResults"/>
-		<memberdata name="selectresults" display="SelectResults"/>
-		<memberdata name="setsortorder" display="SetSortOrder"/>
-		<memberdata name="ccolumninfo" display="cColumnInfo"/>
-		<memberdata name="restorecolumninfo" display="RestoreColumnInfo"/>
-		<memberdata name="chomedir" display="cHomeDir"/>
-		<memberdata name="search" display="Search"/>
-		<memberdata name="getrelativepath" display="GetRelativePath"/>
-		<memberdata name="clookfor_assign" display="cLookFor_Assign"/>
-		<memberdata name="editsourcefile" display="EditSourceFile"/>
-		<memberdata name="clookformrus" display="cLookForMRUs"/>
-		<memberdata name="updatemrulist" display="UpdateMRUList"/>
-		<memberdata name="searchinit" display="SearchInit"/>
-		<memberdata name="cprojectmrus" display="cProjectMRUs"/>
-		<memberdata name="cdirectorymrus" display="cDirectoryMRUs"/>
-		<memberdata name="gridcontextmenu" display="GridContextMenu"/>
-		<memberdata name="griddoubleclick" display="GridDoubleClick"/>
-		<memberdata name="transferpropertiestoengine" display="TransferPropertiesToEngine"/>
-		<memberdata name="savemrulists" display="SaveMRULists"/>
-		<memberdata name="cfavoriteslist" display="cFavoritesList"/>
-		<memberdata name="cskippedextensions" display="cSkippedExtensions"/>
-		<memberdata name="lskipextensions" display="lSkipExtensions"/>
-		<memberdata name="lskipfolders" display="lSkipFolders"/>
-		<memberdata name="cskippedfolders" display="cSkippedFolders"/>
-		<memberdata name="setoptions" display="SetOptions"/>
-		<memberdata name="lsearching" display="lSearching"/>
-		<memberdata name="highlightlookfor" display="HighlightLookFor"/>
-		<memberdata name="ccolumnfilter" display="cColumnFilter"/>
-		<memberdata name="setcolumnfilter" display="SetColumnFilter"/>
-		<memberdata name="ngridrecno" display="nGridRecno"/>
-		<memberdata name="osettings" display="oSettings"/>
-		<memberdata name="getallsettings" display="GetAllSettings"/>
-		<memberdata name="oclasssearchengine" display="oClassSearchEngine"/>
-		<memberdata name="ofilesearchengine" display="oFileSearchEngine"/>
-		<memberdata name="lsearchclass" display="lSearchClass"/>
-		<memberdata name="lclasssearchasdefault" display="lClassSearchAsDefault"/>
-		<memberdata name="savedraginfo" display="SaveDragInfo"/>
-		<memberdata name="nmousebutton" display="nMouseButton"/>
-		<memberdata name="lformaddobject" display="lFormAddObject"/>
-		<memberdata name="createresultscursor" display="CreateResultsCursor"/>
-		<memberdata name="openresultscursor" display="OpenResultsCursor"/>
-		<memberdata name="cresultsfilename" display="cResultsFileName"/>
-		<memberdata name="getresultsfilename" display="GetResultsFileName"/>
-		<memberdata name="getdirfromscope" display="GetDirFromScope"/>
-		<memberdata name="nmrudisplaycount" display="nMRUDisplayCount"/>
-		<memberdata name="resourcefile" display="ResourceFile"/>
-		<memberdata name="createmrucontextmenu" display="CreateMRUContextMenu"/>
-		<memberdata name="addmrusubmenu" display="AddMRUSubMenu"/>
-		<memberdata name="chdirtoscope" display="ChDirToScope"/>
-		<memberdata name="ncolumnfiltercount" display="nColumnFilterCount"/>
-		<memberdata name="acolumnfilters" display="aColumnFilters"/>
-		<memberdata name="ccolumnfilters" display="cColumnFilters"/>
-		<memberdata name="getcolumnfilters" display="GetColumnFilters"/>
-		<memberdata name="setcolumnfilters" display="SetColumnFilters"/>
-		<memberdata name="panelinit" display="PanelInit"/>
-		<memberdata name="removepanel" display="RemovePanel"/>
-		<memberdata name="addpanel" display="AddPanel"/>
-		<memberdata name="panelwidthchanged" display="PanelWidthChanged"/>
-		<memberdata name="togglefilter" display="ToggleFilter"/>
-		<memberdata name="setpanelfilter" display="SetPanelFilter"/>
-		<memberdata name="opanelproperties" display="oPanelProperties"/>
-		<memberdata name="oclasspanelproperties" display="oClassPanelProperties"/>
-		<memberdata name="ofilepanelproperties" display="oFilePanelProperties"/>
-		<memberdata name="cclasspanelproperties" display="cClassPanelProperties"/>
-		<memberdata name="cfilepanelproperties" display="cFilePanelProperties"/>
-		<memberdata name="opanelproperties_access" display="oPanelProperties_Access"/>
-		<memberdata name="osearchengine_access" display="oSearchEngine_Access"/>
-		<memberdata name="selectpanelfilter" display="SelectPanelFilter"/>
-		<memberdata name="csortorder_access" display="cSortOrder_Access"/>
-		<memberdata name="csortorder_assign" display="cSortOrder_Assign"/>
-		<memberdata name="ccolumninfo_access" display="cColumnInfo_Access"/>
-		<memberdata name="ccolumninfo_assign" display="cColumnInfo_Assign"/>
-		<memberdata name="cversion" display="cVersion"/>
-		<memberdata name="lsearchingenabled" display="lSearchingEnabled"/>
-		<memberdata name="highlightpreviousgridrow" display="HighlightPreviousGridRow"/>
-		<memberdata name="descendants" display="Descendants"/>
-		<memberdata name="csearchproperties" display="cSearchProperties"/>
-		<memberdata name="whereused" display="WhereUsed"/>
-		<memberdata name="height" display="Height"/>
-		<memberdata name="width" display="Width"/>
-		<memberdata name="lpathandclasslibs" display="lPathAndClassLibs"/>
-		<memberdata name="getscopetype" display="GetScopeType"/>
-		<memberdata name="cpathandclasslibs" display="cPathAndClassLibs"/>
-		<memberdata name="savedockinfo" display="SaveDockInfo"/>
-		<memberdata name="ldocked" display="lDocked"/>
-		<memberdata name="ndockposition" display="nDockPosition"/>
-		<memberdata name="cdockwindow" display="cDockWindow"/>
-		<memberdata name="restoredocking" display="RestoreDocking"/>
-		<memberdata name="showpathclasslibs" display="ShowPathClassLibs"/>
-		<memberdata name="caption" display="Caption"/>
-		<memberdata name="restoreallproperties" display="RestoreAllProperties"/>
-		<memberdata name="multipleinstances" display="MultipleInstances"/>
-		<memberdata name="getsettingsfilename" display="GetSettingsFileName"/>
-		<memberdata name="getfinderscope" display="GetFinderScope"/>
-		<memberdata name="cresultsfilename_access" display="cResultsFileName_Access"/>
-		<memberdata name="cscreenproperty" display="cScreenProperty"/>
-		<memberdata name="nfontsize" display="nFontSize"/>
-		<memberdata name="setfontsize" display="SetFontSize"/>
-		<memberdata name="oscope" display="oScope"/>
-		<memberdata name="ccaption" display="cCaption"/>
-		<memberdata name="lactiveproject" display="lActiveProject"/>
+	*<PropValue>
+		AllowOutput = .F.
+		BindControls = .F.
+		Caption = "Scope Processor"
+		ccaption = 
+		cdirectorymrus = 
+		cpathandclasslibs = << Path or ClassLibs >>
+		cprojectmrus = 
+		cscope = 
+		cscreenproperty = 
+		DataSession = 2
+		DoCreate = .T.
+		FontSize = 8
+		Height = 150
+		lactiveproject = .F.
+		ladddescendants = .T.
+		lcurrentdirectory = .F.
+		Left = 0
+		lformaddobject = .F.
+		lpathandclasslibs = .F.
+		lprojecthomedirectory = .F.
+		lsubdirectories = .T.
+		MaxHeight = 150
+		Name = "frmscopefinder"
+		nmrudisplaycount = 6
+		oscope = .NULL.
+		ShowTips = .T.
+		Top = 0
+		Width = 429
+		_memberdata = <VFPData>
+			<memberdata name="csortorder" display="cSortOrder"/>
+			<memberdata name="cscope" display="cScope"/>
+			<memberdata name="lprojecthomedirectory" display="lProjectHomeDirectory"/>
+			<memberdata name="lsubdirectories" display="lSubDirectories"/>
+			<memberdata name="lstayopen" display="lStayOpen"/>
+			<memberdata name="lcurrentdirectory" display="lCurrentDirectory"/>
+			<memberdata name="clookfor" display="cLookFor"/>
+			<memberdata name="cscope_assign" display="cScope_Assign"/>
+			<memberdata name="otools" display="oTools"/>
+			<memberdata name="ndockable" display="nDockable"/>
+			<memberdata name="csearchengineclass" display="cSearchEngineClass"/>
+			<memberdata name="osearchengine" display="oSearchEngine"/>
+			<memberdata name="csearchengineclasslibrary" display="cSearchEngineClassLibrary"/>
+			<memberdata name="refreshresults" display="RefreshResults"/>
+			<memberdata name="selectresults" display="SelectResults"/>
+			<memberdata name="setsortorder" display="SetSortOrder"/>
+			<memberdata name="ccolumninfo" display="cColumnInfo"/>
+			<memberdata name="restorecolumninfo" display="RestoreColumnInfo"/>
+			<memberdata name="chomedir" display="cHomeDir"/>
+			<memberdata name="search" display="Search"/>
+			<memberdata name="getrelativepath" display="GetRelativePath"/>
+			<memberdata name="clookfor_assign" display="cLookFor_Assign"/>
+			<memberdata name="editsourcefile" display="EditSourceFile"/>
+			<memberdata name="clookformrus" display="cLookForMRUs"/>
+			<memberdata name="updatemrulist" display="UpdateMRUList"/>
+			<memberdata name="searchinit" display="SearchInit"/>
+			<memberdata name="cprojectmrus" display="cProjectMRUs"/>
+			<memberdata name="cdirectorymrus" display="cDirectoryMRUs"/>
+			<memberdata name="gridcontextmenu" display="GridContextMenu"/>
+			<memberdata name="griddoubleclick" display="GridDoubleClick"/>
+			<memberdata name="transferpropertiestoengine" display="TransferPropertiesToEngine"/>
+			<memberdata name="savemrulists" display="SaveMRULists"/>
+			<memberdata name="cfavoriteslist" display="cFavoritesList"/>
+			<memberdata name="cskippedextensions" display="cSkippedExtensions"/>
+			<memberdata name="lskipextensions" display="lSkipExtensions"/>
+			<memberdata name="lskipfolders" display="lSkipFolders"/>
+			<memberdata name="cskippedfolders" display="cSkippedFolders"/>
+			<memberdata name="setoptions" display="SetOptions"/>
+			<memberdata name="lsearching" display="lSearching"/>
+			<memberdata name="highlightlookfor" display="HighlightLookFor"/>
+			<memberdata name="ccolumnfilter" display="cColumnFilter"/>
+			<memberdata name="setcolumnfilter" display="SetColumnFilter"/>
+			<memberdata name="ngridrecno" display="nGridRecno"/>
+			<memberdata name="osettings" display="oSettings"/>
+			<memberdata name="getallsettings" display="GetAllSettings"/>
+			<memberdata name="oclasssearchengine" display="oClassSearchEngine"/>
+			<memberdata name="ofilesearchengine" display="oFileSearchEngine"/>
+			<memberdata name="lsearchclass" display="lSearchClass"/>
+			<memberdata name="lclasssearchasdefault" display="lClassSearchAsDefault"/>
+			<memberdata name="savedraginfo" display="SaveDragInfo"/>
+			<memberdata name="nmousebutton" display="nMouseButton"/>
+			<memberdata name="lformaddobject" display="lFormAddObject"/>
+			<memberdata name="createresultscursor" display="CreateResultsCursor"/>
+			<memberdata name="openresultscursor" display="OpenResultsCursor"/>
+			<memberdata name="cresultsfilename" display="cResultsFileName"/>
+			<memberdata name="getresultsfilename" display="GetResultsFileName"/>
+			<memberdata name="getdirfromscope" display="GetDirFromScope"/>
+			<memberdata name="nmrudisplaycount" display="nMRUDisplayCount"/>
+			<memberdata name="resourcefile" display="ResourceFile"/>
+			<memberdata name="createmrucontextmenu" display="CreateMRUContextMenu"/>
+			<memberdata name="addmrusubmenu" display="AddMRUSubMenu"/>
+			<memberdata name="chdirtoscope" display="ChDirToScope"/>
+			<memberdata name="ncolumnfiltercount" display="nColumnFilterCount"/>
+			<memberdata name="acolumnfilters" display="aColumnFilters"/>
+			<memberdata name="ccolumnfilters" display="cColumnFilters"/>
+			<memberdata name="getcolumnfilters" display="GetColumnFilters"/>
+			<memberdata name="setcolumnfilters" display="SetColumnFilters"/>
+			<memberdata name="panelinit" display="PanelInit"/>
+			<memberdata name="removepanel" display="RemovePanel"/>
+			<memberdata name="addpanel" display="AddPanel"/>
+			<memberdata name="panelwidthchanged" display="PanelWidthChanged"/>
+			<memberdata name="togglefilter" display="ToggleFilter"/>
+			<memberdata name="setpanelfilter" display="SetPanelFilter"/>
+			<memberdata name="opanelproperties" display="oPanelProperties"/>
+			<memberdata name="oclasspanelproperties" display="oClassPanelProperties"/>
+			<memberdata name="ofilepanelproperties" display="oFilePanelProperties"/>
+			<memberdata name="cclasspanelproperties" display="cClassPanelProperties"/>
+			<memberdata name="cfilepanelproperties" display="cFilePanelProperties"/>
+			<memberdata name="opanelproperties_access" display="oPanelProperties_Access"/>
+			<memberdata name="osearchengine_access" display="oSearchEngine_Access"/>
+			<memberdata name="selectpanelfilter" display="SelectPanelFilter"/>
+			<memberdata name="csortorder_access" display="cSortOrder_Access"/>
+			<memberdata name="csortorder_assign" display="cSortOrder_Assign"/>
+			<memberdata name="ccolumninfo_access" display="cColumnInfo_Access"/>
+			<memberdata name="ccolumninfo_assign" display="cColumnInfo_Assign"/>
+			<memberdata name="cversion" display="cVersion"/>
+			<memberdata name="lsearchingenabled" display="lSearchingEnabled"/>
+			<memberdata name="highlightpreviousgridrow" display="HighlightPreviousGridRow"/>
+			<memberdata name="descendants" display="Descendants"/>
+			<memberdata name="csearchproperties" display="cSearchProperties"/>
+			<memberdata name="whereused" display="WhereUsed"/>
+			<memberdata name="height" display="Height"/>
+			<memberdata name="width" display="Width"/>
+			<memberdata name="lpathandclasslibs" display="lPathAndClassLibs"/>
+			<memberdata name="getscopetype" display="GetScopeType"/>
+			<memberdata name="cpathandclasslibs" display="cPathAndClassLibs"/>
+			<memberdata name="savedockinfo" display="SaveDockInfo"/>
+			<memberdata name="ldocked" display="lDocked"/>
+			<memberdata name="ndockposition" display="nDockPosition"/>
+			<memberdata name="cdockwindow" display="cDockWindow"/>
+			<memberdata name="restoredocking" display="RestoreDocking"/>
+			<memberdata name="showpathclasslibs" display="ShowPathClassLibs"/>
+			<memberdata name="caption" display="Caption"/>
+			<memberdata name="restoreallproperties" display="RestoreAllProperties"/>
+			<memberdata name="multipleinstances" display="MultipleInstances"/>
+			<memberdata name="getsettingsfilename" display="GetSettingsFileName"/>
+			<memberdata name="getfinderscope" display="GetFinderScope"/>
+			<memberdata name="cresultsfilename_access" display="cResultsFileName_Access"/>
+			<memberdata name="cscreenproperty" display="cScreenProperty"/>
+			<memberdata name="nfontsize" display="nFontSize"/>
+			<memberdata name="setfontsize" display="SetFontSize"/>
+			<memberdata name="oscope" display="oScope"/>
+			<memberdata name="ccaption" display="cCaption"/>
+			<memberdata name="lactiveproject" display="lActiveProject"/>
 		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cboScope' AS cbofinder WITH ;
 		Anchor = 10, ;
@@ -2276,9 +2290,11 @@ ENDDEFINE
 DEFINE CLASS lblfinder AS label 
  	*< CLASSDATA: Baseclass="label" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Caption = "Label1"
-	Height = 17
-	Name = "lblfinder"
-	Width = 40
+	*<PropValue>
+		Caption = "Label1"
+		Height = 17
+		Name = "lblfinder"
+		Width = 40
+	*</PropValue>
 
 ENDDEFINE

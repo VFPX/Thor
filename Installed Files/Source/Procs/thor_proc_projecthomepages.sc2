@@ -8,12 +8,14 @@
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="2" />
 
-	DataSource = .NULL.
-	Height = 0
-	Left = 0
-	Name = "Dataenvironment"
-	Top = 0
-	Width = 0
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 0
+		Left = 0
+		Name = "Dataenvironment"
+		Top = 0
+		Width = 0
+	*</PropValue>
 
 ENDDEFINE
 
@@ -47,32 +49,34 @@ DEFINE CLASS form1 AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	BindControls = .F.
-	Caption = "Home Pages for VFPX Projects"
-	ccolumnorder = 
-	ccolumnwidths = 
-	DataSession = 2
-	Desktop = .T.
-	DoCreate = .T.
-	Height = 365
-	Icon = thor.ico
-	Left = 0
-	lnoupdates = .F.
-	lresult = .F.
-	Name = "Form1"
-	nsplittertop = 0
-	Top = 0
-	Visible = .T.
-	Width = 351
-	WindowType = 0
-	_memberdata = <VFPData>
-		<memberdata name="lresult" display="lResult"/>
-		<memberdata name="ccolumnorder" display="cColumnOrder"/>
-		<memberdata name="ccolumnwidths" display="cColumnWidths"/>
-		<memberdata name="lnoupdates" display="lNoUpdates"/>
-		<memberdata name="nsplittertop" display="nSplitterTop"/>
-		<memberdata name="createupdatescursor" display="CreateUpdatesCursor"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		BindControls = .F.
+		Caption = "Home Pages for VFPX Projects"
+		ccolumnorder = 
+		ccolumnwidths = 
+		DataSession = 2
+		Desktop = .T.
+		DoCreate = .T.
+		Height = 365
+		Icon = thor.ico
+		Left = 0
+		lnoupdates = .F.
+		lresult = .F.
+		Name = "Form1"
+		nsplittertop = 0
+		Top = 0
+		Visible = .T.
+		Width = 351
+		WindowType = 0
+		_memberdata = <VFPData>
+			<memberdata name="lresult" display="lResult"/>
+			<memberdata name="ccolumnorder" display="cColumnOrder"/>
+			<memberdata name="ccolumnwidths" display="cColumnWidths"/>
+			<memberdata name="lnoupdates" display="lNoUpdates"/>
+			<memberdata name="nsplittertop" display="nSplitterTop"/>
+			<memberdata name="createupdatescursor" display="CreateUpdatesCursor"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Grid1' AS grid WITH ;
 		Anchor = 15, ;

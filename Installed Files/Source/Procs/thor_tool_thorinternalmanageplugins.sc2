@@ -8,12 +8,14 @@
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="2" />
 
-	DataSource = .NULL.
-	Height = 0
-	Left = 0
-	Name = "Dataenvironment"
-	Top = 0
-	Width = 0
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 0
+		Left = 0
+		Name = "Dataenvironment"
+		Top = 0
+		Width = 0
+	*</PropValue>
 
 ENDDEFINE
 
@@ -45,29 +47,31 @@ DEFINE CLASS manageplugins AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Caption = "Manage Plug-in PRGs"
-	chomefolder = 
-	cprocfolder = 
-	ctoolscollection = 
-	ctoolsfolder = 
-	DataSession = 2
-	DoCreate = .T.
-	Height = 458
-	Left = 0
-	Name = "ManagePlugIns"
-	Top = 0
-	Width = 900
-	_memberdata = <VFPData>
-		<memberdata name="setactioncaption" display="SetActionCaption"/>
-		<memberdata name="getactiveplugin" display="GetActivePlugIn"/>
-		<memberdata name="openplugin" display="OpenPlugIn"/>
-		<memberdata name="chomefolder" display="cHomeFolder"/>
-		<memberdata name="createfile" display="CreateFile"/>
-		<memberdata name="ctoolscollection" display="cToolsCollection"/>
-		<memberdata name="ctoolsfolder" display="cToolsFolder"/>
-		<memberdata name="cprocfolder" display="cProcFolder"/>
-		<memberdata name="addpluginstocursor" display="AddPluginsToCursor"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Caption = "Manage Plug-in PRGs"
+		chomefolder = 
+		cprocfolder = 
+		ctoolscollection = 
+		ctoolsfolder = 
+		DataSession = 2
+		DoCreate = .T.
+		Height = 458
+		Left = 0
+		Name = "ManagePlugIns"
+		Top = 0
+		Width = 900
+		_memberdata = <VFPData>
+			<memberdata name="setactioncaption" display="SetActionCaption"/>
+			<memberdata name="getactiveplugin" display="GetActivePlugIn"/>
+			<memberdata name="openplugin" display="OpenPlugIn"/>
+			<memberdata name="chomefolder" display="cHomeFolder"/>
+			<memberdata name="createfile" display="CreateFile"/>
+			<memberdata name="ctoolscollection" display="cToolsCollection"/>
+			<memberdata name="ctoolsfolder" display="cToolsFolder"/>
+			<memberdata name="cprocfolder" display="cProcFolder"/>
+			<memberdata name="addpluginstocursor" display="AddPluginsToCursor"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Grid1' AS grid WITH ;
 		Anchor = 15, ;
