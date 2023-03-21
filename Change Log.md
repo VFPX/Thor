@@ -1,8 +1,12 @@
 # Thor Change Log
 
+### Thor 1.45.10 - Released 2023-03-21
+
+Fix to problem where Check For Updates screen does not come up in visible screen
+
 ### Thor 1.45.09 - Released 2023-03-19
 
-Fix bad linkes in Framework
+Fix bad links in Framework
 
 ### Thor 1.45.07 - Released 2023-01-20
 
