@@ -120,6 +120,7 @@ ENDWITH
 WITH loProject
 	*<ProjectProperties>
 	.SetMain(lcCurdir + 'thor_main.prg')
+
 	.Debug = .T.
 	.Encrypted = .F.
 	*<.CmntStyle = 1 />

@@ -1099,8 +1099,16 @@ DEFINE CLASS thorinfo AS custom
 		lcCode = Strtran(lcCode, ccCR + '*&*&', '')
 		lcCode = Strtran(lcCode, ccCRLF + '*&*&', '')
 		
-		lcPRG	 = Addbs(lcFolder) + Forceext(This.PRGName, '.PRG')
+		*** JRN 2023-03-23 : Use _Screen.cThorFolder if possible
+		Local lcThorFolder
+		lcThorFolder = _Screen.cThorFolder
+		lcCode = Strtran (m.lcCode, ['] + m.lcThorFolder, [_Screen.cThorFolder + '], 1, 99, 1)
+		lcCode = Strtran (m.lcCode, ["] + m.lcThorFolder, [_Screen.cThorFolder + "], 1, 99, 1)
+		lcCode = Strtran (m.lcCode, '[' + m.lcThorFolder, '_Screen.cThorFolder + [', 1, 99, 1)
+		* ================================================================================ 
 		
+		lcPRG	 = Addbs(lcFolder) + Forceext(This.PRGName, '.PRG')
+		?lcPrg
 		llReplace = .T.
 		
 		If File(lcPRG)

@@ -72,7 +72,7 @@ DEFINE CLASS form1 AS form
 		nsplittertop = 0
 		Top = 0
 		Visible = .T.
-		Width = 775
+		Width = 922
 		WindowType = 1
 		_memberdata = <VFPData>
 			<memberdata name="lresult" display="lResult"/>
@@ -90,7 +90,7 @@ DEFINE CLASS form1 AS form
 		FontBold = .T., ;
 		FontSize = 10, ;
 		Height = 28, ;
-		Left = 680, ;
+		Left = 693, ;
 		Name = "cmdCancel", ;
 		TabIndex = 2, ;
 		Top = 334, ;
@@ -124,7 +124,7 @@ DEFINE CLASS form1 AS form
 		Name = "edtNotes", ;
 		ReadOnly = .T., ;
 		Top = 252, ;
-		Width = 751
+		Width = 905
 		*< END OBJECT: BaseClass="editbox" />
 
 	ADD OBJECT 'Grid1' AS grid WITH ;
@@ -144,7 +144,7 @@ DEFINE CLASS form1 AS form
 		RowHeight = 22, ;
 		TabIndex = 3, ;
 		Top = 6, ;
-		Width = 751, ;
+		Width = 905, ;
 		Column1.ColumnOrder = 2, ;
 		Column1.ControlSource = "Trim(crsr_ThorUpdates.AppName)", ;
 		Column1.DynamicFontUnderline = "Not empty(crsr_ThorUpdates.Link)", ;
@@ -180,13 +180,10 @@ DEFINE CLASS form1 AS form
 		Column5.Sparse = .F., ;
 		Column5.Width = 89, ;
 		Column6.ColumnOrder = 7, ;
-		Column6.ControlSource = "Alltrim(crsr_ThorUpdates.LinkPrompt)", ;
+		Column6.ControlSource = "crsr_ThorUpdates.InstalledVerNumber", ;
 		Column6.DynamicCurrentControl = 'Iif(Empty(crsr_ThorUpdates.LinkPrompt), "label", "text1")', ;
 		Column6.FontSize = 9, ;
-		Column6.FontUnderline = .T., ;
-		Column6.ForeColor = 0,0,255, ;
 		Column6.Name = "Column9", ;
-		Column6.Visible = .F., ;
 		Column6.Width = 180, ;
 		Column7.ColumnOrder = 3, ;
 		Column7.ControlSource = "crsr_ThorUpdates.Vernumber", ;
@@ -322,7 +319,7 @@ DEFINE CLASS form1 AS form
 		*< END OBJECT: BaseClass="header" />
 
 	ADD OBJECT 'Grid1.Column9.Header1' AS header WITH ;
-		Caption = "Link", ;
+		Caption = "Installed Version", ;
 		FontSize = 9, ;
 		Name = "Header1"
 		*< END OBJECT: BaseClass="header" />
@@ -336,12 +333,12 @@ DEFINE CLASS form1 AS form
 		BackColor = 255,255,255, ;
 		BorderStyle = 0, ;
 		FontSize = 9, ;
-		FontUnderline = .T., ;
-		ForeColor = 0,0,255, ;
+		FontUnderline = .F., ;
+		ForeColor = 0,0,0, ;
 		Margin = 0, ;
 		MousePointer = 15, ;
 		Name = "Text1", ;
-		Visible = .F.
+		Visible = .T.
 		*< END OBJECT: BaseClass="textbox" />
 
 	ADD OBJECT 'Label1' AS label WITH ;
@@ -369,7 +366,7 @@ DEFINE CLASS form1 AS form
 		nobject2minsize = 50, ;
 		Top = 242, ;
 		Visible = .T., ;
-		Width = 751, ;
+		Width = 764, ;
 		GRIPPER.GripperDot1.Name = "GripperDot1", ;
 		GRIPPER.GripperDot1.ShapeDark.Name = "ShapeDark", ;
 		GRIPPER.GripperDot1.ShapeLight.Name = "ShapeLight", ;
@@ -424,28 +421,24 @@ DEFINE CLASS form1 AS form
 		loSettings = Execscript (_Screen.cThorDispatcher, 'Class= ThorFormSettings', 'Thor Install Updates Settings')
 		Thisform.AddProperty ('oSettings', loSettings)
 		
+		This.MinWidth  = This.Width
+		This.MinHeight = This.Height
+		
 		If Not Isnull(loSettings)
 			loSettings.Restore (Thisform) && Gets top, left, height, width
 		
 			loSettings.Restore (Thisform, 'cColumnWidths, cColumnOrder, nSplitterTop') && and two other propertie
 		
-			*!* * Removed 10/3/2012 / JRN
-			*!* If Not Empty (This.cColumnWidths)
-			*!* 	Alines (laColumnWidths, This.cColumnWidths, 5, ',')
-			*!* 	Alines (laColumnOrder, This.cColumnOrder, 5, ',')
-			*!* 	With This.grid1
-			*!* 		For lnI = 1 To Min (.ColumnCount, Alen (laColumnWidths, 1))
-			*!* 			With .Columns[lnI]
-			*!* 				.Width		 = Val (laColumnWidths[lnI])
-			*!* 				.ColumnOrder = Val (laColumnOrder[lnI])
-			*!* 			Endwith
-			*!* 		Endfor
-			*!* 	Endwith && this.grid1
-			*!* Endif && not Empty(This.cColumnWidths)
+			With This
+				.Height	= Min(.Height, _Screen.Height)
+				.Top	= Max(0, Min(.Top, _Screen.Height - .Height))
 			
+				.Width = Min(.Width, _Screen.Width)
+				.Left  = Max(0, Min(.Left, _Screen.Width - .Width))
+			
+			Endwith
+				
 		Endif
-		
-		
 		
 	ENDPROC
 
