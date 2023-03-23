@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.45.11 - Released 2023-03-23
+
+References to installed Thor tools using explicit full paths are replaced with uses of _Screen.cThorFolder so that that are relocatable
+
 ### Thor 1.45.10 - Released 2023-03-21
 
 Fix to problem where Check For Updates screen does not come up in visible screen

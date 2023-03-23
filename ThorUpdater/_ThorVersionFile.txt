@@ -1,7 +1,7 @@
 Lparameters toUpdateInfo
 
 Local lcNote
-AddProperty(toUpdateInfo, 'AvailableVersion',	'Thor - 1.45.10 - March 21, 2023- 20230321'   )
+AddProperty(toUpdateInfo, 'AvailableVersion',	'Thor - 1.45.12 - March 23, 2023- 20230323'   )
 AddProperty(toUpdateInfo, 'SourceFileUrl', 		'https://raw.githubusercontent.com/VFPX/Thor/master/ThorUpdater/Thor.zip')
 AddProperty(toUpdateInfo, 'LinkPrompt', 		'Thor Home Page')
 AddProperty(toUpdateInfo, 'Link', 				'https://github.com/VFPX/Thor')
