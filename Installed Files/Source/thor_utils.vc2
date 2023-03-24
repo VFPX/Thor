@@ -1108,7 +1108,6 @@ DEFINE CLASS thorinfo AS custom
 		* ================================================================================ 
 		
 		lcPRG	 = Addbs(lcFolder) + Forceext(This.PRGName, '.PRG')
-		?lcPrg
 		llReplace = .T.
 		
 		If File(lcPRG)
