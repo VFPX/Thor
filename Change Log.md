@@ -1,8 +1,8 @@
 # Thor Change Log
 
-### Thor 1.45.13 - Released 2023-03-24
+### Thor 1.45.14 - Released 2023-03-24
 
-Bug fix in 1.45.11&12
+Bug fix in 1.45.11&12&13
 
 ### Thor 1.45.11 - Released 2023-03-23
 
