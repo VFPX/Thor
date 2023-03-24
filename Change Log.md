@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.45.13 - Released 2023-03-24
+
+Bug fix in 1.45.11&12
+
 ### Thor 1.45.11 - Released 2023-03-23
 
 References to installed Thor tools using explicit full paths are replaced with uses of _Screen.cThorFolder so that that are relocatable
