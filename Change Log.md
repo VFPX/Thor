@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.45.16 - Released 2023-04-02
+
+Enable sorting on most of columns in CFU form.
+
 ### Thor 1.45.15 - Released 2023-04-02
 
 Fix to issue where CFU form position not handled properly in multiple monitor situation
