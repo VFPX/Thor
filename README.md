@@ -1,7 +1,7 @@
 ![](Docs/Images/Thor.png)  
 ## Tool manager for FoxPro
 
-Version 1.45.15 Release 2023-04-02
+Version 1.45.16 Release 2023-04-02
 
 [What's new in this release](Change%20Log.md)
 
