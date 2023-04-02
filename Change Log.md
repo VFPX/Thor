@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.45.15 - Released 2023-04-02
+
+Fix to issue where CFU form position not handled properly in multiple monitor situation
+
 ### Thor 1.45.14 - Released 2023-03-24
 
 Bug fix in 1.45.11&12&13

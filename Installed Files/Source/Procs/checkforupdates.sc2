@@ -49,6 +49,7 @@ DEFINE CLASS form1 AS form
 	*< OBJECTDATA: ObjPath="Splitter" UniqueID="" Timestamp="" />
 
 	*<DefinedPropArrayMethod>
+		*m: getmonitorstatistics
 		*p: ccolumnorder
 		*p: ccolumnwidths
 		*p: lnoupdates
@@ -80,6 +81,7 @@ DEFINE CLASS form1 AS form
 			<memberdata name="ccolumnwidths" display="cColumnWidths"/>
 			<memberdata name="lnoupdates" display="lNoUpdates"/>
 			<memberdata name="nsplittertop" display="nSplitterTop"/>
+			<memberdata name="getmonitorstatistics" display="GetMonitorStatistics"/>
 		</VFPData>
 	*</PropValue>
 
@@ -414,6 +416,60 @@ DEFINE CLASS form1 AS form
 		
 	ENDPROC
 
+	PROCEDURE getmonitorstatistics
+		****************************************
+		***  Function: Returns information about the desktop screen
+		***            Can be used to check for desktop width and size
+		***            and determine when a second monitor is disabled
+		***            and layout needs to be adjusted to keep the
+		***            window visible.
+		***      Pass:
+		***    Return:  Monitor Object
+		***
+		*** From https://west-wind.com/wconnect/weblog/ShowEntry.blog?id=836
+		*** Handling Multiple Screens in Visual FoxPro Desktop Applications
+		***
+		************************************************************************
+		
+			#Define SM_CXFULLSCREEN		16
+			#Define SM_CYFULLSCREEN		17
+		
+			#Define SM_XVIRTUALSCREEN	76
+			#Define SM_YVIRTUALSCREEN	77
+			#Define SM_CXVIRTUALSCREEN	78
+			#Define SM_CYVIRTUALSCREEN	79
+			#Define SM_CMONITORS		80
+		
+			#Define SM_XVIRTUALSCREEN	76
+			#Define SM_YVIRTUALSCREEN	77
+			#Define SM_CXVIRTUALSCREEN	78
+			#Define SM_CYVIRTUALSCREEN	79
+		
+		
+			Local;
+				loMonitor As "EMPTY"
+		
+			Declare Integer GetSystemMetrics In user32 Integer nIndex
+		
+			loMonitor = Createobject("EMPTY")
+		*	AddProperty(loMonitor, "gnMonitors",      GetSystemMetrics(SM_CMONITORS))
+		
+			AddProperty(m.loMonitor, "gnVirtualLeft",   GetSystemMetrics(SM_XVIRTUALSCREEN))
+			AddProperty(m.loMonitor, "gnVirtualTop",    GetSystemMetrics(SM_YVIRTUALSCREEN))
+		
+			AddProperty(m.loMonitor, "gnVirtualWidth",  GetSystemMetrics(SM_CXVIRTUALSCREEN))
+			AddProperty(m.loMonitor, "gnVirtualHeight", GetSystemMetrics(SM_CYVIRTUALSCREEN))
+		
+			AddProperty(m.loMonitor, "gnVirtualRight",  m.loMonitor.gnVirtualWidth -  Abs(m.loMonitor.gnVirtualLeft) - 10)
+			AddProperty(m.loMonitor, "gnVirtualBottom", m.loMonitor.gnVirtualHeight - Abs(m.loMonitor.gnVirtualTop)  -  5)
+		
+		*ADDPROPERTY(loMonitor, "gnScreenHeight",  GetSystemMetrics(SM_CYFULLSCREEN))
+		*ADDPROPERTY(loMonitor, "gnScreenWidth",   GetSystemMetrics(SM_CXFULLSCREEN))
+		
+			Return m.loMonitor
+		
+	ENDPROC
+
 	PROCEDURE Init
 		* ThorFormSettings home page = http://vfpx.codeplex.com/wikipage?title=Thor%20Framework%20FormSettings
 		Local laColumnOrder[1], laColumnWidths[1], lnI, loSettings
@@ -424,32 +480,81 @@ DEFINE CLASS form1 AS form
 		This.MinWidth  = This.Width
 		This.MinHeight = This.Height
 		
+		*!*	changed by: SF 1.4.2023
+		*!*	<pdm>
+		*!*	<change date="{^2023-04-01,17:21:00}">changed by: SF<br />
+		*!*	Try to move form into visible area if on multi-monitor setup with _VFP not on main monitor
+		*!*	This part helps to get a good start before reading settings stored. Else it will be odd.
+		*!*	</change>
+		*!*	</pdm>
+		
+		If This.Desktop Or This.Dockable=1 Then
+		*Move forms with this setting into screen, might be odd on multiple monitors
+		
+		*get coords of vfp
+			This.Top  = _Screen.Top
+			This.Left = _Screen.Left
+		*twice, first reads odd values
+			This.Top  = _Screen.Top
+			This.Left = _Screen.Left
+		Endif &&This.Desktop Or This.Dockable=1
+		
+		*!*	/changed by: SF 1.4.2023
+		
+		
 		If Not Isnull(loSettings)
 			loSettings.Restore (Thisform) && Gets top, left, height, width
 		
-			loSettings.Restore (Thisform, 'cColumnWidths, cColumnOrder, nSplitterTop') && and two other propertie
+			loSettings.Restore (Thisform, 'cColumnWidths, cColumnOrder, nSplitterTop') && and two other properties
 		
-			With This
-				.Height	= Min(.Height, _Screen.Height)
-				.Top	= Max(0, Min(.Top, _Screen.Height - .Height))
-			
-				.Width = Min(.Width, _Screen.Width)
-				.Left  = Max(0, Min(.Left, _Screen.Width - .Width))
-			
-			Endwith
-				
+		*!*	changed by: SF 1.4.2023
+		*!*	<pdm>
+		*!*	<change date="{^2023-04-01,17:21:00}">changed by: SF<br />
+		*!*	Try to move form into visible area if on multi-monitor setup with _VFP not on main monitor
+		*!*	This part moves the form into _SCREEN, if partial out of visble area.
+		*!*	</change>
+		*!*	</pdm>
+		
+		*********
+			lnTop          = 0
+			lnHeight       = This.Height
+			lnLeft         = 0
+			lnWidth        = This.Width
+		
+			lnScreenTop    = 0
+			lnScreenBottom = _Screen.Height
+			lnScreenLeft   = 0
+			lnScreenRight  = _Screen.Width
+		
+			If This.Desktop Or This.Dockable=1 Then
+				loMonitor = This.GetMonitorStatistics()
+		
+				lnTop          = _Screen.Top
+				lnLeft         = _Screen.Left
+		
+				lnScreenTop    = m.loMonitor.gnVirtualTop
+				lnScreenBottom = m.loMonitor.gnVirtualBottom
+				lnScreenLeft   = m.loMonitor.gnVirtualLeft
+				lnScreenRight  = m.loMonitor.gnVirtualRight
+		
+			Endif &&This.Desktop Or This.Dockable=1
+		
+			If Between(This.Top , m.lnScreenTop, m.lnScreenBottom) Then
+				lnTop    = This.Top
+				lnHeight = This.Height
+			Endif &&Between(This.Top , m.lnScreenTop, m.lnScreenBottom)
+		
+			If Between(This.Left, m.lnScreenLeft, m.lnScreenRight) Then
+				lnLeft   = This.Left
+				lnWidth  = This.Width
+			Endif &&Between(This.Left, m.lnScreenLeft, m.lnScreenRight)
+		
+			Thisform.Move(m.lnLeft, m.lnTop, m.lnWidth, m.lnHeight)
+		
+			This.Resize()
+		*!*	/changed by: SF 1.4.2023
+		
 		Endif
-		
-	ENDPROC
-
-	PROCEDURE Load
-		*!* * Removed 11/11/2012 / JRN
-		*!* Local lnCount
-		*!* Calculate   Sum(1) For Not Disabled To lnCount
-		
-		*!* This.lNoUpdates = lnCount = 0
-		*!* Goto Top
-		
 	ENDPROC
 
 	PROCEDURE Show
