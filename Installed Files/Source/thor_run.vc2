@@ -337,9 +337,7 @@ DEFINE CLASS thor_run AS custom
 					loContextMenu.EndSubMenu ()
 		
 				Case Upper (lcPRGName) = Upper ('Thor-Forums')
-					loContextMenu.AddSubMenu ('VFPX \<Issues', '')
-					This.AddForums(loContextMenu, 'ForumName', 'ForumLink')
-					loContextMenu.EndSubMenu ()
+					loContextMenu.AddMenuItem ('Project Home Pages', [ExecScript(_Screen.cThorDispatcher, 'Thor_Tool_ProjectHomePages')])
 		
 				Case Upper (lcPRGName) = Upper ('Thor-Blogs')
 					loContextMenu.AddSubMenu ('Blogs', '')

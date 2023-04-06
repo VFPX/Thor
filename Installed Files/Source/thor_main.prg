@@ -19,7 +19,6 @@ Else
 Endif Upper (Justfname (lcApp)) = 'THOR.FXP'
 
 ****************************************************************
-
 lcAction = Upper (Transform (tcAction))
 
 Do Case
@@ -473,9 +472,9 @@ Endproc
 Procedure AddThorMainMenuItems(tcFolder, loMenuDefs)
 
 	Local lnMoreID
-	AddThorMainMenuItem (8, 'Thor_Tool_ThorInternalRunTool', 105, '\<Launcher', 'Find and run tools, explore descriptions, etc')
 	AddThorMainMenuItem (8, ccINTERNALEDITPRG, 110, '\<Configure', 'Assign hot keys, create menus and sub-menus, etc.')
 	AddThorMainMenuItem (8, ccCHECKFORUPDATES, 120, 'Check for \<Updates', 'Check for and install any outstanding updates')
+	AddThorMainMenuItem (8, 'Thor_Tool_ThorInternalRunTool', 140, '\<Launcher', 'Find and run tools, explore descriptions, etc')
 
 	AddThorMainMenuSeparator (8, 200, 'SEPARATOR1')
 
@@ -758,6 +757,9 @@ Procedure CreateThorInternalTools
 
     InstallTool(GetThor_Tool_ThorInternalRepository (tcFolder), ;
         lcToolsFolder + 'Thor_Tool_ThorInternalRepository.PRG')
+
+    InstallTool(GetThor_Tool_ProjectHomePages (tcFolder), ;
+        lcToolsFolder + 'Thor_Tool_ProjectHomePages.prg')
 
     InstallTool(GetThor_Tool_ThorInternalRepositoryHomePage (tcFolder), ;
         lcToolsFolder + 'Thor_Tool_ThorInternalRepositoryHomePage.PRG')
@@ -1359,6 +1361,8 @@ EndProc
 
 EndProc
 
+* ================================================================================ 
+* ================================================================================ 
 Procedure GetThor_Tool_ThorInternalRepository (tcFolder)
 
 	Local lcCode, lcVersion
@@ -1403,6 +1407,65 @@ EndProc
 
 EndProc
 
+
+* ================================================================================ 
+* ================================================================================ 
+Procedure GetThor_Tool_ProjectHomePages(tcFolder)
+
+	Local lcCode, lcVersion
+	lcVersion = ccTHORVERSION
+	Text To lcCode Noshow Textmerge
+Lparameters lxParam1
+
+****************************************************************
+****************************************************************
+* Standard prefix for all tools for Thor, allowing this tool to
+*   tell Thor about itself.
+
+If Pcount() = 1								;
+		And 'O' = Vartype (lxParam1)		;
+		And 'thorinfo' == Lower (lxParam1.Class)
+
+	With lxParam1
+
+		.Prompt		 = 'Project Home Pages'
+		.Description = 'List of Project and links to their home pages'
+		.Source		 = 'Thor'
+		.Version     = 'Thor - 1.45.16.003 - April 2, 2023'
+		.Sort		 = 20
+
+	Endwith
+
+	Return lxParam1
+Endif
+
+If Pcount() = 0
+	Do ToolCode
+Else
+	Do ToolCode With lxParam1
+Endif
+
+Return
+
+****************************************************************
+****************************************************************
+* Normal processing for this tool begins here.                  
+Procedure ToolCode
+	Lparameters lxParam1
+
+	lcFormFileName = Execscript (_Screen.cThorDispatcher, 'Full Path=Thor_Proc_ProjectHomePages.SCX')
+	Do Form (lcFormFileName)
+
+Endproc
+
+	EndText
+	Return Strtran(lcCode, '*##*', '')
+
+EndProc
+
+
+* ================================================================================  
+* ================================================================================ 
 Procedure GetThor_Tool_ThorInternalRepositoryHomePage (tcFolder)
 
 	Local lcCode, lcVersion
@@ -1512,8 +1575,8 @@ Procedure Getthor_tool_thorinternalthornews (tcFolder)
 	lcVersion = ccTHORVERSION
 *** DH 2018-04-10: new URL for #DEFINE
 	Text To lcCode Noshow Textmerge
-#Define 	ccThorVersionURL 	'https://raw.githubusercontent.com/VFPX/Thor/master/Docs/NewsItems/ThorNewsVersion.txt'
-#Define 	ccThorNewsURL 		'https://github.com/VFPX/Thor/blob/master/Docs/Thor_news.md'
+#Define 	ccThorVersionURL 	'https://raw.githubusercontent.com/VFPX/ThorNews/master/NewsItems/CurrentItemNumber.txt'
+#Define 	ccThorNewsURL 		'https://github.com/VFPX/ThorNews/blob/main/NewsItems/Item_^^Version^^.md'
 
 #Define 	ccTool 				'Thor News'
 #Define     ccCheckForCFU		'Thor News/CFU'
@@ -1554,16 +1617,6 @@ If Pcount() = 1								;
 		.OptionClasses = 'clsCheckForUpdates, clsRunThor, clsRunThorInterval, clsLastNewsDate, clsLastNewsVersion'
 		.OptionTool	   = ccTool
 
-		.ForumName = GetForumNames()
-		.ForumLink = GetForumLinks()
-		*!* * Removed 11/16/2012 / JRN
-
-		*!* 		.BlogName 		= '-Jim Nelson'
-		*!* 		.BlogLink 		= 'http://jimrnelson.blogspot.com/'
-
-		.ChangeLogName = GetChangeLogNames()
-		.ChangeLogLink = GetChangeLogLinks()
-
 	Endwith
 
 	Return m.lxParam1
@@ -1577,43 +1630,6 @@ Endif
 
 Return
 
-
-Procedure GetForumNames
-	Local lcForums
-	lcForums = '-Thor' && - Causes this to appear first; remainder are alphabetical
-	lcForums = lcForums + ccCR + '-Thor Repository'
-	lcForums = lcForums + ccCR + 'GoFish'
-	Return lcForums
-Endproc
-
-Procedure GetForumLinks
-	Local lcForums
-	lcForums = 'https://github.com/VFPX/Thor/issues'
-	lcForums = lcForums + ccCR + 'https://github.com/VFPX/ThorRepository/issues'
-	lcForums = lcForums + ccCR + 'https://github.com/VFPX/GoFish/issues'
-	Return lcForums
-Endproc
-
-Procedure GetChangeLogNames
-	Local lcChangeLogs
-	lcChangeLogs = '-Thor'  && - Causes this to appear first; remainder are alphabetical
-	lcChangeLogs = lcChangeLogs + ccCR + 'PEM Editor'
-	lcChangeLogs = lcChangeLogs + ccCR + 'Thor Repository'
-	lcChangeLogs = lcChangeLogs + ccCR + 'IntellisenseX'
-	Return lcChangeLogs
-Endproc
-
-Procedure GetChangeLogLinks
-	Local lcChangeLogs
-	lcChangeLogs = 'https://github.com/VFPX/Thor/blob/master/Change%20Log.md'
-	lcChangeLogs = lcChangeLogs + ccCR + 'https://github.com/VFPX/PEMEditor/blob/master/Change%20Log.md'
-	lcChangeLogs = lcChangeLogs + ccCR + 'https://github.com/VFPX/ThorRepository/blob/master/Change%20Log.md'
-	lcChangeLogs = lcChangeLogs + ccCR + 'https://github.com/VFPX/IntellisenseX/blob/master/Change%20Log.md'
-	Return lcChangeLogs
-Endproc
-
-
-****************************************************************
 ****************************************************************
 * Normal processing for this tool begins here.                  
 Procedure ToolCode
@@ -1675,7 +1691,9 @@ Procedure ToolCode
 	Execscript(_Screen.cThorDispatcher, 'Set Option=', ccLastVersionSeen, ccTool, m.lnHTMLVersion)
 
 	loShell = Createobject ('wscript.shell')
-	m.loShell.Run (ccThorNewsURL)
+	lcVersion = Transform(Int(lnLastVersion))
+	lcUrl = Strtran(ccThorNewsURL, '^^Version^^', lcVersion)
+	m.loShell.Run (Textmerge(lcURL))
 
 Endproc
 

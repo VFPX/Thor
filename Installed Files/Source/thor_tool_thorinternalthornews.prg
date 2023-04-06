@@ -1,5 +1,5 @@
-#Define 	ccThorVersionURL 	'https://raw.githubusercontent.com/VFPX/Thor/master/Docs/NewsItems/ThorNewsVersion.txt'
-#Define 	ccThorNewsURL 		'https://github.com/VFPX/Thor/blob/master/Docs/Thor_news.md'
+#Define 	ccThorVersionURL 	'https://raw.githubusercontent.com/VFPX/ThorNews/master/NewsItems/CurrentItemNumber.txt'
+#Define 	ccThorNewsURL 		'https://github.com/VFPX/ThorNews/blob/main/NewsItems/Item_<<m.lcVersion>>.md'
 
 #Define 	ccTool 				'Thor News'
 #Define     ccCheckForCFU		'Thor News/CFU'
@@ -40,13 +40,6 @@ If Pcount() = 1								;
 		.OptionClasses = 'clsCheckForUpdates, clsRunThor, clsRunThorInterval, clsLastNewsDate, clsLastNewsVersion'
 		.OptionTool	   = ccTool
 
-		.ForumName = GetForumNames()
-		.ForumLink = GetForumLinks()
-		*!* * Removed 11/16/2012 / JRN
-
-		*!* 		.BlogName 		= '-Jim Nelson'
-		*!* 		.BlogLink 		= 'http://jimrnelson.blogspot.com/'
-
 		.ChangeLogName = GetChangeLogNames()
 		.ChangeLogLink = GetChangeLogLinks()
 
@@ -63,46 +56,6 @@ Endif
 
 Return
 
-
-Procedure GetForumNames
-	Local lcForums
-	lcForums = '-Thor' && - Causes this to appear first; remainder are alphabetical
-	lcForums = lcForums + chr(13) + 'OFUG'
-	lcForums = lcForums + chr(13) + 'GoFish'
-	lcForums = lcForums + chr(13) + 'Dynamic Forms'
-	Return lcForums
-Endproc
-
-Procedure GetForumLinks
-	Local lcForums
-	lcForums = 'https://groups.google.com/forum/?fromgroups#!forum/FoxProThor'
-	lcForums = lcForums + chr(13) + 'https://groups.google.com/forum/?fromgroups=#!forum/ofug'
-	lcForums = lcForums + chr(13) + 'https://groups.google.com/forum/?fromgroups#!forum/FoxProGoFish'
-	lcForums = lcForums + chr(13) + 'https://groups.google.com/forum/?fromgroups#!forum/FoxProDynamicForms'
-	Return lcForums
-Endproc
-
-Procedure GetChangeLogNames
-	Local lcChangeLogs
-	lcChangeLogs = '-Thor'  && - Causes this to appear first; remainder are alphabetical
-	lcChangeLogs = lcChangeLogs + chr(13) + 'PEM Editor'
-	lcChangeLogs = lcChangeLogs + chr(13) + 'Thor Repository'
-	lcChangeLogs = lcChangeLogs + chr(13) + 'IntellisenseX'
-	lcChangeLogs = lcChangeLogs + chr(13) + 'VFPX Projects'
-	Return lcChangeLogs
-Endproc
-
-Procedure GetChangeLogLinks
-	Local lcChangeLogs
-	lcChangeLogs = 'https://docs.google.com/document/d/1Fs4dwMq3Ckgr4vReP1_YxHc1wQnEyHX94tUfaFsZ4us/edit'
-	lcChangeLogs = lcChangeLogs + chr(13) + 'https://docs.google.com/document/d/1WE_ItHG8JJMCF-YbMCeJCELd08Qjr4HYLzde55rk-oI/edit'
-	lcChangeLogs = lcChangeLogs + chr(13) + 'https://docs.google.com/document/d/1ASU-huMjxQ3hl7rRw3OqoJOGeQ8bAvnxs_2mJINDPKY/edit'
-	lcChangeLogs = lcChangeLogs + chr(13) + 'https://docs.google.com/document/d/1WRfYGzJAdcAWCcpcwbs_BOE8xpSOmK6T8zSPwZKKf54/edit'
-	lcChangeLogs = lcChangeLogs + chr(13) + 'https://docs.google.com/document/d/1Tz5mZGZRu1Ynu4CX2qxaVba1JkaeETHSvMz--O4DzMc/edit'
-	Return lcChangeLogs
-Endproc
-
-****************************************************************
 ****************************************************************
 * Normal processing for this tool begins here.                  
 Procedure ToolCode
@@ -164,7 +117,8 @@ Procedure ToolCode
 	Execscript(_Screen.cThorDispatcher, 'Set Option=', ccLastVersionSeen, ccTool, m.lnHTMLVersion)
 
 	loShell = Createobject ('wscript.shell')
-	m.loShell.Run (ccThorNewsURL)
+	lcVersion = Transform(Int(lnLastVersion))
+	m.loShell.Run (Textmerge(ccThorNewsURL))
 
 Endproc
 
@@ -291,4 +245,3 @@ Define Class clsThorNews As Container
 
 Enddefine
 
- 
