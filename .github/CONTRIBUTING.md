@@ -24,23 +24,16 @@ Here are the steps to updating to a new version:
 1. Update the version number and date at the top of _README.md_ 
 1. Describe the changes in _Change Log.md_.
 ---
-#### If updating Thor News
----
-9. Increment the news version number in _Docs/NewsItems/ThorNewsVersion.txt_.
-1. Create the new item as _Docs/NewsItems/Item_NN.txt_.
-1. Paste the new item into _Docs/Thor_News.txt_, replacing the current (top) item there
-1. Add a line at the top of "Headline History" in _Docs/Thor_News.txt_ with a link to the new item.
----
-#### If updating version info for VFPX Projects / CFU (most projects)
+#### If updating version info for VFPX Projects / CFU (most projects) or creating an updater for a new projects
 ---
 
 This applies to all updaters except those few (15 or so) where the version information is read from a separate URL (.VersionFileURL) which is normally used only for projects with continuing updates.
 
-13. Add / Modify the prg file in Updaters\Updates
+9. Add / Modify the prg file in Updaters\Updates
 
 ---
 ### Finally
-14. In folder _ThorUpdater_, right-click _CreateThorUpdate.ps1_ and select **Run with PowerShell** from the shortcut menu to re-create the installation zip files.
+10. In folder _ThorUpdater_, right-click _CreateThorUpdate.ps1_ and select **Run with PowerShell** from the shortcut menu to re-create the installation zip files.
 1. Commit
 1. Push to your fork
 1. Create a pull request

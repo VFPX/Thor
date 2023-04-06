@@ -41,6 +41,7 @@ DEFINE CLASS form1 AS form
 
 	*<DefinedPropArrayMethod>
 		*m: createupdatescursor
+		*m: sortcolumn
 		*p: ccolumnorder
 		*p: ccolumnwidths
 		*p: lnoupdates
@@ -75,6 +76,7 @@ DEFINE CLASS form1 AS form
 			<memberdata name="lnoupdates" display="lNoUpdates"/>
 			<memberdata name="nsplittertop" display="nSplitterTop"/>
 			<memberdata name="createupdatescursor" display="CreateUpdatesCursor"/>
+			<memberdata name="sortcolumn" display="SortColumn"/>
 		</VFPData>
 	*</PropValue>
 
@@ -305,7 +307,7 @@ DEFINE CLASS form1 AS form
 						Replace SortKey With 'X'
 					Else
 						Replace	Status	 With  'Installed'		;
-								SortKey	 With  'A'
+								SortKey	 With  Iif('THOR' == Upper(Alltrim(.ApplicationName)), 'A', 'B') 
 					Endif
 				Endif && not Empty(.Link)
 		
@@ -353,11 +355,11 @@ DEFINE CLASS form1 AS form
 			Endwith
 		Endfor && lnI = 1 to loUpdateList.Count
 		
-		Select  *								;
-			From crsr_ThorUpdates				;
-			Where Not Empty(LinkPrompt)			;
-			Order By SortKey					;
-			Into Cursor crsr_ThorUpdates Readwrite
+		Select  *										;
+			From crsr_ThorUpdates						;
+			where not Empty(LinkPrompt)					;
+			Order By SortKey;
+			Into Cursor crsr_ThorUpdates Readwrite		
 		Goto Top
 		
 		Return llAnyFound
@@ -421,12 +423,30 @@ DEFINE CLASS form1 AS form
 		
 	ENDPROC
 
+	PROCEDURE sortcolumn
+		Lparameters lcField
+		
+		Local lcIndexFile
+		
+		Delete Tag all 
+		
+		lcIndexFile = Sys(2023) + '\_SB_Temp' + Sys(2015)
+		Index On &lcField Tag Tag
+		Goto top
+		Thisform.Refresh()
+		
+	ENDPROC
+
 	PROCEDURE Grid1.Column1.Text1.When
 		Return .f.
 	ENDPROC
 
 	PROCEDURE Grid1.Column2.Text1.When
 		Return .f.
+	ENDPROC
+
+	PROCEDURE Grid1.Column4.Header1.Click
+		Thisform.SortColumn('crsr_ThorUpdates.SortKey')
 	ENDPROC
 
 	PROCEDURE Grid1.Column6.checkbox.Valid
@@ -445,6 +465,10 @@ DEFINE CLASS form1 AS form
 				Erase (lcFileName)
 		Endcase
 		
+	ENDPROC
+
+	PROCEDURE Grid1.Column9.Header1.Click
+		Thisform.SortColumn('crsr_ThorUpdates.AppName')
 	ENDPROC
 
 	PROCEDURE Grid1.Column9.Text1.Click

@@ -1,5 +1,10 @@
 # Thor Change Log
 
+### Thor 1.45.17 - Released 2023-04-06
+
+* Modified menu options in system menu pad for Thor, adding "Project Home Pages"
+* Changed handling of Thor News to use new location in https://github.com/VFPX/ThorNews
+
 ### Thor 1.45.16 - Released 2023-04-02
 
 Enable sorting on most of columns in CFU form.
