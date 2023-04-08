@@ -1653,7 +1653,7 @@ Procedure ToolCode
 		Case 'L' = Vartype (m.lxParam1)
 
 		Case Upper (m.lxParam1) = Upper ('Check For Updates')
-			llShowIt	 = Execscript(_Screen.cThorDispatcher, 'Get Option=', ccCheckForCFU, ccTool)
+			*	llShowIt	 = Execscript(_Screen.cThorDispatcher, 'Get Option=', ccCheckForCFU, ccTool)
 			llCheckFirst = .T.
 
 		Case Upper (m.lxParam1) = Upper ('RunThor')
@@ -1683,7 +1683,7 @@ Procedure ToolCode
 
 	Execscript(_Screen.cThorDispatcher, 'Set Option=', ccDateLastSeen, ccTool, Date())
 
-	lnLastVersion = Execscript(_Screen.cThorDispatcher, 'Get Option=', ccLastVersionSeen, ccTool)
+	lnLastVersion = Nvl(Execscript(_Screen.cThorDispatcher, 'Get Option=', ccLastVersionSeen, ccTool), 0)
 	If m.llCheckFirst And m.lnHTMLVersion = m.lnLastVersion
 		Return
 	Endif
@@ -2501,7 +2501,8 @@ Procedure CreateUpdatesCursor (toUpdateList)
 		  IsCurrent        		L,				;
 		  SortKey			    C(100),			;
 		  VerDate               D,				;
-		  VerNumber				C(100)			;
+		  VerNumber				C(100),			;
+		  ProjectType			C(10)			;
 		  )
 
 	llAnyFound = .F.
@@ -2510,9 +2511,9 @@ Procedure CreateUpdatesCursor (toUpdateList)
 		With toUpdateList[lnI]
 
 			Insert Into crsr_ThorUpdates														;
-				(Recno, AppName, InstalledVersion,	AvailableVersion, Notes, FromMyUpdates, ProjectCreationDate)		;
+				(Recno, AppName, InstalledVersion,	AvailableVersion, Notes, FromMyUpdates, ProjectCreationDate, ProjectType)		;
 				Values																			;
-				(lnI, .ApplicationName, .CurrentVersion, .AvailableVersion, .Tag, .FromMyUpdates = 'Y', .ProjectCreationDate)
+				(lnI, .ApplicationName, .CurrentVersion, .AvailableVersion, .Tag, .FromMyUpdates = 'Y', .ProjectCreationDate, Iif('Y' $ Upper(.Component), 'Component', 'App'))
 
 			loVersionInfo = GetVersionInfo (.CurrentVersion)
 			Replace	InstalledVerNumber	With  Alltrim (loVersionInfo.VerNumber) + Iif (loVersionInfo.VerDate <= EmptyVerDate, '', ' (' + Dtoc (loVersionInfo.VerDate) + ')')
