@@ -1,6 +1,6 @@
 # Thor Change Log
 
-### Thor 1.45.18 - Released 2023-04-08
+### Thor 1.45.19 - Released 2023-04-08
 
 * Two bug fixes
 * Add 'Project Type" column to CFU form
