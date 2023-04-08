@@ -1,5 +1,10 @@
 # Thor Change Log
 
+### Thor 1.45.18 - Released 2023-04-08
+
+* Two bug fixes
+* Add 'Project Type" column to CFU form
+
 ### Thor 1.45.17 - Released 2023-04-06
 
 * Modified menu options in system menu pad for Thor, adding "Project Home Pages"

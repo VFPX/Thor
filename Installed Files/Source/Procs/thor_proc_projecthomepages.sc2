@@ -67,7 +67,7 @@ DEFINE CLASS form1 AS form
 		nsplittertop = 0
 		Top = 0
 		Visible = .T.
-		Width = 351
+		Width = 433
 		WindowType = 0
 		_memberdata = <VFPData>
 			<memberdata name="lresult" display="lResult"/>
@@ -97,7 +97,7 @@ DEFINE CLASS form1 AS form
 		RowHeight = 22, ;
 		TabIndex = 3, ;
 		Top = 6, ;
-		Width = 327, ;
+		Width = 409, ;
 		Column1.ColumnOrder = 1, ;
 		Column1.ControlSource = "[]", ;
 		Column1.FontSize = 9, ;
@@ -105,15 +105,15 @@ DEFINE CLASS form1 AS form
 		Column1.ReadOnly = .T., ;
 		Column1.Visible = .T., ;
 		Column1.Width = 0, ;
-		Column2.ColumnOrder = 3, ;
-		Column2.ControlSource = "AllTrim(crsr_ThorUpdates.AvailableVerNumber)", ;
+		Column2.ColumnOrder = 4, ;
+		Column2.ControlSource = "crsr_ThorUpdates.ProjectType", ;
 		Column2.FontSize = 9, ;
 		Column2.Name = "Column2", ;
 		Column2.ReadOnly = .T., ;
-		Column2.Visible = .F., ;
-		Column2.Width = 180, ;
+		Column2.Visible = .T., ;
+		Column2.Width = 80, ;
 		Column3.Alignment = 2, ;
-		Column3.ColumnOrder = 4, ;
+		Column3.ColumnOrder = 3, ;
 		Column3.ControlSource = "Alltrim(crsr_ThorUpdates.Status)", ;
 		Column3.FontSize = 9, ;
 		Column3.Name = "Column4", ;
@@ -164,7 +164,7 @@ DEFINE CLASS form1 AS form
 		*< END OBJECT: BaseClass="textbox" />
 
 	ADD OBJECT 'Grid1.Column2.Header1' AS header WITH ;
-		Caption = "Available Version", ;
+		Caption = "Type", ;
 		FontSize = 9, ;
 		Name = "Header1"
 		*< END OBJECT: BaseClass="header" />
@@ -178,7 +178,7 @@ DEFINE CLASS form1 AS form
 		Margin = 0, ;
 		Name = "Text1", ;
 		ReadOnly = .T., ;
-		Visible = .F.
+		Visible = .T.
 		*< END OBJECT: BaseClass="textbox" />
 
 	ADD OBJECT 'Grid1.Column4.Header1' AS header WITH ;
@@ -289,7 +289,8 @@ DEFINE CLASS form1 AS form
 			  LinkPrompt			C(100),			;
 			  Disabled        		L,				;
 			  SortKey			    C(100),			;
-			  VerDate               D				;
+			  VerDate               D,				;
+			  ProjectType			C(10)			;
 			  )
 		
 		llAnyFound = .F.
@@ -299,9 +300,10 @@ DEFINE CLASS form1 AS form
 				If Not Empty(.Link)
 					lcPrompt = Strtran(Transform(.LinkPrompt), 'Home Page', '')
 					Insert Into crsr_ThorUpdates														;
-						(Recno, AppName, InstalledVersion,	AvailableVersion, Notes, FromMyUpdates, Link, LinkPrompt) ;
+						(Recno, AppName, InstalledVersion,	AvailableVersion, Notes, FromMyUpdates, Link, LinkPrompt, ProjectType) ;
 						Values																			;
-						(lnI, .ApplicationName, .CurrentVersion, .AvailableVersion, .Tag, .FromMyUpdates = 'Y', Transform(.Link), lcPrompt)
+						(lnI, .ApplicationName, .CurrentVersion, .AvailableVersion, .Tag, .FromMyUpdates = 'Y';
+							, Transform(.Link), lcPrompt, Iif('Y' $ Upper(.Component), 'Component', 'App'))
 		
 					If Empty(.CurrentVersion)
 						Replace SortKey With 'X'

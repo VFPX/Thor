@@ -25,7 +25,8 @@ Do Case
 	Case lcAction = 'RUN'
 		If Not ThorInstalled (lcFolder)
 			ThorInstall (lcFolder)
-		Endif
+		EndIf
+		_Screen.AddProperty('cThorFolder', lcFolder + 'Thor\')
 		ThorRun (lcFolder, tlParam)
 
 	Case lcAction = 'EDIT'
