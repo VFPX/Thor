@@ -74,7 +74,7 @@ DEFINE CLASS form1 AS form
 		nsplittertop = 0
 		Top = 0
 		Visible = .T.
-		Width = 922
+		Width = 959
 		WindowType = 1
 		_memberdata = <VFPData>
 			<memberdata name="lresult" display="lResult"/>
@@ -94,7 +94,7 @@ DEFINE CLASS form1 AS form
 		FontBold = .T., ;
 		FontSize = 10, ;
 		Height = 28, ;
-		Left = 693, ;
+		Left = 730, ;
 		Name = "cmdCancel", ;
 		TabIndex = 2, ;
 		Top = 334, ;
@@ -128,7 +128,7 @@ DEFINE CLASS form1 AS form
 		Name = "edtNotes", ;
 		ReadOnly = .T., ;
 		Top = 252, ;
-		Width = 905
+		Width = 942
 		*< END OBJECT: BaseClass="editbox" />
 
 	ADD OBJECT 'Grid1' AS grid WITH ;
@@ -148,7 +148,7 @@ DEFINE CLASS form1 AS form
 		RowHeight = 22, ;
 		TabIndex = 3, ;
 		Top = 6, ;
-		Width = 905, ;
+		Width = 942, ;
 		Column1.ColumnOrder = 2, ;
 		Column1.ControlSource = "Trim(crsr_ThorUpdates.AppName)", ;
 		Column1.DynamicFontUnderline = "Not empty(crsr_ThorUpdates.Link)", ;
@@ -156,14 +156,14 @@ DEFINE CLASS form1 AS form
 		Column1.FontSize = 9, ;
 		Column1.Name = "Column1", ;
 		Column1.ReadOnly = .T., ;
-		Column1.Width = 225, ;
+		Column1.Width = 175, ;
 		Column2.ColumnOrder = 8, ;
-		Column2.ControlSource = "AllTrim(crsr_ThorUpdates.AvailableVerNumber)", ;
+		Column2.ControlSource = "crsr_ThorUpdates.ProjectType", ;
 		Column2.FontSize = 9, ;
 		Column2.Name = "Column2", ;
 		Column2.ReadOnly = .T., ;
-		Column2.Visible = .F., ;
-		Column2.Width = 20, ;
+		Column2.Visible = .T., ;
+		Column2.Width = 80, ;
 		Column3.ColumnOrder = 5, ;
 		Column3.ControlSource = "Alltrim(crsr_ThorUpdates.Status)", ;
 		Column3.FontSize = 9, ;
@@ -219,7 +219,7 @@ DEFINE CLASS form1 AS form
 		*< END OBJECT: BaseClass="textbox" />
 
 	ADD OBJECT 'Grid1.Column2.Header1' AS header WITH ;
-		Caption = "Available Version", ;
+		Caption = "Type", ;
 		FontSize = 9, ;
 		Name = "Header1"
 		*< END OBJECT: BaseClass="header" />
@@ -228,12 +228,13 @@ DEFINE CLASS form1 AS form
 		BackStyle = 0, ;
 		BorderColor = 255,255,255, ;
 		BorderStyle = 0, ;
+		ControlSource = "crsr_ThorUpdates.ProjectType", ;
 		FontSize = 9, ;
 		ForeColor = 0,0,0, ;
 		Margin = 0, ;
 		Name = "Text1", ;
 		ReadOnly = .T., ;
-		Visible = .F.
+		Visible = .T.
 		*< END OBJECT: BaseClass="textbox" />
 
 	ADD OBJECT 'Grid1.Column3.Header1' AS header WITH ;
@@ -370,7 +371,7 @@ DEFINE CLASS form1 AS form
 		nobject2minsize = 50, ;
 		Top = 242, ;
 		Visible = .T., ;
-		Width = 764, ;
+		Width = 951, ;
 		GRIPPER.GripperDot1.Name = "GripperDot1", ;
 		GRIPPER.GripperDot1.ShapeDark.Name = "ShapeDark", ;
 		GRIPPER.GripperDot1.ShapeLight.Name = "ShapeLight", ;
