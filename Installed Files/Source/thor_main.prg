@@ -1692,7 +1692,7 @@ Procedure ToolCode
 	Execscript(_Screen.cThorDispatcher, 'Set Option=', ccLastVersionSeen, ccTool, m.lnHTMLVersion)
 
 	loShell = Createobject ('wscript.shell')
-	lcVersion = Transform(Int(lnLastVersion))
+	lcVersion = Transform(Int(lnHTMLVersion))
 	lcUrl = Strtran(ccThorNewsURL, '^^Version^^', lcVersion)
 	m.loShell.Run (Textmerge(lcURL))
 
