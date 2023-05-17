@@ -368,7 +368,7 @@ DEFINE CLASS thor_run AS custom
 						lcKeystroke = ''
 					Endif
 		
-					loContextMenu.AddMenuItem (lcPrompt, [ExecScript(_Screen.cThorDispatcher, '] + lcPRGName + [')], lcStatusBar, lcKeystroke)
+					loContextMenu.AddMenuItem (lcPrompt, [ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_ProcessContextMenuItem', '] + lcPRGName + [')], lcStatusBar, lcKeystroke)
 			Endcase
 		Endfor
 		

@@ -3652,6 +3652,10 @@ Procedure GetThor_Proc_UpdateWaitWindow (tcFolder)
 	Text To lcCode Noshow Textmerge
 Lparameters lcText, lxParam2, lxParam3, lxParam4
 
+If Vartype(glQuiet) = 'L' And glQuiet
+	Return
+Endif
+
 Wait Window (lcText) at 20, 30 Nowait 
 	EndText
 	Return Strtran(lcCode, '*##*', '')
