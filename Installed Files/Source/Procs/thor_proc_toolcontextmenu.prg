@@ -169,6 +169,7 @@ Procedure ProcessKeyword(lcKeyWord, lcToolName, loTool, loThorUtils)
 
 		Case m.lcKeyWord == 'Favorite'
 			llNewValue = ToggleStatus('Favorites', 'StartUp', m.lcToolName)
+			llRefreshThor = .T.
 
 		Case m.lcKeyWord == 'Start Up'
 			llNewValue = ToggleStatus('StartupTools', 'StartUp', m.lcToolName)
