@@ -112,24 +112,23 @@ DEFINE CLASS thor_run AS custom
 	
 	PROCEDURE add1tool
 		Lparameters loContextMenu, loTool, tcFolder, tcActionPrefix
-		Local lcKeystroke, lcPRGName, lcPrompt, lcStatusBar
+		Local laFavorite[1], lcKeyStroke, lcPRGName, lcPrompt, lcStatusBar
 		
-		lcPrompt	= loTool.Prompt
-		lcPRGName	= Evl(tcActionPrefix, '') + Alltrim (loTool.PRGName)
-		lcStatusBar	= Chrtran (Left (Alltrim (Evl(loTool.StatusBarText,loTool.Description)), 250), ccCRLF + ccTAB, '   ')
+		lcPrompt	= m.loTool.Prompt
+		lcPRGName	= Evl(m.tcActionPrefix, '') + Alltrim (m.loTool.PRGName)
+		lcStatusBar	= Chrtran (Left (Alltrim (Evl(m.loTool.StatusBarText, m.loTool.Description)), 250), ccCRLF + ccTab, '   ')
 		
-		If Empty(tcActionPrefix);
-				and Indexseek (Upper (lcPRGName), .T., 'ToolHotKeyAssignments', 'PrgName') ;
+		If Empty(m.tcActionPrefix)																	;
+				And Indexseek (Upper (m.lcPRGName), .T., 'ToolHotKeyAssignments', 'PrgName')		;
 				And ToolHotKeyAssignments.HotKeyID # 0
 			Indexseek (ToolHotKeyAssignments.HotKeyID, .T., 'HotKeyDefinitions', 'ID')
-			lcKeystroke = Alltrim (HotKeyDefinitions.Descript)
+			lcKeyStroke = Alltrim (HotKeyDefinitions.Descript)
 		Else
-			lcKeystroke = ''
+			lcKeyStroke = ''
 		Endif
 		
-		loContextMenu.AddMenuItem (lcPrompt, [ExecScript(_Screen.cThorDispatcher, '] + lcPRGName + [')], lcStatusBar, lcKeystroke)
-		
-		
+		Select StartUp From Favorites Where Lower(PRGName) = Lower(m.lcPRGName) Into Array laFavorite
+		m.loContextMenu.AddMenuItem (m.lcPrompt, [ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_ProcessContextMenuItem', '] + m.lcPRGName + [')], m.lcStatusBar, m.lcKeyStroke, , m.lcPRGName, , Iif(m.laFavorite, 'B', ''))
 	ENDPROC
 
 	PROCEDURE addalltools
@@ -273,102 +272,106 @@ DEFINE CLASS thor_run AS custom
 		
 		Lparameters loContextMenu, lnMenuID, tcFolder, tcActionPrefix
 		
-		Local laMenuTools[1], lcKeystroke, lcMenuStatusBar, lcPRGName, lcPrompt, lcStatusBar, llSeparator
-		Local lnI, lnSubMenuID
+		Local laMenuTools[1], lcKeyStroke, lcMenuStatusBar, lcPRGName, lcPrompt, lcStatusBar, llFavorite
+		Local llSeparator, lnI, lnSubMenuID
 		
-		Select  MenuTools.Prompt													  ;
-			  , Separator															  ;
-			  , SubMenuID															  ;
-			  , PRGName																  ;
-			  , MenuTools.StatusBar													  ;
-			  , Cast (Nvl (MenuDefinitions.StatusBar, '') As M)    As  MenuStatusBar  ;
-			From MenuTools															  ;
-				Left Join MenuDefinitions											  ;
-					On SubMenuID = MenuDefinitions.Id								  ;
-			Where MenuID = lnMenuID													  ;
-			Order By MenuTools.sortorder											  ;
+		Select  MenuTools.Prompt,															;
+				Separator,																	;
+				SubMenuID,																	;
+				MenuTools.PRGName,															;
+				MenuTools.StatusBar,														;
+				Cast (Nvl (MenuDefinitions.StatusBar, '') As M)    As  MenuStatusBar,		;
+				Nvl(Favorites.StartUp, .F.)                        As  Favorite				;
+			From MenuTools																	;
+				Left Join MenuDefinitions													;
+					On SubMenuID = MenuDefinitions.Id										;
+				Left Join Favorites															;
+					On Lower(MenuTools.PRGName) = Lower(Favorites.PRGName)					;
+			Where MenuID = m.lnMenuID														;
+			Order By MenuTools.SortOrder													;
 			Into Array laMenuTools
 		
 		For lnI = 1 To _Tally
-			lcPrompt		= Alltrim (laMenuTools (lnI, 1))
-			llSeparator		= laMenuTools (lnI, 2)
-			lnSubMenuID		= laMenuTools (lnI, 3)
-			lcPRGName		= Evl (tcActionPrefix, '') + Alltrim (laMenuTools (lnI, 4))
-			lcStatusBar		= Strtran (Left (Alltrim (laMenuTools (lnI, 5)), 250), ccCRLF, ' ')
-			lcMenuStatusBar	= Strtran (Left (Alltrim (laMenuTools (lnI, 6)), 250), ccCRLF, ' ')
+			lcPrompt		= Alltrim (m.laMenuTools (m.lnI, 1))
+			llSeparator		= m.laMenuTools (m.lnI, 2)
+			lnSubMenuID		= m.laMenuTools (m.lnI, 3)
+			lcPRGName		= Evl (m.tcActionPrefix, '') + Alltrim (m.laMenuTools (m.lnI, 4))
+			lcStatusBar		= Strtran (Left (Alltrim (m.laMenuTools (m.lnI, 5)), 250), ccCRLF, ' ')
+			lcMenuStatusBar	= Strtran (Left (Alltrim (m.laMenuTools (m.lnI, 6)), 250), ccCRLF, ' ')
+			llFavorite		= m.laMenuTools (m.lnI, 7)
 		
 			Do Case
-				Case llSeparator
-					loContextMenu.AddMenuItem ()
-				Case lnSubMenuID # 0
-					If Empty (tcActionPrefix)										   ;
-							And Indexseek (lnSubMenuID, .T., 'MenuDefinitions', 'ID')  ;
+				Case m.llSeparator
+					m.loContextMenu.AddMenuItem ()
+				Case m.lnSubMenuID # 0
+					If Empty (m.tcActionPrefix)													;
+							And Indexseek (m.lnSubMenuID, .T., 'MenuDefinitions', 'ID')			;
 							And MenuDefinitions.HotKeyID # 0
 						Indexseek (MenuDefinitions.HotKeyID, .T., 'HotKeyDefinitions', 'ID')
-						lcKeystroke = Alltrim (HotKeyDefinitions.Descript)
+						lcKeyStroke = Alltrim (HotKeyDefinitions.Descript)
 					Else
-						lcKeystroke = ''
+						lcKeyStroke = ''
 					Endif
 		
-					loContextMenu.AddSubMenu (lcPrompt, lcMenuStatusBar, lcKeystroke)
-					This.AddMenuItems (loContextMenu, lnSubMenuID, tcFolder, tcActionPrefix)
-					loContextMenu.EndSubMenu ()
-				Case Upper (lcPRGName) = Upper (ccINTERNALEDITPRG)
-					loContextMenu.AddMenuItem (lcPrompt, [ExecScript(_Screen.cThorDispatcher, '] + lcPRGName + [')], lcStatusBar,  This.oThorEngine.GetOption ('ThorHotKey'))
-				Case Upper (lcPRGName) = Upper (ccINTERNALALLTOOLSPRG)
-					loContextMenu.AddSubMenu (lcPrompt, lcMenuStatusBar)
-					This.AddAllTools (loContextMenu, tcFolder, , ) &&ccModify)
-					loContextMenu.EndSubMenu ()
-				Case Upper (lcPRGName) = Upper (ccINTERNALMODIFY)
-					loContextMenu.AddSubMenu (lcPrompt, lcMenuStatusBar)
-					This.AddAllTools (loContextMenu, tcFolder, , ccModify)
-					loContextMenu.EndSubMenu ()
-				Case Upper (lcPRGName) = Upper (ccOPENFOLDERS)
-					loContextMenu.AddSubMenu (lcPrompt, lcMenuStatusBar)
-					This.AddOpenFolders (loContextMenu)
-					loContextMenu.EndSubMenu ()
-				Case Upper (lcPRGName) = Upper (ccSOURCEFILES)
-					loContextMenu.AddSubMenu (lcPrompt, lcMenuStatusBar)
-					This.AddSourceFiles (loContextMenu)
-					loContextMenu.EndSubMenu ()
-				Case Upper (lcPRGName) = Upper (ccINTERNALTOOLLINK)
-					loContextMenu.AddSubMenu (lcPrompt, lcMenuStatusBar)
-					This.AddAllTools (loContextMenu, tcFolder, , ccLink)
-					loContextMenu.EndSubMenu ()
+					m.loContextMenu.AddSubMenu (m.lcPrompt, m.lcMenuStatusBar, m.lcKeyStroke)
+					This.AddMenuItems (m.loContextMenu, m.lnSubMenuID, m.tcFolder, m.tcActionPrefix)
+					m.loContextMenu.EndSubMenu ()
+				Case Upper (m.lcPRGName) = Upper (ccINTERNALEDITPRG)
+					m.loContextMenu.AddMenuItem (m.lcPrompt, [ExecScript(_Screen.cThorDispatcher, '] + m.lcPRGName + [')], m.lcStatusBar,  This.oThorEngine.GetOption ('ThorHotKey'))
+				Case Upper (m.lcPRGName) = Upper (ccINTERNALALLTOOLSPRG)
+					m.loContextMenu.AddSubMenu (m.lcPrompt, m.lcMenuStatusBar)
+					This.AddAllTools (m.loContextMenu, m.tcFolder, , ) &&ccModify)
+					m.loContextMenu.EndSubMenu ()
+				Case Upper (m.lcPRGName) = Upper (ccINTERNALMODIFY)
+					m.loContextMenu.AddSubMenu (m.lcPrompt, m.lcMenuStatusBar)
+					This.AddAllTools (m.loContextMenu, m.tcFolder, , ccModify)
+					m.loContextMenu.EndSubMenu ()
+				Case Upper (m.lcPRGName) = Upper (ccOPENFOLDERS)
+					m.loContextMenu.AddSubMenu (m.lcPrompt, m.lcMenuStatusBar)
+					This.AddOpenFolders (m.loContextMenu)
+					m.loContextMenu.EndSubMenu ()
+				Case Upper (m.lcPRGName) = Upper (ccSOURCEFILES)
+					m.loContextMenu.AddSubMenu (m.lcPrompt, m.lcMenuStatusBar)
+					This.AddSourceFiles (m.loContextMenu)
+					m.loContextMenu.EndSubMenu ()
+				Case Upper (m.lcPRGName) = Upper (ccINTERNALTOOLLINK)
+					m.loContextMenu.AddSubMenu (m.lcPrompt, m.lcMenuStatusBar)
+					This.AddAllTools (m.loContextMenu, m.tcFolder, , ccLink)
+					m.loContextMenu.EndSubMenu ()
 		
-				Case Upper (lcPRGName) = Upper ('Thor-Forums')
-					loContextMenu.AddMenuItem ('Project Home Pages', [ExecScript(_Screen.cThorDispatcher, 'Thor_Tool_ProjectHomePages')])
+				Case Upper (m.lcPRGName) = Upper ('Thor-Forums')
+					m.loContextMenu.AddMenuItem ('Project Home Pages', [ExecScript(_Screen.cThorDispatcher, 'Thor_Tool_ProjectHomePages')])
 		
-				Case Upper (lcPRGName) = Upper ('Thor-Blogs')
-					loContextMenu.AddSubMenu ('Blogs', '')
-					This.AddForums(loContextMenu, 'BlogName', 'BlogLink')
-					loContextMenu.EndSubMenu ()
+				Case Upper (m.lcPRGName) = Upper ('Thor-Blogs')
+					m.loContextMenu.AddSubMenu ('Blogs', '')
+					This.AddForums(m.loContextMenu, 'BlogName', 'BlogLink')
+					m.loContextMenu.EndSubMenu ()
 		
-				Case Upper (lcPRGName) = Upper ('Thor-ChangeLogs')
-					loContextMenu.AddSubMenu ('Change Logs', '')
-					This.AddForums(loContextMenu, 'ChangeLogName', 'ChangeLogLink')
-					loContextMenu.EndSubMenu ()
+				Case Upper (m.lcPRGName) = Upper ('Thor-ChangeLogs')
+					m.loContextMenu.AddSubMenu ('Change Logs', '')
+					This.AddForums(m.loContextMenu, 'ChangeLogName', 'ChangeLogLink')
+					m.loContextMenu.EndSubMenu ()
 		
-				Case Upper (lcPRGName) = Upper ('Thor-ERs')
-					loContextMenu.AddMenuItem ('Thor ERs', [ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_Shell', 'https://docs.google.com/document/d/1TPFfbNKLhcqT_EzPVYw5jdikSoRn12hvAIq4M10beIQ/edit')])
+				Case Upper (m.lcPRGName) = Upper ('Thor-ERs')
+					m.loContextMenu.AddMenuItem ('Thor ERs', [ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_Shell', 'https://docs.google.com/document/d/1TPFfbNKLhcqT_EzPVYw5jdikSoRn12hvAIq4M10beIQ/edit')])
 		
-				Case Upper (lcPRGName) = Upper ('Thor-Videos')
-		*** DH 2018-04-10: new URL
-					loContextMenu.AddMenuItem ('Thor Videos', [ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_Shell', 'https://github.com/VFPX/Thor/blob/master/Docs/Thor_videos.md')])
+				Case Upper (m.lcPRGName) = Upper ('Thor-Videos')
+					*** DH 2018-04-10: new URL
+					m.loContextMenu.AddMenuItem ('Thor Videos', [ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_Shell', 'https://github.com/VFPX/Thor/blob/master/Docs/Thor_videos.md')])
 		
-				Case Upper (lcPRGName) = Upper (ccDEBUGMODE)
-					loContextMenu.AddMenuItem (lcPrompt, [ExecScript(_Screen.cThorDispatcher, '] + ccTOGGLEDEBUGMODE + [')], lcStatusBar, Nvl(lcKeystroke, ''))
-					This.cDebugMenuName	= loContextMenu.cMenuName
-					This.nDebugMenuBar	= loContextMenu.nMenuBar
+				Case Upper (m.lcPRGName) = Upper (ccDEBUGMODE)
+					m.loContextMenu.AddMenuItem (m.lcPrompt, [ExecScript(_Screen.cThorDispatcher, '] + ccTOGGLEDEBUGMODE + [')], m.lcStatusBar, Nvl(m.lcKeyStroke, ''))
+					This.cDebugMenuName	= m.loContextMenu.cMenuName
+					This.nDebugMenuBar	= m.loContextMenu.nMenuBar
 				Otherwise
-					If Indexseek (Upper (lcPRGName), .T., 'ToolHotKeyAssignments', 'PrgName') And ToolHotKeyAssignments.HotKeyID # 0
+					If Indexseek (Upper (m.lcPRGName), .T., 'ToolHotKeyAssignments', 'PrgName') And ToolHotKeyAssignments.HotKeyID # 0
 						Indexseek (ToolHotKeyAssignments.HotKeyID, .T., 'HotKeyDefinitions', 'ID')
-						lcKeystroke = Alltrim (HotKeyDefinitions.Descript)
+						lcKeyStroke = Alltrim (HotKeyDefinitions.Descript)
 					Else
-						lcKeystroke = ''
+						lcKeyStroke = ''
 					Endif
 		
-					loContextMenu.AddMenuItem (lcPrompt, [ExecScript(_Screen.cThorDispatcher, '] + lcPRGName + [')], lcStatusBar, lcKeystroke)
+					m.loContextMenu.AddMenuItem (m.lcPrompt, [ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_ProcessContextMenuItem', '] + m.lcPRGName + [')], m.lcStatusBar, m.lcKeyStroke, , m.lcPRGName, , Iif(m.llFavorite, 'B', ''))
 			Endcase
 		Endfor
 		

@@ -318,7 +318,7 @@ DEFINE CLASS manageplugins AS form
 		
 		Local lcPlugInPRGFile, loThorInfo
 		
-		loThorInfo		 = Execscript(_Screen.cThorDispatcher, 'ToolInfo=', 'Thor_Tool_PEME_GoToDefinition')
+		loThorInfo		 = Execscript(_Screen.cThorDispatcher, 'ToolInfo=', 'Thor_Tool_PEMEditor')
 		This.cHomeFolder = Addbs(loThorInfo.FolderName)
 		lcPlugInPRGFile	 = This.cHomeFolder +  'Tables\PlugInPRGs'
 		

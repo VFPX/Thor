@@ -118,7 +118,7 @@ DEFINE CLASS contextmenu AS custom
 	ENDPROC
 
 	PROCEDURE addmenuitem		&& Adds a new item to a ComboBox or ListBox control, optionally allowing you to specify the item's index.
-		Lparameters lcPrompt, lcExec, lcStatusBar, lcKeyStroke, lcKeyWord, lxParameters, llMarked
+		Lparameters lcPrompt, lcExec, lcStatusBar, lcKeyStroke, lcKeyWord, lxParameters, llMarked, lcStyle
 		
 		Local lcMenuName, lnBar, lnCurrentLevel
 		
@@ -130,10 +130,12 @@ DEFINE CLASS contextmenu AS custom
 			.aBarCounts (lnCurrentLevel) = lnBar
 		
 			.nChoices = .nChoices + 1
-			Dimension .aChoices (.nChoices, 2)
-			.aChoices (.nChoices, 1) = Evl (lcKeyWord, lcPrompt)
-			.aChoices (.nChoices, 2) = lxParameters
-			If Empty (lcExec)
+			Dimension .aChoices (.nChoices, 4)
+			.aChoices (.nChoices, 1) = Evl (m.lcKeyWord, m.lcPrompt)
+			.aChoices (.nChoices, 2) = m.lxParameters
+			.aChoices (.nChoices, 3) = Evl (m.lcPrompt, '')
+			.aChoices (.nChoices, 4) = Evl (m.lcExec, '')
+			If Empty (m.lcExec)
 				lcExec = 'lnChoice = ' + Transform (.nChoices)
 			Endif
 		
@@ -141,11 +143,12 @@ DEFINE CLASS contextmenu AS custom
 		
 		lcPrompt	= Evl (lcPrompt, '\-')
 		lcStatusBar	= Evl (lcStatusBar, '')
+		lcStyle		= Evl (m.lcStyle, '')
 		
-		If Empty (lcKeyStroke)
-			Define Bar (lnBar) Of (lcMenuName) Prompt lcPrompt Message lcStatusBar
+		If Empty (m.lcKeyStroke)
+			Define Bar (m.lnBar) Of (m.lcMenuName) Prompt m.lcPrompt Message m.lcStatusBar Style m.lcStyle
 		Else
-			Define Bar (lnBar) Of (lcMenuName) Prompt lcPrompt Key Alt+F12, lcKeyStroke Message lcStatusBar
+			Define Bar (m.lnBar) Of (m.lcMenuName) Prompt m.lcPrompt Key Alt+F12, m.lcKeyStroke Message m.lcStatusBar Style m.lcStyle
 		Endif
 		
 		If Not Empty (lcExec)
