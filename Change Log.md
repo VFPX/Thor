@@ -1,6 +1,6 @@
 # Thor Change Log
 
-### Thor 1.45.20 - Released 2023-05-20
+### Thor 1.45.21 - Released 2023-05-20
 
 Favorites now appear in bold for menu items from the system menu or popup menus
 
