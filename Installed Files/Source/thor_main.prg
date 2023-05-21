@@ -1223,7 +1223,7 @@ If Pcount() = 1						  ;
 		* These are used to group and sort tools when they are displayed in menus or the Thor form
 		.Category = 'Settings & Misc.' && allows categorization for tools with the same source
 		.Sort	  = 999 && the sort order for all items from the same Source, Category and Sub-Category
-		.PlugInClasses = 'clsBeforeComponentInstall, clsAfterComponentInstall'
+		.PlugInClasses = 'clsBeforeComponentInstall, clsAfterComponentInstall, clsBeforeCFU, clsAfterCFU'
 
 		* For public tools, such as PEM Editor, etc.
 		.Author        = 'Jim Nelson'
@@ -1318,6 +1318,63 @@ Enddefine
 	Return Strtran(lcCode, '*##*', '')
 
 EndProc
+
+
+****************************************************************
+****************************************************************
+
+Define Class clsBeforeCFU As Custom
+
+	Source				= 'Thor'
+	PlugIn				= 'BeforeCheckForUpdates'
+	Description			= 'Called before "Check For Updates" to capture any configuration info to be restored after.  See also "AfterCheckForUpdates".'
+	Tools				= 'Check For Updates'
+	FileNames			= 'Thor_Proc_Before_Check_For_Updates.PRG'
+	DefaultFileName		= '*Thor_Proc_Before_Check_For_Updates.PRG'
+	DefaultFileContents	= ''
+
+	Procedure Init
+		****************************************************************
+		****************************************************************
+		*##*Text To This.DefaultFileContents Noshow
+* Next line handles default of saving any projects that were open		
+ExecScript(_Screen.cThorDispatcher, 'DoDefault()')
+
+		*##*Endtext
+		****************************************************************
+		****************************************************************
+	Endproc
+
+Enddefine
+
+
+****************************************************************
+****************************************************************
+
+Define Class clsAfterCFU As Custom
+
+	Source				= 'Thor'
+	PlugIn				= 'AfterCheckForUpdates'
+	Description			= 'Called after "Check For Updates" to restore any configuration that had been captured.  See also "BeforeCheckForUpdates".'
+	Tools				= 'Check For Updates'
+	FileNames			= 'Thor_Proc_After_Check_For_Updates.PRG'
+	DefaultFileName		= '*Thor_Proc_After_Check_For_Updates.PRG'
+	DefaultFileContents	= ''
+
+	Procedure Init
+		****************************************************************
+		****************************************************************
+		*##*Text To This.DefaultFileContents Noshow
+* Next line handles default processing of restoring any projects that were open		
+ExecScript(_Screen.cThorDispatcher, 'DoDefault()')
+
+		*##*Endtext
+		****************************************************************
+		****************************************************************
+	Endproc
+
+Enddefine
+
 
 Procedure GetThor_Tool_ThorInternalModifyTool (tcFolder)
 
@@ -2037,7 +2094,9 @@ If Vartype (tlInstallAllUpdates) # 'L'
 	Return
 Endif
 
+Execscript (_Screen.cThorDispatcher, 'Thor_Proc_Before_Check_For_Updates')
 Execscript (_Screen.cThorDispatcher, 'Thor_Proc_Check_For_Updates')
+Execscript (_Screen.cThorDispatcher, 'Thor_Proc_After_Check_For_Updates')
 
 	EndText
 	Return Strtran(lcCode, '*##*', '')
