@@ -14,3 +14,4 @@ FOR EACH m.loProject IN _VFP.PROJECTS FOXOBJECT
  _SCREEN.gaFiles(m.lnProj,2)	= m.loProject.VISIBLE
 ENDFOR &&loProject
  
+ 

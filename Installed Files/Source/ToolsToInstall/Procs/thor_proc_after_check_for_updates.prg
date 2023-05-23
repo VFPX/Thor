@@ -10,4 +10,5 @@ IF !EMPTY(_SCREEN.gaFiles(1,1)) THEN
  ENDFOR &&lnProj
 ENDIF &&!EMPTY(_SCREEN.gaFiles(1,1)) THEN
 REMOVEPROPERTY(_SCREEN,"gaFiles")
- 
+
+
