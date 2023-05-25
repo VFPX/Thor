@@ -750,8 +750,9 @@ Procedure CreateThorInternalTools
     InstallTool(GetThor_Tool_ThorInternalHelp (tcFolder), ;
         lcToolsFolder + 'Thor_Tool_ThorInternalHelp.PRG')
 
-    InstallTool(GetThor_Tool_ThorInternalManagePlugIns (tcFolder), ;
-        lcToolsFolder + 'Thor_Tool_ThorInternalManagePlugIns.PRG')
+    *!* ******** JRN Removed 2023-05-22 ********
+    *!* InstallTool(GetThor_Tool_ThorInternalManagePlugIns (tcFolder), ;
+    *!*     lcToolsFolder + 'Thor_Tool_ThorInternalManagePlugIns.PRG')
 
     InstallTool(GetThor_Tool_ThorInternalModifyTool (tcFolder), ;
         lcToolsFolder + 'Thor_Tool_ThorInternalModifyTool.PRG')
@@ -846,19 +847,24 @@ Procedure CreateThorInternalTools
     InstallTool(GetThor_Proc_WriteToCFULog (tcFolder), ;
         lcToolsFolder + 'Procs\Thor_Proc_WriteToCFULog.PRG')
 
-*** DH 2018-04-10: copy the contents of Source\Procs to Thor\Tools
-	local lcSource, laFiles[1], lnFiles, lnI, lcFile
-	lcSource = tcFolder + 'Source\Procs\'
-	lnFiles  = adir(laFiles, lcSource + '*.*')
-	for lnI = 1 to lnFiles
-		lcFile = laFiles[lnI, 1]
-*** DH 2021-12-28: added TRY structure
-		try
-			copy file (lcSource + lcFile) to (lcToolsFolder + lcFile)
-		catch
-		endtry
-	next lnI
-*** DH 2018-04-10: end of new code
+	CopyFilesToInstall(tcFolder + 'Source\ToolsToInstall\', lcToolsFolder)
+	
+	CopyFilesToInstall(tcFolder + 'Source\ToolsToInstall\Procs\', lcToolsFolder + 'Procs\')
+	
+*!* ******** JRN Removed 2023-05-21 ********
+*!* *** DH 2018-04-10: copy the contents of Source\Procs to Thor\Tools
+*!* 	local lcSource, laFiles[1], lnFiles, lnI, lcFile
+*!* 	lcSource = tcFolder + 'Source\Procs\'
+*!* 	lnFiles  = adir(laFiles, lcSource + '*.*')
+*!* 	for lnI = 1 to lnFiles
+*!* 		lcFile = laFiles[lnI, 1]
+*!* *** DH 2021-12-28: added TRY structure
+*!* 		try
+*!* 			copy file (lcSource + lcFile) to (lcToolsFolder + lcFile)
+*!* 		catch
+*!* 		endtry
+*!* 	next lnI
+*!* *** DH 2018-04-10: end of new code
 
 EndProc
 
@@ -868,6 +874,26 @@ Procedure InstallTool(tcCode, tcFileName)
 	StrToFile (tcCode, tcFileName)
 
 EndProc
+
+
+Procedure CopyFilesToInstall(lcSource, lcDest)
+	*** JRN 2023-05-21 : Extracted to new proc so it can be called twice
+	*** DH 2018-04-10: copy the contents of Source\Procs to Thor\Tools
+	Local laFiles[1], lcFile, lnFiles, lnI
+
+	lnFiles	 = Adir(laFiles, m.lcSource + '*.*')
+	For lnI = 1 To m.lnFiles
+		lcFile = m.laFiles[m.lnI, 1]
+		*** DH 2021-12-28: added TRY structure
+		Try
+			Copy File (m.lcSource + m.lcFile) To (m.lcDest + m.lcFile)
+		Catch
+		Endtry
+	Next m.lnI
+	*** DH 2018-04-10: end of new code
+
+Endproc
+
 
 Procedure GetThor_Tool_ThorInternalAllTools (tcFolder)
 
@@ -1195,185 +1221,6 @@ Procedure ToolCode
 
 EndProc
 
-Procedure GetThor_Tool_ThorInternalManagePlugIns (tcFolder)
-
-	Local lcCode, lcVersion
-	lcVersion = ccTHORVERSION
-	Text To lcCode Noshow Textmerge
-Lparameters lxParam1
-
-****************************************************************
-****************************************************************
-* Standard prefix for all tools for Thor, allowing this tool to
-*   tell Thor about itself.
-
-If Pcount() = 1						  ;
-		And 'O' = Vartype (lxParam1)  ;
-		And 'thorinfo' == Lower (lxParam1.Class)
-
-	With lxParam1
-
-		* Required
-		.Prompt	 = 'Manage Plug-In PRGs'
-		.Summary = 'Manage Plug-In PRGs'
-
-		* Optional
-		.Description = 'Manage Plug-In PRGs'
-
-		* These are used to group and sort tools when they are displayed in menus or the Thor form
-		.Category = 'Settings & Misc.' && allows categorization for tools with the same source
-		.Sort	  = 999 && the sort order for all items from the same Source, Category and Sub-Category
-		.PlugInClasses = 'clsBeforeComponentInstall, clsAfterComponentInstall, clsBeforeCFU, clsAfterCFU'
-
-		* For public tools, such as PEM Editor, etc.
-		.Author        = 'Jim Nelson'
-		.CanRunAtStartup = .F.
-
-	Endwith
-
-	Return lxParam1
-Endif
-
-If Pcount() = 0
-	Do ToolCode
-Else
-	Do ToolCode With lxParam1
-Endif
-
-Return
-
-****************************************************************
-****************************************************************
-* Normal processing for this tool begins here.                  
-Procedure ToolCode
-	Lparameters lxParam1
-
-	Local lcFileName
-	If Type ('_Screen.cThorDispatcher') = 'C'
-		Execscript (_Screen.cThorDispatcher, 'PEMEditor_StartIDETools')
-		lcFileName    = Execscript (_Screen.cThorDispatcher, 'Full Path=Thor_Tool_ThorInternalManagePlugIns.SCX')
-		Do Form  (lcFileName)
-	Else
-		Messagebox ('Thor is not active; this tool requires Thor', 16, 'Thor is not active', 0)
-	Endif
-
-Endproc
-
-
-****************************************************************
-****************************************************************
-
-Define Class clsBeforeComponentInstall As Custom
-
-	Source				= 'Thor'
-	PlugIn				= 'BeforeComponentInstall'
-	Description			= 'Called during "Check For Updates" before a component is installed (in a sub-folder of Thor\Tools\Components).'
-	Tools				= 'Check For Updates'
-	FileNames			= 'Thor_Proc_BeforeComponentInstall.PRG'
-	DefaultFileName		= '*Thor_Proc_BeforeComponentInstall.PRG'
-	DefaultFileContents	= ''
-
-	Procedure Init
-		****************************************************************
-		****************************************************************
-		*##*Text To This.DefaultFileContents Noshow
-Lparameters tcApplicationName, tcInstallationFolder
-
-		*##*Endtext
-		****************************************************************
-		****************************************************************
-	Endproc
-
-Enddefine
-
-
-****************************************************************
-****************************************************************
-
-Define Class clsAfterComponentInstall As Custom
-
-	Source				= 'Thor'
-	PlugIn				= 'AfterComponentInstall'
-	Description			= 'Called during "Check For Updates" after a component is installed (in a sub-folder of Thor\Tools\Components).'
-	Tools				= 'Check For Updates'
-	FileNames			= 'Thor_Proc_AfterComponentInstall.PRG'
-	DefaultFileName		= '*Thor_Proc_AfterComponentInstall.PRG'
-	DefaultFileContents	= ''
-
-	Procedure Init
-		****************************************************************
-		****************************************************************
-		*##*Text To This.DefaultFileContents Noshow
-Lparameters tcApplicationName, tcInstallationFolder
-
-		*##*Endtext
-		****************************************************************
-		****************************************************************
-	Endproc
-
-Enddefine
-
-
-	EndText
-	Return Strtran(lcCode, '*##*', '')
-
-EndProc
-
-
-****************************************************************
-****************************************************************
-
-Define Class clsBeforeCFU As Custom
-
-	Source				= 'Thor'
-	PlugIn				= 'BeforeCheckForUpdates'
-	Description			= 'Called before "Check For Updates" to capture any configuration info to be restored after.  See also "AfterCheckForUpdates".'
-	Tools				= 'Check For Updates'
-	FileNames			= 'Thor_Proc_Before_Check_For_Updates.PRG'
-	DefaultFileName		= '*Thor_Proc_Before_Check_For_Updates.PRG'
-	DefaultFileContents	= ''
-
-	Procedure Init
-		****************************************************************
-		****************************************************************
-		*##*Text To This.DefaultFileContents Noshow
-* Next line handles default of saving any projects that were open		
-ExecScript(_Screen.cThorDispatcher, 'DoDefault()')
-
-		*##*Endtext
-		****************************************************************
-		****************************************************************
-	Endproc
-
-Enddefine
-
-
-****************************************************************
-****************************************************************
-
-Define Class clsAfterCFU As Custom
-
-	Source				= 'Thor'
-	PlugIn				= 'AfterCheckForUpdates'
-	Description			= 'Called after "Check For Updates" to restore any configuration that had been captured.  See also "BeforeCheckForUpdates".'
-	Tools				= 'Check For Updates'
-	FileNames			= 'Thor_Proc_After_Check_For_Updates.PRG'
-	DefaultFileName		= '*Thor_Proc_After_Check_For_Updates.PRG'
-	DefaultFileContents	= ''
-
-	Procedure Init
-		****************************************************************
-		****************************************************************
-		*##*Text To This.DefaultFileContents Noshow
-* Next line handles default processing of restoring any projects that were open		
-ExecScript(_Screen.cThorDispatcher, 'DoDefault()')
-
-		*##*Endtext
-		****************************************************************
-		****************************************************************
-	Endproc
-
-Enddefine
 
 
 Procedure GetThor_Tool_ThorInternalModifyTool (tcFolder)
