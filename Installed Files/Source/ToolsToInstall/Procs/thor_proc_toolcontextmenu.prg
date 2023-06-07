@@ -49,29 +49,34 @@ Endproc
 * ================================================================================
 Procedure RunContextMenu(lcToolName, loTool)
 
-	Local laHotKey[1], lcKeyWord, loContextMenu
+	Local laHotKey[1], lcKeyWord, lcTool, loContextMenu
 
 	loContextMenu = Execscript (_Screen.cThorDispatcher, 'class= Contextmenu')
+	lcTool		  = [tool '] + Alltrim(m.loTool.Prompt) + [']
 
 	With m.loContextMenu
 
 		* ================================================================================
+		
+		.AddMenuItem('\<Help', , 'Show documentation for ' + m.lcTool + ' (web page if available)', , 'URL')
 
-		.AddMenuItem('\<Help', , , , 'URL')
+		If Not Empty(m.loTool.FolderName)
+			.AddMenuItem('\<Installation Folder', , 'Open Installation Folder for this tool' , , 'FolderName')
+		Endif
 
 		If Not Empty(m.loTool.VideoLink)
-			.AddMenuItem('\<Video', , , , 'Video')
+			.AddMenuItem('\<Video', , 'Start video for ' + m.lcTool, , 'Video')
 		Endif
 
 		If Not Empty(Evl(m.loTool.OptionTool, '') + Evl(m.loTool.PlugIns, ''))
 
 			.AddMenuItem()
 			If Not Empty(m.loTool.OptionTool)
-				.AddMenuItem('\<Options', , , , 'Options')
+				.AddMenuItem('\<Options', , 'Open options page in Thor Configuration form for ' + m.lcTool, , 'Options')
 			Endif
 
 			If Not Empty(m.loTool.PlugIns)
-				.AddMenuItem('\<Plug-Ins', , , , 'Plug-Ins')
+				.AddMenuItem('\<Plug-Ins', , 'Modify Plug-ins for ' + m.lcTool, , 'Plug-Ins')
 			Endif
 		Endif
 
@@ -89,11 +94,11 @@ Procedure RunContextMenu(lcToolName, loTool)
 
 		.AddMenuItem()
 
-		.AddMenuItem('\<Toolbar', , , , 'ToolBar', , GetStatus('ToolBarTools', 'Enabled', m.lcToolName))
+		.AddMenuItem('\<Toolbar', , 'Modify Thor toolbar for ' + m.lcTool, , 'ToolBar', , GetStatus('ToolBarTools', 'Enabled', m.lcToolName))
 
-		.AddMenuItem('Start \<Up', , , , 'Start Up', , GetStatus('StartupTools', 'StartUp', m.lcToolName))
+		.AddMenuItem('Start \<Up', , 'Run ' + m.lcTool + ' when Thor starts? (appropriate for few tools)', , 'Start Up', , GetStatus('StartupTools', 'StartUp', m.lcToolName))
 
-		.AddMenuItem('\<Favorite', , , , 'Favorite', , GetStatus('Favorites', 'StartUp', m.lcToolName))
+		.AddMenuItem('\<Favorite', , 'Mark ' + m.lcTool + ' as a favorite?  These show as bold in Thor menus.', , 'Favorite', , GetStatus('Favorites', 'StartUp', m.lcToolName))
 
 		.AddMenuItem()
 
@@ -108,7 +113,7 @@ Procedure RunContextMenu(lcToolName, loTool)
 				.AddMenuItem('Edit Private Version', , , , 'Edit')
 				.AddMenuItem('Delete Private Version', , , , 'DeleteTool')
 
-			Case Type('GoVars.UserNumber') = 'N' And GoVars.UserNumber = 63
+			Case Type('GoVars.UserNumber') = 'N' And GoVars.UserNumber = 63 && back door for Jim
 				.AddMenuItem('Create Custom Version', , , , 'CreateCustom')
 				.AddMenuItem('Edit Published Version', , , , 'Edit')
 
@@ -146,8 +151,11 @@ Procedure ProcessKeyword(lcKeyWord, lcToolName, loTool, loThorUtils)
 		Case m.lcKeyWord == 'URL'
 			Execscript(_Screen.cThorDispatcher, 'Thor_proc_showtoolhelp', m.lcToolName)
 
+		Case m.lcKeyWord == 'FolderName'
+			ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_OpenFolder', Alltrim(m.loTool.FolderName)) 
+
 		Case m.lcKeyWord == 'Video'
-			loThorUtils.GoURL(m.loTool.VideoLink)
+			m.loThorUtils.GoURL(m.loTool.VideoLink)
 
 		Case m.lcKeyWord == 'Options'
 			EditOptions(m.loTool)
@@ -164,11 +172,11 @@ Procedure ProcessKeyword(lcKeyWord, lcToolName, loTool, loThorUtils)
 			llRefreshThor = .T.
 
 		Case m.lcKeyWord == 'ToolBar'
-			EditToolBar(lcToolName, loTool)
+			EditToolBar(m.lcToolName, m.loTool)
 			llRefreshThor = .T.
 
 		Case m.lcKeyWord == 'Favorite'
-			llNewValue = ToggleStatus('Favorites', 'StartUp', m.lcToolName)
+			llNewValue	  = ToggleStatus('Favorites', 'StartUp', m.lcToolName)
 			llRefreshThor = .T.
 
 		Case m.lcKeyWord == 'Start Up'
@@ -278,7 +286,7 @@ Endproc
 Procedure EditOriginalTool(lcToolName, loThorUtils)
 	Local lcFullFileName
 
-	lcFullFileName = _Screen.cThorFolder + 'Tools\' + Trim(lcToolName)
+	lcFullFileName = _Screen.cThorFolder + 'Tools\' + Trim(m.lcToolName)
 	Modify Command (m.lcFullFileName) Nowait Noedit
 	MoveWindow(m.lcFullFileName)
 	AddMRU(m.lcFullFileName)
