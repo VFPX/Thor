@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.45.25 - Released 2023-06-11
+
+Revert code that re-opened projects after CFU; caused failure "too many dos"
+
 ### Thor 1.45.24 - Released 2023-06-10
 
 Tweaks to Property used in _Screen
