@@ -2218,10 +2218,14 @@ Procedure GetThor_Proc_DownloadAndInstallUpdates (tcFolder)
 	Local lcCode, lcVersion
 	lcVersion = ccTHORVERSION
 	Text To lcCode Noshow Textmerge
+
 Lparameters tlIsThor, llAutoRun
 
 Local lnReturn
+
+_Screen.AddProperty('cThorCFUErrors', Sys(2023) + '\' + Sys(2015) + '.txt')
 lnReturn = CheckForUpdates_Main (tlIsThor, llAutoRun)
+ReportAnyCFUErrors()
 
 Execscript (_Screen.cThorDispatcher, 'Result=', lnReturn)
 
@@ -2236,6 +2240,7 @@ Return
 
 #Define ccCR Chr(13)
 #Define ccLF Chr(10)
+#Define ccCRLF  ccCR + ccLF
 
 #Define EmptyVerDate			Date(2001,1,1)
 #Define DaysForRecentReleases	60
@@ -2695,9 +2700,22 @@ Procedure InstallUpdates (toUpdateList)
 			? loUpdate.AvailableVersion + ' ... Updated'
 		Else
 			?
-			? '********** Failed: ' + loUpdate.AvailableVersion
+			? '********** Unable to install: ' + loUpdate.ApplicationName
+			? '********** URL: ' + loUpdate.SourceFileURL
 			? '********** See ' + lcDestZip
+			If File(m.lcDestZip)
+				? '********** Contents: ' + Left(FileToStr(m.lcDestZip), 100) 
+			EndIf
+			? '***** For more info, try  Modify File(_Screen.cThorLogForCFU)'
 			? 
+
+			WritetoCFULog('********** Unable to install: ' + loUpdate.ApplicationName,,.T.)
+			WritetoCFULog('********** URL: ' + loUpdate.SourceFileURL,,.T.)
+			WritetoCFULog('********** See ' + lcDestZip,,.T.)
+			If File(m.lcDestZip)
+				WritetoCFULog('********** Contents: ' + Left(FileToStr(m.lcDestZip), 100),,.T.)
+			EndIf
+			
 		Endif
 	Endfor && lnI = 1 to loUpdateList.Count
 Endproc
@@ -2747,9 +2765,28 @@ Function GetInvalidFileNameChars()
 Endfunc
 
 
-Procedure WritetoCFULog (tcText, tlDivider)
+Procedure WritetoCFULog (tcText, tlDivider, tlCaptureErrors)
 	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', tcText, tlDivider, 1)
+	If m.tlCaptureErrors
+		Strtofile(Alltrim(Strtran(m.tcText, '**', '', 1, 20, 1)) + ccCRLF + ccCRLF, _Screen.cThorCFUErrors, 1)
+	Endif
 EndProc 
+
+
+Procedure ReportAnyCFUErrors
+	Local lcErrorFile, lcMsg
+
+	lcErrorFile = _Screen.cThorCFUErrors
+	If File(m.lcErrorFile)
+		_Cliptext = Filetostr(m.lcErrorFile)
+
+		lcMsg = 'Errors encountered during "Check For Updates"' + ccCRLF + ccCRLF
+		lcMsg = m.lcMsg + _Cliptext + ccCRLF + ccCRLF
+		lcMsg = m.lcMsg + 'Contents of this message copied to clipboard'
+		MessageBox(m.lcMsg, 16)
+	Endif
+Endproc
+
 EndText
 	Return Strtran(lcCode, '*##*', '')
 
@@ -3060,8 +3097,12 @@ Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Extracting from
 try
 	loShell = createobject('Shell.Application')
 	loFiles = loShell.NameSpace(tcSource).Items
-	loShell.NameSpace(tcDestinationPath).CopyHere(loFiles)
-	lnResult = 1
+	If loFiles.Count > 0
+		loShell.NameSpace(tcDestinationPath).CopyHere(loFiles)
+		lnResult = 1
+	Else
+		lnResult = -1
+	endif
 catch to loException
 	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Error extracting: ' + loException.Message)
 	lnResult = -1
