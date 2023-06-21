@@ -737,13 +737,6 @@ DEFINE CLASS thor_run AS custom
 		
 		Do Case
 			Case Atc('Thor_', lcPrgName) = 1 
-				If PemStatus(_Screen, 'oThor', 5) = .F. or Vartype(_Screen.oThor) # 'O'
-		*** DH 2021-12-28: added TRY structure to prevent an error after Thor.app is deleted while being being updated
-					try
-						_Screen.AddProperty('oThor', Newobject ('oThor', 'Thor.vcx', lcThorApp, lcThorFolder))
-					catch
-					endtry
-				EndIf 
 				Return ExecuteThorProc(lcPRGName, lcThorFolder, llThorInkey, .F., Pcount(), @lxP1, @lxP2, @lxP3, @lxP4, @lxP5, @lxP6, @lxP7, @lxP8, @lxP9, @lxP10)
 		
 			Case Atc([<<ccFullPath>>], lcPrgName) = 1

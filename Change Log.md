@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.45.26 - Released 2023-06-21
+
+Enhanced error reporting for errors during downloading and installing projects in "Check For Updates".
+
 ### Thor 1.45.25 - Released 2023-06-11
 
 Revert code that re-opened projects after CFU; caused failure "too many dos"
