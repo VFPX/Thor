@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.45.27 - Released 2023-06-28
+
+Extensive refactoring to ease the issue of releasing modifications to core programs for CFU; re-arrangement of "Thor" menu items; new property "Dependencies" where one project requires another.
+
 ### Thor 1.45.26 - Released 2023-06-21
 
 Enhanced error reporting for errors during downloading and installing projects in "Check For Updates".
