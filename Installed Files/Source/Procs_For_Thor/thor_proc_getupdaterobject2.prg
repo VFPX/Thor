@@ -21,7 +21,6 @@ Define Class clsUpdaterObject As Custom
 	NeverUpdateFile		 = ''
 	UpdateNowIfNotInstalled = 'No'	
 	ProjectCreationDate  = Date(2001,1,1)
-	Dependencies		 = ''
 
 	* Properties used along the way by the updater process
 	File			   = ''
