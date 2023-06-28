@@ -305,12 +305,17 @@ DEFINE CLASS form1 AS form
 						(lnI, .ApplicationName, .CurrentVersion, .AvailableVersion, .Tag, .FromMyUpdates = 'Y';
 							, Transform(.Link), lcPrompt, Iif('Y' $ Upper(.Component), 'Component', 'App'))
 		
-					If Empty(.CurrentVersion)
-						Replace SortKey With 'X'
-					Else
-						Replace	Status	 With  'Installed'		;
-								SortKey	 With  Iif('THOR' == Upper(Alltrim(.ApplicationName)), 'A', 'B') 
-					Endif
+					Do Case
+						Case 'THOR' == Upper(Alltrim(.ApplicationName))
+							Replace	Status With  'Installed', SortKey	 With 'A'
+							
+						Case Not Empty(.CurrentVersion)
+							Replace	Status With  'Installed', SortKey	 With 'B'
+							
+						Case Empty(.CurrentVersion)
+							Replace SortKey With 'X'
+		
+					Endcase
 				Endif && not Empty(.Link)
 		
 				*!* * Removed 10/5/2012 / JRN
