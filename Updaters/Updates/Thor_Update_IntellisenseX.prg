@@ -26,6 +26,5 @@ with toUpdateObject
 	.Link                 = lcRepositoryURL
 	.LinkPrompt           = 'IntellisenseX Home Page'
 	.InstallInTools	      = .T.
-	.Dependencies		  = 'GoToDefinition'
 endwith
 return toUpdateObject
