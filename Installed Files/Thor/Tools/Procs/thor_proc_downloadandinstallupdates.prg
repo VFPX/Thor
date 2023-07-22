@@ -264,7 +264,8 @@ Procedure CreateUpdatesCursor (toUpdateList)
 					VerDate          with  loVersionInfo.VerDate								;
 					VerNumber         with loVersionInfo.VerNumber
 
-			Replace UpdateNow with UpdateNow or InList(Trim(AppName), 'PEM Editor', 'Thor Repository')
+			Replace UpdateNow with UpdateNow ;
+				or (Empty(.CurrentVersion) and InList(Trim(AppName), 'PEM Editor', 'Thor Repository')) 
 
 			Replace	SortKey	 With														;
 					  Icase(UpdateNow, 'A',												;

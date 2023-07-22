@@ -56,7 +56,6 @@ Procedure AddUpdateFolder (loUpdateList, tlIsThor, lcUpdateFolder, lcNeverUpdate
 					Case Not Isnull (loTool)
 						lcFolder = loTool.FolderName
 						lcFolder = Evl(m.lcFolder, Left(_Screen.cThorFolder, Rat('\', _Screen.cThorFolder, 2)))
-						Assert .F.
 					Case loResult.Component = 'Yes'
 						lcFolder = Addbs(Addbs (lcToolFolder) + 'Components') + loResult.ApplicationName
 					Otherwise
