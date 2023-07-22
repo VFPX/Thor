@@ -550,16 +550,12 @@ Procedure AddThorMainMenuItems(tcFolder, loMenuDefs)
 	AddThorMainMenuSeparator (8, 200, 'SEPARATOR1')
 
 	AddThorMainMenuItem (8, ccThorNews, 	205, 	'\<News', 'All the latest and greatest news about Thor and Thor tools.')
-	RemoveThorMainMenuItem (8, ccThorTWEeTs, 	206, 	'Thor TWEeTs', "History of all Thor TWEeTs (This Week's Exceptional Tools")
 	AddThorMainMenuItem (8, 'Thor-Forums', 	224, 	'\<Issues', '')
-	RemoveThorMainMenuItem (8, 'Thor-Blogs', 	217, 	'Blogs', '')
 	AddThorMainMenuItem (8, ccINTERNALHELPPRG, 220, '\<VFPX Home Page', 'Help for Thor')
 	AddThorMainMenuItem (8, 'Thor-Videos', 	230,	'\<Videos', '')
 	AddThorMainMenuItem (8, ccOPENFOLDERS, 240, '\<Folders', 'Opens various Thor folders')
 
 	*!* ** { JRN -- 6/26/2023 7:50:58 AM - Begin
-	*!* AddThorMainMenuSeparator (8, 300, 'SEPARATOR11')
-	*!* AddThorSubMenu (8, loMenuDefs.More, 999, 'More')
 
 	*!* lnMoreID = loMenuDefs.More
 	*!* AddThorMainMenuItem (lnMoreID, ccMANAGEPLUGINS, 210, 'Manage \<Plug-Ins', 'Manages plug-in PRGS used by some tools')
@@ -583,6 +579,8 @@ Procedure AddThorMainMenuItems(tcFolder, loMenuDefs)
 	AddThorMainMenuItem (8, ccDEBUGMODE, 520, '\<Debug Mode', 'Toggles debug mode for working on Thor and IDE Tools')
 
 	*!* ** } JRN -- 6/26/2023 7:50:58 AM - End
+	
+	
 Endproc
 
 
@@ -600,6 +598,11 @@ EndProc
 
 Procedure RemoveOldThorMainMenuItems(tcFolder, loMenuDefs)
 	
+	RemoveThorMainMenuItem (8, ccThorTWEeTs, 	206, 	'Thor TWEeTs', "History of all Thor TWEeTs (This Week's Exceptional Tools")
+	RemoveThorMainMenuItem (8, 'Thor-Blogs', 	217, 	'Blogs', '')
+	RemoveThorMainMenuSeparator (8, 300, 'SEPARATOR11')
+	RemoveThorMainMenuItem (8, loMenuDefs.More, 999, 'More')
+
 	RemoveThorMainMenuItem (loMenuDefs.More, ccSOURCEFILES, 230, 'Source Files', 'Downloads source files for APPs')
 	RemoveThorMainMenuItem (8, ccINTERNALALLTOOLSPRG, 120, 'Run Tool', 'All tools registered with Thor')
 
