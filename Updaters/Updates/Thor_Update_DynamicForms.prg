@@ -19,7 +19,7 @@ With loUpdateObject
     .Notes					= GetNotes()
 
 	.ToolName					= '' && This is not a "tool", it's a "component".
-	.VersionFileURL			= 'https://raw.githubusercontent.com/VFPX/DynamicForms/blob/master/DynamicFormVersionFile.txt'
+	.VersionFileURL			= 'https://raw.githubusercontent.com/VFPX/DynamicForms/master/_DynamicFormVersionFile.txt'
 	.VersionLocalFilename	= 'DynamicFormVersionFile.txt'
 	
 	Endwith

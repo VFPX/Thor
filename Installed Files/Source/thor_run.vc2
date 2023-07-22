@@ -357,7 +357,7 @@ DEFINE CLASS thor_run AS custom
 		
 				Case Upper (m.lcPRGName) = Upper ('Thor-Videos')
 					*** DH 2018-04-10: new URL
-					m.loContextMenu.AddMenuItem ('Thor Videos', [ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_Shell', 'https://github.com/VFPX/Thor/blob/master/Docs/Thor_videos.md')])
+					m.loContextMenu.AddMenuItem ('\<Videos', [ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_Shell', 'https://github.com/VFPX/Thor/blob/master/Docs/Thor_videos.md')])
 		
 				Case Upper (m.lcPRGName) = Upper (ccDEBUGMODE)
 					m.loContextMenu.AddMenuItem (m.lcPrompt, [ExecScript(_Screen.cThorDispatcher, '] + ccTOGGLEDEBUGMODE + [')], m.lcStatusBar, Nvl(m.lcKeyStroke, ''))

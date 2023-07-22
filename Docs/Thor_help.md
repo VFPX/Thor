@@ -1,14 +1,17 @@
-﻿Thor Help
+Thor Help
 ===
 
 
-* [**Get the latest Thor news**](Thor_news.md)
+*   [**Get the latest Thor News**](https://github.com/VFPX/ThorNews/blob/main/NewsItems/Archives.md)
 *   [Overview of Thor](Thor_overview.md)
 *   Installing Thor:
     *   [First-time and manual installation](Thor_install.md)
     *   [One-Click Update of Thor (and Thor Tools)](Thor_one-click_update.md)
 *   [Running Thor](Thor_running.md)
 *   [Thor videos](Thor_videos.md)
+*   Southwest Fox White Papers
+    *   [The Tools of Thor (2011)](2011%20Nelson_Thor.pdf) 
+    *   [Why Thor (2014)](2014%20Nelson_Thor.pdf)
 
 ### **The Thor Configuration Form**
 

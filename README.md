@@ -1,7 +1,7 @@
 ![](Docs/Images/Thor.png)  
 ## Tool manager for FoxPro
 
-Version 1.45.26 Release 2023-06-21
+Version 1.45.27 Release 2023-07-22
 
 [What's new in this release](Change%20Log.md)
 
@@ -11,7 +11,7 @@ _Requires VFP9_
 
 _**Thor** is a tool for managing add-on tools in the IDE, managing menus and hot key assignments for IDE Tools._
 
-[Get the latest Thor news](Docs/Thor_news.md)
+[Get the latest Thor News](https://github.com/VFPX/ThorNews/blob/main/NewsItems/Archives.md)
 
 **Getting Started:** [Click here for installation instructions](Docs/Thor_install.md)
 
@@ -19,7 +19,7 @@ _**Thor** is a tool for managing add-on tools in the IDE, managing menus and hot
 
 **Discussions:** [Post questions, bug reports, discussions in the Thor Discussion Group](http://groups.google.com/group/FoxProThor)
 
-**Tools for Thor: [PEM Editor w/IDE Tools](https://github.com/VFPX/PEMEditor),** [The Thor Repository](Docs/Thor_repository.md),  [GoFish 5](https://github.com/mattslay/GoFish)  
+**Tools for Thor: [PEM Editor w/IDE Tools](https://github.com/VFPX/PEMEditor),** **[The Thor Repository](Docs/Thor_repository.md)**, **[GoFish](https://github.com/VFPX/GoFish)** 
 
 Thor:
 
