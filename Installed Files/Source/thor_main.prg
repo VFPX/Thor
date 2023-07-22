@@ -601,7 +601,8 @@ Procedure RemoveOldThorMainMenuItems(tcFolder, loMenuDefs)
 	RemoveThorMainMenuItem (8, ccThorTWEeTs, 	206, 	'Thor TWEeTs', "History of all Thor TWEeTs (This Week's Exceptional Tools")
 	RemoveThorMainMenuItem (8, 'Thor-Blogs', 	217, 	'Blogs', '')
 	RemoveThorMainMenuSeparator (8, 300, 'SEPARATOR11')
-	RemoveThorMainMenuItem (8, loMenuDefs.More, 999, 'More')
+	*	RemoveThorMainMenuItem (8, loMenuDefs.More, 999, 'More')
+	Delete For MenuID = 8 And SortOrder = 999
 
 	RemoveThorMainMenuItem (loMenuDefs.More, ccSOURCEFILES, 230, 'Source Files', 'Downloads source files for APPs')
 	RemoveThorMainMenuItem (8, ccINTERNALALLTOOLSPRG, 120, 'Run Tool', 'All tools registered with Thor')
