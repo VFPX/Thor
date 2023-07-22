@@ -1,5 +1,5 @@
-#Define cnVersion         			1.45.26
-#Define cdVersionDate     			June 21, 2023
-#Define	ccThorInternalVERSION     	'Thor - 1.45.26 - June 21, 2023- 20230621'
-#Define	ccThorVERSION     			[Thor - 1.45.26 - June 21, 2023]
+#Define cnVersion         			1.45.27
+#Define cdVersionDate     			July 22, 2023
+#Define	ccThorInternalVERSION     	'Thor - 1.45.27 - July 22, 2023- 20230722'
+#Define	ccThorVERSION     			[Thor - 1.45.27 - July 22, 2023]
 #Define	ccThorVERSIONFILE 			[ThorVersion.txt]

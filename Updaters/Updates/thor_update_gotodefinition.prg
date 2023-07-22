@@ -27,5 +27,6 @@ with toUpdateObject
 	.LinkPrompt           = 'GoToDefinition Home Page'
 	.ProjectCreationDate  = date(2023, 1, 27)
 	.InstallInTools	      = .T.
+	.Dependencies		  = 'IntellisenseX'
 endwith
 return toUpdateObject

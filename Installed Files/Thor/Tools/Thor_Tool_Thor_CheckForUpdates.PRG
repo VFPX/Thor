@@ -1,0 +1,9 @@
+Lparameters tlInstallAllUpdates
+
+If Vartype (tlInstallAllUpdates) # 'L'
+	Return
+Endif
+
+*	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_Before_Check_For_Updates')
+Execscript (_Screen.cThorDispatcher, 'Thor_Proc_Check_For_Updates')
+*	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_After_Check_For_Updates')
