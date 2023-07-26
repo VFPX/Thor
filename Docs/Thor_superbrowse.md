@@ -1,7 +1,6 @@
 ﻿SuperBrowse
 ===
 
-![](Images/Thor_Super_Browse_SNAGHTML8410e4d.png)
 ![](Images/Thor_SuperBrowse1.jpg)
 
 ### Left Pane
