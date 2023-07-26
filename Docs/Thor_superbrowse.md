@@ -180,6 +180,7 @@ Y|Select option Only fields
 1|Select option Into Table
 2|Select option Into Cursor
 
+<!--
 ### Keyboard shortcuts while the main (right) grid is active:
 
 #### **NB!** These shortcuts are only active in Read-Only mode!
@@ -189,3 +190,4 @@ Y|Select option Only fields
 Enter|Select left grid
 F|Set focus to the Searc Values textbox
 K|Select left grid
+-->
