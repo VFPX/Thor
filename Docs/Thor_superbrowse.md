@@ -91,7 +91,7 @@ Option Value|Enter what you want to search for
 The search options are best described by some samples:  
 
 **Option type** |**Entered value**|**Description**
----|---
+|---|---|---|
 Expression|Name='Jim' or name = 'Tore'|Self explanatory
 Expression|Obsolete|Finds every record where logical field Obsolete is .T.
 Expression|Inlist(custno,10,20,30)|Self explanatory
