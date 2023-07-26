@@ -76,8 +76,7 @@ Click a column header to select/unselect a field.
 
 Double-click any record to open it for editing in a separate window created by Dynamic Forms. This is not available if “Read-Only” checkbox is checked).
 
-![](Images/Thor_Super_Browse_image_thumb_2.png)
-
+![](Images/Thor_SuperBrowse2.jpg)
 #### Filtering the grid:
 
 **Control** |**Description**
