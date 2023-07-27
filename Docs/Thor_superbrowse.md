@@ -72,9 +72,9 @@ Option 3\. Cursor read/Write|Target is a read/write cursor
 
 This page is an advanced grid.
 
-Click a column header to select/unselect a field.
+Click a column header to sort the table. 
 
-Double-click any record to open it for editing in a separate window created by Dynamic Forms. This is not available if “Read-Only” checkbox is checked).
+Double-click any record to open it for editing, or viewing if "Read-Only" is checked, in a separate window created by Dynamic Forms. 
 
 ![](Images/Thor_SuperBrowse2.jpg)
 #### Filtering the grid:
