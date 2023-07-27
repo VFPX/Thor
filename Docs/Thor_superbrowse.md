@@ -9,6 +9,8 @@ The left pane shows a grid with the data structure of the table. The fields are 
 
 Click on the fields listed in the grid to mark those you wish to "process".
 
+Click a column header to change the field order.
+
 Below the grid are two buttons:
 
 **Button** |**Description**
