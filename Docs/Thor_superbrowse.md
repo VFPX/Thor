@@ -98,11 +98,13 @@ Expression|Obsolete|Finds every record where logical field Obsolete is .T.
 Expression|Inlist(custno,10,20,30)|Self explanatory
 Expression|'nit'$country|Finds every record where 'nit' is inside the field Country
 Value|usa|Finds every record where the word 'usa' is inside **any** of the selected fields
-Value|samsung 5110|Finds every record where the words 'samsung' **and** '5110' are inside **any** of the selected fields
-Value|jim nelson kong|Finds every record where the words 'jim' and 'nelson' and 'kong' are inside **any** of the selected fields
-Expression|\*jim nelson kong|Same as above, the asterisk (*) forces a Value type search**any** of the selected fields
-Value|=price>100|Find all records with price > 100, the equal sign (=) forces an Expression type search**any** of the selected fields
+Value|usa canada|Finds every record where the word 'usa' **or** 'canada' is inside **any** of the selected fields
+Value|samsung & 5110|Finds every record where the words 'samsung' **and** '5110' are inside **any** of the selected fields. The **&** implies a logical AND.
+Value|jim & nelson & kong|Finds every record where the words 'jim' and 'nelson' and 'kong' are inside **any** of the selected fields
+Expression|\*jim & nelson & kong|Same as above, the asterisk (*) forces a Value type search **any** of the selected fields
+Value|=price>100|Find all records with price > 100, the equal sign (=) forces an Expression type search **any** of the selected fields
 
+***Note that the case is irrelevant.***
 
 #### Easy access to the right search type
 
@@ -111,7 +113,8 @@ Value|=price>100|Find all records with price > 100, the equal sign (=) forces an
 
 #### For Value search, the following rules apply:
 
-*   Each word are separated, and every word must exist in the record
+*   Each word are separated, and **any** of the words must exist in the record (**or** logic)
+*   Exception: if the words are separated by an ampersand (&), **all** the words must exist (**and** logic)
 *   Only selected fields are searched
 *   All searches are case insensitive
 *   Memo fields are also searched
