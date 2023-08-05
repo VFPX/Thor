@@ -20,7 +20,7 @@ lcToolFolder = Upper(_Screen.cThorFolder + 'Tools')
 lcFileName	 = Execscript(_Screen.cThorDispatcher, 'Full Path=' + m.lcToolName)
 
 Do Case
-	Case Not File(Addbs(m.lcToolFolder) + m.lcToolName)
+	Case Not File(Addbs(m.lcToolFolder) + ForceExt(m.lcToolName, 'prg'))
 		lcType = 'Private'
 	Case m.lcToolFolder == Upper(Justpath(m.lcFileName))
 		lcType = 'Published'
