@@ -29,7 +29,7 @@ Do Case
 Endcase
 m.loTool.AddProperty('PublishType', m.lcType)
 
-lcKeyWord = RunContextMenu(m.lcToolName, m.loTool)
+lcKeyWord = RunContextMenu(ForceExt(m.lcToolName, 'prg'), m.loTool)
 Do Case
 	Case Empty(m.lcKeyWord) && we got nothing to do
 
