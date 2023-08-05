@@ -60,10 +60,6 @@ Procedure RunContextMenu(lcToolName, loTool)
 		
 		.AddMenuItem('\<Help', , 'Show documentation for ' + m.lcTool + ' (web page if available)', , 'URL')
 
-		If Not Empty(m.loTool.FolderName)
-			.AddMenuItem('\<Installation Folder', , 'Open Installation Folder for this tool' , , 'FolderName')
-		Endif
-
 		If Not Empty(m.loTool.VideoLink)
 			.AddMenuItem('\<Video', , 'Start video for ' + m.lcTool, , 'Video')
 		Endif
@@ -105,12 +101,14 @@ Procedure RunContextMenu(lcToolName, loTool)
 		Do Case
 			Case m.loTool.PublishType = 'Custom'
 				.AddMenuItem('Edit Custom Version', , , , 'Edit')
+				.AddMenuItem('Open \<Installation Folder', , 'Open Installation Folder for this tool' , , 'FolderName')
 				.AddMenuItem('Delete Custom Version', , , , 'DeleteTool')
 				.AddMenuItem('View Published Version (Read-Only)', , , , 'Original')
 				.AddMenuItem('Compare Versions', , , , 'CompareTools')
 
 			Case m.loTool.PublishType = 'Private'
 				.AddMenuItem('Edit Private Version', , , , 'Edit')
+				.AddMenuItem('Open \<Installation Folder', , 'Open Installation Folder for this tool' , , 'FolderName')
 				.AddMenuItem('Delete Private Version', , , , 'DeleteTool')
 
 			Case Type('GoVars.UserNumber') = 'N' And GoVars.UserNumber = 63 && back door for Jim
@@ -152,7 +150,7 @@ Procedure ProcessKeyword(lcKeyWord, lcToolName, loTool, loThorUtils)
 			Execscript(_Screen.cThorDispatcher, 'Thor_proc_showtoolhelp', m.lcToolName)
 
 		Case m.lcKeyWord == 'FolderName'
-			ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_OpenFolder', Alltrim(m.loTool.FolderName)) 
+			ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_OpenFolder', JustPath(ThorFileName(m.lcToolName)))
 
 		Case m.lcKeyWord == 'Video'
 			m.loThorUtils.GoURL(m.loTool.VideoLink)

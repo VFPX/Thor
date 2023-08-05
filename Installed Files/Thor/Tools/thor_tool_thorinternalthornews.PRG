@@ -59,15 +59,8 @@ Procedure ToolCode
 	Lparameters lxParam1
 
 	Local loShell As 'wscript.shell'
-	Local lcHTMLFileName, lcVersionFileName, ldDataLastSeen, llCheckFirst, llFailed, llShowIt
+	Local lcURL, lcVersion, lcVersionFileName, ldDataLastSeen, llCheckFirst, llFailed, llShowIt
 	Local lnDateInterval, lnHTMLVersion, lnLastVersion
-
-	If Not Execscript (_Screen.cThorDispatcher, 'Thor_Proc_CheckInternetConnection')
-		If 'L' = Vartype (m.lxParam1)
-			Messagebox ('No Internet Connection Found!', 16, 'No Internet Connection', 0)
-			Return .F.
-		Endif
-	Endif
 
 	* Main Thor Engine ... needed to get / set options
 	llShowIt	 = .T.
@@ -91,7 +84,14 @@ Procedure ToolCode
 		Return
 	Endif
 
-	lcVersionFileName = Addbs (Sys(2023)) + 'ThorNewsVersion' + Sys(2015) + '.txt'
+	If Not Execscript (_Screen.cThorDispatcher, 'Thor_Proc_CheckInternetConnection')
+		If 'L' = Vartype (m.lxParam1)
+			Messagebox ('No Internet Connection Found!', 16, 'No Internet Connection', 0)
+			Return .F.
+		Endif
+	Endif
+
+	lcVersionFileName = Addbs (Sys(2023)) + 'Thor.NewsVersion' + Sys(2015) + '.txt'
 	Try
 		Execscript (_Screen.cThorDispatcher, 'Thor_Proc_DownloadFileFromURL', ccThorVersionURL, m.lcVersionFileName)
 		lnHTMLVersion = GetVersionFromHTML (Filetostr (m.lcVersionFileName ))
@@ -113,10 +113,10 @@ Procedure ToolCode
 
 	Execscript(_Screen.cThorDispatcher, 'Set Option=', ccLastVersionSeen, ccTool, m.lnHTMLVersion)
 
-	loShell = Createobject ('wscript.shell')
-	lcVersion = Transform(Int(lnHTMLVersion))
-	lcUrl = Strtran(ccThorNewsURL, '^^Version^^', lcVersion)
-	m.loShell.Run (Textmerge(lcURL))
+	loShell	  = Createobject ('wscript.shell')
+	lcVersion = Transform(Int(m.lnHTMLVersion))
+	lcURL	  = Strtran(ccThorNewsURL, '^^Version^^', m.lcVersion)
+	m.loShell.Run (Textmerge(m.lcURL))
 
 Endproc
 

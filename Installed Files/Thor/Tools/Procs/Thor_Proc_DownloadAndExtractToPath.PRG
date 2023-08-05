@@ -9,8 +9,8 @@ Local lcDownloadDestinationFile, lcDownloadPath, lcTempName, llReturn, lnReturn
 *--- Download the file to temp folder ---------------------------
 _Screen.AddProperty ('cThorLastZipFile', '')
 
-lcDownloadPath			  = Sys(2023) && Store ZIP file to user's Temp folder
-lcTempName				  = 'Thor_ToolInstaller_' + Evl (tcAppName, 'X') + Sys(2015)
+lcDownloadPath			  = _Screen.cThorCFUFolder && Store ZIP file to user's Temp folder
+lcTempName				  = 'Download_' + Evl (tcAppName, 'X') + Sys(2015)
 lcDownloadDestinationFile = Addbs (lcDownloadPath) + lcTempName + '.zip' && create a random name for the ZIP file
 
 llReturn = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_DownloadFileFromURL', tcSourceFileURL, lcDownloadDestinationFile)

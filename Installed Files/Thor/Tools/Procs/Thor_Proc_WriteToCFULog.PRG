@@ -1,23 +1,25 @@
 #Define CR Chr[13]
 #Define LF Chr(10)
-#Define cnIndent Space(30)
+#Define Tab Chr(9)
+#Define ccIndent Replicate(Tab, 6)
 
-Lparameters lcText, llDivider, lnOffset
+Lparameters lcText, llDivider, lnOffSet
 
-Local laStax[1], lcLine, lcLogtext, lcPRG, lcPrefix, lcProcedure, lcSuffix, lnLine, lnRow, lnStax
+Local laStax[1], lcLine, lcLogtext, lcMore, lcPRG, lcPrefix, lcStem, lcSuffix, lnLine, lnRow, lnStax
+
 lnStax = Astackinfo (laStax)
 
-If Evl (lcText, '' ) == 'Begin CFU' Or Not Pemstatus (_Screen, 'cThorLogForCFU', 5)
-	_Screen.AddProperty ('cThorLogForCFU', Addbs (Sys(2023)) + 'Thor_CFU_Log_' + Ttoc(Datetime(),1) + '.txt')
+If Evl(m.lcText, '' ) = 'Begin CFU' Or Not Pemstatus (_Screen, 'cThorLogForCFU', 5)
+	_Screen.AddProperty('cThorLogForCFU', _Screen.cThorCFUFolder + 'EventLog.txt')
 Endif
 
 Do Case
-	Case llDivider
-		lcLine = '*===== ' + lcText + '  '
-		Strtofile (CR + LF + Padr (lcLine, 150, '=') + CR + LF, _Screen.cThorLogForCFU, 1)
+	Case m.llDivider
+		lcLine = '*===== ' + m.lcText + '  '
+		Strtofile (CR + LF + Padr (m.lcLine, 100, '=') + CR + LF, _Screen.cThorLogForCFU, 1)
 
-	Case lnStax > (3 + Evl(lnOffset, 0))
-		lnRow = lnStax - (3 + Evl(lnOffset, 0))
+	Case .T. && m.lnStax > (3 + Evl(m.lnOffSet, 0))
+		lnRow = m.lnStax - (3 + Evl(m.lnOffSet, 0))
 
 		*!* * Removed 6/5/2012 / JRN
 		*!* lcProcedure	= laStax[lnRow, 3]
@@ -31,16 +33,31 @@ Do Case
 		*!* 	+ ' ' + Justfname (lcPRG)							;
 		*!* 	+ ', line ' + Transform (lnLine)
 
-		lcPRG		= laStax[lnRow, 4]
-		lnLine		= laStax[lnRow, 5]
-		lcPrefix	= Time()
-		lcSuffix    = ' ' + Justfname (lcPRG) + ', line ' + Transform (lnLine)
+		lcMore = ''
+		For lnRow = m.lnStax - 1  To 1 Step - 1
+			lcPRG	 = m.laStax[m.lnRow, 4]
 
-		If Empty (lcText)
-			lcLogtext = lcPrefix + '  ' + lcSuffix
+			Do Case
+				Case 'thor_proc_check_for_updates.prg' $ m.lcPRG
+					Exit
+
+				Case '.tmp' = Right(m.lcPRG, 4)
+
+				Otherwise
+
+					lnLine	 = m.laStax[m.lnRow, 5]
+					lcSuffix = ' ' + Justfname (m.lcPRG) + ', line ' + Transform (m.lnLine)
+					lcMore	 = m.lcMore + ccIndent + m.lcSuffix + CR + LF
+			Endcase
+		Endfor
+
+
+					lcPrefix = Time()
+		If Empty (m.lcText)
+			lcLogtext = m.lcPrefix + '  ' + m.lcMore
 		Else
-			lcLogtext = lcPrefix + '  ' + lcText + CR + LF + cnIndent + lcSuffix
+			lcLogtext = m.lcPrefix + '  ' + m.lcText + CR + LF + m.lcMore
 		Endif
 
-		Strtofile (lcLogtext + CR + LF, _Screen.cThorLogForCFU, 1)
+		Strtofile (m.lcLogtext + CR + LF, _Screen.cThorLogForCFU, 1)
 Endcase

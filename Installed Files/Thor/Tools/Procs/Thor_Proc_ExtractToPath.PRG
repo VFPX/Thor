@@ -8,7 +8,7 @@ Lparameters lcDownloadDestinationFile, lcTempName, tcAppName, tcInstallPath, tlS
 Local loFSO As 'Scripting.FileSystemObject'
 Local lcTempFolder, lnCopyFilesToInstallFolder, lnExtractFilesToTempFolder, lnReturn
 
-lcTempFolder = Addbs (Sys(2023)) + lcTempName
+lcTempFolder = _Screen.cThorCFUFolder + lcTempName
 loFSO		 = Createobject ('Scripting.FileSystemObject')
 loFSO.CreateFolder (lcTempFolder) && Create the temp folder
 
