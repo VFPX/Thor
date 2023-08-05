@@ -1,5 +1,10 @@
 # Thor Change Log
 
+### Thor 1.45.28 - Released 2023-08-05
+
+* Add new tool "Browse Hot Keys" to Thor menu pad
+* For CFU, clean up event logging and create new folder in Sys(2023)
+
 ### Thor 1.45.27 - Released 2023-07-22
 
 * Extensive refactoring to ease the issue of releasing modifications to core programs for CFU
