@@ -85,7 +85,6 @@ Procedure GetAvailableVersionInfo (toUpdateList)
 	For lnI = 1 To toUpdateList.Count
 		loUpdateInfo = toUpdateList[lnI]
 		If loUpdateInfo.NeverUpdate # 'Y'
-			WritetoCFULog('Getting available version info for ' + loUpdateInfo.ApplicationName)
 			loUpdateInfo = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_GetAvailableVersionInfo', loUpdateInfo)
 		Endif
 		If loUpdateInfo.ErrorCode = 0
@@ -461,7 +460,7 @@ Procedure InstallUpdates (toUpdateList)
 			Endif
 		Else
 			lnReturn = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_ExtractToPath'					;
-				  , loUpdate.LocalSourceZip, 'Thor_ToolInstaller_' + Evl (loUpdate.ApplicationName, 'X') + Sys(2015) ;
+				  , loUpdate.LocalSourceZip, 'Download_' + Evl (loUpdate.ApplicationName, 'X') + Sys(2015) ;
 				  , loUpdate.ApplicationName, lcInstallationFolder, 'Y' $ Upper (loUpdate.ShowErrorMessage))
 		Endif
 		

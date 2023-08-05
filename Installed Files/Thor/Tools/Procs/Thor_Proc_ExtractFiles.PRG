@@ -61,7 +61,7 @@
 	Local lcLibrary
 	lcLibrary = Set("Library")
 	Set Library to 
-	
+
 	*-- Extract the files to the destination folder
 	Try
 		For Each oItem In loFiles

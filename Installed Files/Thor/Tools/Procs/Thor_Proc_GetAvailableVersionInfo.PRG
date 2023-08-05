@@ -7,10 +7,12 @@ Lparameters toUpdateInfo
 *-- 2011-07 M. Slay - Revised to set properties on passed toUpdateInfo
 Local lcLocalVersionFile, lcVersionFileCode, lcVersionFileUrl, llReturn, lnAttempt, laLines[1]
 
-lcLocalVersionFile = Addbs (Sys(2023)) + Justfname (toUpdateInfo.VersionLocalFilename) && Temp folder
+lcLocalVersionFile = _Screen.cThorCFUFolder + Justfname (toUpdateInfo.VersionLocalFilename) && Temp folder
 lcVersionFileUrl   = toUpdateInfo.VersionFileUrl
 
 If Not Empty (lcVersionFileUrl)
+
+	WritetoCFULog('Getting available version info for ' + toUpdateInfo.ApplicationName, .T.)
 
 	For lnAttempt = 1 To MaxTries
 		toUpdateInfo.ErrorCode = 0

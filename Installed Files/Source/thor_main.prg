@@ -546,12 +546,13 @@ Procedure AddThorMainMenuItems(tcFolder, loMenuDefs)
 	AddThorMainMenuItem (8, ccCHECKFORUPDATES, 120, 'Check for \<Updates', 'Check for and install any outstanding updates')
 	*	AddThorMainMenuItem (8, 'Thor_Tool_ToolManager', 130, 'Tool \<Manager', 'Tool manager and editor')
 	AddThorMainMenuItem (8, 'Thor_Tool_ThorInternalRunTool', 140, '\<Launcher', 'Find and run tools, explore descriptions, etc')
+	AddThorMainMenuItem (8, 'Thor_Tool_AllHotKeys', 150, '\<Browse Hot Keys', 'Browse all assigned hot keys')
 
 	AddThorMainMenuSeparator (8, 200, 'SEPARATOR1')
 
 	AddThorMainMenuItem (8, ccThorNews, 	205, 	'\<News', 'All the latest and greatest news about Thor and Thor tools.')
-	AddThorMainMenuItem (8, 'Thor-Forums', 	224, 	'\<Issues', '')
 	AddThorMainMenuItem (8, ccINTERNALHELPPRG, 220, '\<VFPX Home Page', 'Help for Thor')
+	AddThorMainMenuItem (8, 'Thor-Forums', 	224, 	'\<Issues', '')
 	AddThorMainMenuItem (8, 'Thor-Videos', 	230,	'\<Videos', '')
 	AddThorMainMenuItem (8, ccOPENFOLDERS, 240, '\<Folders', 'Opens various Thor folders')
 
