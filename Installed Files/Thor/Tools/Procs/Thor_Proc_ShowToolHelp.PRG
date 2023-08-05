@@ -45,10 +45,10 @@ Procedure GetLink(lcLink, lcFileName)
 			lcExt	   = Getwordnum(m.lcTextLine, 2)
 			lcURL	   = Getwordnum(m.lcTextLine, 3)
 
-			If m.lcExt = 'TXT'
+			If Upper(m.lcExt) = 'TXT'
 				Return m.lcURL
 			Else
-				Return m.lcURLFolder + lcStem + '.MD'
+				Return m.lcURLFolder + Lower(lcTool + '.MD')
 			Endif
 
 		Case Not Empty(m.lcLink)
