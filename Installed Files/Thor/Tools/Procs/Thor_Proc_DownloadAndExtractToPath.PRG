@@ -9,6 +9,11 @@ Local lcDownloadDestinationFile, lcDownloadPath, lcTempName, llReturn, lnReturn
 *--- Download the file to temp folder ---------------------------
 _Screen.AddProperty ('cThorLastZipFile', '')
 
+*** JRN 2023-08-06 : missing property
+If PemStatus(_Screen, 'cThorCFUFolder', 5) = .F.
+	_Screen.AddProperty('cThorCFUFolder', Addbs(Sys(2023)))
+EndIf 
+
 lcDownloadPath			  = _Screen.cThorCFUFolder && Store ZIP file to user's Temp folder
 lcTempName				  = 'Download_' + Evl (tcAppName, 'X') + Sys(2015)
 lcDownloadDestinationFile = Addbs (lcDownloadPath) + lcTempName + '.zip' && create a random name for the ZIP file
