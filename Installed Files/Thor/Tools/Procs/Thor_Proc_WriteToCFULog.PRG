@@ -10,6 +10,9 @@ Local laStax[1], lcLine, lcLogtext, lcMore, lcPRG, lcPrefix, lcStem, lcSuffix, l
 lnStax = Astackinfo (laStax)
 
 If Evl(m.lcText, '' ) = 'Begin CFU' Or Not Pemstatus (_Screen, 'cThorLogForCFU', 5)
+	If PemStatus(_Screen, 'cThorCFUFolder', 5) = .F.
+		_Screen.AddProperty('cThorCFUFolder', Addbs(Sys(2023)))
+	EndIf 
 	_Screen.AddProperty('cThorLogForCFU', _Screen.cThorCFUFolder + 'EventLog.txt')
 Endif
 

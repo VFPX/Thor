@@ -49,7 +49,7 @@ Return
 Procedure ToolCode
 	Lparameters lxParam1
 
-	Local lcAlias, lcFieldName, lcFields, lcSourceAlias, lnShifts
+	Local lcAlias, lcFieldName, lcFields, lcSourceAlias, lnShifts, loBrowse
 
 	lcAlias		  = 'AllThorSystemHotKeys'
 
@@ -82,7 +82,9 @@ Procedure ToolCode
 	Use In Shifts
 
 	Select (m.lcAlias)
-	Browse Nowait
+	Browse Nowait Name m.loBrowse
+	m.loBrowse.AutoFit()
+	loBrowse = Null
 
 Endproc
 
