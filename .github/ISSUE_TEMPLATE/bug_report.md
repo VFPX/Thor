@@ -21,6 +21,12 @@ _What is the expected result of the above steps?_
 
 _What is the actual result of the above steps?_
 
-## 📷 Screenshots
+## 📷 Debugg Info
+_Please add screenshots of_
+- error message
+- debuggers call stack window
+- debuggers local window
+- debuggers trace window
 
-_Are there any useful screenshots? WinKey+Shift+S and then just paste them directly into the form_
+## 📷 Screenshots
+_Are there any other useful screenshots? WinKey+Shift+S and then just paste them directly into the form_
