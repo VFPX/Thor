@@ -597,6 +597,7 @@ DEFINE CLASS thorinfo AS custom
 		*m: getsampleselfregistercode
 		*m: getsampletoolcode
 		*m: register		&& Creates a PRG and registers it with Thor, using the values of the properties in this class.
+		*p: appid		&& AppID of the VFPX project the tool belongs to
 		*p: appname
 		*p: author
 		*p: bloglink
@@ -639,6 +640,7 @@ DEFINE CLASS thorinfo AS custom
 	*</DefinedPropArrayMethod>
 
 	*<PropValue>
+		appid = 
 		appname = 
 		author = 
 		bloglink = 
@@ -728,6 +730,7 @@ DEFINE CLASS thorinfo AS custom
 			<memberdata name="definestatements" display="DefineStatements"/>
 			<memberdata name="privatecopy" display="PrivateCopy"/>
 			<memberdata name="plugins" display="PlugIns"/>
+			<memberdata name="appid" display="AppID"/>
 		</VFPData>
 	*</PropValue>
 	
@@ -1038,6 +1041,7 @@ DEFINE CLASS thorinfo AS custom
 				* Optional
 		<<This.AddThorProperty('StatusBarText')>>
 		<<This.AddThorProperty('Summary',			[if empty, first line of .Description is used])>>
+		<<This.AddThorProperty('AppID',				[])>>
 		<<This.AddThorProperty('AppName',			[no path, but include the extension; thus GoFish4.App])>>
 		<<This.AddThorProperty('FullAppName',		[full path to APP])>> 
 		<<This.AddThorProperty('FolderName',		[folder name for APP])>>

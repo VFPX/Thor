@@ -49,7 +49,7 @@ Endproc
 * ================================================================================
 Procedure RunContextMenu(lcToolName, loTool)
 
-	Local laHotKey[1], lcKeyWord, lcTool, loContextMenu
+	Local laHotKey[1], lcHotKey, lcKeyWord, lcTool, loContextMenu
 
 	loContextMenu = Execscript (_Screen.cThorDispatcher, 'class= Contextmenu')
 	lcTool		  = [tool '] + Alltrim(m.loTool.Prompt) + [']
@@ -57,8 +57,12 @@ Procedure RunContextMenu(lcToolName, loTool)
 	With m.loContextMenu
 
 		* ================================================================================
-		
+
 		.AddMenuItem('\<Help', , 'Show documentation for ' + m.lcTool + ' (web page if available)', , 'URL')
+
+		If File(_Screen.cThorFolder + 'Tools\' + Forceext(m.lcToolName, 'prg'))
+			.AddMenuItem('\<Bug Reports / Suggestions', , 'Go to issues page (in GitHub) to report bugs or suggestions' + m.lcTool, , 'Issues')
+		Endif
 
 		If Not Empty(m.loTool.VideoLink)
 			.AddMenuItem('\<Video', , 'Start video for ' + m.lcTool, , 'Video')
@@ -77,15 +81,20 @@ Procedure RunContextMenu(lcToolName, loTool)
 		Endif
 
 		.AddMenuItem()
-		.AddMenuItem('\<Set hot key', , , , 'SetHotKey')
-
-		Select  HotKeyID									;
-			From ToolHotKeyAssignments						;
-			Where Upper(PRGName) = Upper(m.lcToolName)		;
-				And HotKeyID # 0							;
+		Select  Descript																;
+			From ToolHotKeyAssignments													;
+				Join HotKeyDefinitions													;
+					On     ToolHotKeyAssignments.HotKeyID = HotKeyDefinitions.Id		;
+			Where Upper(PRGName) = Upper(m.lcToolName)									;
+				And HotKeyID # 0														;
 			Into Array laHotKey
-		If Not Empty(m.laHotKey)
-			.AddMenuItem('\<Clear hot key', , , , 'ClearHotKey')
+
+		If Empty(m.laHotKey)
+			.AddMenuItem('\<Assign hot key', , , , 'SetHotKey')
+		Else
+			lcHotKey = Chrtran(Alltrim(m.laHotKey), '-', '+')
+			.AddMenuItem('\<Re-assign hot key (is ' + m.lcHotKey + ')', , , , 'SetHotKey')
+			.AddMenuItem('\<Clear hot key (is ' + m.lcHotKey + ')', , , , 'ClearHotKey')
 		Endif
 
 		.AddMenuItem()
@@ -101,14 +110,14 @@ Procedure RunContextMenu(lcToolName, loTool)
 		Do Case
 			Case m.loTool.PublishType = 'Custom'
 				.AddMenuItem('Edit Custom Version', , , , 'Edit')
-				.AddMenuItem('Open \<Installation Folder', , 'Open Installation Folder for this tool' , , 'FolderName')
+				.AddMenuItem('Open \<Installation Folder', , 'Open Installation Folder for this tool', , 'FolderName')
 				.AddMenuItem('Delete Custom Version', , , , 'DeleteTool')
 				.AddMenuItem('View Published Version (Read-Only)', , , , 'Original')
 				.AddMenuItem('Compare Versions', , , , 'CompareTools')
 
 			Case m.loTool.PublishType = 'Private'
 				.AddMenuItem('Edit Private Version', , , , 'Edit')
-				.AddMenuItem('Open \<Installation Folder', , 'Open Installation Folder for this tool' , , 'FolderName')
+				.AddMenuItem('Open \<Installation Folder', , 'Open Installation Folder for this tool', , 'FolderName')
 				.AddMenuItem('Delete Private Version', , , , 'DeleteTool')
 
 			Case Type('GoVars.UserNumber') = 'N' And GoVars.UserNumber = 63 && back door for Jim
@@ -148,6 +157,9 @@ Procedure ProcessKeyword(lcKeyWord, lcToolName, loTool, loThorUtils)
 
 		Case m.lcKeyWord == 'URL'
 			Execscript(_Screen.cThorDispatcher, 'Thor_proc_showtoolhelp', m.lcToolName)
+
+		Case m.lcKeyWord == 'Issues'
+			GoToIssuesPage(lcToolName)
 
 		Case m.lcKeyWord == 'FolderName'
 			ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_OpenFolder', JustPath(ThorFileName(m.lcToolName)))
@@ -209,12 +221,15 @@ Endproc
 
 * ================================================================================
 * ================================================================================
+Procedure GoToIssuesPage(lcToolName)
+	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_GoToIssuesPage', lcToolName)
+Endproc
+
+
+* ================================================================================
+* ================================================================================
 Procedure RunTool(loThisTable)
-	Local loForm
-	loForm = _Screen.ActiveForm
-	m.loForm.Hide()
 	Execscript(_Screen.cThorDispatcher, Trim(m.loThisTable.PRGName))
-	m.loForm.Release()
 Endproc
 
 
