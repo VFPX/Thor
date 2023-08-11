@@ -15,18 +15,19 @@ assignees: ''
 
 ### ✔️ Expected result
 
-_What is the expected result of the above steps?_
+What is the expected result of the above steps?
 
 ### ❌ Actual result
 
-_What is the actual result of the above steps?_
+What is the actual result of the above steps?
 
-## 📷 Debugg Info
-_Please add screenshots of_
-- error message
-- debuggers call stack window
-- debuggers local window
-- debuggers trace window
+## 📷 Debugging Info
+Please add screenshots of
+- Error Message
+- Windows from the debugger
+     - Trace window
+     - Locals window
+     - Call stack window
 
 ## 📷 Screenshots
-_Are there any other useful screenshots? WinKey+Shift+S and then just paste them directly into the form_
+Are there any other useful screenshots? WinKey+Shift+S and then just paste them directly into the form.

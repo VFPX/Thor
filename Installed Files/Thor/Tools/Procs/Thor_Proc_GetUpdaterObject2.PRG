@@ -20,6 +20,7 @@ Define Class clsUpdaterObject As Custom
 	VersionFileURL		 = '' && URL of the version file in the cloud
 
 	* [2] Properties that normally appear in the updater
+	AppID			   	 = ''
 	APPName				 = '' && Name of the APP file
 	ToolName			 = '' && Name of the tool used to determine where the APP is stored
 	Component            = 'No'
