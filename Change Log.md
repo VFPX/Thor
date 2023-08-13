@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.46 - Released 2023-08-11
+
+* Added new property .AppID for Thor tools so that they can identify the VFPX Project they originate in.
+
 ### Thor 1.45.28 - Released 2023-08-06
 
 * Add new tool "Browse Hot Keys" to Thor menu pad
