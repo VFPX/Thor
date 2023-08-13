@@ -102,5 +102,24 @@
 		</IndexFile>
 
 	</IndexFiles>
+
+
+	<RECORDS>
+
+		<RECORD>
+			<ID>1</ID>
+			<PRGNAME>Thor_Tool_PEME_LaunchPEMEditor.PRG</PRGNAME>
+			<STARTUP>.F.</STARTUP>
+		</RECORD>
+
+		<RECORD>
+			<ID>2</ID>
+			<PRGNAME>Thor_Tool_sssssssaaa.PRG</PRGNAME>
+			<STARTUP>.T.</STARTUP>
+		</RECORD>
+
+	</RECORDS>
+
+
 </TABLE>
 

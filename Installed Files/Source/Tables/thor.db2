@@ -177,5 +177,45 @@
 		</FIELD>
 	</FIELDS>
 
+
+
+	<RECORDS>
+
+		<RECORD>
+			<KEY>ThorHotKey</KEY>
+			<CAPTION><![CDATA[Dedicated hotkey for Thor's use]]></CAPTION>
+			<VALUE><![CDATA[Alt-F12]]></VALUE>
+			<DISPLAY><![CDATA[Alt-F12]]></DISPLAY>
+			<TYPE>C</TYPE>
+			<VALID></VALID>
+			<CLASS>ThorHotKey</CLASS>
+			<LIBRARY>Thor_UI.vcx</LIBRARY>
+		</RECORD>
+
+		<RECORD>
+			<KEY>UpdateMessage</KEY>
+			<CAPTION><![CDATA[Display message when hotkeys and menus are updated]]></CAPTION>
+			<VALUE><![CDATA[N]]></VALUE>
+			<DISPLAY><![CDATA[No]]></DISPLAY>
+			<TYPE>L</TYPE>
+			<VALID></VALID>
+			<CLASS></CLASS>
+			<LIBRARY></LIBRARY>
+		</RECORD>
+
+		<RECORD>
+			<KEY>FontSize</KEY>
+			<CAPTION><![CDATA[Font Size:]]></CAPTION>
+			<VALUE><![CDATA[9]]></VALUE>
+			<DISPLAY><![CDATA[9]]></DISPLAY>
+			<TYPE>N</TYPE>
+			<VALID></VALID>
+			<CLASS></CLASS>
+			<LIBRARY></LIBRARY>
+		</RECORD>
+
+	</RECORDS>
+
+
 </TABLE>
 

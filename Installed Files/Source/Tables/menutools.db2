@@ -218,5 +218,1431 @@
 		</IndexFile>
 
 	</IndexFiles>
+
+
+	<RECORDS>
+
+		<RECORD>
+			<ID>1</ID>
+			<MENUID>8</MENUID>
+			<PRGNAME>Thor_Tool_ThorInternalEdit.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>10</SORTORDER>
+			<PROMPT>Setup</PROMPT>
+			<STATUSBAR><![CDATA[Assign hot keys, create menus and sub-menus, etc.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2</ID>
+			<MENUID>8</MENUID>
+			<PRGNAME>Thor_Tool_ThorInternalHelp.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>60</SORTORDER>
+			<PROMPT>Help Home Page</PROMPT>
+			<STATUSBAR><![CDATA[Help for Thor]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>3</ID>
+			<MENUID>8</MENUID>
+			<PRGNAME>Thor_Tool_ThorInternalAllTools.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>20</SORTORDER>
+			<PROMPT>Run Tool</PROMPT>
+			<STATUSBAR><![CDATA[All tools registered with Thor]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>1796</ID>
+			<MENUID>1</MENUID>
+			<PRGNAME>Thor_Tool_GoFish4.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>1</SORTORDER>
+			<PROMPT>GoFish4: Prompt for the tool</PROMPT>
+			<STATUSBAR><![CDATA[GoFish4: Status bar text for the menu item]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>1797</ID>
+			<MENUID>1</MENUID>
+			<PRGNAME>Thor_Tool_GoFish4.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>2</SORTORDER>
+			<PROMPT>GoFish4: Prompt for the tool</PROMPT>
+			<STATUSBAR><![CDATA[GoFish4: Status bar text for the menu item]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>1798</ID>
+			<MENUID>1</MENUID>
+			<PRGNAME>Thor_Tool_GoFish4.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>3</SORTORDER>
+			<PROMPT>GoFish4: Prompt for the tool</PROMPT>
+			<STATUSBAR><![CDATA[GoFish4: Status bar text for the menu item]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2247</ID>
+			<MENUID>22</MENUID>
+			<PRGNAME>Thor_Tool_GetPixel.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>8</SORTORDER>
+			<PROMPT>GetPixel</PROMPT>
+			<STATUSBAR><![CDATA[GetPixel]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2248</ID>
+			<MENUID>22</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.T.</SEPARATOR>
+			<SORTORDER>4</SORTORDER>
+			<PROMPT>\-</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2249</ID>
+			<MENUID>22</MENUID>
+			<PRGNAME>Thor_Tool_Repository_TOGGLECOMMENTCOLORS.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>11</SORTORDER>
+			<PROMPT>Toggle comment colors</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2250</ID>
+			<MENUID>22</MENUID>
+			<PRGNAME>Thor_Tool_Repository_SHOW_CLASSLIBS.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>12</SORTORDER>
+			<PROMPT>Display Classlibs</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2251</ID>
+			<MENUID>22</MENUID>
+			<PRGNAME>Thor_Tool_Repository_SHOW_PATH.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>13</SORTORDER>
+			<PROMPT>Display Path</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2252</ID>
+			<MENUID>22</MENUID>
+			<PRGNAME>Thor_Tool_Repository_HACKCX_MRUS.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>10</SORTORDER>
+			<PROMPT>HackCX4 from MRU forms or classes</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2253</ID>
+			<MENUID>22</MENUID>
+			<PRGNAME>Thor_Tool_Repository_GOTOMETHOD.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>9</SORTORDER>
+			<PROMPT>Go To Method</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2254</ID>
+			<MENUID>22</MENUID>
+			<PRGNAME>Thor_Tool_Repository_CREATESQLTABLEFROMCURSOR.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>14</SORTORDER>
+			<PROMPT>Create SQL from cursor</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2255</ID>
+			<MENUID>22</MENUID>
+			<PRGNAME>Thor_Tool_Repository_MOVEDESIGNERSTOTOP.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>6</SORTORDER>
+			<PROMPT>Move Designer windows</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2256</ID>
+			<MENUID>22</MENUID>
+			<PRGNAME>Thor_Tool_Repository_RESIZEDESIGNER.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>7</SORTORDER>
+			<PROMPT>Resize Designer window</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2257</ID>
+			<MENUID>22</MENUID>
+			<PRGNAME>Thor_Tool_WLCListFields.prg</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>15</SORTORDER>
+			<PROMPT>WLC Column Listing Utility</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2259</ID>
+			<MENUID>22</MENUID>
+			<PRGNAME>Thor_Tool_Repository_CYCLEDESIGNERWINDOWS.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>5</SORTORDER>
+			<PROMPT>Cycle thru Designer windows</PROMPT>
+			<STATUSBAR><![CDATA[Cycle thru Form and Class Designer windows]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2471</ID>
+			<MENUID>22</MENUID>
+			<PRGNAME>Thor_Tool_GoToPemEditor.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>1</SORTORDER>
+			<PROMPT>Go To PEMEditor</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2472</ID>
+			<MENUID>22</MENUID>
+			<PRGNAME>Thor_Tool_gotoThor.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>2</SORTORDER>
+			<PROMPT>Go To Thor</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2473</ID>
+			<MENUID>22</MENUID>
+			<PRGNAME>THOR_TOOL_SETREVISIONDATE.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>3</SORTORDER>
+			<PROMPT>Sets the revision date</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2698</ID>
+			<MENUID>8</MENUID>
+			<PRGNAME>Thor_Tool_ThorInternalFrameWork.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>90</SORTORDER>
+			<PROMPT>Thor Framework</PROMPT>
+			<STATUSBAR><![CDATA[Framework of tools to assist in creating tools]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2699</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME>Thor_Tool_PEME_GoToDefinition.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>1</SORTORDER>
+			<PROMPT>Go To Definition</PROMPT>
+			<STATUSBAR><![CDATA[Go to the definition of the name under the cursor; method, PRG, procedure, etc.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2700</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME>Thor_Tool_PEME_BeautifyX.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>2</SORTORDER>
+			<PROMPT>BeautifyX</PROMPT>
+			<STATUSBAR><![CDATA[Beautify to the extreme; highly customizable standardization of method code]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2701</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME>Thor_Tool_PEME_CreateLOCALs.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>3</SORTORDER>
+			<PROMPT>Create LOCALs</PROMPT>
+			<STATUSBAR><![CDATA[Create the LOCALs list in a method, based on assignments in that method.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2702</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME>Thor_Tool_PEME_ExtractToMethod.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>4</SORTORDER>
+			<PROMPT>Extract To Method</PROMPT>
+			<STATUSBAR><![CDATA[Extracts the currently highlighted block of code into a new method.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2703</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>10</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>5</SORTORDER>
+			<PROMPT>Enhanced Cut &#47; Copy</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2704</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>11</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>6</SORTORDER>
+			<PROMPT>Control Structures</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2705</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>18</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>7</SORTORDER>
+			<PROMPT>Code Listings</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2706</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>12</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>8</SORTORDER>
+			<PROMPT>Cross References</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2707</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME>Thor_Tool_PEME_DynamicSnippets.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>9</SORTORDER>
+			<PROMPT>Dynamic Snippets</PROMPT>
+			<STATUSBAR><![CDATA[Dynamic Snippets]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2708</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.T.</SEPARATOR>
+			<SORTORDER>10</SORTORDER>
+			<PROMPT>\-</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2709</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>13</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>11</SORTORDER>
+			<PROMPT>Copy &#47; Paste</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2710</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>14</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>12</SORTORDER>
+			<PROMPT>Parent Classes</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2711</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME>Thor_Tool_PEME_SetCloseSizeandPosition.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>13</SORTORDER>
+			<PROMPT>Set Object Size and Position</PROMPT>
+			<STATUSBAR><![CDATA[Opens the 'Size and Position' form for changing the size and position of objects.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2712</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>21</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>14</SORTORDER>
+			<PROMPT>Auto-Rename Object(s)</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2713</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME>Thor_Tool_PEME_FindObjects.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>15</SORTORDER>
+			<PROMPT>Find Objects</PROMPT>
+			<STATUSBAR><![CDATA[Dialog for searching for objects based on the values of any of their properties]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2714</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME>Thor_Tool_PEME_AddObject.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>16</SORTORDER>
+			<PROMPT>Add Object</PROMPT>
+			<STATUSBAR><![CDATA[Dialog for adding an object, using PEM Editor's 'Open Files' dialog]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2715</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.T.</SEPARATOR>
+			<SORTORDER>17</SORTORDER>
+			<PROMPT>\-</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2716</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>15</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>18</SORTORDER>
+			<PROMPT>Open files, favorites, MRUs</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2717</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>16</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>19</SORTORDER>
+			<PROMPT>Window Manipulation</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2718</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>17</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>20</SORTORDER>
+			<PROMPT>PEM Editor forms</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2719</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.T.</SEPARATOR>
+			<SORTORDER>21</SORTORDER>
+			<PROMPT>\-</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2720</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME>Thor_Tool_PEME_EditHotKeysPreferences.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>22</SORTORDER>
+			<PROMPT>Edit Preferences for IDE Tools</PROMPT>
+			<STATUSBAR><![CDATA[Edit Preference Settings for PEM Editor with IDE Tools]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2721</ID>
+			<MENUID>9</MENUID>
+			<PRGNAME>Thor_Tool_PEME_Help.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>23</SORTORDER>
+			<PROMPT>Help</PROMPT>
+			<STATUSBAR><![CDATA[CHM Help for PEM Editor with IDE Tools.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2722</ID>
+			<MENUID>10</MENUID>
+			<PRGNAME>Thor_Tool_PEME_EnhancedCut.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>1</SORTORDER>
+			<PROMPT>Enhanced Cut</PROMPT>
+			<STATUSBAR><![CDATA[Like normal cut (Ctrl-X), but deletes the current line if nothing is highlighted]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2723</ID>
+			<MENUID>10</MENUID>
+			<PRGNAME>Thor_Tool_PEME_EnhancedCopy.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>2</SORTORDER>
+			<PROMPT>Enhanced Copy</PROMPT>
+			<STATUSBAR><![CDATA[Like normal copy (Ctrl-C), but copies the current line if nothing is highlighted]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2724</ID>
+			<MENUID>10</MENUID>
+			<PRGNAME>Thor_Tool_PEME_EnhancedCutAdditive.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>3</SORTORDER>
+			<PROMPT>Enhanced Cut &#47; Additive</PROMPT>
+			<STATUSBAR><![CDATA[Like 'Enhanced Cut', but the cut text is ADDed to the clipboard]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2725</ID>
+			<MENUID>10</MENUID>
+			<PRGNAME>Thor_Tool_PEME_EnhancedCopyAdditive.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>4</SORTORDER>
+			<PROMPT>Enhanced Copy &#47; Additive</PROMPT>
+			<STATUSBAR><![CDATA[Like 'Enhanced Copy,' but the copied text is ADDed to the clipboard]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2726</ID>
+			<MENUID>11</MENUID>
+			<PRGNAME>Thor_Tool_PEME_HighlightControlStructure.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>1</SORTORDER>
+			<PROMPT>Highlight Control Structure</PROMPT>
+			<STATUSBAR><![CDATA[Highlights the current control structure (If / EndIf, Try / Catch, Do Case / EndCase, etc).]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2727</ID>
+			<MENUID>11</MENUID>
+			<PRGNAME>Thor_Tool_PEME_EndControlStructure.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>2</SORTORDER>
+			<PROMPT>Close Control Structure</PROMPT>
+			<STATUSBAR><![CDATA[Closes the current control structure by pasting EndIF, EndCase, etc., as appropriate.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2728</ID>
+			<MENUID>12</MENUID>
+			<PRGNAME>Thor_Tool_PEME_CrossRefThismethod.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>1</SORTORDER>
+			<PROMPT>This method</PROMPT>
+			<STATUSBAR><![CDATA[Cross References report: current method window]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2729</ID>
+			<MENUID>12</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.T.</SEPARATOR>
+			<SORTORDER>2</SORTORDER>
+			<PROMPT>\-</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2730</ID>
+			<MENUID>12</MENUID>
+			<PRGNAME>Thor_Tool_PEME_CrossRefThisform.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>3</SORTORDER>
+			<PROMPT>This form&#47;class</PROMPT>
+			<STATUSBAR><![CDATA[Cross References report: all methods in the current form/class]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2731</ID>
+			<MENUID>12</MENUID>
+			<PRGNAME>Thor_Tool_PEME_CrossRefThisformChildren.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>4</SORTORDER>
+			<PROMPT>This form&#47;class and children</PROMPT>
+			<STATUSBAR><![CDATA[Cross References report: all methods in the current form/class and child objects]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2732</ID>
+			<MENUID>12</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.T.</SEPARATOR>
+			<SORTORDER>5</SORTORDER>
+			<PROMPT>\-</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2733</ID>
+			<MENUID>12</MENUID>
+			<PRGNAME>Thor_Tool_PEME_CrossRefCurrentobject.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>6</SORTORDER>
+			<PROMPT>Current object</PROMPT>
+			<STATUSBAR><![CDATA[Cross References report: all methods in the selected object]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2734</ID>
+			<MENUID>12</MENUID>
+			<PRGNAME>Thor_Tool_PEME_CrossRefCurrentobjectChildren.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>7</SORTORDER>
+			<PROMPT>Current object and children</PROMPT>
+			<STATUSBAR><![CDATA[Cross References report: all methods in the selected object and child objects]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2735</ID>
+			<MENUID>13</MENUID>
+			<PRGNAME>Thor_Tool_PEME_Copyforcomparingandpasting.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>1</SORTORDER>
+			<PROMPT>Copy (for comparing and pasting)</PROMPT>
+			<STATUSBAR><![CDATA[Copies properties and method code from the current object]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2736</ID>
+			<MENUID>13</MENUID>
+			<PRGNAME>Thor_Tool_PEME_Copyfullobjectnametoclipboard.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>2</SORTORDER>
+			<PROMPT>Copy object name to clipboard</PROMPT>
+			<STATUSBAR><![CDATA[Copies the full name of the current object to the clipboard.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2737</ID>
+			<MENUID>13</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.T.</SEPARATOR>
+			<SORTORDER>3</SORTORDER>
+			<PROMPT>\-</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2738</ID>
+			<MENUID>13</MENUID>
+			<PRGNAME>Thor_Tool_PEME_Comparewithcopiedobject.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>4</SORTORDER>
+			<PROMPT>Compare with copied object</PROMPT>
+			<STATUSBAR><![CDATA[Compares PEMs of the current object with those from the copied object.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2739</ID>
+			<MENUID>13</MENUID>
+			<PRGNAME>Thor_Tool_PEME_Pastepropertiesandmethodcode.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>5</SORTORDER>
+			<PROMPT>Paste properties and method code</PROMPT>
+			<STATUSBAR><![CDATA[Pastes PEMs from the copied object into the the current object.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2740</ID>
+			<MENUID>13</MENUID>
+			<PRGNAME>Thor_Tool_PEME_Pasteobject.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>6</SORTORDER>
+			<PROMPT>Paste object</PROMPT>
+			<STATUSBAR><![CDATA[Paste copied object (same class, methods, properties)]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2741</ID>
+			<MENUID>14</MENUID>
+			<PRGNAME>Thor_Tool_PEME_ComparewithParentClass.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>1</SORTORDER>
+			<PROMPT>Compare with Parent Class</PROMPT>
+			<STATUSBAR><![CDATA[Compares the current object with those in its parent class.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2742</ID>
+			<MENUID>14</MENUID>
+			<PRGNAME>Thor_Tool_PEME_EditParentClass.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>2</SORTORDER>
+			<PROMPT>Edit Parent Class</PROMPT>
+			<STATUSBAR><![CDATA[Dialog to edit the parent class of an object.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2743</ID>
+			<MENUID>14</MENUID>
+			<PRGNAME>Thor_Tool_PEME_ChangeParentClass.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>3</SORTORDER>
+			<PROMPT>Change Parent Class</PROMPT>
+			<STATUSBAR><![CDATA[Dialog to change the parent class of an object]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2744</ID>
+			<MENUID>15</MENUID>
+			<PRGNAME>Thor_Tool_PEME_OpenClass.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>1</SORTORDER>
+			<PROMPT>Open Classes</PROMPT>
+			<STATUSBAR><![CDATA[Dialog to find a class and then open or drag/drop it]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2745</ID>
+			<MENUID>15</MENUID>
+			<PRGNAME>Thor_Tool_PEME_OpenForm.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>2</SORTORDER>
+			<PROMPT>Open Forms</PROMPT>
+			<STATUSBAR><![CDATA[Dialog to find and open a form]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2746</ID>
+			<MENUID>15</MENUID>
+			<PRGNAME>Thor_Tool_PEME_OpenProject.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>3</SORTORDER>
+			<PROMPT>Open Projects</PROMPT>
+			<STATUSBAR><![CDATA[Dialog to find and open a project]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2747</ID>
+			<MENUID>15</MENUID>
+			<PRGNAME>Thor_Tool_PEME_OpenFiles.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>4</SORTORDER>
+			<PROMPT>Open Files</PROMPT>
+			<STATUSBAR><![CDATA[Generic dialog to find and open files]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2748</ID>
+			<MENUID>15</MENUID>
+			<PRGNAME>Thor_Tool_PEME_OpenFavorites.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>5</SORTORDER>
+			<PROMPT>Favorites</PROMPT>
+			<STATUSBAR><![CDATA[Popup menu to access favorite classes, forms, and class libraries]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2749</ID>
+			<MENUID>15</MENUID>
+			<PRGNAME>Thor_Tool_PEME_OpenMRUS.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>6</SORTORDER>
+			<PROMPT>MRUs</PROMPT>
+			<STATUSBAR><![CDATA[Pop-up menu to access MRUs for classes, forms, class libraries, etc.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2750</ID>
+			<MENUID>16</MENUID>
+			<PRGNAME>Thor_Tool_PEME_Back.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>1</SORTORDER>
+			<PROMPT>Back (previous method)</PROMPT>
+			<STATUSBAR><![CDATA[Cycle backward through all open edit windows.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2751</ID>
+			<MENUID>16</MENUID>
+			<PRGNAME>Thor_Tool_PEME_Forward.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>2</SORTORDER>
+			<PROMPT>Forward (next method)</PROMPT>
+			<STATUSBAR><![CDATA[Cycle forward through all open edit windows.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2752</ID>
+			<MENUID>16</MENUID>
+			<PRGNAME>Thor_Tool_PEME_Closeallmethodwindows.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>3</SORTORDER>
+			<PROMPT>Close all method windows</PROMPT>
+			<STATUSBAR><![CDATA[Close all code windows.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2753</ID>
+			<MENUID>16</MENUID>
+			<PRGNAME>Thor_Tool_PEME_Closeallmethodwindowsbut.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>4</SORTORDER>
+			<PROMPT>Close all code windows but this one</PROMPT>
+			<STATUSBAR><![CDATA[Close all code windows but the current window.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2754</ID>
+			<MENUID>16</MENUID>
+			<PRGNAME>Thor_Tool_PEME_MoveResizeWindow.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>5</SORTORDER>
+			<PROMPT>Move&#47;Resize Window</PROMPT>
+			<STATUSBAR><![CDATA[Move and resize the current edit window to a set size and position]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2755</ID>
+			<MENUID>16</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.T.</SEPARATOR>
+			<SORTORDER>6</SORTORDER>
+			<PROMPT>\-</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2756</ID>
+			<MENUID>16</MENUID>
+			<PRGNAME>Thor_Tool_PEME_OpenWindows.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>7</SORTORDER>
+			<PROMPT>All Open Windows</PROMPT>
+			<STATUSBAR><![CDATA[Popup menu to access open windows]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2757</ID>
+			<MENUID>17</MENUID>
+			<PRGNAME>Thor_Tool_PEME_LaunchPEMEditor.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>1</SORTORDER>
+			<PROMPT>Launch &#47; Show PEM Editor</PROMPT>
+			<STATUSBAR><![CDATA[Launch/Show the PEM Editor form]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2758</ID>
+			<MENUID>17</MENUID>
+			<PRGNAME>Thor_Tool_PEME_LaunchDocumentTreeView.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>2</SORTORDER>
+			<PROMPT>Launch &#47; Show Document TreeView</PROMPT>
+			<STATUSBAR><![CDATA[Launch/Show the Document TreeView form]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2759</ID>
+			<MENUID>17</MENUID>
+			<PRGNAME>Thor_Tool_PEME_FormatSizeandPosition.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>3</SORTORDER>
+			<PROMPT>Launch &#47; Show Object Size and Position</PROMPT>
+			<STATUSBAR><![CDATA[Launch/Shows the form for changing the size and position of objects. Modelled after the Format menu.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2760</ID>
+			<MENUID>17</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.T.</SEPARATOR>
+			<SORTORDER>4</SORTORDER>
+			<PROMPT>\-</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2761</ID>
+			<MENUID>17</MENUID>
+			<PRGNAME>Thor_Tool_PEME_LaunchClosePEMEditor.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>5</SORTORDER>
+			<PROMPT>Launch &#47; Close PEM Editor</PROMPT>
+			<STATUSBAR><![CDATA[Launch/Close the PEM Editor form]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2762</ID>
+			<MENUID>17</MENUID>
+			<PRGNAME>Thor_Tool_PEME_LaunchCloseDocumentTreeView.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>6</SORTORDER>
+			<PROMPT>Launch &#47; Close Document TreeView</PROMPT>
+			<STATUSBAR><![CDATA[Launch/Close the Document TreeView form]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2763</ID>
+			<MENUID>17</MENUID>
+			<PRGNAME>Thor_Tool_PEME_FormatCloseSizeandPosition.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>7</SORTORDER>
+			<PROMPT>Launch &#47; Close Object Size and Position</PROMPT>
+			<STATUSBAR><![CDATA[Launch/Closes the form for changing the size and position of objects. Modelled after the Format menu]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2764</ID>
+			<MENUID>17</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.T.</SEPARATOR>
+			<SORTORDER>8</SORTORDER>
+			<PROMPT>\-</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2765</ID>
+			<MENUID>17</MENUID>
+			<PRGNAME>Thor_Tool_PEME_ClosePEMEditorforms.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>9</SORTORDER>
+			<PROMPT>Open &#47; Close PEM Editor forms</PROMPT>
+			<STATUSBAR><![CDATA[Toggle the display of the forms created by PEM Editor]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2766</ID>
+			<MENUID>18</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>19</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>1</SORTORDER>
+			<PROMPT>This Control</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2767</ID>
+			<MENUID>18</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>20</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>2</SORTORDER>
+			<PROMPT>This Control and Children</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2768</ID>
+			<MENUID>19</MENUID>
+			<PRGNAME>Thor_Tool_PEME_CodeListing00.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>1</SORTORDER>
+			<PROMPT>All Code</PROMPT>
+			<STATUSBAR><![CDATA[Creates a listing of all code for the selected object.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2769</ID>
+			<MENUID>19</MENUID>
+			<PRGNAME>Thor_Tool_PEME_CodeListing10.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>2</SORTORDER>
+			<PROMPT>All Code and Inherited Code</PROMPT>
+			<STATUSBAR><![CDATA[Creates a listing of all code and inherited code for the selected object.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2770</ID>
+			<MENUID>20</MENUID>
+			<PRGNAME>Thor_Tool_PEME_CodeListing01.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>1</SORTORDER>
+			<PROMPT>All Code</PROMPT>
+			<STATUSBAR><![CDATA[Creates a listing of all code for the selected object and child objects]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2771</ID>
+			<MENUID>20</MENUID>
+			<PRGNAME>Thor_Tool_PEME_CodeListing11.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>2</SORTORDER>
+			<PROMPT>All Code and Inherited Code</PROMPT>
+			<STATUSBAR><![CDATA[Creates a listing of all code and inherited code for the selected object and child objects]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2772</ID>
+			<MENUID>21</MENUID>
+			<PRGNAME>Thor_Tool_PEME_AutoRenameThis.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>1</SORTORDER>
+			<PROMPT>Selected Object(s)</PROMPT>
+			<STATUSBAR><![CDATA[Automatically renames the currently selected object(s).]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2773</ID>
+			<MENUID>21</MENUID>
+			<PRGNAME>Thor_Tool_PEME_AutoRenameChildren.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>2</SORTORDER>
+			<PROMPT>Selected Object(s) and children</PROMPT>
+			<STATUSBAR><![CDATA[Automatically renames the currently selected object(s) and all of their child objects]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2774</ID>
+			<MENUID>8</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.T.</SEPARATOR>
+			<SORTORDER>50</SORTORDER>
+			<PROMPT>Framework</PROMPT>
+			<STATUSBAR><![CDATA[SEPARATOR1]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2775</ID>
+			<MENUID>8</MENUID>
+			<PRGNAME>Thor_Tool_ThorInternalModifyTool.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>30</SORTORDER>
+			<PROMPT>Modify Tool</PROMPT>
+			<STATUSBAR><![CDATA[Open tool with Modify Command]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2776</ID>
+			<MENUID>8</MENUID>
+			<PRGNAME>Thor_Tool_ThorInternalToolLink.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>40</SORTORDER>
+			<PROMPT>Tool Home Page</PROMPT>
+			<STATUSBAR><![CDATA[Home page for each tool (if any)]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2777</ID>
+			<MENUID>27</MENUID>
+			<PRGNAME>Thor_Tool_PEME_FindObjects.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>1</SORTORDER>
+			<PROMPT>Find Objects</PROMPT>
+			<STATUSBAR><![CDATA[Dialog for searching for objects based on the values of any of their properties]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2778</ID>
+			<MENUID>27</MENUID>
+			<PRGNAME>Thor_Tool_aaaaaaaa.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>2</SORTORDER>
+			<PROMPT>aaaaaPrompt for the tool</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2779</ID>
+			<MENUID>27</MENUID>
+			<PRGNAME>Thor_Tool_aaaaaaaa.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>3</SORTORDER>
+			<PROMPT>aaaaaPrompt for the tool</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2780</ID>
+			<MENUID>27</MENUID>
+			<PRGNAME>Thor_Tool_PEME_AddObject.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>4</SORTORDER>
+			<PROMPT>Add Object</PROMPT>
+			<STATUSBAR><![CDATA[Dialog for adding an object, using PEM Editor's 'Open Files' dialog]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2781</ID>
+			<MENUID>27</MENUID>
+			<PRGNAME>Thor_Tool_PEME_AddObject.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>5</SORTORDER>
+			<PROMPT>Add Object</PROMPT>
+			<STATUSBAR><![CDATA[Dialog for adding an object, using PEM Editor's 'Open Files' dialog]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2782</ID>
+			<MENUID>27</MENUID>
+			<PRGNAME>Thor_Tool_PEME_EnhancedCutAdditive.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>6</SORTORDER>
+			<PROMPT>Enhanced Cut &#47; Additive</PROMPT>
+			<STATUSBAR><![CDATA[Like 'Enhanced Cut', but the cut text is ADDed to the clipboard]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2783</ID>
+			<MENUID>27</MENUID>
+			<PRGNAME>Thor_Tool_GoFish4.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>7</SORTORDER>
+			<PROMPT>GoFish4</PROMPT>
+			<STATUSBAR><![CDATA[GoFish4]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2784</ID>
+			<MENUID>27</MENUID>
+			<PRGNAME>Thor_Tool_PEME_AddObject.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>8</SORTORDER>
+			<PROMPT>Add Object</PROMPT>
+			<STATUSBAR><![CDATA[Dialog for adding an object, using PEM Editor's 'Open Files' dialog]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2785</ID>
+			<MENUID>27</MENUID>
+			<PRGNAME>Thor_Tool_GetPixel.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>9</SORTORDER>
+			<PROMPT>GetPixel</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2786</ID>
+			<MENUID>27</MENUID>
+			<PRGNAME>THOR_TOOL_GOTOTHOR.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>10</SORTORDER>
+			<PROMPT>Go To Thor</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2787</ID>
+			<MENUID>27</MENUID>
+			<PRGNAME>Thor_Tool_PEME_HighlightControlStructure.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>11</SORTORDER>
+			<PROMPT>Highlight Control Structure</PROMPT>
+			<STATUSBAR><![CDATA[Highlights the current control structure (If / EndIf, Try / Catch, Do Case / EndCase, etc).]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2788</ID>
+			<MENUID>27</MENUID>
+			<PRGNAME>Thor_Tool_PEME_EndControlStructure.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>12</SORTORDER>
+			<PROMPT>Close Control Structure</PROMPT>
+			<STATUSBAR><![CDATA[Closes the current control structure by pasting EndIF, EndCase, etc., as appropriate.]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2789</ID>
+			<MENUID>14</MENUID>
+			<PRGNAME>Thor_Tool_PEME_AddObject.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>4</SORTORDER>
+			<PROMPT>Add Object</PROMPT>
+			<STATUSBAR><![CDATA[Dialog for adding an object, using PEM Editor's 'Open Files' dialog]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2790</ID>
+			<MENUID>14</MENUID>
+			<PRGNAME>thor_tool_togglecommentcolors.prg</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>5</SORTORDER>
+			<PROMPT>Toggle comment colors</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2791</ID>
+			<MENUID>27</MENUID>
+			<PRGNAME>Thor_Tool_aaaaaaaa.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>13</SORTORDER>
+			<PROMPT>aaaaaPrompt for the tool</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2792</ID>
+			<MENUID>27</MENUID>
+			<PRGNAME>Thor_Tool_aaaaaaaa.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>14</SORTORDER>
+			<PROMPT>aaaaaPrompt for the tool</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2793</ID>
+			<MENUID>14</MENUID>
+			<PRGNAME>Thor_Tool_PEME_AddObject.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>6</SORTORDER>
+			<PROMPT>Add Object</PROMPT>
+			<STATUSBAR><![CDATA[Dialog for adding an object, using PEM Editor's 'Open Files' dialog]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2794</ID>
+			<MENUID>14</MENUID>
+			<PRGNAME>Thor_Tool_aaaaaaaa.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>7</SORTORDER>
+			<PROMPT>aaaaaPrompt for the tool</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2795</ID>
+			<MENUID>14</MENUID>
+			<PRGNAME>Thor_Tool_aaaaaaaa.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>8</SORTORDER>
+			<PROMPT>aaaaaPrompt for the tool</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2796</ID>
+			<MENUID>14</MENUID>
+			<PRGNAME>Thor_Tool_aaaaaaaa.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>9</SORTORDER>
+			<PROMPT>aaaaaPrompt for the tool</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2797</ID>
+			<MENUID>27</MENUID>
+			<PRGNAME>Thor_Tool_PEME_AddObject.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>15</SORTORDER>
+			<PROMPT>Add Object</PROMPT>
+			<STATUSBAR><![CDATA[Dialog for adding an object, using PEM Editor's 'Open Files' dialog]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2798</ID>
+			<MENUID>27</MENUID>
+			<PRGNAME>thor_tool_togglecommentcolors.prg</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>16</SORTORDER>
+			<PROMPT>Toggle comment colors</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2799</ID>
+			<MENUID>13</MENUID>
+			<PRGNAME>Thor_Tool_aaaaaaaa.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>7</SORTORDER>
+			<PROMPT>aaaaaPrompt for the tool</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2800</ID>
+			<MENUID>27</MENUID>
+			<PRGNAME>Thor_Tool_aaaaaaaa.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>17</SORTORDER>
+			<PROMPT>aaaaaPrompt for the tool</PROMPT>
+			<STATUSBAR></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2801</ID>
+			<MENUID>8</MENUID>
+			<PRGNAME>Thor_Tool_ThorInternalRepositoryHomePage.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>70</SORTORDER>
+			<PROMPT>Repository Home Page</PROMPT>
+			<STATUSBAR><![CDATA[Home page for Thor Repository]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2802</ID>
+			<MENUID>8</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.T.</SEPARATOR>
+			<SORTORDER>80</SORTORDER>
+			<PROMPT></PROMPT>
+			<STATUSBAR><![CDATA[SEPARATOR2]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2803</ID>
+			<MENUID>8</MENUID>
+			<PRGNAME></PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.T.</SEPARATOR>
+			<SORTORDER>100</SORTORDER>
+			<PROMPT></PROMPT>
+			<STATUSBAR><![CDATA[SEPARATOR3]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2804</ID>
+			<MENUID>8</MENUID>
+			<PRGNAME>Thor_Tool_Thor_CheckForUpdates.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>110</SORTORDER>
+			<PROMPT>Check for Updates</PROMPT>
+			<STATUSBAR><![CDATA[Check for and install any outstanding updates]]></STATUSBAR>
+		</RECORD>
+
+		<RECORD>
+			<ID>2805</ID>
+			<MENUID>8</MENUID>
+			<PRGNAME>Thor_Tool_Thor_Community.PRG</PRGNAME>
+			<SUBMENUID>0</SUBMENUID>
+			<SEPARATOR>.F.</SEPARATOR>
+			<SORTORDER>120</SORTORDER>
+			<PROMPT>Community &#47; Discussions</PROMPT>
+			<STATUSBAR><![CDATA[Community for discussing Thor, Thor Repository, and related topics.]]></STATUSBAR>
+		</RECORD>
+
+	</RECORDS>
+
+
 </TABLE>
 
