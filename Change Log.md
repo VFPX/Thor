@@ -5,6 +5,10 @@
 * Add new Proc "Thor_Proc_RunExtApp.prg" to run external programms via API_Run
 * In case Thor_Proc_ExtractFilesFromZip.PRG fails to use Shell, it tries now PowerShell and if this fails VFPCompression
 
+### Thor 1.46 - Released 2023-08-11
+
+* Added new property .AppID for Thor tools so that they can identify the VFPX Project they originate in.
+
 ### Thor 1.45.28 - Released 2023-08-06
 
 * Add new tool "Browse Hot Keys" to Thor menu pad
