@@ -1,5 +1,10 @@
 # Thor Change Log
 
+### Thor 1.45.xx - Released 2023-08-06
+
+* Add new Proc "Thor_Proc_RunExtApp.prg" to run external programms via API_Run
+* In case Thor_Proc_ExtractFilesFromZip.PRG fails to use Shell, it tries now PowerShell and if this fails VFPCompression
+
 ### Thor 1.45.28 - Released 2023-08-06
 
 * Add new tool "Browse Hot Keys" to Thor menu pad
@@ -159,4 +164,4 @@ Thor Production Release - Released 2011-09-03
 ## Contribution
 See [contribution](./.github/CONTRIBUTING.md)
 
-Last changed: _2023/01/20_ ![Picture](Docs/Images/vfpxpoweredby_alternative.gif)
+Last changed: _2023/08/xx_ ![Picture](Docs/Images/vfpxpoweredby_alternative.gif)
