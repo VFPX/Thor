@@ -12,6 +12,7 @@ If Pcount() = 1								;
 	With lxParam1
 
 		.Prompt		 = 'Project Home Pages'
+		.AppID 		 = 'Thor'
 		.Description = 'List of Project and links to their home pages'
 		.Source		 = 'Thor'
 		.Version     = 'Thor - 1.45.16.003 - April 2, 2023'

@@ -11,6 +11,7 @@ If Pcount() = 1						  ;
 
 	With lxParam1
 		.Prompt		 = 'Help for Thor Framework'
+		.AppID 		 = 'Thor'
 		.Description = 'Follows link to Thor Home Page'
 		.Source		 = 'Thor'
 		.Version     = 'Thor - 1.45.26 - June 21, 2023'

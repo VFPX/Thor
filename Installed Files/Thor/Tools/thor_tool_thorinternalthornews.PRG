@@ -27,6 +27,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'Thor News' && used in menus
+		.AppID 		   = 'Thor'
 
 		* Optional
 		.Description   = 'News headlines about Thor'

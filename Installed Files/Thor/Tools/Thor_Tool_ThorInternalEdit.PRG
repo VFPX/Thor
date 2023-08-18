@@ -11,6 +11,7 @@ If Pcount() = 1						  ;
 
 	With lxParam1
 		.Prompt		 = 'Edit Thor'
+		.AppID 		 = 'Thor'
 		.Summary     = 'Form for Thor'
 		.Description = 'Opens main Thor form: assign hot keys to tools, create popup menus and assign hot keys to them,';
 			+ ' modify VFP system menus, etc.'

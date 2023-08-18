@@ -11,6 +11,7 @@ If Pcount() = 1						  ;
 
 	With lxParam1
 		.Prompt		 = 'All Thor Repository Tools'
+		.AppID 		 = 'Thor'
 		.Description = 'Menu of all tools registered in the Thor Repository'
 		.Source		 = 'Thor'
 		.Version     = 'Thor - 1.45.26 - June 21, 2023'
