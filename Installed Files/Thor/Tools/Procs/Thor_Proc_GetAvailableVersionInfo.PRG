@@ -20,8 +20,6 @@ If Not Empty (m.lcVersionFileUrl)
 	For lnAttempt = 1 To MaxTries
 		toUpdateInfo.ErrorCode = 0
 
-		Assert Date() > Date(2023, 8, 18) + 2 Message 'JRN - 07:46:29'
-
 		llReturn = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_DownloadFileFromURL', m.lcVersionFileUrl, m.lcLocalVersionFile)
 
 		If m.llReturn = .T.
