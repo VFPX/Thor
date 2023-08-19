@@ -15,6 +15,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'Thor TWEeTs' && used in menus
+		.AppID 		   = 'Thor'
 
 		* Optional
 		.Description   = 'Home page for Thor TWEeTs'

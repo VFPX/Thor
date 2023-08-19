@@ -84,9 +84,11 @@ Procedure GetAvailableVersionInfo (toUpdateList)
 
 	For lnI = 1 To toUpdateList.Count
 		loUpdateInfo = toUpdateList[lnI]
-		If loUpdateInfo.NeverUpdate # 'Y'
+		*!* ******** JRN Removed 2023-08-15 ********
+		*!* If loUpdateInfo.NeverUpdate # 'Y'
 			loUpdateInfo = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_GetAvailableVersionInfo', loUpdateInfo)
-		Endif
+		*!* ******** JRN Removed 2023-08-15 ********
+		*!* Endif
 		If loUpdateInfo.ErrorCode = 0
 			loUpdateList.Add (loUpdateInfo)
 		Endif

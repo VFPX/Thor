@@ -11,6 +11,7 @@ If Pcount() = 1						  ;
 
 	With lxParam1
 		.Prompt		 = 'Tool Home Page'
+		.AppID 		 = 'Thor'
 		.Description     = 'Menu to access home page (or description) for any tool'
 		.Source		 = 'Thor'
 		.Version     = 'Thor - 1.45.26 - June 21, 2023'

@@ -1,7 +1,7 @@
 #Define CR Chr[13]
 #Define LF Chr(10)
 #Define Tab Chr(9)
-#Define ccIndent Replicate(Tab, 6)
+#Define ccIndent Space(25)
 
 Lparameters lcText, llDivider, lnOffSet
 

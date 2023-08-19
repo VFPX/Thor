@@ -11,6 +11,7 @@ If Pcount() = 1						  ;
 
 	With lxParam1
 		.Prompt		 = 'Modify Tool'
+		.AppID 		 = 'Thor'
 		.Description = 'Menu to open Thor tools for modification with Modify Command'
 		.Source		 = 'Thor'
 		.Version     = 'Thor - 1.45.26 - June 21, 2023'

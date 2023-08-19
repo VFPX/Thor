@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'Browse Hot Keys'
+		.AppID 		   = 'Thor'
 
 		* Optional
 		Text To .Description Noshow && a description for the tool

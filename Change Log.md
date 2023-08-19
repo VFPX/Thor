@@ -1,5 +1,13 @@
 # Thor Change Log
 
+### Thor 1.46.01 - Released 2023-08-19
+
+* Add new property .AppID to all tools to identify the project they originate in.
+* Fix bug where invalid URLs at github were not recognized as "file not found"
+* Enhanced error reporting for problems encountered in a version file
+* Enhancements to CFU EventLog.txt to display URLs downloaded and the destination file.
+* New menu item under Thor=>Folders for most recent CFU (Check For Updates) logs
+
 ### Thor 1.46 - Released 2023-08-11
 
 * Added new property .AppID for Thor tools so that they can identify the VFPX Project they originate in.

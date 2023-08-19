@@ -16,6 +16,7 @@ If Pcount() = 1								;
 
 	With lxParam1
 		.Prompt		 = 'Framework'
+		.AppID 		 = 'Thor'
 		.Description = 'Framework of tools to assist in creating tools'
 		.Source		 = 'Thor'
 		.Version     = 'Thor - 1.45.26 - June 21, 2023'

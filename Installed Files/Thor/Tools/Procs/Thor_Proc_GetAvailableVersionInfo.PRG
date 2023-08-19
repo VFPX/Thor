@@ -1,82 +1,92 @@
-#Define CR 			Chr[13]
+#Define CRLF		Chr[13] + Chr[10]
 #Define STARS 		Replicate('=', 40)
-#Define MaxTries 	4
+#Define MaxTries 	1
 
 Lparameters toUpdateInfo
 
 *-- 2011-07 M. Slay - Revised to set properties on passed toUpdateInfo
-Local lcLocalVersionFile, lcVersionFileCode, lcVersionFileUrl, llReturn, lnAttempt, laLines[1]
+Local llReturn, laLines[1], lcApplicationName, lcLocalVersionFile, lcMsgText, lcVersionFileCode
+Local lcVersionFileUrl, lnAttempt, loException
 
-lcLocalVersionFile = _Screen.cThorCFUFolder + Justfname (toUpdateInfo.VersionLocalFilename) && Temp folder
-lcVersionFileUrl   = toUpdateInfo.VersionFileUrl
+lcLocalVersionFile = _Screen.cThorCFUFolder + Justfname (m.toUpdateInfo.VersionLocalFilename) && Temp folder
+lcVersionFileUrl   = m.toUpdateInfo.VersionFileURL
 
-If Not Empty (lcVersionFileUrl)
+If Not Empty (m.lcVersionFileUrl)
 
-	WritetoCFULog('Getting available version info for ' + toUpdateInfo.ApplicationName, .T.)
+	lcApplicationName = m.toUpdateInfo.ApplicationName
+	WritetoCFULog('Getting available version for ' + m.lcApplicationName, .T.)
 
+	*** JRN 2023-08-18 : No explanation why four tries, but leaving unchanged
 	For lnAttempt = 1 To MaxTries
 		toUpdateInfo.ErrorCode = 0
-		llReturn			   = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_DownloadFileFromURL', lcVersionFileUrl, lcLocalVersionFile)
 
-		If llReturn = .T.
-			lcVersionFileCode = Filetostr (lcLocalVersionFile)
+		Assert Date() > Date(2023, 8, 18) + 2 Message 'JRN - 07:46:29'
+
+		llReturn = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_DownloadFileFromURL', m.lcVersionFileUrl, m.lcLocalVersionFile)
+
+		If m.llReturn = .T.
+			lcVersionFileCode = Filetostr (m.lcLocalVersionFile)
 
 			*-- The downloaded file above contains VFP code which will set properties on the passed object:
 			Try
 				WritetoCFULog('Executing code from downloaded version file...')
-				toUpdateInfo = Execscript (lcVersionFileCode, toUpdateInfo)
-			Catch
-				WritetoCFULog('ERROR while executing code from downloaded version file!')
+				toUpdateInfo = Execscript (m.lcVersionFileCode, m.toUpdateInfo)
+			Catch To m.loException
+				lcMsgText = 'ERROR executing code from downloaded version file' + CRLF +		;
+					STARS +																		;
+					m.loException.Message + CRLF		+										;
+					m.loException.LineContents + CRLF +											;
+					STARS
+				WritetoCFULog(m.lcMsgText)
 				toUpdateInfo.ErrorCode = -1
 			Endtry
 
 			Do Case
-				Case toUpdateInfo.ErrorCode = 0
+				Case m.toUpdateInfo.ErrorCode = 0
 					Exit
-				Case lnAttempt = MaxTries
-					If Alines (laLines, lcVersionFileCode) > 4 && ignore messages about earlier versions which did not pass objects
-						ErrorMessage ('Invalid format in version file for ' + toUpdateInfo.AppName + CR	+ ;
-							  STARS + CR + 'URL: ' + lcVersionFileUrl + CR +					;
-							  STARS + CR + lcVersionFileCode + CR +								;
-							  STARS, toUpdateInfo.AppName)
-					Endif
+				Case m.lnAttempt = MaxTries
+					ErrorMessage ('Error in version file for ' + m.lcApplicationName + CRLF	+	;
+						  STARS + CRLF + 'URL: ' + m.lcVersionFileUrl + CRLF +					;
+						  STARS + CRLF + m.lcVersionFileCode, m.lcApplicationName)
 				Otherwise
 			Endcase
 
 		Else
 			toUpdateInfo.ErrorCode = -5
-			WritetoCFULog('Error getting available version information from server.')
-			If lnAttempt = MaxTries
-				ErrorMessage ('Error getting available version information from server.' + toUpdateInfo.AppName + CR	+ ;
-					  STARS + CR + 'URL: ' + lcVersionFileUrl + CR +							;
-					  STARS, toUpdateInfo.AppName)
+			WritetoCFULog('Error getting available version from server.')
+			If m.lnAttempt = MaxTries
+				lcMsgText = 'Error getting version information for ' + m.lcApplicationName + CRLF	+ ;
+					STARS + CRLF + 'URL: ' + m.lcVersionFileUrl
+				ErrorMessage (m.lcMsgText, m.lcApplicationName)
 			Endif
-		EndIf
-		
+		Endif
+
 	Endfor
 
 Endif
 
-If Empty(toUpdateInfo.AvailableVersion)
-	toUpdateInfo.AvailableVersion = toUpdateInfo.ApplicationName + ' - ' +		;
-		Transform(toUpdateInfo.VersionNumber) + ' - ' +							;
-		Transform(toUpdateInfo.VersionNumber) + ' - ' +							;
-		Dtoc(Evl(toUpdateInfo.VersionDate, Date(2001,1,1)), 1)
+If Empty(m.toUpdateInfo.AvailableVersion)
+	toUpdateInfo.AvailableVersion = m.lcApplicationName + ' - ' +		;
+		Transform(m.toUpdateInfo.VersionNumber) + ' - ' +				;
+		Transform(m.toUpdateInfo.VersionNumber) + ' - ' +				;
+		Dtoc(Evl(m.toUpdateInfo.VersionDate, Date(2001, 1, 1)), 1)
 Endif
-		
-Return Execscript (_Screen.cThorDispatcher, 'Result=', toUpdateInfo)
+
+Return Execscript (_Screen.cThorDispatcher, 'Result=', m.toUpdateInfo)
 
 
 Procedure ErrorMessage (tcMessage, tcAppName)
-	#Define CR Chr[13]
 	Local lcMessage
-	WritetoCFULog('MessageBox: ' + tcMessage)
-	lcMessage = tcMessage + CR + CR + 'Cancelling ... ' + CR + CR + 'This error may self-correct if "Check For Updates" is run again.'
-	Messagebox (lcMessage, 0, 'Error: ' + tcAppName)
+
+	WritetoCFULog('MessageBox: ' + m.tcMessage)
+	lcMessage = m.tcMessage + CRLF + CRLF +			;
+		STARS + CRLF + CRLF +						;
+		'This error might self-correct if "Check For Updates" is run again.'
+	Messagebox (m.lcMessage, 0, 'Error: ' + m.tcAppName)
 
 Endproc
 
 
 Procedure WritetoCFULog (tcText, tlDivider)
-	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', tcText, tlDivider)
-EndProc 
+	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', m.tcText, m.tlDivider)
+Endproc

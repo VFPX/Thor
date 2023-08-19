@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt	 = 'Manage Plug-In PRGs'
+		.AppID 	 = 'Thor'
 		.Summary = 'Manage Plug-In PRGs'
 
 		* Optional

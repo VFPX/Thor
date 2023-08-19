@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'Thor usage summary' && used in menus
+		.AppID 		   = 'Thor'
 
 		* Optional
 		.Description = 'Summary of usage of Thor tools'

@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 
 	With lxParam1
 		.Prompt		 = 'Community / Discussions'
+		.AppID 		 = 'Thor'
 		.Description = 'Link to home page for discussions about Thor'
 		.Source		 = 'Thor'
 		.Version     = 'Thor - 1.45.26 - June 21, 2023'
