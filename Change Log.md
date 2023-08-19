@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.46.02 - Released 2023-08-19
+
+* Fix bug where some items (GoFish and possibly others) not appearing under "Thor Tools" menu pad.
+
 ### Thor 1.46.01 - Released 2023-08-19
 
 * Add new property .AppID to all tools to identify the project they originate in.
