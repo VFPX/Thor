@@ -25,7 +25,6 @@ Do Case
 		If Not ThorInstalled (lcFolder)
 			ThorInstall (lcFolder)
 		EndIf
-		_Screen.AddProperty('cThorFolder', lcFolder + 'Thor\')
 		ThorRun (lcFolder, tlParam)
 
 	Case lcAction = 'EDIT'
@@ -159,6 +158,9 @@ Endproc
 Procedure ThorRun (lcFolder, tlParam)
 	Local loGetThor As 'RunThor'
 	Local loThor
+
+	_Screen.AddProperty('cThorFolder', lcFolder + 'Thor\')
+
 	loGetThor = Createobject ('RunThor')
 	loThor	  = loGetThor.GetThor (lcFolder + 'Thor.APP', lcFolder + 'Thor\')
 	loThor.AddProperty('cApplication', lcFolder + 'Thor.APP')
