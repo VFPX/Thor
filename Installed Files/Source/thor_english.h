@@ -15,7 +15,7 @@
 
 #define ccTHOR_CAPTION			'Thor Configuration'
 #define ccHOTKEY				'\<Hot key'
-#define ccEDIT_TOOL				'\<Edit Tool'
+#define ccEDIT_TOOL				'\<Documentation and Settings'
 #define ccPRESS_HOTKEY			'Press the desired hotkey ...'
 #define ccCANCEL_HOTKEY			'or [Esc] to cancel'
 #define ccCLEAR					'Clear'
