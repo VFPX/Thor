@@ -1,5 +1,10 @@
 # Thor Change Log
 
+### Thor 1.46.03 - Released 2023-08-26
+
+* Fixed bug in accessing Tables folder from Thor menu pad => Folders
+* Change caption for "Edit Tool" in principal Thor forms to read "Documentation and Settings"
+
 ### Thor 1.46.02 - Released 2023-08-19
 
 * Fix bug where some items (GoFish and possibly others) not appearing under "Thor Tools" menu pad.
