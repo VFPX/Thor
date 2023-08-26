@@ -15,7 +15,7 @@
 
 #define ccTHOR_CAPTION			'Thor Configuration'
 #define ccHOTKEY				'\<Hot key'
-#define ccEDIT_TOOL				'\<Edit Tool'
+#define ccEDIT_TOOL				'\<Documentation and Settings'
 #define ccPRESS_HOTKEY			'Press the desired hotkey ...'
 #define ccCANCEL_HOTKEY			'or [Esc] to cancel'
 #define ccCLEAR					'Clear'
@@ -35,7 +35,7 @@
 #define ccCAP_TOOL				'\<Tool'
 #define ccADD					'\<Add'
 #define ccREMOVE				'\<Remove'
-#define ccREMOVETool			'\<Remove Tool from Menu'
+#define ccREMOVETool			'\<Remove from Menu'
 #define ccREMOVESeparator		'\<Remove Separator from Menu'
 #define cnCOL2WIDTH				80
 #define cnCOL3WIDTH				50
