@@ -401,7 +401,7 @@ DEFINE CLASS thor_run AS custom
 		
 		This.AddOpenFolder (loContextMenu, 'Tools', lcToolFolder )
 		This.AddOpenFolder (loContextMenu, 'Procs', lcToolFolder + 'Procs')
-		This.AddOpenFolder (loContextMenu, 'Tables', lcToolFolder + 'Tables')
+		This.AddOpenFolder (loContextMenu, 'Tables', lcToolFolder + '..\Tables')
 		
 		loContextMenu.AddMenuItem ()
 		
