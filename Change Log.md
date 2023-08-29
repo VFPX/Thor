@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.46.03 - Released 2023-08-29
+* Removed updaters for two projects, SFRegExp and Bin2Text
+* Thor.App not changed, so no version change
+
 ### Thor 1.46.03 - Released 2023-08-26
 
 * Fixed bug in accessing Tables folder from Thor menu pad => Folders
