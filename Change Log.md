@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.46.04 - Released 2023-09-28
+* Attempt to fix obscure bug in Check For Updates (PEM Editor install fails under some conditions)
+* Fix in registering tool with Thor (when tool called with an object based on empty class)
+
 ### Thor 1.46.03 - Released 2023-08-29
 * Removed updaters for two projects, SFRegExp and Bin2Text
 * Thor.App not changed, so no version change
