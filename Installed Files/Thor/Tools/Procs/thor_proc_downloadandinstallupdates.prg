@@ -466,20 +466,31 @@ Procedure InstallUpdates (toUpdateList)
 				  , loUpdate.ApplicationName, lcInstallationFolder, 'Y' $ Upper (loUpdate.ShowErrorMessage))
 		Endif
 		
-		WritetoCFULog('Copy Zip ' + loUpdate.ApplicationName)
-		* copy zip to our new Downloads folder
-		lcDownloadedZip = _Screen.cThorLastZipFile
-		Try
-			Delete File (lcDestZip)
-			Copy File (lcDownloadedZip) To (lcDestZip)
-		Catch
-		Endtry
+		If lnReturn > 0
+			WritetoCFULog('Copy Zip ' + loUpdate.ApplicationName)
+			* copy zip to our new Downloads folder
+			lcDownloadedZip = _Screen.cThorLastZipFile
+			Try
+				Delete File (lcDestZip)
+				Copy File (lcDownloadedZip) To (lcDestZip)
+			Catch
+				WritetoCFULog('Unable to Copy Zip from ' + lcDownloadedZip + ' to ' + lcDestZip)
+				lnReturn = -999 && failure
+			Endtry
 
-		If Not Empty (ltFileTimeStamp)							;
-				And ltFileTimeStamp = Fdate (lcAPPName, 1)		;
-				And File (Addbs (lcInstallationFolder) + loUpdate.VersionLocalFilename)
-			lnReturn = -999 && failure
-		Endif
+			*!* ******** JRN Removed 2023-09-27 ********
+			*!* Pretty sure this no longer is needed, not clear why it ever was.
+			*!* It appears to check if the installed APP has a changed timestamp
+			*!*    but that is not the problem for this proc to resolve.
+			*!* If Not Empty (ltFileTimeStamp)							;
+			*!* 		And ltFileTimeStamp = Fdate (lcAPPName, 1)		;
+			*!* 		And File (Addbs (lcInstallationFolder) + loUpdate.VersionLocalFilename)
+			*!* 	lnReturn = -999 && failure
+			*!* Endif
+
+ 		Else
+			WritetoCFULog('Failure, lnReturn = ' + Transform(m.lnReturn)) 
+		EndIf
 
 		If lnReturn > 0
 			WritetoCFULog('Install ' + loUpdate.ApplicationName)
@@ -499,12 +510,12 @@ Procedure InstallUpdates (toUpdateList)
 			lcUpdatePhrase = Strtran (lcUpdatePhrase, '##FullVersionText##', loUpdate.AvailableVersion)
 			lcUpdatePhrase = Strtran (lcUpdatePhrase, '##Link##', loUpdate.Link)
 
-			*!* Try
-			lcExecPhrase = CreateDefines (loUpdate) + lcUpdatePhrase
-			Execscript (lcExecPhrase)
-			*!* Catch To loException
-			*!*     ShowErrorMsg (loException)
-			*!* Endtry
+			Try
+				lcExecPhrase = CreateDefines (loUpdate) + lcUpdatePhrase
+				Execscript (lcExecPhrase)
+			Catch To loException
+			    ShowErrorMsg (loException)
+			Endtry
 
 			lcVersionFile = loUpdate.LocalVersionFile
 			Erase (lcVersionFile)

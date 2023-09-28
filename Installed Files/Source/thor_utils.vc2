@@ -1027,8 +1027,9 @@ DEFINE CLASS thorinfo AS custom
 		* Standard prefix for all tools for Thor, allowing this tool to
 		*   tell Thor about itself.
 		
-		If Pcount() = 1						  ;
-				And 'O' = Vartype (lxParam1)  ;
+		If Pcount() = 1						 		;
+				And 'O' = Vartype (lxParam1)  		;
+				And PemStatus(lxParam1, 'Class', 5) ;
 				And 'thorinfo' = Lower (lxParam1.Class)
 		
 			With lxParam1
