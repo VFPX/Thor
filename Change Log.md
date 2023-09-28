@@ -1,5 +1,8 @@
 # Thor Change Log
 
+### Thor 1.46.05 - Released 2023-09-28
+* Fix bug, remove _Screen._ThorClearAllObject
+
 ### Thor 1.46.04 - Released 2023-09-28
 * Attempt to fix obscure bug in Check For Updates (PEM Editor install fails under some conditions)
 * Fix in registering tool with Thor (when tool called with an object based on empty class)

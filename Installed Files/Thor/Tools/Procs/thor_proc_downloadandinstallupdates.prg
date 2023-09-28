@@ -383,6 +383,8 @@ Procedure ClearAll (toUpdateList)
 	Inkey (.25) && not sure if this is needed
 
 	Alines (laUpdates, _Screen._ThorClearAllObject, 5, ccUpdateDelimiter)
+	RemoveProperty(_Screen, '_ThorClearAllObject')
+	
 	loUpdateList = Createobject ('Collection')
 	For lnI = 1 To Alen (laUpdates)
 		loUpdate = Createobject ('Empty')
