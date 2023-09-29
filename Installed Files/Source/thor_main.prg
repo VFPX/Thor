@@ -546,7 +546,7 @@ Procedure AddThorMainMenuItems(tcFolder, loMenuDefs)
 	Local lnMoreID
 	AddThorMainMenuItem (8, ccINTERNALEDITPRG, 110, '\<Configure', 'Assign hot keys, create menus and sub-menus, etc.')
 	AddThorMainMenuItem (8, ccCHECKFORUPDATES, 120, 'Check for \<Updates', 'Check for and install any outstanding updates')
-	*	AddThorMainMenuItem (8, 'Thor_Tool_ToolManager', 130, 'Tool \<Manager', 'Tool manager and editor')
+	AddThorMainMenuItem (8, 'Thor_Tool_ToolManager', 130, 'Tool \<Manager', 'Tool manager and editor')
 	AddThorMainMenuItem (8, 'Thor_Tool_ThorInternalRunTool', 140, '\<Launcher', 'Find and run tools, explore descriptions, etc')
 	AddThorMainMenuItem (8, 'Thor_Tool_AllHotKeys', 150, '\<Browse Hot Keys', 'Browse all assigned hot keys')
 

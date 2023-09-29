@@ -399,6 +399,10 @@ Procedure ClearAll (toUpdateList)
 
 *** DH 2021-12-28: delete Thor.App if it needs to be updated
 	if lower(loUpdate.AppName) = 'thor.app'
+		*** JRN 2023-09-29 : Remove property which might prevent removal of Thor.App 
+		If PemStatus(_screen, 'oThorEngine', 5)
+			RemoveProperty(_screen, 'oThorEngine')
+		EndIf 
 		erase (addbs(_screen.cThorAppFolder) + 'Thor.app')
 	endif
 

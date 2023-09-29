@@ -1,5 +1,8 @@
 # Thor Change Log
 
+### Thor 1.46.06 - Released 2023-09-29
+* New Thor tool: "Tool Manager"
+
 ### Thor 1.46.05 - Released 2023-09-28
 * Fix bug, remove _Screen._ThorClearAllObject
 
