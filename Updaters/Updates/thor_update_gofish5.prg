@@ -16,11 +16,11 @@ With m.loUpdateObject
 
 Endwith
 
-Try
-	GetVersionFileFromOldFolder()
-Catch To m.loException
+*!*	Try
+*!*		GetVersionFileFromOldFolder()
+*!*	Catch To m.loException
 
-Endtry
+*!*	Endtry
 
 
 Return m.loUpdateObject
