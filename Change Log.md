@@ -1,5 +1,8 @@
 # Thor Change Log
 
+### Thor 1.46.07 - Released 2023-10-13
+* Modify 'Hidden Context Menu" to use Ctrl+Click to go directly to Help
+
 ### Thor 1.46.06 - Released 2023-09-29
 * New Thor tool: "Tool Manager"
 

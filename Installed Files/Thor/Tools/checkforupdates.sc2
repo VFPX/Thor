@@ -150,7 +150,7 @@ DEFINE CLASS form1 AS form
 		Top = 6, ;
 		Width = 942, ;
 		Column1.ColumnOrder = 2, ;
-		Column1.ControlSource = "Trim(crsr_ThorUpdates.AppName)", ;
+		Column1.ControlSource = "Trim(crsr_ThorUpdates.AppName)+IIF(crsr_ThorUpdates.FromMyUpdates,'  (My Updates)','')", ;
 		Column1.DynamicFontUnderline = "Not empty(crsr_ThorUpdates.Link)", ;
 		Column1.DynamicForeColor = "IIF(Empty(crsr_ThorUpdates.Link), RGB(0,0,0), RGB(0,0,255))", ;
 		Column1.FontSize = 9, ;
