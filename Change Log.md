@@ -1,5 +1,8 @@
 # Thor Change Log
 
+### Thor 1.46.08 - Released 2023-10-20
+* Fix mangled table ToolHotKeyAssignments
+
 ### Thor 1.46.07 - Released 2023-10-13
 * Modify 'Hidden Context Menu" to use Ctrl+Click to go directly to Help
 
