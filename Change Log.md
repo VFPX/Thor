@@ -1,5 +1,12 @@
 # Thor Change Log
 
+### Thor 1.46.09 - Released 2023-10-22
+Fixes:
+
+* If update of Thor itself failed, Thor.App had been deleted, leaving user dead in water
+* Manage plug-ins referenced deprecated prg
+* Second attempt to fix mangled table ToolHotKeyAssignments
+
 ### Thor 1.46.08 - Released 2023-10-20
 * Fix mangled table ToolHotKeyAssignments
 

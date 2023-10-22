@@ -397,13 +397,18 @@ Procedure ClearAll (toUpdateList)
 		loUpdateList.Add (loUpdate)
 	Endfor && lnI = 1 to Alen(laUpdates)
 
-*** DH 2021-12-28: delete Thor.App if it needs to be updated
+	*** DH 2021-12-28: delete Thor.App if it needs to be updated
 	if lower(loUpdate.AppName) = 'thor.app'
 		*** JRN 2023-09-29 : Remove property which might prevent removal of Thor.App 
 		If PemStatus(_screen, 'oThorEngine', 5)
 			RemoveProperty(_screen, 'oThorEngine')
 		EndIf 
-		erase (addbs(_screen.cThorAppFolder) + 'Thor.app')
+		*!* ******** JRN Removed 2023-10-22 ********
+		*!* It should be sufficient to remove this property, which prevents Thor.App
+		*!*		from begin replaced. Removing Thor.App as well leaves us in the state
+		*!* 	where if the download fails, Thor.App would be gone (Tamar's reported issue)
+		
+		*!* erase (addbs(_screen.cThorAppFolder) + 'Thor.app')
 	endif
 
 	Return loUpdateList
