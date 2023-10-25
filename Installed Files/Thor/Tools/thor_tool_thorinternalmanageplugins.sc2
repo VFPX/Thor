@@ -308,6 +308,8 @@ DEFINE CLASS manageplugins AS form
 	PROCEDURE Load
 		* Set up the environment.
 		
+		Local lcPlugInPRGFile
+		
 		Set Deleted On
 		Set Exact Off
 		Set Exclusive Off
@@ -316,17 +318,16 @@ DEFINE CLASS manageplugins AS form
 		Set Talk Off
 		Sys(3054, 0)
 		
-		Local lcPlugInPRGFile, loThorInfo
-		
-		loThorInfo		 = Execscript(_Screen.cThorDispatcher, 'ToolInfo=', 'Thor_Tool_PEMEditor')
-		This.cHomeFolder = Addbs(loThorInfo.FolderName)
+		*!* ******** JRN Removed 2023-10-22 ********
+		*!* loThorInfo		 = Execscript(_Screen.cThorDispatcher, 'ToolInfo=', 'Thor_Tool_PEMEditor')
+		This.cHomeFolder = _Screen.cThorFolder + 'Tools\Apps\PEM Editor\'
 		lcPlugInPRGFile	 = This.cHomeFolder +  'Tables\PlugInPRGs'
 		
 		Select  *,												;
 				.T.              As  OldStyle,					;
 				Cast('' As M)    As  DefaultFileName,			;
 				Cast('' As M)    As  DefaultFileContents		;
-				  From(lcPlugInPRGFile)							;
+				  From(m.lcPlugInPRGFile)						;
 			Order By Order										;
 			Into Cursor PlugIns Readwrite
 		

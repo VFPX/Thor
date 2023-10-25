@@ -1,14 +1,18 @@
 # Thor Change Log
 
+### Thor 1.46.10 - Released 2023-10-25
+* Remove HotKeyDefinitions, erroneously added in 1.46.08
+* New optional font size for Thor menus 
+* New tool "Force Thor Update"
+
 ### Thor 1.46.09 - Released 2023-10-22
 Fixes:
-
 * If update of Thor itself failed, Thor.App had been deleted, leaving user dead in water
 * Manage plug-ins referenced deprecated prg
-* Second attempt to fix mangled table ToolHotKeyAssignments
+* Second attempt to fix mangled table HotKeyDefinitions
 
 ### Thor 1.46.08 - Released 2023-10-20
-* Fix mangled table ToolHotKeyAssignments
+* Fix mangled table HotKeyDefinitions
 
 ### Thor 1.46.07 - Released 2023-10-13
 * Modify 'Hidden Context Menu" to use Ctrl+Click to go directly to Help

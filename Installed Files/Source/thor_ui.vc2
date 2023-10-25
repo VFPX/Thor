@@ -6232,10 +6232,13 @@ DEFINE CLASS thoroptionscontrols AS basecontainer OF "basecontrols.vcx"
 	*< OBJECTDATA: ObjPath="Basecheckbox1" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="Basecheckbox2" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="Basecheckbox3" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Basecheckbox4" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Baselabel4" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Basespinner2" UniqueID="" Timestamp="" />
 
 	*<PropValue>
 		BackStyle = 1
-		Height = 260
+		Height = 307
 		Name = "thoroptionscontrols"
 		Width = 345
 	*</PropValue>
@@ -6270,6 +6273,16 @@ DEFINE CLASS thoroptionscontrols AS basecontainer OF "basecontrols.vcx"
 		Width = 193
 		*< END OBJECT: ClassLib="basecontrols.vcx" BaseClass="checkbox" />
 
+	ADD OBJECT 'Basecheckbox4' AS basecheckbox WITH ;
+		Alignment = 0, ;
+		Caption = "Use custom font size for Thor Menus", ;
+		Height = 18, ;
+		Left = 6, ;
+		Name = "Basecheckbox4", ;
+		Top = 246, ;
+		Width = 229
+		*< END OBJECT: ClassLib="basecontrols.vcx" BaseClass="checkbox" />
+
 	ADD OBJECT 'Baselabel1' AS label WITH ;
 		Alignment = 2, ;
 		BackStyle = 0, ;
@@ -6301,12 +6314,31 @@ DEFINE CLASS thoroptionscontrols AS basecontainer OF "basecontrols.vcx"
 		Top = 154
 		*< END OBJECT: ClassLib="basecontrols.vcx" BaseClass="label" />
 
+	ADD OBJECT 'Baselabel4' AS baselabel WITH ;
+		Alignment = 1, ;
+		Anchor = 0, ;
+		Caption = "Thor Menus Font Size:", ;
+		Left = 46, ;
+		Name = "Baselabel4", ;
+		Top = 271, ;
+		Width = 132
+		*< END OBJECT: ClassLib="basecontrols.vcx" BaseClass="label" />
+
 	ADD OBJECT 'Basespinner1' AS basespinner WITH ;
 		Height = 24, ;
 		InputMask = "999", ;
 		Left = 186, ;
 		Name = "Basespinner1", ;
 		Top = 150, ;
+		Width = 79
+		*< END OBJECT: ClassLib="basecontrols.vcx" BaseClass="spinner" />
+
+	ADD OBJECT 'Basespinner2' AS basespinner WITH ;
+		Height = 24, ;
+		InputMask = "999", ;
+		Left = 186, ;
+		Name = "Basespinner2", ;
+		Top = 267, ;
 		Width = 79
 		*< END OBJECT: ClassLib="basecontrols.vcx" BaseClass="spinner" />
 
@@ -6386,6 +6418,14 @@ DEFINE CLASS thoroptionscontrols AS basecontainer OF "basecontrols.vcx"
 		This.Value = This.Parent.Parent.GetOption('Settings in Home(7)', 'Thor')
 	ENDPROC
 
+	PROCEDURE Basecheckbox4.InteractiveChange
+		This.Parent.Parent.SetOption('UseMenuFontSize', 'Thor', This.Value)
+	ENDPROC
+
+	PROCEDURE Basecheckbox4.Refresh
+		This.Value = Nvl(This.Parent.Parent.GetOption('UseMenuFontSize', 'Thor'), .F.)
+	ENDPROC
+
 	PROCEDURE Basespinner1.InteractiveChange
 		This.Parent.Parent.SetOption('LauncherFontSize', 'Thor', This.Value)
 	ENDPROC
@@ -6396,6 +6436,18 @@ DEFINE CLASS thoroptionscontrols AS basecontainer OF "basecontrols.vcx"
 
 	PROCEDURE Basespinner1.Refresh
 		This.Value = This.Parent.Parent.GetOption('LauncherFontSize', 'Thor')
+	ENDPROC
+
+	PROCEDURE Basespinner2.InteractiveChange
+		This.Parent.Parent.SetOption('MenuFontSize', 'Thor', This.Value)
+	ENDPROC
+
+	PROCEDURE Basespinner2.LostFocus
+		This.Parent.Parent.SetOption('MenuFontSize', 'Thor', This.Value)
+	ENDPROC
+
+	PROCEDURE Basespinner2.Refresh
+		This.Value = Nvl(This.Parent.Parent.GetOption('MenuFontSize', 'Thor'), 9)
 	ENDPROC
 
 	PROCEDURE chkValue.InteractiveChange
