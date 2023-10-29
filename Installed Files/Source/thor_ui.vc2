@@ -1635,7 +1635,18 @@ DEFINE CLASS hotkeycontrols AS basecontainer OF "basecontrols.vcx"
 		If loKey.IsValid(This.lOnKeyLabelOnly)
 			lcDescrip = loKey.GetHotKeyDescription()
 			lnShift	  = loKey.GetModifiersValue()
-		
+			
+			Local lcMessage, lnResponse	
+			If Indexseek(Upper(Trim(lcDescrip)) + ' ', .T., 'VFPHotKeys', 'HotKey') 
+				lcMessage = 'That key conflicts with default VFP shortcut:'									;
+					+ Chr[13] + Chr[13] + Trim(VFPHotKeys.HotKey) + ' - ' + Trim(VFPHotKeys.Descript)		;
+					+ Chr[13] + Chr[13] + 'Assign it anyway?'
+				lnResponse = Messagebox (m.lcMessage, MB_YESNOCANCEL + MB_ICONSTOP, ccTHOR_CAPTION)
+				If m.lnResponse # 6
+					Return
+				Endif
+			Endif
+			
 			* Find the HotKeyDefinitions record for the hotkey; add one if necessary.
 		
 			lnSelect = Select()
@@ -1833,6 +1844,8 @@ DEFINE CLASS hotkeylist AS basecontainer OF "basecontrols.vcx"
 	*< OBJECTDATA: ObjPath="gridKeys.ColSource.Text1" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="gridKeys.ColDescription.Header1" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="gridKeys.ColDescription.Text1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="gridKeys.ColVFPConflict.Header1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="gridKeys.ColVFPConflict.Text1" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="cmdToClipboard" UniqueID="" Timestamp="" />
 
 	#INCLUDE "thor_ui.h"
@@ -1871,7 +1884,7 @@ DEFINE CLASS hotkeylist AS basecontainer OF "basecontrols.vcx"
 
 	ADD OBJECT 'gridKeys' AS basegrid WITH ;
 		Anchor = 15, ;
-		ColumnCount = 3, ;
+		ColumnCount = 4, ;
 		DeleteMark = .F., ;
 		GridLineColor = 192,192,192, ;
 		Height = 167, ;
@@ -1899,7 +1912,9 @@ DEFINE CLASS hotkeylist AS basecontainer OF "basecontrols.vcx"
 		Column3.DynamicFontBold = "crsr_GridKeys.Bold", ;
 		Column3.DynamicForeColor = "IIF(crsr_GridKeys.Red or PrivateCop = -1, 255, 0)", ;
 		Column3.Name = "ColDescription", ;
-		Column3.ReadOnly = .T.
+		Column3.ReadOnly = .T., ;
+		Column4.Name = "ColVFPConflict", ;
+		Column4.ReadOnly = .T.
 		*< END OBJECT: ClassLib="basecontrols.vcx" BaseClass="grid" />
 
 	ADD OBJECT 'gridKeys.ColDescription.Header1' AS header WITH ;
@@ -1943,6 +1958,19 @@ DEFINE CLASS hotkeylist AS basecontainer OF "basecontrols.vcx"
 		Name = "Text1", ;
 		ReadOnly = .T.
 		*< END OBJECT: BaseClass="textbox" />
+
+	ADD OBJECT 'gridKeys.ColVFPConflict.Header1' AS header WITH ;
+		Caption = "VFP Conflict?", ;
+		Name = "Header1"
+		*< END OBJECT: BaseClass="header" />
+
+	ADD OBJECT 'gridKeys.ColVFPConflict.Text1' AS textbox WITH ;
+		BackColor = 255,255,255, ;
+		BorderStyle = 0, ;
+		ForeColor = 0,0,0, ;
+		Margin = 0, ;
+		Name = "Text1"
+		*< END OBJECT: BaseClass="textbox" />
 	
 	PROCEDURE createcursor
 		Lparameters lcCursorName
@@ -1951,14 +1979,16 @@ DEFINE CLASS hotkeylist AS basecontainer OF "basecontrols.vcx"
 			  HotKey 	   C (20),		;
 			  Source 	   C (15),		;
 			  Descript     C (200),		;
+			  VFPDesc	   C(200),  	;	
 			  Type         N (2),		;
 			  ID		   I ,			;
 			  Bold         L,			;
 			  Red          L,			;
 			  PrivateCop   N(4),        ;
-			  nShifts      N (4),		;
-			  Recno        N (4)		;
+			  nShifts      N(4),		;
+			  Recno        N(4)			;
 			  )
+			  
 		
 	ENDPROC
 
@@ -2096,9 +2126,16 @@ DEFINE CLASS hotkeylist AS basecontainer OF "basecontrols.vcx"
 					On xHotKeys.Key =								 ;
 					Upper (Left (Substr (HotKey, 1 + Rat ('-', HotKey)), 10))
 		
-		Select crsr_Keys
+		*** JRN 2023-10-25 : Add field for possible conflicts with VFP hotkeys
+		Select  crsr_Keys
 		Replace all nShifts with Icase (nShifts = 4, 3, nShifts = 3, 4, nShifts) && just to get a nicer sort order
 		
+		Update  crsr_Keys							;
+			Set VFPDesc = VFPHotKeys.Descript		;
+			From crsr_Keys							;
+				Join VFPHotKeys						;
+					On Upper(crsr_Keys.HotKey) = Upper(VFPHotKeys.HotKey)
+					
 		Select crsr_GridKeys
 		Delete All
 		Append From Dbf ('crsr_Keys')
@@ -2116,9 +2153,15 @@ DEFINE CLASS hotkeylist AS basecontainer OF "basecontrols.vcx"
 	ENDPROC
 
 	PROCEDURE setdescriptionwidth
-		With this.gridKeys
-			.ColDescription.Width = .Width - .ColHotKey.Width - .ColSource.Width - Sysmetric(14) - 12
-		EndWith
+		Local lnWidth
+		
+		With This.gridKeys
+			lnWidth = .Width - .ColHotKey.Width - .ColSource.Width - Sysmetric(14) - 12
+			
+			.ColDescription.Width = m.lnWidth * 2 / 3
+			.ColVFPConflict.Width = m.lnWidth * 1 / 3
+		Endwith
+		
 		
 	ENDPROC
 
@@ -2168,6 +2211,10 @@ DEFINE CLASS hotkeylist AS basecontainer OF "basecontrols.vcx"
 		
 	ENDPROC
 
+	PROCEDURE gridKeys.ColVFPConflict.Header1.Click
+		This.Parent.Parent.Parent.SetGridOrder('Conflict')
+	ENDPROC
+
 	PROCEDURE gridKeys.Init
 		Local lnI
 		With This
@@ -2182,10 +2229,11 @@ DEFINE CLASS hotkeylist AS basecontainer OF "basecontrols.vcx"
 			.FontName = Thisform.FontName
 			.FontSize = 8
 		
-			Index On (1000 * Recno) + nShifts Tag Recno
-			Index On (1000 * nShifts) + Recno Tag nShifts
-			Index On IIf (Bold, 'A', 'B') + Source + Descript	  Tag Source
-			Index On Upper (Descript)		  Tag Descript
+			Index On (1000 * Recno) + nShifts 					Tag Recno
+			Index On (1000 * nShifts) + Recno 					Tag nShifts
+			Index On IIf (Bold, 'A', 'B') + Source + Descript	Tag Source
+			Index On Upper (Descript)		  					Tag Descript
+			Index On IIF(Empty(VFPDesc), 'B', 'A') + VFPDesc	Tag Conflict
 		
 			This.Parent.SetGridOrder ('Recno')
 		

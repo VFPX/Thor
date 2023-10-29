@@ -1,6 +1,9 @@
 # Thor Change Log
 
-### Thor 1.46.10 - Released 2023-10-25
+### Thor 1.46.10 - Released 2023-10-28
+* New table "VFPHotKeys" with list of all VFP shortcut keys:
+    * User warned about possible conflicts when assigning hot keys
+    * Page "Hot Key Assignments" in Thor Configuration form has new column showing possible conflicts
 * Remove HotKeyDefinitions, erroneously added in 1.46.08
 * New optional font size for Thor menus 
 * New tool "Force Thor Update"
