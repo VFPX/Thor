@@ -1505,6 +1505,7 @@ DEFINE CLASS thor_engine AS custom
 		This.OpenTable('TableAliases')
 		This.OpenTable('Thor')
 		This.OpenTable('HotKeys')
+		This.OpenTable('VFPHotKeys')
 		
 		*!* ******** JRN Removed 2023-03-16 ********
 		*!* Local laStack[1], lcCursor, lnI
