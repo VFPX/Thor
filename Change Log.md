@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.46.11 - Released 2023-10-30
+* New tool under "Thor" menu: "What's New (Thor Change Log)"
+* Begin use of "Thor_Proc_MessageBox", alternative to MessageBox
+
 ### Thor 1.46.10 - Released 2023-10-28
 * New table "VFPHotKeys" with list of all VFP shortcut keys:
     * User warned about possible conflicts when assigning hot keys

@@ -10,9 +10,9 @@ If Pcount() = 1						  ;
 		And 'thorinfo' = Lower (lxParam1.Class)
 
 	With lxParam1
-		.Prompt		 = 'Force Thor Update'
+		.Prompt		 = "Whats new in Thor"
 		.AppID 		 = 'Thor'
-		.Description = 'Force update to most current version of Thor'
+		.Description = "Open Change Log for Thor (What's new)"
 		.Source		 = 'Thor'
 		.Sort		 = 20
 	Endwith
@@ -28,6 +28,10 @@ Return
 ****************************************************************
 * Normal processing for this tool begins here.
 Procedure ToolCode
-	StrToFile(' Force CFU ', _screen.cThorFolder + 'Thorversion.txt', 1)
-	ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_MessageBox', 'Running "Check For Updates" now will force an update of Thor.')
-EndProc 
+	Local lcURL, loThorUtils
+
+	lcURL		= 'https://github.com/VFPX/Thor/blob/master/Change%20Log.md'
+	loThorUtils	= Execscript(_Screen.cThorDispatcher, 'thor_proc_utils')
+	m.loThorUtils.GoURL(m.lcURL)
+	
+Endproc

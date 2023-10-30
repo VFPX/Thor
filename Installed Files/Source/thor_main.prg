@@ -549,6 +549,7 @@ Procedure AddThorMainMenuItems(tcFolder, loMenuDefs)
 	AddThorMainMenuItem (8, 'Thor_Tool_ToolManager', 130, 'Tool \<Manager', 'Tool manager and editor')
 	AddThorMainMenuItem (8, 'Thor_Tool_ThorInternalRunTool', 140, '\<Launcher', 'Find and run tools, explore descriptions, etc')
 	AddThorMainMenuItem (8, 'Thor_Tool_AllHotKeys', 150, '\<Browse Hot Keys', 'Browse all assigned hot keys')
+	AddThorMainMenuItem (8, 'Thor_Tool_ThorChangeLog', 160, "What's New (Thor Change Log)", 'Change Log for Thor')
 
 	AddThorMainMenuSeparator (8, 200, 'SEPARATOR1')
 

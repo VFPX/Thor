@@ -64,7 +64,7 @@ Procedure CheckForUpdates_Main (tlIsThor, llAutoRun)
 		Wait Clear
 		? 'Updating complete'
 
-		Execscript (_Screen.cThorDispatcher, 'Thor_Proc_MessageBox', 'Updating completed', 0, 'Thor Updates...')
+		Execscript (_Screen.cThorDispatcher, 'Thor_Proc_MessageBox', 'Updating completed', 0, 'Thor Updates...', 3) && 3 second timeout
 		Return 1
 	Else
 		WritetoCFULog('Exiting ... no updates selected')
@@ -123,20 +123,28 @@ Procedure CheckIfReadyToGo (toUpdateList)
 	*       1 = Doit it!
 	*       0 = Nothing to do
 	*      -1 = Cancelled
-	Local lcMessage, lcNames, lnI, lnResponse, loUpdateInfo
+	Local lcMessage, lcNames, lcResponse, lcThorMessageBox, lcTitle, lnI, lnResponse, loUpdateInfo
 
 	lcNames = ''
-	For lnI = 1 To toUpdateList.Count
-		loUpdateInfo = toUpdateList[lnI]
-		lcNames		 = lcNames + Chr(13) + Space(8) + loUpdateInfo.ApplicationName + ': ' + loUpdateInfo.AvailableVersion
+	For lnI = 1 To m.toUpdateList.Count
+		loUpdateInfo = m.toUpdateList[m.lnI]
+		lcNames		 = m.lcNames + Chr(13) + Space(8) + m.loUpdateInfo.ApplicationName + ': ' + m.loUpdateInfo.AvailableVersion
 	Endfor
 
-	If toUpdateList.Count > 0
-		lcMessage = 'Ready to install ' + Transform (toUpdateList.Count) + ' update(s):' + Chr(13) + lcNames
-		lnResponse = Messagebox (lcMessage + Chr(13) + Chr(13) +								;
-			  'CLEAR ALL and CLOSE ALL statements must be run in order to update.' + Chr(13) + Chr(13) + ;
-			  'Do you wish to continue?', 4, 'Allow CLEAR ALL, etc.?')
-		Return Iif (lnResponse = 6, 1, -1)
+	If m.toUpdateList.Count > 0
+		lcMessage = 'Ready to install update:' + m.lcNames + Chr(13) + Chr(13) +				;
+			'CLEAR ALL and CLOSE ALL statements must be run in order to update.' + Chr(13) + Chr(13) + ;
+			'Do you wish to continue?'
+		lcTitle = 'Allow CLEAR ALL, etc.?'
+
+		lcThorMessageBox = Execscript(_Screen.cThorDispatcher, 'Full Path=' + 'Thor_Proc_Messagebox')
+		If Empty(m.lcThorMessageBox)
+			lnResponse = Messagebox (m.lcMessage, 4, m.lcTitle)
+			Return Iif (m.lnResponse = 6, 1, -1)
+		Else
+			lcResponse = Execscript(_Screen.cThorDispatcher, 'Thor_Proc_Messagebox', m.lcMessage, 3, m.lcTitle)
+			Return Iif(m.lcResponse = 'Y', 1, -1)
+		Endif
 	Else
 		Return 0
 	Endif
