@@ -4,7 +4,7 @@
 ---|---
 [Thor](#thor)|Options values (Thor Configuration / Options page)
 [MenuDefinitions](#menudefinitions)|Definition of menus -- each menu in the system menu pad, popup menus, and sub-menus
-[MenuTools](#menutools)|TBD
+[MenuTools](#menutools)|Child records of MenuDefinitions -- tools, sub-menus, and separators.
 [HotKeyDefinitions](#hotkeydefinitions)|Table of definitions for all hot keys used in MenuDefinitions.HotKeyID or ToolHotKeyAssignments.HotKeyID. 
 [ToolHotKeyAssignments *](#toolhotkeyassignments)|Mapping of tools to their hot key assignments in HotKeyDefinitions
 [ToolBarTools *](#toolbartools)|Indicates which tools show up in the ToolBar
@@ -71,6 +71,8 @@ StatusBar | Text to appear in the status bar for this menu
 Launcher | No Longer Used
 
 ### MenuTools
+
+Child records of MenuDefinitions -- tools, sub-menus, and separators.
 
 ![](../Images/Table_MenuTools.png)
 
