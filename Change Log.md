@@ -1,5 +1,10 @@
 # Thor Change Log
 
+### Thor 1.46.12 - Released 2023-11-11
+* Fix bug in "Hot Key Assignments" page (tools without extensions)
+* Fix possible infinite loop (handling project dependencies)
+* Preserve state of "Thor updates" grid as CSV in CFU sub-folder
+
 ### Thor 1.46.11 - Released 2023-10-30
 * New tool under "Thor" menu: "What's New (Thor Change Log)"
 * Begin use of "Thor_Proc_MessageBox", alternative to MessageBox

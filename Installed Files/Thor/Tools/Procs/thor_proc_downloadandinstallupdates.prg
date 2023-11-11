@@ -164,6 +164,9 @@ Procedure SelectUpdates (loUpdateList, llAutoRun)
 	lcFormFileName = Execscript (_Screen.cThorDispatcher, 'Full Path=CheckForUpdates.SCX')
 	Do Form (lcFormFileName) To llResult
 
+	Select crsr_ThorUpdates
+	Copy To ( _Screen.cThorCFUFolder + 'ThorUpdates.csv') CSV 
+
 	If llResult
 		HandleDependencies()
 
@@ -179,20 +182,26 @@ Endproc
 
 
 Procedure HandleDependencies
-	Local lcDependencies, lnI
+	Local laDependencies[1], lcDependencies, lnI, lnJ
 
 	HandleDependency('PEM Editor')
 	HandleDependency('Thor Repository')
 	HandleDependency('Dynamic Forms')
-	
-	Select crsr_ThorUpdates
-	Scan For (UpdateNow Or Not Empty(InstalledVersion)) And Not Empty(Dependencies)
-		lcDependencies = Dependencies
+
+	Select  Dependencies										;
+		From crsr_ThorUpdates									;
+		Where (UpdateNow Or Not Empty(InstalledVersion))		;
+			And Not Empty(Dependencies)							;
+		Into Array laDependencies
+	For lnJ = 1 To Alen(m.laDependencies)
+		lcDependencies = Evl(m.laDependencies[m.lnJ], '')
 		For lnI = 1 To Getwordcount(m.lcDependencies, ' ,')
 			HandleDependency(Getwordnum(m.lcDependencies, m.lnI, ' ,'))
 		Endfor
-	Endscan
+	Endfor
 Endproc
+
+
 
 
 Procedure HandleDependency(lcAPPName)

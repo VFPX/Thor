@@ -2079,7 +2079,7 @@ DEFINE CLASS hotkeylist AS basecontainer OF "basecontrols.vcx"
 		
 		Scan
 			lcHotKeyName = HotKeyName
-			lnKey		 = Thisform.oTools.GetKey (Upper (Trim (PrgName)))
+			lnKey		 = Thisform.oTools.GetKey (Upper(ForceExt(Trim (PrgName), 'PRG')))
 			lnID		 = Id
 			If 0 # lnKey
 				lcHotKeyDescript = Thisform.oTools (lnKey).Prompt
