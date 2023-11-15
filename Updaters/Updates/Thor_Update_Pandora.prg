@@ -23,7 +23,7 @@ lcZIPFileURL      = m.lcDownloadsURL + 'Pandora.zip'
 
 Text to lcRegisterWithThor NoShow TextMerge
     
-    Messagebox('Pandora installed"', 0 ,"Pandora installed", 5000)
+    Messagebox('Pandora installed', 0 ,"Pandora installed", 5000)
 
 EndText
 
