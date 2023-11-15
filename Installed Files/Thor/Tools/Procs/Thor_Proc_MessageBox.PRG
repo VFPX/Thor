@@ -25,7 +25,7 @@ Parameters tcPrompt, tcCaptions, tcTitleCaption, tnTimerDelay, tcPromptFontSize,
 #Define DefaultTitleCaption		'FYI'
 #Define DefaultPromptFontSize	11
 #Define DefaultButtonFontSize 	10
-#Define SClr_DodgerBlue			Rgb( 30, 144, 255)
+#Define SimpleWhite				Rgb(255, 255, 255)
 #Define CR						Chr[13]
 
 Local laCaptions[1], lcCaption, lcFocus, lcHeight, lcLeft, lcName, lcPrompt, lnButtons, lnHeight
@@ -78,7 +78,7 @@ With m._AlertMsgForm
 	.Height		= 36
 	.Width		= 134 	&& apparently, the minimum!
 	.Name		= 'AlertMsg'
-	.BackColor	= Evl( m.lnBackColor, SClr_DodgerBlue)
+	.BackColor	= Evl( m.lnBackColor, SimpleWhite)
 	.TitleBar	= 1
 	.MinButton	= .F.
 	.MaxButton	= .F.
@@ -91,7 +91,7 @@ With m._AlertMsgForm
 		.ReadOnly		   = .T.
 		.TabStop		   = .F.
 		.DisabledForeColor = Rgb(0, 0, 0)
-		.DisabledBackColor = Evl( m.lnBackColor, SClr_DodgerBlue)
+		.DisabledBackColor = Evl( m.lnBackColor, SimpleWhite)
 		.Left			   = 20
 		.Top			   = 10
 		.Width			   = 20

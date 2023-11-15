@@ -158,9 +158,12 @@ Procedure SelectUpdates (loUpdateList, llAutoRun)
 
 	llAnyFound = CreateUpdatesCursor (loUpdateList)
 	If llAutoRun And Not llAnyFound
+		Select crsr_ThorUpdates
+		Copy To ( _Screen.cThorCFUFolder + 'ThorUpdates.csv') CSV 
 		Return
 	Endif
 
+	Goto top in crsr_ThorUpdates
 	lcFormFileName = Execscript (_Screen.cThorDispatcher, 'Full Path=CheckForUpdates.SCX')
 	Do Form (lcFormFileName) To llResult
 
@@ -216,7 +219,7 @@ Endproc
 
 Procedure CreateUpdatesCursor (toUpdateList)
 
-	Local laLines[1], llAnyFound, lnI, lnLineCount, loVersionInfo
+	Local laLines[1], lnI, lnLineCount, loVersionInfo
 	Create Cursor crsr_ThorUpdates (			;
 		  Recno					N(4),			;
 		  AppName  				C(40),			;
@@ -244,8 +247,6 @@ Procedure CreateUpdatesCursor (toUpdateList)
 		  ProjectType			C(10)			;
 		  )
 
-	llAnyFound = .F.
-	
 	For lnI = 1 To toUpdateList.Count
 		With toUpdateList[lnI]
 
@@ -301,19 +302,23 @@ Procedure CreateUpdatesCursor (toUpdateList)
 						Left(SortKey, 1) = 'C', 'Current',								;
 						Left(SortKey, 1) = 'D', 'Recently Updated',						;
 						'Not Installed') 															
-			Replace SortKey With '0' for FromMyUpdates && "My Updates" items go atop list
-			llAnyFound = llAnyFound Or UpdateNow
 
 		Endwith
 	Endfor && lnI = 1 to toUpdateList.Count
 
+	Replace All SortKey With '0'		;
+		For FromMyUpdates && "My Updates" items go atop list
+		
 	Select  *										;
 		From crsr_ThorUpdates						;
 		Into Cursor crsr_ThorUpdates Readwrite		;
 		Order By SortKey
-	Goto Top
 
-	Return llAnyFound
+	Locate for UpdateNow or (IsNew and Empty(InstalledVersion) and not NeverUpdate)
+	Return Found() 
+
+EndProc 
+
 
 Procedure GetVersionInfo (lcVersion)
 	Local loResult As 'Empty'
