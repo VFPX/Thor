@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 
 	With lxParam1
 		.Prompt		 = 'Link to Thor Repository'
+		.AppID 		 = 'Thor'
 		.Description = 'Link to Home Page for Thor Repository'
 		.Source		 = 'Thor'
 		.Version     = 'Thor - 1.45.26 - June 21, 2023'

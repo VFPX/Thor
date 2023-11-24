@@ -10,19 +10,24 @@ Here are the steps to updating to a new version:
 1. Create a fork at github
    - See this [guide](https://www.dataschool.io/how-to-contribute-on-github/) for setting up and using a fork
 2. Make whatever changes are necessary.
+
+*Steps 3 through 10 only apply if you intend to merge your changes immediately into the master repository for Thor. This can only happen if you have access to do so and you are sure that your changes do not need any further testing by others.*
+
+*If you do not intend to merge into the master repository or are in any way unsure what this means, skip directly to step 11.*
+
 ---
 #### If updating Thor.App
 3. Edit _Installed Files\Source\ThorVersion.h_ and change the version constants.
 1. Update the AvailableVersion property in _ThorUpdater\\_ThorVersionFile.txt_. Be certain that the value be identical to the value of the `ccThorInternalVERSION` constant in _ThorVersion.h_.
+1. Update the version number and date at the top of _README.md_ 
+1. Describe the changes in _Change Log.md_.
+1. Run FoxBin2Prg to create the text files in folder _Installed Files_
+   - `DO foxbin2prg.prg WITH 'BIN2PRG','*.*'`
 1. Run _BuildThor.PRG_ in folder _"Installed Files\Source"_ to re-create the APP. You will need to this in an environment where Thor is no longer running:
     - `Cancel()`
     - `Close All`
     - `Clear All`
     - `Release All`
-1. Run FoxBin2Prg to create the text files in folder _Installed Files_
-   - `DO foxbin2prg.prg WITH 'BIN2PRG','*.*'`
-1. Update the version number and date at the top of _README.md_ 
-1. Describe the changes in _Change Log.md_.
 ---
 #### If updating version info for VFPX Projects / CFU (most projects) or creating an updater for a new projects
 ---

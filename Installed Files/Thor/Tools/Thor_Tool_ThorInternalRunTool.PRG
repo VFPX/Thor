@@ -12,6 +12,7 @@ If Pcount() = 1								;
 	With lxParam1
 
 		.Prompt		 = 'Tool Launcher'
+		.AppID 		 = 'Thor'
 		.Description = 'Find and run tools, browse descriptions, set options, ...'
 		.Source		 = 'Thor'
 		.Version     = 'Thor - 1.45.26 - June 21, 2023'

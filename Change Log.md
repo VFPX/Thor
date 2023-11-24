@@ -1,9 +1,76 @@
 # Thor Change Log
 
-### Thor 1.45.xx - Released 2023-08-06
+### Thor 1.46.xx - Released 2023-11-24
 
 * Add new Proc "Thor_Proc_RunExtApp.prg" to run external programms via API_Run
 * In case Thor_Proc_ExtractFilesFromZip.PRG fails to use Shell, it tries now PowerShell and if this fails VFPCompression
+
+### Thor 1.46.13 - Released 2023-11-15
+* Fix recently introduced bug in "RunThor".  (When called with # days as a parameter, it would update Thor but not bring up the CFU screen for other projects.)
+
+### Thor 1.46.12 - Released 2023-11-11
+* Fix bug in "Hot Key Assignments" page (tools without extensions)
+* Fix possible infinite loop (handling project dependencies)
+* Preserve state of "Thor updates" grid as CSV in CFU sub-folder
+
+### Thor 1.46.11 - Released 2023-10-30
+* New tool under "Thor" menu: "What's New (Thor Change Log)"
+* Begin use of "Thor_Proc_MessageBox", alternative to MessageBox
+
+### Thor 1.46.10 - Released 2023-10-28
+* New table "VFPHotKeys" with list of all VFP shortcut keys:
+    * User warned about possible conflicts when assigning hot keys
+    * Page "Hot Key Assignments" in Thor Configuration form has new column showing possible conflicts
+* Remove HotKeyDefinitions, erroneously added in 1.46.08
+* New optional font size for Thor menus 
+* New tool "Force Thor Update"
+
+### Thor 1.46.09 - Released 2023-10-22
+Fixes:
+* If update of Thor itself failed, Thor.App had been deleted, leaving user dead in water
+* Manage plug-ins referenced deprecated prg
+* Second attempt to fix mangled table HotKeyDefinitions
+
+### Thor 1.46.08 - Released 2023-10-20
+* Fix mangled table HotKeyDefinitions
+
+### Thor 1.46.07 - Released 2023-10-13
+* Modify 'Hidden Context Menu" to use Ctrl+Click to go directly to Help
+
+### Thor 1.46.06 - Released 2023-09-29
+* New Thor tool: "Tool Manager"
+
+### Thor 1.46.05 - Released 2023-09-28
+* Fix bug, remove _Screen._ThorClearAllObject
+
+### Thor 1.46.04 - Released 2023-09-28
+* Attempt to fix obscure bug in Check For Updates (PEM Editor install fails under some conditions)
+* Fix in registering tool with Thor (when tool called with an object based on empty class)
+
+### Thor 1.46.03 - Released 2023-08-29
+* Removed updaters for two projects, SFRegExp and Bin2Text
+* Thor.App not changed, so no version change
+
+### Thor 1.46.03 - Released 2023-08-26
+
+* Fixed bug in accessing Tables folder from Thor menu pad => Folders
+* Change caption for "Edit Tool" in principal Thor forms to read "Documentation and Settings"
+
+### Thor 1.46.02 - Released 2023-08-19
+
+* Fix bug where some items (GoFish and possibly others) not appearing under "Thor Tools" menu pad.
+
+### Thor 1.46.01 - Released 2023-08-19
+
+* Add new property .AppID to all tools to identify the project they originate in.
+* Fix bug where invalid URLs at github were not recognized as "file not found"
+* Enhanced error reporting for problems encountered in a version file
+* Enhancements to CFU EventLog.txt to display URLs downloaded and the destination file.
+* New menu item under Thor=>Folders for most recent CFU (Check For Updates) logs
+
+### Thor 1.46 - Released 2023-08-11
+
+* Added new property .AppID for Thor tools so that they can identify the VFPX Project they originate in.
 
 ### Thor 1.45.28 - Released 2023-08-06
 

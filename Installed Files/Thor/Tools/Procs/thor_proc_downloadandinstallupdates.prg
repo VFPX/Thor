@@ -64,7 +64,7 @@ Procedure CheckForUpdates_Main (tlIsThor, llAutoRun)
 		Wait Clear
 		? 'Updating complete'
 
-		Execscript (_Screen.cThorDispatcher, 'Thor_Proc_MessageBox', 'Updating completed', 0, 'Thor Updates...')
+		Execscript (_Screen.cThorDispatcher, 'Thor_Proc_MessageBox', 'Updating completed', 0, 'Thor Updates...', 3) && 3 second timeout
 		Return 1
 	Else
 		WritetoCFULog('Exiting ... no updates selected')
@@ -84,9 +84,11 @@ Procedure GetAvailableVersionInfo (toUpdateList)
 
 	For lnI = 1 To toUpdateList.Count
 		loUpdateInfo = toUpdateList[lnI]
-		If loUpdateInfo.NeverUpdate # 'Y'
+		*!* ******** JRN Removed 2023-08-15 ********
+		*!* If loUpdateInfo.NeverUpdate # 'Y'
 			loUpdateInfo = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_GetAvailableVersionInfo', loUpdateInfo)
-		Endif
+		*!* ******** JRN Removed 2023-08-15 ********
+		*!* Endif
 		If loUpdateInfo.ErrorCode = 0
 			loUpdateList.Add (loUpdateInfo)
 		Endif
@@ -121,20 +123,28 @@ Procedure CheckIfReadyToGo (toUpdateList)
 	*       1 = Doit it!
 	*       0 = Nothing to do
 	*      -1 = Cancelled
-	Local lcMessage, lcNames, lnI, lnResponse, loUpdateInfo
+	Local lcMessage, lcNames, lcResponse, lcThorMessageBox, lcTitle, lnI, lnResponse, loUpdateInfo
 
 	lcNames = ''
-	For lnI = 1 To toUpdateList.Count
-		loUpdateInfo = toUpdateList[lnI]
-		lcNames		 = lcNames + Chr(13) + Space(8) + loUpdateInfo.ApplicationName + ': ' + loUpdateInfo.AvailableVersion
+	For lnI = 1 To m.toUpdateList.Count
+		loUpdateInfo = m.toUpdateList[m.lnI]
+		lcNames		 = m.lcNames + Chr(13) + Space(8) + m.loUpdateInfo.ApplicationName + ': ' + m.loUpdateInfo.AvailableVersion
 	Endfor
 
-	If toUpdateList.Count > 0
-		lcMessage = 'Ready to install ' + Transform (toUpdateList.Count) + ' update(s):' + Chr(13) + lcNames
-		lnResponse = Messagebox (lcMessage + Chr(13) + Chr(13) +								;
-			  'CLEAR ALL and CLOSE ALL statements must be run in order to update.' + Chr(13) + Chr(13) + ;
-			  'Do you wish to continue?', 4, 'Allow CLEAR ALL, etc.?')
-		Return Iif (lnResponse = 6, 1, -1)
+	If m.toUpdateList.Count > 0
+		lcMessage = 'Ready to install update:' + m.lcNames + Chr(13) + Chr(13) +				;
+			'CLEAR ALL and CLOSE ALL statements must be run in order to update.' + Chr(13) + Chr(13) + ;
+			'Do you wish to continue?'
+		lcTitle = 'Allow CLEAR ALL, etc.?'
+
+		lcThorMessageBox = Execscript(_Screen.cThorDispatcher, 'Full Path=' + 'Thor_Proc_Messagebox')
+		If Empty(m.lcThorMessageBox)
+			lnResponse = Messagebox (m.lcMessage, 4, m.lcTitle)
+			Return Iif (m.lnResponse = 6, 1, -1)
+		Else
+			lcResponse = Execscript(_Screen.cThorDispatcher, 'Thor_Proc_Messagebox', m.lcMessage, 3, m.lcTitle)
+			Return Iif(m.lcResponse = 'Y', 1, -1)
+		Endif
 	Else
 		Return 0
 	Endif
@@ -148,11 +158,17 @@ Procedure SelectUpdates (loUpdateList, llAutoRun)
 
 	llAnyFound = CreateUpdatesCursor (loUpdateList)
 	If llAutoRun And Not llAnyFound
+		Select crsr_ThorUpdates
+		Copy To ( _Screen.cThorCFUFolder + 'ThorUpdates.csv') CSV 
 		Return
 	Endif
 
+	Goto top in crsr_ThorUpdates
 	lcFormFileName = Execscript (_Screen.cThorDispatcher, 'Full Path=CheckForUpdates.SCX')
 	Do Form (lcFormFileName) To llResult
+
+	Select crsr_ThorUpdates
+	Copy To ( _Screen.cThorCFUFolder + 'ThorUpdates.csv') CSV 
 
 	If llResult
 		HandleDependencies()
@@ -169,20 +185,26 @@ Endproc
 
 
 Procedure HandleDependencies
-	Local lcDependencies, lnI
+	Local laDependencies[1], lcDependencies, lnI, lnJ
 
 	HandleDependency('PEM Editor')
 	HandleDependency('Thor Repository')
 	HandleDependency('Dynamic Forms')
-	
-	Select crsr_ThorUpdates
-	Scan For (UpdateNow Or Not Empty(InstalledVersion)) And Not Empty(Dependencies)
-		lcDependencies = Dependencies
+
+	Select  Dependencies										;
+		From crsr_ThorUpdates									;
+		Where (UpdateNow Or Not Empty(InstalledVersion))		;
+			And Not Empty(Dependencies)							;
+		Into Array laDependencies
+	For lnJ = 1 To Alen(m.laDependencies)
+		lcDependencies = Evl(m.laDependencies[m.lnJ], '')
 		For lnI = 1 To Getwordcount(m.lcDependencies, ' ,')
 			HandleDependency(Getwordnum(m.lcDependencies, m.lnI, ' ,'))
 		Endfor
-	Endscan
+	Endfor
 Endproc
+
+
 
 
 Procedure HandleDependency(lcAPPName)
@@ -197,7 +219,7 @@ Endproc
 
 Procedure CreateUpdatesCursor (toUpdateList)
 
-	Local laLines[1], llAnyFound, lnI, lnLineCount, loVersionInfo
+	Local laLines[1], lnI, lnLineCount, loVersionInfo
 	Create Cursor crsr_ThorUpdates (			;
 		  Recno					N(4),			;
 		  AppName  				C(40),			;
@@ -225,8 +247,6 @@ Procedure CreateUpdatesCursor (toUpdateList)
 		  ProjectType			C(10)			;
 		  )
 
-	llAnyFound = .F.
-	
 	For lnI = 1 To toUpdateList.Count
 		With toUpdateList[lnI]
 
@@ -282,19 +302,23 @@ Procedure CreateUpdatesCursor (toUpdateList)
 						Left(SortKey, 1) = 'C', 'Current',								;
 						Left(SortKey, 1) = 'D', 'Recently Updated',						;
 						'Not Installed') 															
-			Replace SortKey With '0' for FromMyUpdates && "My Updates" items go atop list
-			llAnyFound = llAnyFound Or UpdateNow
 
 		Endwith
 	Endfor && lnI = 1 to toUpdateList.Count
 
+	Replace All SortKey With '0'		;
+		For FromMyUpdates && "My Updates" items go atop list
+		
 	Select  *										;
 		From crsr_ThorUpdates						;
 		Into Cursor crsr_ThorUpdates Readwrite		;
 		Order By SortKey
-	Goto Top
 
-	Return llAnyFound
+	Locate for UpdateNow or (IsNew and Empty(InstalledVersion) and not NeverUpdate)
+	Return Found() 
+
+EndProc 
+
 
 Procedure GetVersionInfo (lcVersion)
 	Local loResult As 'Empty'
@@ -381,6 +405,8 @@ Procedure ClearAll (toUpdateList)
 	Inkey (.25) && not sure if this is needed
 
 	Alines (laUpdates, _Screen._ThorClearAllObject, 5, ccUpdateDelimiter)
+	RemoveProperty(_Screen, '_ThorClearAllObject')
+	
 	loUpdateList = Createobject ('Collection')
 	For lnI = 1 To Alen (laUpdates)
 		loUpdate = Createobject ('Empty')
@@ -393,9 +419,18 @@ Procedure ClearAll (toUpdateList)
 		loUpdateList.Add (loUpdate)
 	Endfor && lnI = 1 to Alen(laUpdates)
 
-*** DH 2021-12-28: delete Thor.App if it needs to be updated
+	*** DH 2021-12-28: delete Thor.App if it needs to be updated
 	if lower(loUpdate.AppName) = 'thor.app'
-		erase (addbs(_screen.cThorAppFolder) + 'Thor.app')
+		*** JRN 2023-09-29 : Remove property which might prevent removal of Thor.App 
+		If PemStatus(_screen, 'oThorEngine', 5)
+			RemoveProperty(_screen, 'oThorEngine')
+		EndIf 
+		*!* ******** JRN Removed 2023-10-22 ********
+		*!* It should be sufficient to remove this property, which prevents Thor.App
+		*!*		from begin replaced. Removing Thor.App as well leaves us in the state
+		*!* 	where if the download fails, Thor.App would be gone (Tamar's reported issue)
+		
+		*!* erase (addbs(_screen.cThorAppFolder) + 'Thor.app')
 	endif
 
 	Return loUpdateList
@@ -464,20 +499,31 @@ Procedure InstallUpdates (toUpdateList)
 				  , loUpdate.ApplicationName, lcInstallationFolder, 'Y' $ Upper (loUpdate.ShowErrorMessage))
 		Endif
 		
-		WritetoCFULog('Copy Zip ' + loUpdate.ApplicationName)
-		* copy zip to our new Downloads folder
-		lcDownloadedZip = _Screen.cThorLastZipFile
-		Try
-			Delete File (lcDestZip)
-			Copy File (lcDownloadedZip) To (lcDestZip)
-		Catch
-		Endtry
+		If lnReturn > 0
+			WritetoCFULog('Copy Zip ' + loUpdate.ApplicationName)
+			* copy zip to our new Downloads folder
+			lcDownloadedZip = _Screen.cThorLastZipFile
+			Try
+				Delete File (lcDestZip)
+				Copy File (lcDownloadedZip) To (lcDestZip)
+			Catch
+				WritetoCFULog('Unable to Copy Zip from ' + lcDownloadedZip + ' to ' + lcDestZip)
+				lnReturn = -999 && failure
+			Endtry
 
-		If Not Empty (ltFileTimeStamp)							;
-				And ltFileTimeStamp = Fdate (lcAPPName, 1)		;
-				And File (Addbs (lcInstallationFolder) + loUpdate.VersionLocalFilename)
-			lnReturn = -999 && failure
-		Endif
+			*!* ******** JRN Removed 2023-09-27 ********
+			*!* Pretty sure this no longer is needed, not clear why it ever was.
+			*!* It appears to check if the installed APP has a changed timestamp
+			*!*    but that is not the problem for this proc to resolve.
+			*!* If Not Empty (ltFileTimeStamp)							;
+			*!* 		And ltFileTimeStamp = Fdate (lcAPPName, 1)		;
+			*!* 		And File (Addbs (lcInstallationFolder) + loUpdate.VersionLocalFilename)
+			*!* 	lnReturn = -999 && failure
+			*!* Endif
+
+ 		Else
+			WritetoCFULog('Failure, lnReturn = ' + Transform(m.lnReturn)) 
+		EndIf
 
 		If lnReturn > 0
 			WritetoCFULog('Install ' + loUpdate.ApplicationName)
@@ -497,12 +543,12 @@ Procedure InstallUpdates (toUpdateList)
 			lcUpdatePhrase = Strtran (lcUpdatePhrase, '##FullVersionText##', loUpdate.AvailableVersion)
 			lcUpdatePhrase = Strtran (lcUpdatePhrase, '##Link##', loUpdate.Link)
 
-			*!* Try
-			lcExecPhrase = CreateDefines (loUpdate) + lcUpdatePhrase
-			Execscript (lcExecPhrase)
-			*!* Catch To loException
-			*!*     ShowErrorMsg (loException)
-			*!* Endtry
+			Try
+				lcExecPhrase = CreateDefines (loUpdate) + lcUpdatePhrase
+				Execscript (lcExecPhrase)
+			Catch To loException
+			    ShowErrorMsg (loException)
+			Endtry
 
 			lcVersionFile = loUpdate.LocalVersionFile
 			Erase (lcVersionFile)

@@ -13,11 +13,14 @@ DEFINE CLASS contextmenu AS custom
 		*m: addmenuitem		&& Adds a new item to a ComboBox or ListBox control, optionally allowing you to specify the item's index.
 		*m: addsubmenu
 		*m: calculateshortcutmenuposition
+		*m: cfontsize_access
 		*m: createcontextmenu
 		*m: endsubmenu
+		*m: getfontsize
 		*m: pix2fox
 		*m: releasepopups
 		*m: setdatasession
+		*p: cfontsize
 		*p: cmenuname
 		*p: keyword
 		*p: nchoice
@@ -34,6 +37,7 @@ DEFINE CLASS contextmenu AS custom
 	*</DefinedPropArrayMethod>
 
 	*<PropValue>
+		cfontsize = .NULL.
 		cmenuname = 
 		keyword = .F.
 		Name = "contextmenu"
@@ -88,6 +92,9 @@ DEFINE CLASS contextmenu AS custom
 			<memberdata name="cmenuname" display="cMenuName"/>
 			<memberdata name="nmenubar" display="nMenuBar"/>
 			<memberdata name="releasepopups" display="ReleasePopups"/>
+			<memberdata name="getfontsize" display="GetFontSize"/>
+			<memberdata name="cfontsize" display="cFontSize"/>
+			<memberdata name="cfontsize_access" display="cFontSize_Access"/>
 		</VFPData>
 	*</PropValue>
 	
@@ -120,14 +127,14 @@ DEFINE CLASS contextmenu AS custom
 	PROCEDURE addmenuitem		&& Adds a new item to a ComboBox or ListBox control, optionally allowing you to specify the item's index.
 		Lparameters lcPrompt, lcExec, lcStatusBar, lcKeyStroke, lcKeyWord, lxParameters, llMarked, lcStyle
 		
-		Local lcMenuName, lnBar, lnCurrentLevel
+		Local lcFontSize, lcMenuName, lnBar, lnCurrentLevel
 		
 		With This
 			lnCurrentLevel = .nCurrentLevel
-			lnBar		   = .aBarCounts (lnCurrentLevel) + 1
-			lcMenuName	   = .aMenuNames (lnCurrentLevel)
+			lnBar		   = .aBarCounts (m.lnCurrentLevel) + 1
+			lcMenuName	   = .aMenuNames (m.lnCurrentLevel)
 		
-			.aBarCounts (lnCurrentLevel) = lnBar
+			.aBarCounts (m.lnCurrentLevel) = m.lnBar
 		
 			.nChoices = .nChoices + 1
 			Dimension .aChoices (.nChoices, 4)
@@ -141,33 +148,35 @@ DEFINE CLASS contextmenu AS custom
 		
 		Endwith
 		
-		lcPrompt	= Evl (lcPrompt, '\-')
-		lcStatusBar	= Evl (lcStatusBar, '')
+		lcPrompt	= Evl (m.lcPrompt, '\-')
+		lcStatusBar	= Evl (m.lcStatusBar, '')
 		lcStyle		= Evl (m.lcStyle, '')
 		
+		lcFontSize = This.cFontSize
+		
 		If Empty (m.lcKeyStroke)
-			Define Bar (m.lnBar) Of (m.lcMenuName) Prompt m.lcPrompt Message m.lcStatusBar Style m.lcStyle
+			Define Bar (m.lnBar) Of (m.lcMenuName) Prompt m.lcPrompt &lcFontSize Message m.lcStatusBar Style m.lcStyle
 		Else
-			Define Bar (m.lnBar) Of (m.lcMenuName) Prompt m.lcPrompt Key Alt+F12, m.lcKeyStroke Message m.lcStatusBar Style m.lcStyle
+			Define Bar (m.lnBar) Of (m.lcMenuName) Prompt m.lcPrompt &lcFontSize Key Alt+F12, m.lcKeyStroke Message m.lcStatusBar Style m.lcStyle
 		Endif
 		
-		If Not Empty (lcExec)
-			On Selection Bar (lnBar) Of (lcMenuName) &lcExec
+		If Not Empty (m.lcExec)
+			On Selection Bar (m.lnBar) Of (m.lcMenuName) &lcExec
 		Endif
 		
-		If llMarked
-			Set Mark of Bar (lnBar) Of (lcMenuName) To .T.
+		If m.llMarked
+			Set Mark Of Bar (m.lnBar) Of (m.lcMenuName) To .T.
 		Endif
 		
 		With This
-			.cMenuName = lcMenuName
-			.nMenuBar  = lnBar
+			.cMenuName = m.lcMenuName
+			.nMenuBar  = m.lnBar
 		Endwith
 	ENDPROC
 
 	PROCEDURE addsubmenu
 		Lparameters lcPrompt, lcStatusBar, lcKeyStroke
-		Local lcMenuName, lcPopupName, lcSkip, lnBar, lnCurrentLevel
+		Local lcFontSize, lcMenuName, lcPopupName, lnBar, lnCurrentLevel
 		
 		With This
 			lnCurrentLevel = .nCurrentLevel
@@ -175,32 +184,34 @@ DEFINE CLASS contextmenu AS custom
 			lcPopupName = 'Menu' + Sys(2015)
 			Define Popup &lcPopupName SHORTCUT Relative
 		
-			lnBar		   = .aBarCounts (lnCurrentLevel) + 1
-			lcMenuName	   = .aMenuNames (lnCurrentLevel)
-			.aBarCounts (lnCurrentLevel) = lnBar
-			lcStatusBar = Evl(lcStatusBar, '')
+			lnBar						   = .aBarCounts (m.lnCurrentLevel) + 1
+			lcMenuName					   = .aMenuNames (m.lnCurrentLevel)
+			.aBarCounts (m.lnCurrentLevel) = m.lnBar
+			lcStatusBar					   = Evl(m.lcStatusBar, '')
 		
-			If Empty (lcKeyStroke)
-				Define Bar (lnBar) Of (lcMenuName) Prompt lcPrompt Message lcStatusBar
+			lcFontSize = This.cFontSize
+		
+			If Empty (m.lcKeyStroke)
+				Define Bar (m.lnBar) Of (m.lcMenuName) Prompt m.lcPrompt &lcFontsize 							Message m.lcStatusBar
 			Else
-				Define Bar (lnBar) Of (lcMenuName) Prompt lcPrompt Key Alt+F12, lcKeyStroke Message lcStatusBar
+				Define Bar (m.lnBar) Of (m.lcMenuName) Prompt m.lcPrompt &lcFontsize Key Alt+F12, m.lcKeyStroke Message m.lcStatusBar
 			Endif
 		
-			On Bar (lnBar) Of (lcMenuName) Activate Popup &lcPopupName
+			On Bar (m.lnBar) Of (m.lcMenuName) Activate Popup &lcPopupName
 		
 			****************************************************************
 		
-			lnCurrentLevel = lnCurrentLevel + 1
-			.nCurrentLevel = lnCurrentLevel
+			lnCurrentLevel = m.lnCurrentLevel + 1
+			.nCurrentLevel = m.lnCurrentLevel
 		
-			Dimension .aBarCounts(lnCurrentLevel)
-			.aBarCounts(lnCurrentLevel) = 0
+			Dimension .aBarCounts(m.lnCurrentLevel)
+			.aBarCounts(m.lnCurrentLevel) = 0
 		
-			Dimension .aMenuNames(lnCurrentLevel)
-			.aMenuNames(lnCurrentLevel) = lcPopupName
+			Dimension .aMenuNames(m.lnCurrentLevel)
+			.aMenuNames(m.lnCurrentLevel) = m.lcPopupName
 		
 			Dimension .aAllMenuNames(1 + Alen(.aAllMenuNames))
-			.aAllMenuNames(Alen(.aAllMenuNames)) = lcMenuName
+			.aAllMenuNames(Alen(.aAllMenuNames)) = m.lcMenuName
 		
 		Endwith
 		
@@ -228,6 +239,24 @@ DEFINE CLASS contextmenu AS custom
 		AddProperty (loResult, 'Column', lnSMCol )
 		AddProperty (loResult, 'Row', lnSMRow )
 		Return loResult
+		
+	ENDPROC
+
+	PROCEDURE cfontsize_access
+		Local llUseFontSize, lnFontSize
+		
+		If Isnull(This.cFontSize)
+			llUseFontSize = Nvl(Execscript(_Screen.cThorDispatcher, 'Get Option=', 'UseMenuFontSize', 'Thor'), .F.)
+			lnFontSize	  = Nvl(Execscript(_Screen.cThorDispatcher, 'Get Option=', 'MenuFontSize', 'Thor'), 0)
+		
+			If m.llUseFontSize And m.lnFontSize > 0
+				This.cFontSize = ' Font "Calibri", ' + Transform(m.lnFontSize)
+			Else
+				This.cFontSize =  ''
+			Endif
+		Endif
+		
+		Return This.cFontSize
 		
 	ENDPROC
 
@@ -290,6 +319,9 @@ DEFINE CLASS contextmenu AS custom
 		
 		Endwith
 		
+	ENDPROC
+
+	PROCEDURE getfontsize
 	ENDPROC
 
 	PROCEDURE Init

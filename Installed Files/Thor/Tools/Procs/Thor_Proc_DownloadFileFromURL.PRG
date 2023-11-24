@@ -1,137 +1,140 @@
-LPARAMETERS pcUrlName, tcDownloadDestinationFile 
+Lparameters pcUrlName, tcDownloadDestinationFile
 
-DECLARE INTEGER InternetOpen IN wininet.DLL STRING sAgent, ;
-      INTEGER lAccessType, STRING sProxyName, ;
-      STRING sProxyBypass, INTEGER lFlags
- 
-DECLARE INTEGER InternetOpenUrl IN wininet.DLL ;
-   INTEGER hInternetSession, STRING sUrl, STRING sHeaders,;
-   INTEGER lHeadersLength, INTEGER lFlags, INTEGER lContext
- 
-DECLARE INTEGER InternetReadFile IN wininet.DLL INTEGER hfile, ;
-      STRING @sBuffer, INTEGER lNumberofBytesToRead, INTEGER @lBytesRead
- 
-DECLARE short InternetCloseHandle IN wininet.DLL INTEGER hInst
- 
-#DEFINE INTERNET_OPEN_TYPE_PRECONFIG 0
-#DEFINE INTERNET_OPEN_TYPE_DIRECT 1
-#DEFINE INTERNET_OPEN_TYPE_PROXY 3
-#DEFINE SYNCHRONOUS 0
-#DEFINE INTERNET_FLAG_RELOAD 2147483648
-#DEFINE CR CHR(13)
- 
-local lsAgent, lhInternetSession, lhUrlFile, llOk, lnOk, lcRetVal, lcReadBuffer, lnBytesRead
- 
+Local lcMessage, lcRetVal, lcURL, lhInternetSession, lhUrlFile, llOK, llReturn, lnBytesRead, lnOK
+Local lsAgent, lsReadBuffer
 
- 
- 
- 
-ExecScript(_Screen.cThorDispatcher, "Thor_Proc_UpdateWaitWindow", 'Contacting server.... Please wait.') 
+Declare Integer InternetOpen In wininet.Dll String sAgent,		;
+	Integer lAccessType, String sProxyName,						;
+	String sProxyBypass, Integer lFlags
+
+Declare Integer InternetOpenUrl In wininet.Dll						;
+	Integer hInternetSession, String sUrl, String sHeaders,			;
+	Integer lHeadersLength, Integer lFlags, Integer lContext
+
+Declare Integer InternetReadFile In wininet.Dll Integer hfile,		;
+	String @sBuffer, Integer lNumberofBytesToRead, Integer @lBytesRead
+
+Declare short InternetCloseHandle In wininet.Dll Integer hInst
+
+#Define INTERNET_OPEN_TYPE_PRECONFIG 0
+#Define INTERNET_OPEN_TYPE_DIRECT 1
+#Define INTERNET_OPEN_TYPE_PROXY 3
+#Define SYNCHRONOUS 0
+#Define INTERNET_FLAG_RELOAD 2147483648
+#Define CR Chr(13)
+
+Execscript(_Screen.cThorDispatcher, 'Thor_Proc_UpdateWaitWindow', 'Contacting server.... Please wait.')
 
 *--- 2011-11-02 M. Slay: Added this guard against empty parameters being passed
-If Empty(pcUrlName) or Empty(tcDownloadDestinationFile)
-	llReturn = .f.
-	Execscript (_Screen.cThorDispatcher, 'Result=', llReturn)
-	Return llReturn
-EndIf
-
-*--- 2011-11-02: Added support for expanding Bitly URL to long URL
-If 'http://bit.ly' $ lower(pcUrlName)
-	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Expanding bitly link [' + pcUrlName + ']')
-	pcUrlName = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_Expand_Bitly_Url', pcUrlName)
-	If !Empty(pcUrlName)
-		Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Expanded bitly link to [' + pcUrlName + ']')	
-	Endif
-EndIf
-			
-If Empty(pcUrlName)
-	lcMessage = "Requested URL is an empty string."
-	ExecScript(_Screen.cThorDispatcher, "Thor_Proc_UpdateWaitWindow", lcMessage)
-	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', lcMessage)	
-	llReturn = .f.
-	Execscript (_Screen.cThorDispatcher, 'Result=', llReturn)
-	Return llReturn
+If Empty(m.pcUrlName) Or Empty(m.tcDownloadDestinationFile)
+	llReturn = .F.
+	Execscript (_Screen.cThorDispatcher, 'Result=', m.llReturn)
+	Return m.llReturn
 Endif
 
-If '?' $ pcUrlName
-     lcUrl = pcUrlName + '&' + Sys(2015)
-Else
-     lcUrl = pcUrlName + '?=' + Sys(2015)
-EndIf
+*--- 2011-11-02: Added support for expanding Bitly URL to long URL
+If 'http://bit.ly' $ Lower(m.pcUrlName)
+	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Expanding bitly link [' + m.pcUrlName + ']')
+	pcUrlName = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_Expand_Bitly_Url', m.pcUrlName)
+	If Not Empty(m.pcUrlName)
+		Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Expanded bitly link to [' + m.pcUrlName + ']')
+	Endif
+Endif
 
- *-- what application is using Internet services?
-lsAgent = "VPF 5.0"
-  
-lhInternetSession = InternetOpen(lsAgent, INTERNET_OPEN_TYPE_PRECONFIG, '', '', SYNCHRONOUS)
- 
+If Empty(m.pcUrlName)
+	lcMessage = 'Requested URL is an empty string.'
+	Execscript(_Screen.cThorDispatcher, 'Thor_Proc_UpdateWaitWindow', m.lcMessage)
+	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', m.lcMessage)
+	llReturn = .F.
+	Execscript (_Screen.cThorDispatcher, 'Result=', m.llReturn)
+	Return m.llReturn
+Endif
+
+If '?' $ m.pcUrlName
+	lcURL = m.pcUrlName + '&' + Sys(2015)
+Else
+	lcURL = m.pcUrlName + '?=' + Sys(2015)
+Endif
+
+*-- what application is using Internet services?
+lsAgent = 'VPF 5.0'
+
+lhInternetSession = InternetOpen(m.lsAgent, INTERNET_OPEN_TYPE_PRECONFIG, '', '', SYNCHRONOUS)
+
 *-- debugging line - uncomment to see session handle
 *-- WAIT WINDOW "Internet session handle: " + LTRIM(STR(lhInternetSession))
- 
-IF lhInternetSession = 0
-	lcMessage = "Internet session cannot be established"
-	ExecScript(_Screen.cThorDispatcher, "Thor_Proc_UpdateWaitWindow", lcMessage)
-	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', lcMessage)	
-	llReturn = .f.
-	Execscript (_Screen.cThorDispatcher, 'Result=', llReturn)
-	Return llReturn
+
+If m.lhInternetSession = 0
+	lcMessage = 'Internet session cannot be established'
+	Execscript(_Screen.cThorDispatcher, 'Thor_Proc_UpdateWaitWindow', m.lcMessage)
+	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', m.lcMessage)
+	llReturn = .F.
+	Execscript (_Screen.cThorDispatcher, 'Result=', m.llReturn)
+	Return m.llReturn
 Else
-	lcMessage = 'Requesting file ' + JustFname(pcUrlName) + ' from server.' 
-	ExecScript(_Screen.cThorDispatcher, "Thor_Proc_UpdateWaitWindow", lcMessage)
-	lcMessage = 'Requesting file ' + JustFname(lcUrl) + ' from server.' 
-	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', lcMessage)	
-ENDIF
- 
- lhUrlFile = InternetOpenUrl(lhInternetSession, lcUrl, '', 0, INTERNET_FLAG_RELOAD, 0)
- 
+	lcMessage = 'Requesting file ' + Justfname(m.pcUrlName) + ' from server.'
+	Execscript(_Screen.cThorDispatcher, 'Thor_Proc_UpdateWaitWindow', m.lcMessage)
+	lcMessage = 'Requesting file ' + m.lcURL + ' from server.'
+	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', m.lcMessage)
+Endif
+
+lhUrlFile = InternetOpenUrl(m.lhInternetSession, m.lcURL, '', 0, INTERNET_FLAG_RELOAD, 0)
+
 *-- debugging line - uncomment to see URL handle
 *-- WAIT WINDOW "URL Handle: " + LTRIM(STR(lhUrlFile))
- 
-IF lhUrlFile = 0
-	lcMessage = "URL cannot be opened"
-	ExecScript(_Screen.cThorDispatcher, "Thor_Proc_UpdateWaitWindow", lcMessage)
-	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', lcMessage)	
-	llReturn = .f.
-	Execscript (_Screen.cThorDispatcher, 'Result=', llReturn)
-	Return llReturn
+
+If m.lhUrlFile = 0
+	lcMessage = 'URL cannot be opened'
+	Execscript(_Screen.cThorDispatcher, 'Thor_Proc_UpdateWaitWindow', m.lcMessage)
+	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', m.lcMessage)
+	Return Execscript (_Screen.cThorDispatcher, 'Result=', .F.)
 Else
-	lcMessage = "Downloading..."
-	ExecScript(_Screen.cThorDispatcher, "Thor_Proc_UpdateWaitWindow", lcMessage)
-	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', lcMessage)	
-ENDIF
- 
-lcRetVal = ""
-llOk = .t.
- 
-DO WHILE llOK
-   *-- set aside a big buffer
-   lsReadBuffer = SPACE(32767)
-   lnBytesRead = 0
-   lnOK = InternetReadFile(lhUrlFile, @lsReadBuffer, LEN(lsReadBuffer), @lnBytesRead)
- 
-   if (lnBytesRead > 0)
-      lcRetVal = lcRetVal + left(lsReadBuffer, lnBytesRead)
-   endif
- 
-   *-- error trap - either a read failure or read past eof()
-   llOk = (lnOK = 1) and (lnBytesRead > 0)
-ENDDO
- 
+	lcMessage = 'Downloading...'
+	Execscript(_Screen.cThorDispatcher, 'Thor_Proc_UpdateWaitWindow', m.lcMessage)
+	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', m.lcMessage)
+Endif
+
+lcRetVal = ''
+llOK	 = .T.
+
+Do While m.llOK
+	*-- set aside a big buffer
+	lsReadBuffer = Space(32767)
+	lnBytesRead	 = 0
+	lnOK		 = InternetReadFile(m.lhUrlFile, @m.lsReadBuffer, Len(m.lsReadBuffer), @m.lnBytesRead)
+
+	If (m.lnBytesRead > 0)
+		*** JRN 2023-08-18 : Check for unusual case from github that returns file with contents '404 not found' (or something like that)
+		If Empty(m.lcRetVal) And m.lnBytesRead < 50 And Left(lsReadBuffer, 3) = '404'
+			lcMessage = 'URL not found, file contents = ' + Left(lsReadBuffer, m.lnBytesRead)
+			Execscript(_Screen.cThorDispatcher, 'Thor_Proc_UpdateWaitWindow', m.lcMessage)
+			Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', m.lcMessage)
+			Return Execscript (_Screen.cThorDispatcher, 'Result=', .F.)
+		Endif
+
+		lcRetVal = m.lcRetVal + Left(m.lsReadBuffer, m.lnBytesRead)
+	Endif
+
+	*-- error trap - either a read failure or read past eof()
+	llOK = (m.lnOK = 1) And (m.lnBytesRead > 0)
+Enddo
+
 *--close all the handles we opened
-InternetCloseHandle(lhUrlFile)
-InternetCloseHandle(lhInternetSession)
- 
+InternetCloseHandle(m.lhUrlFile)
+InternetCloseHandle(m.lhInternetSession)
+
 Try
-	Erase (tcDownloadDestinationFile)
-	StrToFile(lcRetVal, tcDownloadDestinationFile,0)
-	llReturn = .t.
-	lcMessage = "Download complete."
+	Erase (m.tcDownloadDestinationFile)
+	Strtofile(m.lcRetVal, m.tcDownloadDestinationFile, 0)
+	llReturn  = .T.
+	lcMessage = 'Download complete into file ' + m.tcDownloadDestinationFile
 Catch
-	llReturn = .f.
-	lcMessage = "Error downloading or saving file."
+	llReturn  = .F.
+	lcMessage = 'Error downloading or saving file.'
 Endtry
-	
-ExecScript(_Screen.cThorDispatcher, "Thor_Proc_UpdateWaitWindow", lcMessage)
-Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', lcMessage)	
-Execscript (_Screen.cThorDispatcher, 'Result=', llReturn)
-Return llReturn
+
+Execscript(_Screen.cThorDispatcher, 'Thor_Proc_UpdateWaitWindow', m.lcMessage)
+Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', m.lcMessage)
+Execscript (_Screen.cThorDispatcher, 'Result=', m.llReturn)
+Return m.llReturn
 
