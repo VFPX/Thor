@@ -1,5 +1,11 @@
 # Thor Change Log
 
+### Thor 1.46.14 - Released 2023-11-26
+* Removed reference to now-defunct Thor forum when installing Thor
+* Add "Dynamic Forms" to list of projects suggested for download when installing Thor
+* Moved version files downloaded during CFU into a separate sub-folder
+* Moved 'CheckForUpdates.SCX' to the Procs folder
+
 ### Thor 1.46.13 - Released 2023-11-15
 * Fix recently introduced bug in "RunThor".  (When called with # days as a parameter, it would update Thor but not bring up the CFU screen for other projects.)
 
