@@ -47,12 +47,8 @@ Do Case
 
 	Case lcAction = 'INSTALL'
 		ThorInstall (lcFolder)
-		lcMessage = 'Please use the Thor Forum for your questions, comments, etc. --'
-		lcMessage = lcMessage + ccCR + "        Choose Forums->Thor from the main Thor menu."
-		ExecScript(_screen.cThorDispatcher, 'Thor_Proc_Messagebox', lcMessage, 0, 'Thor Help and the Thor Community')
 
 	Case ThorInstalled (lcFolder)
-
 		ThorRun (lcFolder)
 
 	Otherwise && Install
