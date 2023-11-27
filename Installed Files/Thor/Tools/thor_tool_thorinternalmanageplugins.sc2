@@ -6,7 +6,7 @@
 *
 *
 DEFINE CLASS dataenvironment AS dataenvironment 
- 	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="2" />
+ 	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="2012/03/06 21:06:20" Scale="" Uniqueid="" ClassIcon="2" />
 
 	*<PropValue>
 		DataSource = .NULL.
@@ -20,19 +20,19 @@ DEFINE CLASS dataenvironment AS dataenvironment
 ENDDEFINE
 
 DEFINE CLASS manageplugins AS form 
- 	*< CLASSDATA: Baseclass="form" Timestamp="" Scale="" Uniqueid="" />
+ 	*< CLASSDATA: Baseclass="form" Timestamp="2023/11/27 11:28:22" Scale="" Uniqueid="" />
 
 	*-- OBJECTDATA items order determines ZOrder / El orden de los items OBJECTDATA determina el ZOrder 
-	*< OBJECTDATA: ObjPath="Grid1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="Grid1.Column1.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="Grid1.Column1.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="Grid1.Column3.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="Grid1.Column3.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="Grid1.Column4.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="Grid1.Column4.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="Grid1.Action.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="Grid1.Action.cmdAction" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="lblLink" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Grid1" UniqueID="" Timestamp="2012/09/10 06:24:26" />
+	*< OBJECTDATA: ObjPath="Grid1.Column1.Header1" UniqueID="" Timestamp="2012/03/22 15:32:20" />
+	*< OBJECTDATA: ObjPath="Grid1.Column1.Text1" UniqueID="" Timestamp="2012/12/03 08:57:16" />
+	*< OBJECTDATA: ObjPath="Grid1.Column3.Header1" UniqueID="" Timestamp="2012/03/22 15:32:20" />
+	*< OBJECTDATA: ObjPath="Grid1.Column3.Text1" UniqueID="" Timestamp="2012/03/22 15:40:00" />
+	*< OBJECTDATA: ObjPath="Grid1.Column4.Header1" UniqueID="" Timestamp="2012/03/22 15:32:20" />
+	*< OBJECTDATA: ObjPath="Grid1.Column4.Text1" UniqueID="" Timestamp="2012/03/22 15:40:00" />
+	*< OBJECTDATA: ObjPath="Grid1.Action.Header1" UniqueID="" Timestamp="2012/03/22 16:05:10" />
+	*< OBJECTDATA: ObjPath="Grid1.Action.cmdAction" UniqueID="" Timestamp="2012/12/03 05:48:04" />
+	*< OBJECTDATA: ObjPath="lblLink" UniqueID="" Timestamp="2012/12/03 05:48:04" />
 
 	*<DefinedPropArrayMethod>
 		*m: addpluginstocursor
@@ -350,6 +350,9 @@ DEFINE CLASS manageplugins AS form
 		lcDestFile		= Forcepath(lcFile, lcMyToolsFolder)
 		
 		Do Case
+			Case File(lcFile)
+				_oPEMEditor.oUtils.EditSourceX(lcFile)
+		
 			Case File(lcDestFile)
 				_oPEMEditor.oUtils.EditSourceX(lcDestFile)
 		

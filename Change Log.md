@@ -1,5 +1,10 @@
 # Thor Change Log
 
+### Thor 1.46.15 - Released 2023-11-27
+* Applied Lutz's upgrade to extracting zip files by using PowerShell if the primary attempt (using Shell.Application) fails
+* Moved splitter files back to Tools\Procs (moved in error some months ago)
+* Created new plug-ins to run before and after CFU so that user can preserve their environment (such as open projects)
+
 ### Thor 1.46.14 - Released 2023-11-26
 * Removed reference to now-defunct Thor forum when installing Thor
 * Add "Dynamic Forms" to list of projects suggested for download when installing Thor
