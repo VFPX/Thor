@@ -8,7 +8,7 @@ Local llReturn, lnResult
 
 Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Extracting from [' + tcSource + '] to [' + tcDestinationPath + ']')
 
-try
+Try
 	loShell = createobject('Shell.Application')
 	loFiles = loShell.NameSpace(tcSource).Items
 	If loFiles.Count > 0
@@ -22,14 +22,40 @@ catch to loException
 	lnResult = -1
 endtry
 
+* SF 20230813
+* Added support for PowerShell
 if lnResult < 0
-	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Attempting VFPCompression')
+	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Attempting extracting with PowerShell')
+	lcCommand = 'cmd /c %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe' +		;
+		' Expand-Archive' +															;
+		" -Path '" + m.tcSource + "'" +									;
+		" -DestinationPath '" + m.tcDestinationPath + "'"
+	Try 
+		llReturn = Execscript(_Screen.cThorDispatcher, 'Thor_Proc_RunExtApp', m.lcCommand,.F.,.F.)
+	Catch to loException
+		llReturn = -1
+	EndTry
+	IF m.llReturn
+		lnResult = 1
+	else  &&m.llReturn
+		lnResult = -1
+		Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Error extracting from zip via PowerShell')
+	Endif &&m.llReturn
+endif &&lnResult < 0
+
+if lnResult < 0
+	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Attempting VFPCompression 2')
 	llReturn = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_SetLibrary', 'VFPCompression.fll')
 	If llReturn
 		If UnzipOpen (tcSource)
-			UnzipTo (tcDestinationPath)
+			llReturn = UnzipTo (tcDestinationPath)
 			UnzipClose()
-			lnResult = 1
+			IF m.llReturn
+				lnResult = 1
+			else  &&m.llReturn
+				lnResult = -1
+				Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Error extracting from zip via VFPCompression')
+			Endif &&m.llReturn
 		Else
 			lnResult = -1
 		Endif
