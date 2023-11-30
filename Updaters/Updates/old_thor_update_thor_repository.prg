@@ -27,12 +27,18 @@ With loUpdateObject
     .VersionLocalFilename = VersionFileName
     .RegisterWithThor     = lcRegisterWithThor
     .Notes                = GetNotes()
-    .Link                 = 'https://github.com/VFPX/ThorRepository'
+*SF 20231130 Change fixed URL to #DEFINE
+*    .Link                 = 'https://github.com/VFPX/ThorRepository'
+    .Link                 = 'https://github.com/'+ccThorRepository_URL
+*/SF 20231130 Change fixed URL to #DEFINE
     .LinkPrompt           = 'Thor Repository Home Page'
 
     .VersionNumber        = '62.06'
     .VersionDate          = Date(2022, 04, 01)
-    .SourceFileUrl        = 'https://raw.githubusercontent.com/VFPX/ThorRepository/master/Source/Thor_Repository.zip'
+*SF 20231130 Change fixed URL to #DEFINE
+*    .SourceFileUrl        = 'https://raw.githubusercontent.com/VFPX/ThorRepository/master/Source/Thor_Repository.zip'
+    .SourceFileUrl        = 'https://raw.githubusercontent.com/'+ccThorRepository_URL+ccThorRepository_Branch+'/Source/Thor_Repository.zip'
+*/SF 20231130 Change fixed URL to #DEFINE
 Endwith
 
 AddProperty(loUpdateObject, 'UpdateNowIfNotInstalled', 'Yes')    
