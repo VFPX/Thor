@@ -1,9 +1,15 @@
 # Thor Change Log
 
-### Thor 1.46.xx - Released 2023-11-24
+### Thor 1.46.15 - Released 2023-11-27
+* Applied Lutz's upgrade to extracting zip files by using PowerShell if the primary attempt (using Shell.Application) fails
+* Moved splitter files back to Tools\Procs (moved in error some months ago)
+* Created new plug-ins to run before and after CFU so that user can preserve their environment (such as open projects)
 
-* Add new Proc "Thor_Proc_RunExtApp.prg" to run external programms via API_Run
-* In case Thor_Proc_ExtractFilesFromZip.PRG fails to use Shell, it tries now PowerShell and if this fails VFPCompression
+### Thor 1.46.14 - Released 2023-11-26
+* Removed reference to now-defunct Thor forum when installing Thor
+* Add "Dynamic Forms" to list of projects suggested for download when installing Thor
+* Moved version files downloaded during CFU into a separate sub-folder
+* Moved 'CheckForUpdates.SCX' to the Procs folder
 
 ### Thor 1.46.13 - Released 2023-11-15
 * Fix recently introduced bug in "RunThor".  (When called with # days as a parameter, it would update Thor but not bring up the CFU screen for other projects.)
@@ -231,4 +237,4 @@ Thor Production Release - Released 2011-09-03
 ## Contribution
 See [contribution](./.github/CONTRIBUTING.md)
 
-Last changed: _2023/08/xx_ ![Picture](Docs/Images/vfpxpoweredby_alternative.gif)
+Last changed: _2023/11/27_ ![Picture](Docs/Images/vfpxpoweredby_alternative.gif)

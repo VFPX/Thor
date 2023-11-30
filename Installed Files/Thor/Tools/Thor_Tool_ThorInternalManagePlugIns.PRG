@@ -111,7 +111,7 @@ Enddefine
 Define Class clsBeforeCFU As Custom
 
 	Source				= 'Thor'
-	PlugIn				= 'BeforeCheckForUpdates'
+	PlugIn				= 'Before Check For Updates'
 	Description			= 'Called before "Check For Updates" to capture any configuration info to be restored after.  See also "AfterCheckForUpdates".'
 	Tools				= 'Check For Updates'
 	FileNames			= 'Thor_Proc_Before_Check_For_Updates.PRG'
@@ -120,9 +120,6 @@ Define Class clsBeforeCFU As Custom
 
 	Procedure Init
 		Text To This.DefaultFileContents Noshow
-* Next line handles default of saving any projects that were open		
-ExecScript(_Screen.cThorDispatcher, 'DoDefault()')
-
 		Endtext
 	Endproc
 
@@ -135,7 +132,7 @@ Enddefine
 Define Class clsAfterCFU As Custom
 
 	Source				= 'Thor'
-	PlugIn				= 'AfterCheckForUpdates'
+	PlugIn				= 'After Check For Updates'
 	Description			= 'Called after "Check For Updates" to restore any configuration that had been captured.  See also "BeforeCheckForUpdates".'
 	Tools				= 'Check For Updates'
 	FileNames			= 'Thor_Proc_After_Check_For_Updates.PRG'
@@ -144,9 +141,6 @@ Define Class clsAfterCFU As Custom
 
 	Procedure Init
 		Text To This.DefaultFileContents Noshow
-* Next line handles default processing of restoring any projects that were open		
-ExecScript(_Screen.cThorDispatcher, 'DoDefault()')
-
 		Endtext
 	Endproc
 

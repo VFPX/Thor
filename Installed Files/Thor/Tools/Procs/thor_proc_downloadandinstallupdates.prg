@@ -112,7 +112,7 @@ Procedure SelectFromUpdateList (toUpdateList)
 				And Not loUpdateInfo.AvailableVersion == loUpdateInfo.CurrentVersion
 			loUpdateList.Add (loUpdateInfo)
 		Endif
-	Endfor
+	EndFor
 	Return loUpdateList
 
 Endproc
@@ -284,7 +284,7 @@ Procedure CreateUpdatesCursor (toUpdateList)
 					VerNumber         with loVersionInfo.VerNumber
 
 			Replace UpdateNow with UpdateNow ;
-				or (Empty(.CurrentVersion) and InList(Trim(AppName), 'PEM Editor', 'Thor Repository')) 
+				or (Empty(.CurrentVersion) and InList(Trim(AppName), 'PEM Editor', 'Thor Repository', 'Dynamic Forms')) 
 
 			Replace	SortKey	 With														;
 					  Icase(UpdateNow, 'A',												;

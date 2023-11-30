@@ -5,10 +5,15 @@
 Lparameters toUpdateInfo
 
 *-- 2011-07 M. Slay - Revised to set properties on passed toUpdateInfo
-Local llReturn, laLines[1], lcApplicationName, lcLocalVersionFile, lcMsgText, lcVersionFileCode
-Local lcVersionFileUrl, lnAttempt, loException
+Local laLines[1], lcApplicationName, lcLocalVersionFile, lcMsgText, lcVersionFileCode
+Local lcVersionFileUrl, lcVersionFolder, llReturn, lnAttempt, loException
 
-lcLocalVersionFile = _Screen.cThorCFUFolder + Justfname (m.toUpdateInfo.VersionLocalFilename) && Temp folder
+lcVersionFolder = _Screen.cThorCFUFolder + 'Version Files'
+If Not Directory(m.lcVersionFolder )
+	Mkdir (m.lcVersionFolder)
+Endif
+
+lcLocalVersionFile = m.lcVersionFolder + '\' + Justfname (m.toUpdateInfo.VersionLocalFilename) && Temp folder
 lcVersionFileUrl   = m.toUpdateInfo.VersionFileURL
 
 If Not Empty (m.lcVersionFileUrl)

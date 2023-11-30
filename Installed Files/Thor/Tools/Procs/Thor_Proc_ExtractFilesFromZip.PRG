@@ -8,7 +8,7 @@ Local llReturn, lnResult
 
 Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Extracting from [' + tcSource + '] to [' + tcDestinationPath + ']')
 
-try
+Try
 	loShell = createobject('Shell.Application')
 	loFiles = loShell.NameSpace(tcSource).Items
 	If loFiles.Count > 0
@@ -30,12 +30,16 @@ if lnResult < 0
 		' Expand-Archive' +															;
 		" -Path '" + m.tcSource + "'" +									;
 		" -DestinationPath '" + m.tcDestinationPath + "'"
-	llReturn = Execscript(_Screen.cThorDispatcher, 'Thor_Proc_RunExtApp', m.lcCommand,.F.,.F.)
+	Try 
+		llReturn = Execscript(_Screen.cThorDispatcher, 'Thor_Proc_RunExtApp', m.lcCommand,.F.,.F.)
+	Catch to loException
+		llReturn = -1
+	EndTry
 	IF m.llReturn
 		lnResult = 1
 	else  &&m.llReturn
 		lnResult = -1
-		Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Error expandig zip via PowerShell')
+		Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Error extracting from zip via PowerShell')
 	Endif &&m.llReturn
 endif &&lnResult < 0
 
@@ -50,7 +54,7 @@ if lnResult < 0
 				lnResult = 1
 			else  &&m.llReturn
 				lnResult = -1
-				Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Error expandig zip via VFPCompression')
+				Execscript (_Screen.cThorDispatcher, 'Thor_Proc_WriteToCFULog', 'Error extracting from zip via VFPCompression')
 			Endif &&m.llReturn
 		Else
 			lnResult = -1
