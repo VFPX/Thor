@@ -1,4 +1,6 @@
-#Include "..\..\Installed Files\Source\Thor.h"
+#Define     ccThorRepository_URL     'VFPX/ThorRepository'
+#Define     ccThorRepository_Branch  '/master'
+
 lparameters toUpdateObject
 local lcRepositoryURL, ;
 	lcDownloadsURL, ;
@@ -8,10 +10,17 @@ local lcRepositoryURL, ;
 
 * Get the URL for the version and ZIP files.
 
-lcRepositoryURL  = 'https://github.com/VFPX/ThorRepository'
+*SF 20231130 Change fixed URL to #DEFINE
+*lcRepositoryURL  = 'https://github.com/VFPX/ThorRepository'
+	&& the URL for the project's repository
+*lcDownloadsURL   = strtran(lcRepositoryURL, 'github.com', ;
+	'raw.githubusercontent.com') + '/master/ThorUpdater/'
+lcRepositoryURL  = 'https://github.com/'+ccThorRepository_URL
 	&& the URL for the project's repository
 lcDownloadsURL   = strtran(lcRepositoryURL, 'github.com', ;
-	'raw.githubusercontent.com') + '/master/ThorUpdater/'
+	'raw.githubusercontent.com') + ccThorRepository_Branch+'/ThorUpdater/'
+
+*/SF 20231130 Change fixed URL to #DEFINE
 lcVersionFileURL = lcDownloadsURL + 'ThorRepositoryVersion.txt'
 	&& the URL for the file containing code to get the available version number
 lcZIPFileURL     = lcDownloadsURL + 'ThorRepository.zip'
