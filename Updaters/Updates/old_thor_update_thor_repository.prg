@@ -1,3 +1,4 @@
+#Include "..\..\Installed Files\Source\Thor.h"
 #Define VersionFileName 'ThorRepositoryVersionFile.txt'
 Lparameters loUpdateObject
 

@@ -1,3 +1,4 @@
+#Include "..\..\Installed Files\Source\Thor.h"
 lparameters toUpdateObject
 local lcRepositoryURL, ;
 	lcDownloadsURL, ;

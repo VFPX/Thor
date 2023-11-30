@@ -1,3 +1,4 @@
+#Include Thor.h
 Lparameters loUpdateObject
 
 With loUpdateObject
