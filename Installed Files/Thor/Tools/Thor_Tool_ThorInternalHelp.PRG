@@ -17,7 +17,10 @@ If Pcount() = 1						  ;
 		.Source		 = 'Thor'
 		.Version     = 'Thor - 1.45.26 - June 21, 2023'
 		.Sort		 = 20
-		.Link        = 'https://github.com/VFPX/Thor/blob/master/Docs/Thor_help.md'
+*SF 20231130 Change fixed URL to #DEFINE
+*		.Link        = 'https://github.com/VFPX/Thor/blob/master/Docs/Thor_help.md'
+		.Link        = 'https://github.com/'+ccThor_URL+'/blob'+ccThor_Branch+'/Docs/Thor_help.md'
+*/SF 20231130 Change fixed URL to #DEFINE
 	Endwith
 
 	Return lxParam1

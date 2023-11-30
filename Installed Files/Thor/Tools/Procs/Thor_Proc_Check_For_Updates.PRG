@@ -2,7 +2,10 @@
 Local laFiles[1], lcCFUFolder, lcToolFolder, lcUpdateFolder, llAutoRun, lnFileCount, lnI, lnReturn
 
 *** DH 2021-12-28: changed URL from VFPXRepository to GitHub
-#Define UpdaterURL 'https://raw.githubusercontent.com/VFPX/Thor/master/ThorUpdater/Updates.zip'
+*SF 20231130 Change fixed URL to #DEFINE
+*#Define UpdaterURL 'https://raw.githubusercontent.com/VFPX/Thor/master/ThorUpdater/Updates.zip'
+#Define UpdaterURL 'https://raw.githubusercontent.com/'+ccThor_URL+ccThor_Branch+'/ThorUpdater/Updates.zip'
+*/SF 20231130 Change fixed URL to #DEFINE
 
 *** DH 2022-01-06: added SET SAFETY OFF to eliminate overwrite prompts
 Set Safety Off

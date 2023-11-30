@@ -45,8 +45,12 @@ Procedure ToolCode
 	loFramework	= Execscript (_Screen.cThorDispatcher, '?')
 
 *** DH 2018-04-10: new URL
+*SF 20231130 Change fixed URL to #DEFINE
+*	lcDisplay = '* ' + [Thor - 1.45.26 - June 21, 2023] + chr(13) + chr(10) + chr(13) + chr(10)		;
+*		+  '*   Thor Framework home page =  https://github.com/VFPX/Thor/blob/master/Docs/Thor_tools_making_tools.md'
 	lcDisplay = '* ' + [Thor - 1.45.26 - June 21, 2023] + chr(13) + chr(10) + chr(13) + chr(10)		;
-		+  '*   Thor Framework home page =  https://github.com/VFPX/Thor/blob/master/Docs/Thor_tools_making_tools.md'
+		+  '*   Thor Framework home page =  https://github.com/'+ccThor_URL+'/blob'+ccThor_Branch+'/Docs/Thor_tools_making_tools.md'
+*/SF 20231130 Change fixed URL to #DEFINE
 
 	If Not Empty (loFramework.External)
 		lnCount	  = Alines ( laLines, loFramework.External, 5)

@@ -56,7 +56,10 @@ Procedure ToolCode
 		Endif
 	Endif
 
-	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_Shell', 'https://github.com/VFPX/Thor/blob/master/Docs/TWEeTs.md')
+*SF 20231130 Change fixed URL to #DEFINE
+*	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_Shell', 'https://github.com/VFPX/Thor/blob/master/Docs/TWEeTs.md')
+	Execscript (_Screen.cThorDispatcher, 'Thor_Proc_Shell', 'https://github.com/'+ccThor_URL+'/blob'+ccThor_Branch+'/Docs/TWEeTs.md')
+*/SF 20231130 Change fixed URL to #DEFINE
 
 
 Endproc
