@@ -1,3 +1,4 @@
+#Include ..\Thor.h
 Local laFiles[1], lcToolFolder, lcUpdateFolder, llAutoRun, lnFileCount, lnI, lnReturn
 
 *** DH 2021-12-28: changed URL from VFPXRepository to GitHub

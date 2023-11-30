@@ -1,6 +1,7 @@
-#Define ccLF 	Chr(10)
-#Define ccCR 	Chr(13)
-#Define ccTab  	Chr(9)
+#Include ..\..\Source\Thor.h
+*#Define ccLF 	Chr(10)
+*#Define ccCR 	Chr(13)
+*#Define ccTab  	Chr(9)
 #Define ccCRLF 	ccCR + ccLF
 
 Lparameters lxParam1

@@ -1,4 +1,5 @@
-#Define ccCR  Chr[13]
+#Include ..\..\Source\Thor.h
+*#Define ccCR  Chr[13]
 
 Lparameters lxParam1
 

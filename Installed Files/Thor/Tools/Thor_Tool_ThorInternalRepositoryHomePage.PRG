@@ -1,3 +1,4 @@
+#Include ..\..\Source\Thor.h
 #Define ThorFrameworkURL 		'https://github.com/VFPX/Thor/blob/master/Docs/Thor_repository.md'
 
 Lparameters lxParam1

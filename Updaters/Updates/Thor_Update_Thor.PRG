@@ -1,3 +1,6 @@
+#Define     ccThor_Branch            'dev'
+#Define     ccThor_URL               'lscheffler/Thor'
+
 Lparameters loUpdateObject
 
 With loUpdateObject
