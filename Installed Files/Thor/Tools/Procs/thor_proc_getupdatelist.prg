@@ -34,6 +34,12 @@ Procedure AddUpdateFolder (loUpdateList, tlIsThor, lcUpdateFolder, lcNeverUpdate
 			Loop
 		Endif
 
+*SF 20231201 Ignore file in Updates, if identical named file is found in My Updates; #203
+		IF tcFromMyUpdates=='No' AND File (tcUpdateFolder + 'My Updates\' + laFiles[lnI, 1]) Then
+			Loop
+		ENDIF &&tcFromMyUpdates=='No' AND File (tcUpdateFolder + 'My Updates\' + laFiles[lnI, 1])
+*SF 20231201 Ignore file in Updates, if identical named file is found in My Updates; #203
+
 		loResult	  = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_GetUpdaterObject2')
 		loResult.File = lcFile
 		loResult.FromMyUpdates = tcFromMyUpdates
