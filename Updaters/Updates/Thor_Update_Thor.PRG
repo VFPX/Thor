@@ -1,7 +1,5 @@
-#Define     ccThor_URL               'lscheffler/Thor'
-#Define     ccThor_Branch            '/dev'
-*!*	#Define     ccThor_URL               'VFPX/Thor'
-*!*	#Define     ccThor_Branch            '/master'
+#Define     ccThor_URL               'VFPX/Thor'
+#Define     ccThor_Branch            '/master'
 
 Lparameters loUpdateObject
 

@@ -33,7 +33,7 @@ Procedure ToolCode
 
 *SF 20231130 Change fixed URL to #DEFINE
 *	lcURL		= 'https://github.com/VFPX/Thor/blob/master/Change%20Log.md'
-	lcURL		= 'https://github.com/'+ccThor_URL+'/blob'+ccThor_Branch+'/Change%20Log.md'
+ 	lcURL		= 'https://github.com/'+ccThor_URL+'/blob'+ccThor_Branch+'/Change%20Log.md'
 */SF 20231130 Change fixed URL to #DEFINE
 	loThorUtils	= Execscript(_Screen.cThorDispatcher, 'thor_proc_utils')
 	m.loThorUtils.GoURL(m.lcURL)

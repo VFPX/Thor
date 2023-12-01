@@ -57,9 +57,7 @@
 
 #Define     ccPEMEditor              'IDE Tools'
 
-#Define     ccThor_URL               'lscheffler/Thor'
-#Define     ccThor_Branch            '/dev'
-*!*	#Define     ccThor_URL               'VFPX/Thor'
-*!*	#Define     ccThor_Branch            '/master'
+#Define     ccThor_URL               'VFPX/Thor'
+#Define     ccThor_Branch            '/master'
 #Define     ccThorRepository_URL     'VFPX/ThorRepository'
 #Define     ccThorRepository_Branch  '/master'
