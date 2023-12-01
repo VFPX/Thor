@@ -28,3 +28,9 @@ syntax: glob
 *.SAVE
 *.zip
 *.ZIP
+
+*code references files
+*_ref.dbf
+*_ref.cdx
+*_ref.fpt
+*_ref.db2
