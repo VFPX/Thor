@@ -22,15 +22,15 @@ Execscript (_Screen.cThorDispatcher, 'Result=', loUpdateList)
 Return loUpdateList
 
 
-Procedure AddUpdateFolder (loUpdateList, tlIsThor, lcUpdateFolder, lcNeverUpdateFolder, lcRemovedFolder, lcToolFolder, tcFromMyUpdates)
+Procedure AddUpdateFolder (toUpdateList, tlIsThor, tcUpdateFolder, tcNeverUpdateFolder, tcRemovedFolder, tcToolFolder, tcFromMyUpdates)
 	Local laFiles[1], laLocalVersionInfo[1], lcCode, lcFile, lcFolder, lcLocalVersion
 	Local lcLocalVersionFile, lcVersionFileUrl, llSuccess, lnFileCount, lnI, loResult, loTool
-	lnFileCount	 = Adir (laFiles, lcUpdateFolder + 'Thor_Update_*.PRG')
+	lnFileCount	 = Adir (laFiles, tcUpdateFolder + 'Thor_Update_*.PRG')
 
 	For lnI = 1 To lnFileCount
-		lcFile	 = lcUpdateFolder + laFiles[lnI, 1]
+		lcFile	 = tcUpdateFolder + laFiles[lnI, 1]
 
-		If File (lcRemovedFolder + laFiles[lnI, 1])
+		If File (tcRemovedFolder + laFiles[lnI, 1])
 			Loop
 		Endif
 
@@ -58,14 +58,14 @@ Procedure AddUpdateFolder (loUpdateList, tlIsThor, lcUpdateFolder, lcNeverUpdate
 
 				Do Case
 					Case loResult.InstallInTools
-						lcFolder = lcToolFolder
+						lcFolder = tcToolFolder
 					Case Not Isnull (loTool)
 						lcFolder = loTool.FolderName
 						lcFolder = Evl(m.lcFolder, Left(_Screen.cThorFolder, Rat('\', _Screen.cThorFolder, 2)))
 					Case loResult.Component = 'Yes'
-						lcFolder = Addbs(Addbs (lcToolFolder) + 'Components') + loResult.ApplicationName
+						lcFolder = Addbs(Addbs (tcToolFolder) + 'Components') + loResult.ApplicationName
 					Otherwise
-						lcFolder = Addbs(Addbs (lcToolFolder) + 'Apps') + loResult.ApplicationName
+						lcFolder = Addbs(Addbs (tcToolFolder) + 'Apps') + loResult.ApplicationName
 				Endcase
 				
 				lcLocalVersionFile = Addbs (lcFolder) + loResult.VersionLocalFilename
@@ -79,7 +79,7 @@ Procedure AddUpdateFolder (loUpdateList, tlIsThor, lcUpdateFolder, lcNeverUpdate
 
 				loResult.InstallationFolder	= lcFolder
 				loResult.LocalVersionFile	= lcLocalVersionFile
-				loResult.NeverUpdateFile	= lcNeverUpdateFolder + laFiles[lnI, 1]
+				loResult.NeverUpdateFile	= tcNeverUpdateFolder + laFiles[lnI, 1]
 
 				lcVersionFileUrl   = loResult.VersionFileURL
 
@@ -117,7 +117,7 @@ Procedure AddUpdateFolder (loUpdateList, tlIsThor, lcUpdateFolder, lcNeverUpdate
 				Endif
 
 				If loResult.ErrorCode >= 0
-					loUpdateList.Add (loResult)
+					toUpdateList.Add (loResult)
 				Endif
 			Endif
 		Endif
