@@ -1,5 +1,13 @@
 # Thor Change Log
 
+### Thor 1.46.16 - Released 2023-12-05
+* Corrections to Thor installation page (Issue 226)
+* Modifications to CFU
+    * fixed bug where clicking on "Installed Version" column opened link to the application home page.  (Issues 214, 215)
+    * show current Thor version and date at bottom right of fprm
+    * new checkbox 'Hide "Never Update" projects'
+* Modified handling of the menu items under "Thor" in system menu pad
+
 ### Thor 1.46.15 - Released 2023-11-27
 * Applied Lutz's upgrade to extracting zip files by using PowerShell if the primary attempt (using Shell.Application) fails
 * Moved splitter files back to Tools\Procs (moved in error some months ago)
