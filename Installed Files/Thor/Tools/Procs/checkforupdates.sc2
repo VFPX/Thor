@@ -47,9 +47,12 @@ DEFINE CLASS form1 AS form
 	*< OBJECTDATA: ObjPath="Label1" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="edtNotes" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="Splitter" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Label2" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Check1" UniqueID="" Timestamp="" />
 
 	*<DefinedPropArrayMethod>
 		*m: getmonitorstatistics
+		*m: setfilter
 		*m: sortcolumn
 		*p: ccolumnorder
 		*p: ccolumnwidths
@@ -84,8 +87,19 @@ DEFINE CLASS form1 AS form
 			<memberdata name="nsplittertop" display="nSplitterTop"/>
 			<memberdata name="getmonitorstatistics" display="GetMonitorStatistics"/>
 			<memberdata name="sortcolumn" display="SortColumn"/>
+			<memberdata name="setfilter" display="SetFilter"/>
 		</VFPData>
 	*</PropValue>
+
+	ADD OBJECT 'Check1' AS checkbox WITH ;
+		Alignment = 0, ;
+		Caption = 'Hide "Never Update" projects', ;
+		Height = 17, ;
+		Left = 531, ;
+		Name = "Check1", ;
+		Top = 3, ;
+		Width = 188
+		*< END OBJECT: BaseClass="checkbox" />
 
 	ADD OBJECT 'cmdCancel' AS commandbutton WITH ;
 		Anchor = 12, ;
@@ -94,7 +108,7 @@ DEFINE CLASS form1 AS form
 		FontBold = .T., ;
 		FontSize = 10, ;
 		Height = 28, ;
-		Left = 730, ;
+		Left = 667, ;
 		Name = "cmdCancel", ;
 		TabIndex = 2, ;
 		Top = 334, ;
@@ -138,7 +152,7 @@ DEFINE CLASS form1 AS form
 		GridLineColor = 192,192,192, ;
 		GridLines = 2, ;
 		HeaderHeight = 24, ;
-		Height = 236, ;
+		Height = 218, ;
 		HighlightRowLineWidth = 1, ;
 		Left = 12, ;
 		Name = "Grid1", ;
@@ -147,7 +161,7 @@ DEFINE CLASS form1 AS form
 		RecordSource = "crsr_ThorUpdates", ;
 		RowHeight = 22, ;
 		TabIndex = 3, ;
-		Top = 6, ;
+		Top = 24, ;
 		Width = 942, ;
 		Column1.ColumnOrder = 2, ;
 		Column1.ControlSource = "Trim(crsr_ThorUpdates.AppName)+IIF(crsr_ThorUpdates.FromMyUpdates,'  (My Updates)','')", ;
@@ -156,7 +170,7 @@ DEFINE CLASS form1 AS form
 		Column1.FontSize = 9, ;
 		Column1.Name = "Column1", ;
 		Column1.ReadOnly = .T., ;
-		Column1.Width = 175, ;
+		Column1.Width = 190, ;
 		Column2.ColumnOrder = 8, ;
 		Column2.ControlSource = "crsr_ThorUpdates.ProjectType", ;
 		Column2.FontSize = 9, ;
@@ -353,11 +367,25 @@ DEFINE CLASS form1 AS form
 		FontBold = .T., ;
 		FontSize = 10, ;
 		Height = 18, ;
-		Left = 159, ;
+		Left = 155, ;
 		Name = "Label1", ;
 		TabIndex = 4, ;
-		Top = 342, ;
+		Top = 340, ;
 		Width = 500
+		*< END OBJECT: BaseClass="label" />
+
+	ADD OBJECT 'Label2' AS label WITH ;
+		Alignment = 1, ;
+		Anchor = 12, ;
+		Caption = "(Version)", ;
+		FontBold = .F., ;
+		FontSize = 8, ;
+		Height = 18, ;
+		Left = 757, ;
+		Name = "Label2", ;
+		TabIndex = 4, ;
+		Top = 342, ;
+		Width = 195
 		*< END OBJECT: BaseClass="label" />
 
 	ADD OBJECT 'Splitter' AS thor_sfsplitterv WITH ;
@@ -560,6 +588,30 @@ DEFINE CLASS form1 AS form
 		Endif
 	ENDPROC
 
+	PROCEDURE setfilter
+		Lparameters tlHideNeverUsed
+		
+		#Define ccKey	'Thor'
+		#Define	ccTool	'Hide Never Used in CFU'
+		
+		Local llHideNeverUsed
+		
+		If Pcount() = 0
+			llHideNeverUsed = Nvl(Execscript(_Screen.cThorDispatcher, 'Get Option=', ccKey, ccTool), .F.)
+		Else
+			llHideNeverUsed  = m.tlHideNeverUsed
+			Execscript(_Screen.cThorDispatcher, 'Set Option=', ccKey, ccTool, m.llHideNeverUsed)
+		Endif
+		
+		If m.llHideNeverUsed
+			Set Filter To Not NeverUpdate In crsr_ThorUpdates
+		Else
+			Set Filter To In crsr_ThorUpdates
+		Endif
+		
+		Return m.llHideNeverUsed 
+	ENDPROC
+
 	PROCEDURE Show
 		Lparameters nStyle
 		
@@ -585,7 +637,20 @@ DEFINE CLASS form1 AS form
 	ENDPROC
 
 	PROCEDURE Unload
+		Set Filter To In crsr_ThorUpdates
+		
 		Return This.lResult 
+	ENDPROC
+
+	PROCEDURE Check1.Init
+		This.Value = ThisForm.SetFilter()
+		
+	ENDPROC
+
+	PROCEDURE Check1.Valid
+		Thisform.SetFilter(This.Value)
+		Thisform.Grid1.SetFocus()
+		
 	ENDPROC
 
 	PROCEDURE cmdCancel.Click
@@ -692,16 +757,6 @@ DEFINE CLASS form1 AS form
 		Thisform.SortColumn('crsr_ThorUpdates.NeverUpdate Desc')
 	ENDPROC
 
-	PROCEDURE Grid1.Column9.Text1.Click
-		Local lcLink, loLink
-		lcLink = Alltrim (Link)
-		If Not Empty (lcLink)
-			loLink = Newobject ('_ShellExecute', Home() + 'FFC\_Environ.vcx')
-			loLink.ShellExecute (lcLink)
-		Endif
-		
-	ENDPROC
-
 	PROCEDURE Grid1.Init
 		This.SetAll('DynamicFontBold', 'crsr_ThorUpdates.UpdateNow', 'Column')
 		This.SetAll('DynamicFontItalic', 'crsr_ThorUpdates.FromMyUpdates', 'Column')
@@ -713,6 +768,21 @@ DEFINE CLASS form1 AS form
 		If Thisform.lNoUpdates 
 			This.Caption = 'No updates available'
 		Endif
+		
+	ENDPROC
+
+	PROCEDURE Label2.Init
+		Local lcCaption, lcVersion, lcVersionFile
+		
+		lcVersionFile = _Screen.cThorFolder + 'ThorVersion.txt'
+		If File(m.lcVersionFile)
+			lcVersion = Filetostr(m.lcVersionFile)
+			lcCaption = Left(m.lcVersion, At('-', m.lcVersion, 3) - 1)
+		Else
+			lcCaption = ''
+		Endif
+		
+		This.Caption = m.lcCaption
 		
 	ENDPROC
 

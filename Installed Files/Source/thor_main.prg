@@ -336,11 +336,12 @@ Procedure CreateThorTables
 
 	* LogFile
 
-	If Not File (tcFolder + 'Thor_LogFile.DBF')
-		Create Table (tcFolder + 'Thor_LogFile') Free		;
-			(PRGName C(60), Count I, FirstTime T, LastTime T)
-		Index On PRGName Tag PRGName
-	Endif Not File (tcFolder + 'LogFile.DBF')
+	*!* ******** JRN Removed 2023-11-28 ********
+	*!* If Not File (tcFolder + 'Thor_LogFile.DBF')
+	*!* 	Create Table (tcFolder + 'Thor_LogFile') Free		;
+	*!* 		(PRGName C(60), Count I, FirstTime T, LastTime T)
+	*!* 	Index On PRGName Tag PRGName
+	*!* Endif Not File (tcFolder + 'LogFile.DBF')
 
 Endproc
 
@@ -434,11 +435,14 @@ Procedure CreateMenuTools (tcFolder, loMenuDefs)
 		Index On MenuID Tag MenuID
 		Index On Id Tag Id
 	Else
-		Use (tcFolder + 'MenuTools.DBF')
+		Use (tcFolder + 'MenuTools.DBF') Exclusive 
 	Endif Not File (tcFolder + 'MenuTools.DBF')
 	
 	RemoveOldThorMainMenuItems(tcFolder, loMenuDefs)
 	AddThorMainMenuItems(tcFolder, loMenuDefs)
+	
+	Select MenuTools
+	Pack
 	
 EndProc
 
@@ -600,7 +604,8 @@ Procedure RemoveOldThorMainMenuItems(tcFolder, loMenuDefs)
 	
 	RemoveThorMainMenuItem (8, ccThorTWEeTs, 	206, 	'Thor TWEeTs', "History of all Thor TWEeTs (This Week's Exceptional Tools")
 	RemoveThorMainMenuItem (8, 'Thor-Blogs', 	217, 	'Blogs', '')
-	RemoveThorMainMenuSeparator (8, 300, 'SEPARATOR11')
+	*!* ******** JRN Removed 2023-11-28 ********
+	*!* RemoveThorMainMenuSeparator (8, 300, 'SEPARATOR11')
 	*	RemoveThorMainMenuItem (8, loMenuDefs.More, 999, 'More')
 	Delete For MenuID = 8 And SortOrder = 999
 
@@ -608,15 +613,20 @@ Procedure RemoveOldThorMainMenuItems(tcFolder, loMenuDefs)
 	RemoveThorMainMenuItem (8, ccINTERNALALLTOOLSPRG, 120, 'Run Tool', 'All tools registered with Thor')
 
 	RemoveThorMainMenuItem (8, ccINTERNALMODIFY, 210, 'Modify Tool', 'Open tool with Modify Command')
-	RemoveThorMainMenuItem (8, ccMANAGEPLUGINS, 215, 'Manage Plug-Ins', 'Manages plug-in PRGS used by some tools')
+	*!* ******** JRN Removed 2023-11-28 ********
+	*!* RemoveThorMainMenuItem (8, ccMANAGEPLUGINS, 215, 'Manage Plug-Ins', 'Manages plug-in PRGS used by some tools')
 	RemoveThorMainMenuItem (8, ccCOMMUNITY, 210, 'Community / Discussions', 'Community for discussing Thor, Thor Repository, and related topics.')
-	RemoveThorMainMenuItem (8, ccOPENFOLDERS, 220, 'Open Folder', 'Opens various Thor folders')
+	*!* ******** JRN Removed 2023-11-28 ********
+	*!* RemoveThorMainMenuItem (8, ccOPENFOLDERS, 220, 'Open Folder', 'Opens various Thor folders')
 	RemoveThorMainMenuItem (8, ccSOURCEFILES, 230, 'Source Files', 'Downloads source files for APPs')
-	RemoveThorMainMenuItem (8, ccINTERNALFRAMEWORK, 240, 'Thor Framework', 'Framework of tools to assist in creating tools')
-	RemoveThorMainMenuItem (8, ccDEBUGMODE, 250, 'Debug Mode', 'Toggles debug mode for working on Thor and IDE Tools')
+	*!* ******** JRN Removed 2023-11-28 ********
+	*!* RemoveThorMainMenuItem (8, ccINTERNALFRAMEWORK, 240, 'Thor Framework', 'Framework of tools to assist in creating tools')
+	*!* ******** JRN Removed 2023-11-28 ********
+	*!* RemoveThorMainMenuItem (8, ccDEBUGMODE, 250, 'Debug Mode', 'Toggles debug mode for working on Thor and IDE Tools')
 
 	RemoveThorMainMenuSeparator (8, 500, 'SEPARATOR3')
-	RemoveThorMainMenuSeparator (8, 300, 'SEPARATOR2')
+	*!* ******** JRN Removed 2023-11-28 ********
+	*!* RemoveThorMainMenuSeparator (8, 300, 'SEPARATOR2')
 
 	RemoveThorMainMenuItem (8, ccINTERNALRepostitory, 320, 'Repository Home Page', 'Home page for Thor Repository')
 	RemoveThorMainMenuItem (8, ccINTERNALTOOLLINK, 330, 'Tool Home Pages', 'Home page for each tool (if any)')
