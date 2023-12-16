@@ -316,7 +316,6 @@ DEFINE CLASS manageplugins AS form
 		Set Multilocks On
 		Set Safety Off
 		Set Talk Off
-		Sys(3054, 0)
 		
 		*!* ******** JRN Removed 2023-10-22 ********
 		*!* loThorInfo		 = Execscript(_Screen.cThorDispatcher, 'ToolInfo=', 'Thor_Tool_PEMEditor')

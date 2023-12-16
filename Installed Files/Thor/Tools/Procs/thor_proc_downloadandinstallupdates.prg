@@ -296,7 +296,7 @@ Procedure CreateUpdatesCursor (toUpdateList)
 					  Upper(AppName)	
 					  
 			Replace	Status	 With Icase(												;
-						Left(SortKey, 1) = 'A' and Empty(InstalledVerNumber), 'INSTALL NOW',	;
+						Left(SortKey, 1) = 'A' And Empty(InstalledVerNumber), '*** REQUIRED ***', ;
 						Left(SortKey, 1) = 'A', 'Update available',						;
 						Left(SortKey, 1) = 'B', 'New Project',							;
 						Left(SortKey, 1) = 'C', 'Current',								;

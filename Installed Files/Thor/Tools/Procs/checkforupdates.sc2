@@ -252,7 +252,7 @@ DEFINE CLASS form1 AS form
 		*< END OBJECT: BaseClass="textbox" />
 
 	ADD OBJECT 'Grid1.Column3.Header1' AS header WITH ;
-		Caption = "Version", ;
+		Caption = "Available Version", ;
 		Name = "Header1"
 		*< END OBJECT: BaseClass="header" />
 
@@ -609,6 +609,8 @@ DEFINE CLASS form1 AS form
 			Set Filter To In crsr_ThorUpdates
 		Endif
 		
+		Goto top In crsr_ThorUpdates
+		
 		Return m.llHideNeverUsed 
 	ENDPROC
 
@@ -627,11 +629,16 @@ DEFINE CLASS form1 AS form
 		
 		Local lcIndexFile
 		
-		Delete Tag all 
+		If Empty(m.lcField)
+			lcField = 'crsr_ThorUpdates.SortKey'
+		Endif
+		
+		Delete Tag All
 		
 		lcIndexFile = Sys(2023) + '\_SB_Temp' + Sys(2015)
 		Index On &lcField Tag Tag
-		Goto top
+		Goto Top
+		
 		Thisform.Refresh()
 		
 	ENDPROC
@@ -718,8 +725,16 @@ DEFINE CLASS form1 AS form
 		
 	ENDPROC
 
+	PROCEDURE Grid1.Column2.Header1.Click
+		Thisform.SortColumn('crsr_ThorUpdates.ProjectType')
+	ENDPROC
+
 	PROCEDURE Grid1.Column2.Text1.When
 		Return .f.
+	ENDPROC
+
+	PROCEDURE Grid1.Column3.Header1.Click
+		Thisform.SortColumn()
 	ENDPROC
 
 	PROCEDURE Grid1.Column4.Header1.Click
@@ -737,7 +752,7 @@ DEFINE CLASS form1 AS form
 	ENDPROC
 
 	PROCEDURE Grid1.Column6.Header1.Click
-		Thisform.SortColumn('crsr_ThorUpdates.UpdateNow Desc')
+		Thisform.SortColumn('IIF(crsr_ThorUpdates.UpdateNow, "A", "B") + crsr_ThorUpdates.SortKey')
 	ENDPROC
 
 	PROCEDURE Grid1.Column7.checkbox.Valid
@@ -757,10 +772,14 @@ DEFINE CLASS form1 AS form
 		Thisform.SortColumn('crsr_ThorUpdates.NeverUpdate Desc')
 	ENDPROC
 
+	PROCEDURE Grid1.Column9.Header1.Click
+		Thisform.SortColumn()
+	ENDPROC
+
 	PROCEDURE Grid1.Init
 		This.SetAll('DynamicFontBold', 'crsr_ThorUpdates.UpdateNow', 'Column')
 		This.SetAll('DynamicFontItalic', 'crsr_ThorUpdates.FromMyUpdates', 'Column')
-		This.SetAll('DynamicBackColor', 'ICase(crsr_ThorUpdates.SortKey="A", Rgb(255,255,0), crsr_ThorUpdates.SortKey="Z", Rgb(192,192,192), crsr_ThorUpdates.SortKey="B", Rgb(165, 203, 247), crsr_ThorUpdates.SortKey="D", Rgb(196, 240, 208), Rgb(255,255,255))', 'Column')
+		This.SetAll('DynamicBackColor', 'ICase(crsr_ThorUpdates.SortKey="A", Rgb(255,255,0), crsr_ThorUpdates.NeverUpdate, Rgb(192,192,192), crsr_ThorUpdates.SortKey="B", Rgb(165, 203, 247), crsr_ThorUpdates.SortKey="D", Rgb(196, 240, 208), Rgb(255,255,255))', 'Column')
 		
 	ENDPROC
 

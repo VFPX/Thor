@@ -1,5 +1,12 @@
 # Thor Change Log
 
+### Thor 1.46.17 - Released 2023-12-16
+* Bug in RunThor fixed (#219)
+* Added missing icon file (#235)
+* Remove references to Sys(3054) - (Issue #210)
+* Minor change to order of items in Contributing.md (Issue #229)
+* Clicking on column headers in CFU works for all relevant columns, resets to default for others.
+
 ### Thor 1.46.16 - Released 2023-12-05
 * Corrections to Thor installation page (Issue 226)
 * Modifications to CFU
