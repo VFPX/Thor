@@ -618,6 +618,7 @@ DEFINE CLASS thorinfo AS custom
 		*p: fullfilename
 		*p: internalsort
 		*p: link		&& A link to a Web page for the tool
+		*p: menumarkexpression
 		*p: onkeylabelonly
 		*p: optionclasses		&& The name of the main APP file, without the path (e.g., GoFish4.App)
 		*p: optiontool
@@ -661,6 +662,7 @@ DEFINE CLASS thorinfo AS custom
 		fullfilename = 
 		internalsort = 
 		link = 
+		menumarkexpression = 
 		Name = "thorinfo"
 		onkeylabelonly = .F.
 		optionclasses = 
@@ -731,6 +733,7 @@ DEFINE CLASS thorinfo AS custom
 			<memberdata name="privatecopy" display="PrivateCopy"/>
 			<memberdata name="plugins" display="PlugIns"/>
 			<memberdata name="appid" display="AppID"/>
+			<memberdata name="menumarkexpression" display="MenuMarkExpression"/>
 		</VFPData>
 	*</PropValue>
 	

@@ -424,7 +424,7 @@ DEFINE CLASS baseform AS form
 		set multilocks on
 		set safety off
 		set talk off
-		sys(3054, 0)
+		
 		
 	ENDPROC
 

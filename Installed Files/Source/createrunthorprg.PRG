@@ -1,5 +1,7 @@
 * Create the RunThor.PRG
 
+#Include ThorVersion.h
+
 Lparameters tcFolder
 
 Local lcFolder, lcRunThor, loException
@@ -24,6 +26,8 @@ Return
 Procedure GetPRGText(tcFolder)
 	Text To m.lcRunThor Noshow Textmerge
 Lparameters tnInterval, tlInstallAllUpdates
+
+* <<ccThorVersion>> 
 
 Local lcFolder, lcTableName
 lcFolder = '<<tcFolder>>'
@@ -55,6 +59,7 @@ If Not Empty (tnInterval) And 'N' = VarType (tnInterval) And tnInterval > 0
 
 Endif	
 
+lcFolder = '<<tcFolder>>'
 Do m.lcFolder + 'Thor.APP' With 'Run', .F. && normal installation of Thor (with startups)
 
 	Endtext
