@@ -24,21 +24,29 @@ Return
 
 
 Procedure GetPRGText(tcFolder)
+
+	* ================================================================================
+	* ================================================================================ 
 	Text To m.lcRunThor Noshow Textmerge
 Lparameters tnInterval, tlInstallAllUpdates
 
 * <<ccThorVersion>> 
 
-Local lcFolder, lcTableName
-lcFolder = '<<tcFolder>>'
+#Define	ccThorHomeFolder '<<tcFolder>>'
 
-If Not Empty (tnInterval) And 'N' = VarType (tnInterval) And tnInterval > 0
-	lcTableName = m.lcFolder + 'Thor\Tables\LastCheckForUpdatesDate.DBF'
+Local lcTableName, ldLastRunDate, lnSelect
+
+If Not Empty (m.tnInterval) And 'N' = Vartype (m.tnInterval) And m.tnInterval > 0
+
+	* ================================================================================
+	lcTableName = ccThorHomeFolder + 'Thor\Tables\LastCheckForUpdatesDate.DBF'
+
+	lnSelect = Select()
 	Select 0
-	If File (lcTableName)
-		Use (lcTableName)
+	If File (m.lcTableName)
+		Use (m.lcTableName) Shared Again
 	Else
-		Create Table (lcTableName) Free (LastDate D)
+		Create Table (m.lcTableName) Free (LastDate D)
 	Endif
 
 	If Reccount() = 0
@@ -46,23 +54,25 @@ If Not Empty (tnInterval) And 'N' = VarType (tnInterval) And tnInterval > 0
 	Endif
 
 	Goto Top
-	If Date() >= LastDate + tnInterval
-		Replace LastDate With Date()
-		Use
+	ldLastRunDate = LastDate
+	Use
 
-		Do m.lcFolder + 'Thor.APP' With 'Run', .T. && installs Thor, but without startups
+	Select(m.lnSelect)
+	* ================================================================================
 
-		Execscript (_Screen.cThorDispatcher, 'Thor_Tool_Thor_CheckForUpdates', tlInstallAllUpdates)
-	Else
-		Use
+	If Date() >= m.ldLastRunDate + m.tnInterval
+		Do ccThorHomeFolder  + 'Thor.APP' With 'Run', .T. && installs Thor, but without startups
+		Execscript (_Screen.cThorDispatcher, 'Thor_Tool_Thor_CheckForUpdates', m.tlInstallAllUpdates)
 	Endif
+Endif
 
-Endif	
+Do ccThorHomeFolder  + 'Thor.APP' With 'Run', .F. && normal installation of Thor (with startups)
 
-lcFolder = '<<tcFolder>>'
-Do m.lcFolder + 'Thor.APP' With 'Run', .F. && normal installation of Thor (with startups)
+Return
 
-	Endtext
+	EndText
+* ================================================================================ 
+* ================================================================================ 
 
 	Return m.lcRunThor
 Endproc

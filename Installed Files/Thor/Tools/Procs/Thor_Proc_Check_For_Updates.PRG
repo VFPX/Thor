@@ -60,6 +60,9 @@ If Execscript (_Screen.cThorDispatcher, 'Thor_Proc_DownloadAndInstallUpdates', .
 
 Endif
 
+* record the date CFU was run
+Execscript(_Screen.cThorDispatcher, 'Thor_Proc_SetLastCFUDate')
+
 Execscript (_Screen.cThorDispatcher, 'Thor_Tool_ThorInternalThorNews', 'Check For Updates')
 
 Wait Clear
