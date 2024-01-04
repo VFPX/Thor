@@ -779,7 +779,7 @@ DEFINE CLASS form1 AS form
 	PROCEDURE Grid1.Init
 		This.SetAll('DynamicFontBold', 'crsr_ThorUpdates.UpdateNow', 'Column')
 		This.SetAll('DynamicFontItalic', 'crsr_ThorUpdates.FromMyUpdates', 'Column')
-		This.SetAll('DynamicBackColor', 'ICase(crsr_ThorUpdates.SortKey="A", Rgb(255,255,0), crsr_ThorUpdates.NeverUpdate, Rgb(192,192,192), crsr_ThorUpdates.SortKey="B", Rgb(165, 203, 247), crsr_ThorUpdates.SortKey="D", Rgb(196, 240, 208), Rgb(255,255,255))', 'Column')
+		This.SetAll('DynamicBackColor', 'ICase(crsr_ThorUpdates.UpdateNow, Rgb(255,255,0), crsr_ThorUpdates.NeverUpdate, Rgb(192,192,192), crsr_ThorUpdates.SortKey="B", Rgb(165, 203, 247), crsr_ThorUpdates.SortKey="D", Rgb(196, 240, 208), Rgb(255,255,255))', 'Column')
 		
 	ENDPROC
 

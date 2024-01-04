@@ -12,6 +12,10 @@ _Screen.AddProperty('cThorCFUFolder', m.lcCFUFolder)
 
 WritetoCFULog('Begin CFU - ' + Transform(Datetime()))
 
+If File(_screen.cThorFolder + 'ThorVersion.txt')
+	WritetoCFULog(FileToStr(_screen.cThorFolder + 'ThorVersion.txt'))
+EndIf 
+
 If Not Execscript (_Screen.cThorDispatcher, 'Thor_Proc_CheckInternetConnection')
 	Messagebox ('No Internet Connection Found!', 16, 'No Internet Connection', 0)
 	Return .F.
@@ -59,6 +63,9 @@ If Execscript (_Screen.cThorDispatcher, 'Thor_Proc_DownloadAndInstallUpdates', .
 	Execscript (_Screen.cThorDispatcher, 'Run')
 
 Endif
+
+* record the date CFU was run
+Execscript(_Screen.cThorDispatcher, 'Thor_Proc_SetLastCFUDate')
 
 Execscript (_Screen.cThorDispatcher, 'Thor_Tool_ThorInternalThorNews', 'Check For Updates')
 

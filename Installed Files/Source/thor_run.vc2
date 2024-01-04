@@ -111,7 +111,7 @@ DEFINE CLASS thor_run AS custom
 	*</PropValue>
 	
 	PROCEDURE add1tool
-		Lparameters loContextMenu, loTool, tcFolder, tcActionPrefix
+		Lparameters loContextMenu, loTool, tcFolder, tcActionPrefix, lcMenuMark
 		Local laFavorite[1], lcKeyStroke, lcPRGName, lcPrompt, lcStatusBar
 		
 		lcPrompt	= m.loTool.Prompt
@@ -128,7 +128,17 @@ DEFINE CLASS thor_run AS custom
 		Endif
 		
 		Select StartUp From Favorites Where Lower(PRGName) = Lower(m.lcPRGName) Into Array laFavorite
-		m.loContextMenu.AddMenuItem (m.lcPrompt, [ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_ProcessContextMenuItem', '] + m.lcPRGName + [')], m.lcStatusBar, m.lcKeyStroke, , m.lcPRGName, , Iif(m.laFavorite, 'B', ''))
+		
+		m.loContextMenu.AddMenuItem (																	;
+			  m.lcPrompt,																				;
+			  [ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_ProcessContextMenuItem', '] + m.lcPRGName + [')], ;
+			  m.lcStatusBar,																			;
+			  m.lcKeyStroke,																			;
+			  ,																							;
+			  m.lcPRGName,																				;
+			  m.lcMenuMark,																				;
+			  Iif(m.laFavorite, 'B', ''))
+		
 	ENDPROC
 
 	PROCEDURE addalltools
@@ -156,7 +166,7 @@ DEFINE CLASS thor_run AS custom
 			Return
 		Endif
 		
-		Dimension laTools (lnToolCount, 5)
+		Dimension laTools (lnToolCount, 6)
 		For lnI = 1 To lnToolCount
 			loTool	 = loTools.Item (lnI)
 			lcSource = Evl (Trim (loTool.Source), '(No Source)')
@@ -172,6 +182,7 @@ DEFINE CLASS thor_run AS custom
 			laTools (lnI, 4) = lcSubCategory
 			* note the odd construction with lnSort! aha!
 			laTools (lnI, 5) = loTool.InternalSort
+			laTools (lnI, 6) = loTool.MenuMarkExpression
 		Endfor
 		
 		Asort (laTools, 5)
@@ -182,6 +193,7 @@ DEFINE CLASS thor_run AS custom
 			loTool	   = loTools.Item (laTools (lnI, 1))
 			lcSource   = laTools (lnI, 2)
 			lcCategory = laTools (lnI, 3)
+			lcMenuMark = laTools (lnI, 6)
 		
 			If lcSource == 'Thor'
 				Loop
@@ -211,7 +223,7 @@ DEFINE CLASS thor_run AS custom
 				Endfor
 			Endif
 		
-			This.Add1Tool (loContextMenu, loTool, tcFolder, tcActionPrefix)
+			This.Add1Tool (loContextMenu, loTool, tcFolder, tcActionPrefix, m.lcMenuMark)
 			lcPreviousCategory = lcCategory
 		
 		Endfor && lnI = 1 To lnToolCount
@@ -272,23 +284,23 @@ DEFINE CLASS thor_run AS custom
 		
 		Lparameters loContextMenu, lnMenuID, tcFolder, tcActionPrefix
 		
-		Local laMenuTools[1], lcKeyStroke, lcMenuStatusBar, lcPRGName, lcPrompt, lcStatusBar, llFavorite
-		Local llSeparator, lnI, lnSubMenuID
+		Local laMenuTools[1], lcKeyStroke, lcMenuMark, lcMenuStatusBar, lcPRGName, lcPrompt, lcStatusBar
+		Local llFavorite, llSeparator, lnI, lnSubMenuID, loTool
 		
-		Select  MenuTools.Prompt,															;
-				Separator,																	;
-				SubMenuID,																	;
-				MenuTools.PRGName,															;
-				MenuTools.StatusBar,														;
-				Cast (Nvl (MenuDefinitions.StatusBar, '') As M)    As  MenuStatusBar,		;
-				Nvl(Favorites.StartUp, .F.)                        As  Favorite				;
-			From MenuTools																	;
-				Left Join MenuDefinitions													;
-					On SubMenuID = MenuDefinitions.Id										;
-				Left Join Favorites															;
-					On Lower(MenuTools.PRGName) = Lower(Favorites.PRGName)					;
-			Where MenuID = m.lnMenuID														;
-			Order By MenuTools.SortOrder													;
+		Select  MenuTools.Prompt,																;
+				Separator,																		;
+				SubMenuID,																		;
+				MenuTools.PRGName,																;
+				MenuTools.StatusBar,															;
+				Cast (Nvl (MenuDefinitions.StatusBar, '') As Memo)    As  MenuStatusBar,		;
+				Nvl(Favorites.StartUp, .F.)                           As  Favorite				;
+			From MenuTools																		;
+				Left Join MenuDefinitions														;
+					On SubMenuID = MenuDefinitions.Id											;
+				Left Join Favorites																;
+					On Lower(MenuTools.PRGName) = Lower(Favorites.PRGName)						;
+			Where MenuID = m.lnMenuID															;
+			Order By MenuTools.SortOrder														;
 			Into Array laMenuTools
 		
 		For lnI = 1 To _Tally
@@ -371,7 +383,22 @@ DEFINE CLASS thor_run AS custom
 						lcKeyStroke = ''
 					Endif
 		
-					m.loContextMenu.AddMenuItem (m.lcPrompt, [ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_ProcessContextMenuItem', '] + m.lcPRGName + [')], m.lcStatusBar, m.lcKeyStroke, , m.lcPRGName, , Iif(m.llFavorite, 'B', ''))
+					Try 
+						loTool	   = This.oToolsCollection[Upper(ForceExt(m.lcPRGName, 'prg'))]
+						lcMenuMark = m.loTool.MenuMarkExpression
+					Catch to loException
+						lcMenuMark = ''
+					EndTry
+		
+					m.loContextMenu.AddMenuItem (														;
+						  m.lcPrompt,																	;
+						  [ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_ProcessContextMenuItem', '] + m.lcPRGName + [')], ;
+						  m.lcStatusBar,																;
+						  m.lcKeyStroke,																;
+						  ,																				;
+						  m.lcPRGName,																	;
+						  m.lcMenuMark,																	;
+						  Iif(m.llFavorite, 'B', ''))
 			Endcase
 		Endfor
 		
@@ -939,15 +966,8 @@ DEFINE CLASS thor_run AS custom
 		EndFunc
 		
 		Function FetchThorEngine(lcThorApp, lcThorFolder)
-			Local loGetThor As 'GetThorEngine'
-			Local loThorEngine
-			If PemStatus(_Screen, 'oThorEngine', 5) and Vartype(_Screen.oThorEngine) = 'O'
-				loThorEngine = _Screen.oThorEngine
-			Else
-				loGetThor	 = Createobject('GetThorEngine')
-				loThorEngine = loGetThor.GetThorEngine(lcThorApp, lcThorFolder)
-				_Screen.AddProperty('oThorEngine', loThorEngine)
-			EndIf 
+			loGetThor	 = Createobject('GetThorEngine')
+			loThorEngine = loGetThor.GetThorEngine(lcThorApp, lcThorFolder)
 			Return loThorEngine
 		Endfunc
 		
@@ -1318,6 +1338,8 @@ DEFINE CLASS thor_run AS custom
 		Local loContextMenu As 'ContextMenu' Of 'Thor_Menu.vcx'
 		Local laTopLevel[1], lcPopupName, lnI, loMenu
 		
+		_Screen.AddProperty('aThorMenuMarks[1]', '')
+		
 		Select  Id								 ;
 			  , PopupName						 ;
 			From MenuDefinitions				 ;
@@ -1457,13 +1479,26 @@ DEFINE CLASS thor_run AS custom
 		Lparameters lnMenuID, tcFolder, tnDataSession
 		
 		Local loContextMenu As 'ContextMenu' Of  'Thor_Menu.vcx'
+		Local lnMarkCount
 		
 		loContextMenu = Newobject ('ContextMenu', 'Thor_Menu.vcx', This.cThorApp)
-		This.AddMenuItems (loContextMenu, lnMenuID, tcFolder + 'Tools\')
 		
-		loContextMenu.SetDataSession (tnDataSession)
+		*** JRN 2023-12-23 : remove temporary entries in _Screen.aThorMenuMarks
+		If Pemstatus(_Screen, 'aThorMenuMarks', 5)
+			lnMarkCount = Alen(_Screen.aThorMenuMarks)
+		Else
+			lnMarkCount = 0
+		Endif
 		
-		loContextMenu.Activate()
+		This.AddMenuItems (m.loContextMenu, m.lnMenuID, m.tcFolder + 'Tools\')
+		
+		If m.lnMarkCount > 0
+			Dimension _Screen.aThorMenuMarks[m.lnMarkCount]
+		Endif
+		
+		m.loContextMenu.SetDataSession (m.tnDataSession)
+		
+		m.loContextMenu.Activate()
 		
 		
 	ENDPROC

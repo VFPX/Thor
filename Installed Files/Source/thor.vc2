@@ -1455,6 +1455,9 @@ DEFINE CLASS thor_engine AS custom
 		This.cThorFolder = lcFolder
 		This.cTablesFolder = lcFolder + 'Tables\'
 		This.cToolsFolder  = lcFolder + 'Tools\'
+		
+		This.OpenTables()
+		
 		*** JRN 2011-04-14 : 
 		Set Deleted On
 		
@@ -1494,6 +1497,10 @@ DEFINE CLASS thor_engine AS custom
 		*==============================================================================
 		
 		* Open the tables we need.
+		
+		If Used('VFPHotKeys')
+			Return
+		EndIf
 		
 		This.OpenTable('MenuDefinitions')
 		This.OpenTable('HotKeyDefinitions')

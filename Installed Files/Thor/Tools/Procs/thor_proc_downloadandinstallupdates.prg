@@ -84,11 +84,9 @@ Procedure GetAvailableVersionInfo (toUpdateList)
 
 	For lnI = 1 To toUpdateList.Count
 		loUpdateInfo = toUpdateList[lnI]
-		*!* ******** JRN Removed 2023-08-15 ********
-		*!* If loUpdateInfo.NeverUpdate # 'Y'
+		If loUpdateInfo.NeverUpdate # 'Y'
 			loUpdateInfo = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_GetAvailableVersionInfo', loUpdateInfo)
-		*!* ******** JRN Removed 2023-08-15 ********
-		*!* Endif
+		Endif
 		If loUpdateInfo.ErrorCode = 0
 			loUpdateList.Add (loUpdateInfo)
 		Endif
@@ -219,7 +217,8 @@ Endproc
 
 Procedure CreateUpdatesCursor (toUpdateList)
 
-	Local laLines[1], lnI, lnLineCount, loVersionInfo
+	Local laLines[1], lnI, loVersionInfo
+
 	Create Cursor crsr_ThorUpdates (			;
 		  Recno					N(4),			;
 		  AppName  				C(40),			;
@@ -244,19 +243,20 @@ Procedure CreateUpdatesCursor (toUpdateList)
 		  VerDate               D,				;
 		  VerNumber				C(100),			;
 		  Dependencies			C(100),			;
-		  ProjectType			C(10)			;
+		  ProjectType			C(10),			;
+		  AppID					C(30)			;
 		  )
 
-	For lnI = 1 To toUpdateList.Count
-		With toUpdateList[lnI]
+	For lnI = 1 To m.toUpdateList.Count
+		With m.toUpdateList[m.lnI]
 
 			Insert Into crsr_ThorUpdates														;
-				(Recno, AppName, InstalledVersion,	AvailableVersion, Notes, FromMyUpdates, ProjectCreationDate, Dependencies, ProjectType)		;
+				(Recno, AppName, InstalledVersion,	AvailableVersion, Notes, FromMyUpdates, ProjectCreationDate, Dependencies, ProjectType, AppID) ;
 				Values																			;
-				(lnI, .ApplicationName, .CurrentVersion, .AvailableVersion, .Tag, .FromMyUpdates = 'Y', .ProjectCreationDate, .Dependencies, Iif('Y' $ Upper(.Component), 'Component', 'App'))
+				(m.lnI, .ApplicationName, .CurrentVersion, .AvailableVersion, .Tag, .FromMyUpdates = 'Y', .ProjectCreationDate, .Dependencies, Iif('Y' $ Upper(.Component), 'Component', 'App'), .AppID)
 
 			loVersionInfo = GetVersionInfo (.CurrentVersion)
-			Replace	InstalledVerNumber	With  Alltrim (loVersionInfo.VerNumber) + Iif (loVersionInfo.VerDate <= EmptyVerDate, '', ' (' + Dtoc (loVersionInfo.VerDate) + ')')
+			Replace	InstalledVerNumber	With  Alltrim (m.loVersionInfo.VerNumber) + Iif (m.loVersionInfo.VerDate <= EmptyVerDate, '', ' (' + Dtoc (m.loVersionInfo.VerDate) + ')')
 			*!* Replace	InstalledVerNumber	With  loVersionInfo.VerNumber		;
 			*!* 		InstalledVerDate	With  loVersionInfo.VerDate
 
@@ -264,60 +264,83 @@ Procedure CreateUpdatesCursor (toUpdateList)
 			*!* If (Not .CurrentVersion == .AvailableVersion) And Not Empty (.AvailableVersion)
 			If Not Empty (.AvailableVersion)
 				loVersionInfo = GetVersionInfo (.AvailableVersion)
-				Replace	AvailableVerNumber	With  Alltrim (loVersionInfo.VerNumber) + ' (' + Dtoc (loVersionInfo.VerDate) + ')'
+				Replace	AvailableVerNumber	With  Alltrim (m.loVersionInfo.VerNumber) + ' (' + Dtoc (m.loVersionInfo.VerDate) + ')'
 				*!* Replace	AvailableVerNumber	With  loVersionInfo.VerNumber		;
 				*!* 		AvailableVerDate	With  loVersionInfo.VerDate
 			Endif
 
 			Replace	NeverUpdate		 With  .NeverUpdate = 'Y'									;
 					UpdateNow		 With  (Not NeverUpdate)									;
-					  And (.AvailableVersion > EVL(.CurrentVersion, ' ')						;
-					  	or GetLastWord(.AvailableVersion) > GetLastWord('20999999 ' + .CurrentVersion))		;
+					  And (.AvailableVersion > Evl(.CurrentVersion, ' ')						;
+						Or GetLastWord(.AvailableVersion) > GetLastWord('20999999 ' + .CurrentVersion)) ;
 					  And (.UpdateNowIfNotInstalled = 'Yes' Or Not Empty (.CurrentVersion))		;
-					IsNew			 With  .ProjectCreationDate >= Date() - DaysForRecentReleases					;
+					IsNew			 With  .ProjectCreationDate >= Date() - DaysForRecentReleases ;
 					IsCurrent		 With  .CurrentVersion == .AvailableVersion					;
 					NeverUpdateFile	 With  .NeverUpdateFile										;
 					Notes			 With  Transform(.Notes)									;
 					Link			 With  Transform(.Link)										;
 					LinkPrompt		 With  Transform(Evl (.LinkPrompt, .Link))					;
-					VerDate          with  loVersionInfo.VerDate								;
-					VerNumber         with loVersionInfo.VerNumber
+					VerDate			 With  m.loVersionInfo.VerDate								;
+					VerNumber		 With  m.loVersionInfo.VerNumber
 
-			Replace UpdateNow with UpdateNow ;
-				or (Empty(.CurrentVersion) and InList(Trim(AppName), 'PEM Editor', 'Thor Repository', 'Dynamic Forms')) 
+			Replace	UpdateNow  With	 UpdateNow		;
+					  Or (Empty(.CurrentVersion) And Inlist(Trim(AppName), 'PEM Editor', 'Thor Repository', 'Dynamic Forms'))
 
-			Replace	SortKey	 With														;
-					  Icase(UpdateNow, 'A',												;
-						NeverUpdate, 'Z',												;
-						Empty(InstalledVerNumber) And IsNew, 'B',						;
-						Empty(InstalledVerNumber) And VerDate > Date() - DaysForRecentReleases, 'D',		;
-						IsCurrent, 'C',													;
-						'X') +															;
-					  Upper(AppName)	
-					  
-			Replace	Status	 With Icase(												;
+			Replace	SortKey	 With																;
+					  Icase(																	;
+						UpdateNow, 								'A',							;
+						NeverUpdate, 							'Z',							;
+						Empty(InstalledVerNumber) And IsNew, 	'B',							;
+						Empty(InstalledVerNumber) And VerDate > Date() - DaysForRecentReleases, 'D', ;
+						IsCurrent, 								'C',							;
+						'X') +																	;
+					  Upper(AppName)
+
+			Replace	Status	With  Icase(														;
 						Left(SortKey, 1) = 'A' And Empty(InstalledVerNumber), '*** REQUIRED ***', ;
-						Left(SortKey, 1) = 'A', 'Update available',						;
-						Left(SortKey, 1) = 'B', 'New Project',							;
-						Left(SortKey, 1) = 'C', 'Current',								;
-						Left(SortKey, 1) = 'D', 'Recently Updated',						;
-						'Not Installed') 															
+						Left(SortKey, 1) = 'A', 'Update available',								;
+						Left(SortKey, 1) = 'B', 'New / Not Installed',							;
+						Left(SortKey, 1) = 'C', 'Current',										;
+						Left(SortKey, 1) = 'D', 'Not Installed',								;
+						Left(SortKey, 1) = 'X', 'Not Installed',								;
+						Left(SortKey, 1) = 'Z' And Empty(InstalledVerNumber), '---',			;
+						Left(SortKey, 1) = 'Z' And IsCurrent, 'Current',						;
+						'??? Current ???')
 
 		Endwith
 	Endfor && lnI = 1 to toUpdateList.Count
 
-	Replace All SortKey With '0'		;
+	Replace All											;
+			SortKey	 With  '0' + Upper(AppName)			;
 		For FromMyUpdates && "My Updates" items go atop list
+
+	Replace All									;
+			VerNumber  With	 '-- N/A --'		;
+			VerDate	   With	 {}					;
+		For Empty(AvailableVersion)
+
+	*** JRN 2023-12-05 : per Issue #203, remove 'Normal' updates it there is a "My Updates"
+	*	file with the same AppID
+	Select  AppID						;
+		From crsr_ThorUpdates			;
+		Where FromMyUpdates				;
+			And Not Empty(AppID)		;
+		Into Cursor crsr_SkipMyUpdates
+
+	Select  *													;
+		From crsr_ThorUpdates									;
+		Where FromMyUpdates										;
+			Or Not AppID In (Select  AppID						;
+								 From crsr_SkipMyUpdates)		;
+		Order By SortKey										;
+		Into Cursor crsr_ThorUpdates Readwrite
 		
-	Select  *										;
-		From crsr_ThorUpdates						;
-		Into Cursor crsr_ThorUpdates Readwrite		;
-		Order By SortKey
+	Use in crsr_SkipMyUpdates
 
-	Locate for UpdateNow or (IsNew and Empty(InstalledVersion) and not NeverUpdate)
-	Return Found() 
+	Locate For UpdateNow Or (IsNew And Empty(InstalledVersion) And Not NeverUpdate)
+	Return Found()
 
-EndProc 
+Endproc
 
 
 Procedure GetVersionInfo (lcVersion)

@@ -1,5 +1,16 @@
 # Thor Change Log
 
+### Thor 1.47 - Released 2024-01-04
+* In the CFU screen, hide 'Normal' updates if there is a "My Updates" file with the same AppID property (Issues #203, #230)
+* Updated version information is no longer read for projects marked "Never Update" (Issue #224)
+* Restore projects after CFU (Issue #96)
+* Thor updates itself even when run first time from old version of Thor.App instead of using current version (Issues #227, #212)
+* Thor Tools menu indicates if tool 'IntellisenseX By Dot' is active. (Issue #242)
+* Fixed bug when recording last date CFU run. It had been only doing so if called from RunThor.  (Issue #220)
+* Removed use of `_Screen.oThorEngine`, which held some Thor tables open. (Issue #241)
+* New Project FoxGet
+* Modified Updater to GoFish to register with Thor without calling GoFish.APP
+
 ### Thor 1.46.17 - Released 2023-12-16
 * Bug in RunThor fixed (#219)
 * Added missing icon file (#235)
@@ -11,7 +22,7 @@
 * Corrections to Thor installation page (Issue 226)
 * Modifications to CFU
     * fixed bug where clicking on "Installed Version" column opened link to the application home page.  (Issues 214, 215)
-    * show current Thor version and date at bottom right of fprm
+    * show current Thor version and date at bottom right of form
     * new checkbox 'Hide "Never Update" projects'
 * Modified handling of the menu items under "Thor" in system menu pad
 
@@ -22,7 +33,7 @@
 
 ### Thor 1.46.14 - Released 2023-11-26
 * Removed reference to now-defunct Thor forum when installing Thor
-* Add "Dynamic Forms" to list of projects suggested for download when installing Thor
+* Add "Dynamic Forms" to list of projects required for download when installing Thor
 * Moved version files downloaded during CFU into a separate sub-folder
 * Moved 'CheckForUpdates.SCX' to the Procs folder
 
@@ -116,8 +127,6 @@ Revert code that re-opened projects after CFU; caused failure "too many dos"
 ### Thor 1.45.24 - Released 2023-06-10
 
 Tweaks to Property used in _Screen
-
-# Thor Change Log
 
 ### Thor 1.45.21 - Released 2023-05-20
 

@@ -125,9 +125,9 @@ DEFINE CLASS contextmenu AS custom
 	ENDPROC
 
 	PROCEDURE addmenuitem		&& Adds a new item to a ComboBox or ListBox control, optionally allowing you to specify the item's index.
-		Lparameters lcPrompt, lcExec, lcStatusBar, lcKeyStroke, lcKeyWord, lxParameters, llMarked, lcStyle
+		Lparameters lcPrompt, lcExec, lcStatusBar, lcKeyStroke, lcKeyWord, lxParameters, lcMarked, lcStyle
 		
-		Local lcFontSize, lcMenuName, lnBar, lnCurrentLevel
+		Local lcEX, lcFontSize, lcMenuName, lnBar, lnCurrentLevel, lnNext
 		
 		With This
 			lnCurrentLevel = .nCurrentLevel
@@ -164,8 +164,13 @@ DEFINE CLASS contextmenu AS custom
 			On Selection Bar (m.lnBar) Of (m.lcMenuName) &lcExec
 		Endif
 		
-		If m.llMarked
-			Set Mark Of Bar (m.lnBar) Of (m.lcMenuName) To .T.
+		If Not Empty(m.lcMarked)
+			lcEX = Textmerge('SET MARK OF Bar <<lnBar>> OF <<lcMenuName>> TO <<lcMarked>>')
+			&lcEX
+		
+			lnNext = 1 + Alen(_Screen.aThorMenuMarks)
+			Dimension _Screen.aThorMenuMarks[m.lnNext]
+			_Screen.aThorMenuMarks[m.lnNext] = m.lcEX
 		Endif
 		
 		With This

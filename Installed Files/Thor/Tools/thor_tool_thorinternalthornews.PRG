@@ -70,7 +70,7 @@ Procedure ToolCode
 		Case 'L' = Vartype (m.lxParam1)
 
 		Case Upper (m.lxParam1) = Upper ('Check For Updates')
-			*	llShowIt	 = Execscript(_Screen.cThorDispatcher, 'Get Option=', ccCheckForCFU, ccTool)
+			llShowIt	 = Execscript(_Screen.cThorDispatcher, 'Get Option=', ccCheckForCFU, ccTool)
 			llCheckFirst = .T.
 
 		Case Upper (m.lxParam1) = Upper ('RunThor')
