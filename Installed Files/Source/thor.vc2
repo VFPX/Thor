@@ -1450,6 +1450,8 @@ DEFINE CLASS thor_engine AS custom
 	PROCEDURE Init
 		lparameters tcFolder
 		local lcFolder
+		
+		tcFolder = _screen.cThorFolder
 		This.cAppFolder = Addbs(JustPath(JustPath(tcFolder)))
 		lcFolder = addbs(tcFolder)
 		This.cThorFolder = lcFolder
