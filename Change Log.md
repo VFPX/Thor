@@ -1,5 +1,8 @@
 # Thor Change Log
 
+### Thor 1.47.01 - Released 2024-01-05
+* Fixed bug when opening Thor Configuration screen.
+
 ### Thor 1.47 - Released 2024-01-04
 * In the CFU screen, hide 'Normal' updates if there is a "My Updates" file with the same AppID property (Issues #203, #230)
 * Updated version information is no longer read for projects marked "Never Update" (Issue #224)
