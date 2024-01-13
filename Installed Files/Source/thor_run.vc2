@@ -26,8 +26,8 @@ DEFINE CLASS thor_run AS custom
 		*m: assignmultiplehotkeys
 		*m: assignsimplehotkeys
 		*m: assignthordispatcher
-		*m: assignthordispatcherclasses
-		*m: assignthordispatcherhelp
+		*m: assignthorframework
+		*m: assignthornewobject
 		*m: clear		&& Clears the contents of a ComboBox or ListBox control.
 		*m: clearhotkeys		&& Removes all the Thor-assigned hotkeys
 		*m: createmacro
@@ -99,14 +99,14 @@ DEFINE CLASS thor_run AS custom
 			<memberdata name="addsourcefile" display="AddSourceFile"/>
 			<memberdata name="cdebugmenuname" display="cDebugMenuName"/>
 			<memberdata name="ndebugmenubar" display="nDebugMenuBar"/>
-			<memberdata name="assignthordispatcherhelp" display="AssignThorDispatcherHelp"/>
-			<memberdata name="assignthordispatcherclasses" display="AssignThorDispatcherClasses"/>
 			<memberdata name="otoolscollection" display="oToolsCollection"/>
 			<memberdata name="updateoptionslist" display="UpdateOptionsList"/>
 			<memberdata name="addforums" display="AddForums"/>
 			<memberdata name="createtoolbar" display="CreateToolBar"/>
 			<memberdata name="assignallhotkeys" display="AssignAllHotKeys"/>
 			<memberdata name="erasefile" display="EraseFile"/>
+			<memberdata name="assignthornewobject" display="AssignThorNewObject"/>
+			<memberdata name="assignthorframework" display="AssignThorFramework"/>
 		</VFPData>
 	*</PropValue>
 	
@@ -773,7 +773,7 @@ DEFINE CLASS thor_run AS custom
 				Return lcFile
 		
 			Case Atc([<<ccClass>>], lcPrgName) = 1
-				Return ExecScript(_Screen.cThorDispatcherClasses, lcPRGName, lcThorAPP, Pcount(), lxP1, lxP2, lxP3, lxP4, lxP5)
+				Return ExecScript(_Screen.cThorNewObject, lcPRGName, lcThorAPP, Pcount(), lxP1, lxP2, lxP3, lxP4, lxP5)
 		
 			Case Atc([<<ccPOPUPID>>], lcPrgName) = 1
 				loGetThor = Createobject ('GetThorRun')
@@ -792,7 +792,7 @@ DEFINE CLASS thor_run AS custom
 				Do (lcThorApp) With 'FORMRUNTOOL'
 		
 			Case Atc([?], lcPrgName) = 1
-				Return ExecScript(_Screen.cThorDispatcherHelp)
+				Return ExecScript(_Screen.cThorFramework)
 		
 			Case Atc([<<ccRun>>], lcPrgName) = 1
 				loGetThor = Createobject ('GetThorRun')
@@ -1026,70 +1026,7 @@ DEFINE CLASS thor_run AS custom
 		
 	ENDPROC
 
-	PROCEDURE assignthordispatcherclasses
-		Lparameters tcThorApp, tcFolder
-		
-		Local lcHomeDir, lcPropertyName, lcPublishedClasses, lcPublishedClassesHelp, lcThorExecute
-		
-		lcPublishedClasses	   = This.GetPublishedClasses()
-		
-		Text To lcThorExecute Noshow Textmerge
-		Lparameters lcPRGName, lcThorAPP, lnPCount, lxP1, lxP2, lxP3, lxP4, lxP5
-		Local lcClass, lcClassLib, lcClassName, lcFileName, loEditorWin, loObject
-		lcClassName = Alltrim (Substr (lcPRGName, 1 + Len (ccClass)))
-		Do Case
-			Case Lower (lcClassName) = 'contextmenu'
-				Return Newobject ('contextmenu', 'thor_menu.vcx', lcThorAPP, , , lxP1)
-			Case Lower (lcClassName) = 'settings'
-				Return Newobject ('thor_resource', 'thor_foxresource.vcx', lcThorAPP)
-			Case Lower (lcClassName) = 'thorformsettings'
-				Return Newobject ('thor_form_settings', 'thor_foxresource.vcx', lcThorAPP, lxP1)
-			Case Lower (lcClassName) = 'formruntool'
-				Return Newobject ('formruntool', 'thor_ui.vcx', lcThorAPP, Addbs(JustPath(lcThorAPP)))
-			Case Lower (lcClassName) = 'optionrenderengine'
-				lcFileName = Execscript (_Screen.cThorDispatcher, 'Full Path=Thor_Proc_DynamicForm.prg')
-				Return Newobject ('Thor_Proc_DynamicFormRenderEngine', lcFileName) 
-			Case Lower (lcClassName) = 'dynamicformdesktop'
-				lcFileName = Execscript (_Screen.cThorDispatcher, 'Full Path=Thor_Proc_DynamicForm.prg')
-				Return Newobject ('Thor_DynamicFormDeskTop', lcFileName) 
-			Case Lower (lcClassName) = 'dynamicform'
-				lcFileName = Execscript (_Screen.cThorDispatcher, 'Full Path=Thor_Proc_DynamicForm.prg')
-				Return Newobject ('Thor_DynamicForm', lcFileName) 
-			Case Lower (lcClassName) = 'findexe'
-				Return Newobject ('FindEXE', 'thor_utils.vcx', lcThorAPP)
-		<< lcPublishedClasses >>
-			Otherwise
-				lcClass	   = Getwordnum (lcClassName, 1)
-				lcClassLib = Getwordnum (lcClassName, Getwordcount (lcClassName))
-				lcFileName = Execscript (_Screen.cThorDispatcher, 'Full Path=' + lcClassLib)
-				Do Case
-					Case lnPCount < 2
-						loObject   = Newobject (lcClass, lcFileName)
-					Case lnPCount = 2
-						loObject   = Newobject (lcClass, lcFileName, '', lxP1)
-					Case lnPCount = 3
-						loObject   = Newobject (lcClass, lcFileName, '', lxP1, lxP2)
-					Case lnPCount = 4
-						loObject   = Newobject (lcClass, lcFileName, '', lxP1, lxP2, lxP3)
-					Case lnPCount = 5
-						loObject   = Newobject (lcClass, lcFileName, '', lxP1, lxP2, lxP3, lxP4)
-					Case lnPCount = 6
-						loObject   = Newobject (lcClass, lcFileName, '', lxP1, lxP2, lxP3, lxP4, lxP5)
-					Otherwise
-				Endcase
-				Return loObject
-		EndCase 
-		Endtext
-		
-		****************************************************************
-		lcPropertyName = 'cThorDispatcherClasses'
-		Removeproperty (_Screen, lcPropertyName)
-		
-		_Screen.AddProperty (lcPropertyName, lcThorExecute)
-		
-	ENDPROC
-
-	PROCEDURE assignthordispatcherhelp
+	PROCEDURE assignthorframework
 		*==============================================================================
 		* Method:			AssignThorDispatcher
 		* Purpose:			Creates the actual dispatcher which reads the keyboard buffer to ascertain
@@ -1176,7 +1113,70 @@ DEFINE CLASS thor_run AS custom
 		Endtext
 		
 		****************************************************************
-		lcPropertyName = 'cThorDispatcherHelp'
+		lcPropertyName = 'cThorFramework'
+		Removeproperty (_Screen, lcPropertyName)
+		
+		_Screen.AddProperty (lcPropertyName, lcThorExecute)
+		
+	ENDPROC
+
+	PROCEDURE assignthornewobject
+		Lparameters tcThorApp, tcFolder
+		
+		Local lcHomeDir, lcPropertyName, lcPublishedClasses, lcPublishedClassesHelp, lcThorExecute
+		
+		lcPublishedClasses	   = This.GetPublishedClasses()
+		
+		Text To lcThorExecute Noshow Textmerge
+		Lparameters lcPRGName, lcThorAPP, lnPCount, lxP1, lxP2, lxP3, lxP4, lxP5
+		Local lcClass, lcClassLib, lcClassName, lcFileName, loEditorWin, loObject
+		lcClassName = Alltrim (Substr (lcPRGName, 1 + Len (ccClass)))
+		Do Case
+			Case Lower (lcClassName) = 'contextmenu'
+				Return Newobject ('contextmenu', 'thor_menu.vcx', lcThorAPP, , , lxP1)
+			Case Lower (lcClassName) = 'settings'
+				Return Newobject ('thor_resource', 'thor_foxresource.vcx', lcThorAPP)
+			Case Lower (lcClassName) = 'thorformsettings'
+				Return Newobject ('thor_form_settings', 'thor_foxresource.vcx', lcThorAPP, lxP1)
+			Case Lower (lcClassName) = 'formruntool'
+				Return Newobject ('formruntool', 'thor_ui.vcx', lcThorAPP, Addbs(JustPath(lcThorAPP)))
+			Case Lower (lcClassName) = 'optionrenderengine'
+				lcFileName = Execscript (_Screen.cThorDispatcher, 'Full Path=Thor_Proc_DynamicForm.prg')
+				Return Newobject ('Thor_Proc_DynamicFormRenderEngine', lcFileName) 
+			Case Lower (lcClassName) = 'dynamicformdesktop'
+				lcFileName = Execscript (_Screen.cThorDispatcher, 'Full Path=Thor_Proc_DynamicForm.prg')
+				Return Newobject ('Thor_DynamicFormDeskTop', lcFileName) 
+			Case Lower (lcClassName) = 'dynamicform'
+				lcFileName = Execscript (_Screen.cThorDispatcher, 'Full Path=Thor_Proc_DynamicForm.prg')
+				Return Newobject ('Thor_DynamicForm', lcFileName) 
+			Case Lower (lcClassName) = 'findexe'
+				Return Newobject ('FindEXE', 'thor_utils.vcx', lcThorAPP)
+		<< lcPublishedClasses >>
+			Otherwise
+				lcClass	   = Getwordnum (lcClassName, 1)
+				lcClassLib = Getwordnum (lcClassName, Getwordcount (lcClassName))
+				lcFileName = Execscript (_Screen.cThorDispatcher, 'Full Path=' + lcClassLib)
+				Do Case
+					Case lnPCount < 2
+						loObject   = Newobject (lcClass, lcFileName)
+					Case lnPCount = 2
+						loObject   = Newobject (lcClass, lcFileName, '', lxP1)
+					Case lnPCount = 3
+						loObject   = Newobject (lcClass, lcFileName, '', lxP1, lxP2)
+					Case lnPCount = 4
+						loObject   = Newobject (lcClass, lcFileName, '', lxP1, lxP2, lxP3)
+					Case lnPCount = 5
+						loObject   = Newobject (lcClass, lcFileName, '', lxP1, lxP2, lxP3, lxP4)
+					Case lnPCount = 6
+						loObject   = Newobject (lcClass, lcFileName, '', lxP1, lxP2, lxP3, lxP4, lxP5)
+					Otherwise
+				Endcase
+				Return loObject
+		EndCase 
+		Endtext
+		
+		****************************************************************
+		lcPropertyName = 'cThorNewObject'
 		Removeproperty (_Screen, lcPropertyName)
 		
 		_Screen.AddProperty (lcPropertyName, lcThorExecute)
@@ -1278,15 +1278,16 @@ DEFINE CLASS thor_run AS custom
 				Upper(Caption)    As  UCaption		;
 			From ToolBarTools						;
 			Where Enabled							;
-			Order By UCaption, Order				;
+			Order By UCaption,						;
+				Order								;
 			Into Cursor crsr_ToolBars Readwrite
 		
 		If _Tally = 0
 			Return
 		Endif
 		
-		If Type('_Screen.oThor_ToolBar') = 'O' And Vartype(_Screen.oThor_toolbar) = 'O'
-			loToolBar = _Screen.oThor_toolbar
+		If Type('_Screen.oThor_ToolBar') = 'O' And Vartype(_Screen.oThor_ToolBar) = 'O'
+			loToolBar = _Screen.oThor_ToolBar
 			For lnI = m.loToolBar.ControlCount To 1 Step - 1
 				m.loToolBar.RemoveObject(m.loToolBar.Controls[m.lnI].Name)
 			Endfor
@@ -1319,6 +1320,7 @@ DEFINE CLASS thor_run AS custom
 		m.loToolBar.Show()
 		
 		_Screen.AddProperty('oThor_ToolBar', m.loToolBar)
+		
 		
 	ENDPROC
 
@@ -1701,9 +1703,9 @@ DEFINE CLASS thor_run AS custom
 		
 			* Create _Screen.cThorDispatcher	
 			*   WriteDebugInfo
-			.AssignThorDispatcherHelp (.cThorApp, .cThorFolder)
+			.AssignThorFramework (.cThorApp, .cThorFolder)
 			*   WriteDebugInfo
-			.AssignThorDispatcherClasses (.cThorApp, .cThorFolder)
+			.AssignThorNewObject (.cThorApp, .cThorFolder)
 			*   WriteDebugInfo
 			.AssignThorDispatcher (.cThorApp, .cThorFolder)
 		

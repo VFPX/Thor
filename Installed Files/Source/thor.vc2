@@ -49,7 +49,7 @@ DEFINE CLASS othor AS custom
 				Return lcFile
 		
 			Case Atc([Class=], lcPrgName) = 1
-				Return ExecScript(_Screen.cThorDispatcherClasses, lcPRGName, lcThorAPP, Pcount(), lxP1, lxP2, lxP3, lxP4, lxP5)
+				Return ExecScript(_Screen.cThorNewObject, lcPRGName, lcThorAPP, Pcount(), lxP1, lxP2, lxP3, lxP4, lxP5)
 		
 			Case Atc([PopupID=], lcPrgName) = 1
 				Return ExecScript(_Screen.cThorDispatcher, lcPrgName)
@@ -65,7 +65,7 @@ DEFINE CLASS othor AS custom
 				Do (lcThorApp) With 'FORMRUNTOOL'
 		
 			Case Atc([?], lcPrgName) = 1
-				Return ExecScript(_Screen.cThorDispatcherHelp)
+				Return ExecScript(_Screen.cThorFramework)
 		
 			Case Atc([Run], lcPrgName) = 1
 				Return ExecScript(_Screen.cThorDispatcher, lcPrgName)

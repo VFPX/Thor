@@ -1,5 +1,12 @@
 # Thor Change Log
 
+### Thor 1.47.02 - Released 2024-01-13
+* Removed call to Thor News as part of CFU (Issue #249)
+* Removed use of `Thor_Proc_MessageBox.PRG` as it had problems with positioning under some conditions (Issue #249)
+* Changed order of "Never Update" items in CFU (Issue #251)
+* Renamed two _Screen properties in wild guess attempt to fix error reported in issue #246.
+* Fixed bug when selecting "toolbar" checkbox in Thor Launcher the second time (Issue #252)
+
 ### Thor 1.47.01 - Released 2024-01-05
 * Fixed bug when opening Thor Configuration screen.
 

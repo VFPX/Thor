@@ -205,11 +205,13 @@ Procedure ThorInstall (lcFolder)
 
 	Close Tables 
 
-	If PemStatus(_screen, 'cThorDispatcher', 5)
-		ExecScript(_screen.cThorDispatcher, 'Thor_Proc_Messagebox', ccTHORVERSION + ' installed', 0, 'Installation complete')
-	Else 
+	*!* ******** JRN Removed 2024-01-08 ********
+	*!* If PemStatus(_screen, 'cThorDispatcher', 5)
+	*!* 	ExecScript(_screen.cThorDispatcher, 'Thor_Proc_Messagebox', ccTHORVERSION + ' installed', 0, 'Installation complete')
+	*!* Else 
 		MessageBox(ccTHORVERSION + ' installed', 0, 'Installation complete', 3000)
-	EndIf 
+	*!* ******** JRN Removed 2024-01-08 ********
+	*!* EndIf 
 
 Endproc
 

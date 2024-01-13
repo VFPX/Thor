@@ -64,7 +64,7 @@ Procedure CheckForUpdates_Main (tlIsThor, llAutoRun)
 		Wait Clear
 		? 'Updating complete'
 
-		Execscript (_Screen.cThorDispatcher, 'Thor_Proc_MessageBox', 'Updating completed', 0, 'Thor Updates...', 3) && 3 second timeout
+		MessageBox('Updating completed', 0, 'Thor Updates...', 3000) 
 		Return 1
 	Else
 		WritetoCFULog('Exiting ... no updates selected')
@@ -135,14 +135,16 @@ Procedure CheckIfReadyToGo (toUpdateList)
 			'Do you wish to continue?'
 		lcTitle = 'Allow CLEAR ALL, etc.?'
 
-		lcThorMessageBox = Execscript(_Screen.cThorDispatcher, 'Full Path=' + 'Thor_Proc_Messagebox')
-		If Empty(m.lcThorMessageBox)
+		*!* ******** JRN Removed 2024-01-08 ********
+		*!* lcThorMessageBox = Execscript(_Screen.cThorDispatcher, 'Full Path=' + 'Thor_Proc_Messagebox')
+		*!* If Empty(m.lcThorMessageBox)
 			lnResponse = Messagebox (m.lcMessage, 4, m.lcTitle)
 			Return Iif (m.lnResponse = 6, 1, -1)
-		Else
-			lcResponse = Execscript(_Screen.cThorDispatcher, 'Thor_Proc_Messagebox', m.lcMessage, 3, m.lcTitle)
-			Return Iif(m.lcResponse = 'Y', 1, -1)
-		Endif
+		*!* ******** JRN Removed 2024-01-08 ********
+		*!* Else
+		*!* 	lcResponse = Execscript(_Screen.cThorDispatcher, 'Thor_Proc_Messagebox', m.lcMessage, 3, m.lcTitle)
+		*!* 	Return Iif(m.lcResponse = 'Y', 1, -1)
+		*!* Endif
 	Else
 		Return 0
 	Endif
@@ -286,14 +288,16 @@ Procedure CreateUpdatesCursor (toUpdateList)
 			Replace	UpdateNow  With	 UpdateNow		;
 					  Or (Empty(.CurrentVersion) And Inlist(Trim(AppName), 'PEM Editor', 'Thor Repository', 'Dynamic Forms'))
 
-			Replace	SortKey	 With																;
-					  Icase(																	;
-						UpdateNow, 								'A',							;
-						NeverUpdate, 							'Z',							;
-						Empty(InstalledVerNumber) And IsNew, 	'B',							;
-						Empty(InstalledVerNumber) And VerDate > Date() - DaysForRecentReleases, 'D', ;
-						IsCurrent, 								'C',							;
-						'X') +																	;
+			Replace	SortKey	 With																			;
+					  Icase(																				;
+						UpdateNow, 									'A',									;
+						NeverUpdate And Empty(InstalledVerNumber), 	'Z',									;
+						NeverUpdate and IsCurrent, 					'Y',									;
+						NeverUpdate, 								'X',									;
+						Empty(InstalledVerNumber) And IsNew, 		'B',									;
+						Empty(InstalledVerNumber) And VerDate > Date() - DaysForRecentReleases, 'D',		;
+						IsCurrent, 									'C',									;
+						'M') +																				;
 					  Upper(AppName)
 
 			Replace	Status	With  Icase(														;
@@ -302,11 +306,11 @@ Procedure CreateUpdatesCursor (toUpdateList)
 						Left(SortKey, 1) = 'B', 'New / Not Installed',							;
 						Left(SortKey, 1) = 'C', 'Current',										;
 						Left(SortKey, 1) = 'D', 'Not Installed',								;
-						Left(SortKey, 1) = 'X', 'Not Installed',								;
-						Left(SortKey, 1) = 'Z' And Empty(InstalledVerNumber), '---',			;
-						Left(SortKey, 1) = 'Z' And IsCurrent, 'Current',						;
-						'??? Current ???')
-
+						Left(SortKey, 1) = 'Z', '---',											;
+						Left(SortKey, 1) = 'Y', 'Current',										;
+						Left(SortKey, 1) = 'X', '??? Current ???',								;
+						'Not Installed')
+			
 		Endwith
 	Endfor && lnI = 1 to toUpdateList.Count
 

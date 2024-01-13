@@ -67,7 +67,8 @@ Endif
 * record the date CFU was run
 Execscript(_Screen.cThorDispatcher, 'Thor_Proc_SetLastCFUDate')
 
-Execscript (_Screen.cThorDispatcher, 'Thor_Tool_ThorInternalThorNews', 'Check For Updates')
+*!* ******** JRN Removed 2024-01-06 ********
+*!* Execscript (_Screen.cThorDispatcher, 'Thor_Tool_ThorInternalThorNews', 'Check For Updates')
 
 Wait Clear
 
