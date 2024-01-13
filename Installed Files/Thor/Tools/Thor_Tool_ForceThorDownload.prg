@@ -29,5 +29,5 @@ Return
 * Normal processing for this tool begins here.
 Procedure ToolCode
 	StrToFile(' Force CFU ', _screen.cThorFolder + 'Thorversion.txt', 1)
-	ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_MessageBox', 'Running "Check For Updates" now will force an update of Thor.')
+	MessageBox('Running "Check For Updates" now will force an update of Thor.')
 EndProc 

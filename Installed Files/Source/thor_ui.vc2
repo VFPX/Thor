@@ -7344,7 +7344,7 @@ DEFINE CLASS toolkeysbase AS basecontainer OF "basecontrols.vcx"
 		Local lcApp, lcFolder, loRunThor
 		lcApp	  = ThisForm.cThorFolder + 'Thor.App'
 		lcFolder  = ThisForm.cThorFolder + 'Thor\'
-		loRunThor = Newobject ('Thor_Run', 'thor_run.vcx', '', lcApp, lcFolder)
+		loRunThor = NewSessionObject ('Thor_Run', 'thor_run.vcx', lcApp, lcFolder)
 		loRunThor.AddProperty('cApplication', lcApp)
 		loRunThor.CreateToolBar()
 		
