@@ -91,14 +91,15 @@ text to lcRegisterWithThor noshow textmerge
 * Register the tool with Thor.
 		llRegister = .Register()
 		
-		if llRegister
-			lnSelect = select()
-			try
-				ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_UnInstallGoFish5')
-			catch
-			endtry
-			select (lnSelect)
-		endif llRegister
+		*!* ******** JRN Removed 2024-03-15 ********
+		*!* if llRegister
+		*!* 	lnSelect = select()
+		*!* 	try
+		*!* 		ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_UnInstallGoFish5')
+		*!* 	catch
+		*!* 	endtry
+		*!* 	select (lnSelect)
+		*!* endif llRegister
 		
 	endwith
 endtext
