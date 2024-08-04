@@ -14,7 +14,7 @@ With loUpdateObject
     .VersionLocalFilename = 'GDIPlusXVersionFile.txt'
     .RegisterWithThor     = lcRegisterWithThor
     
-    .AvailableVersion     = 'GDIPlusX - 1.20 - May 25, 2009 - 20090525'
+    .AvailableVersion     = 'GDIPlusX - 1.22 - August 4, 2024 - 20240804'
     .SourceFileUrl        = 'https://github.com/VFPX/GDIPlusX/archive/refs/heads/master.zip'
     .Link                 = 'https://github.com/VFPX/GDIPlusX'
     .LinkPrompt           = 'GDIPlusX Home Page'
