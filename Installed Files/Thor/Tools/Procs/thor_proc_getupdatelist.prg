@@ -107,7 +107,7 @@ Procedure AddUpdateFolder (loUpdateList, tlIsThor, lcUpdateFolder, lcNeverUpdate
 				Endif
 
 				If File (loResult.NeverUpdateFile)
-					loResult.NeverUpdate = 'Yes'
+					loResult.NeverUpdate = 'Y'
 				Endif
 
 				If loResult.ErrorCode >= 0

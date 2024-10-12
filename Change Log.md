@@ -1,5 +1,9 @@
 # Thor Change Log
 
+### Thor 1.47.03 - Released 2024-10-12
+* "Never Update" items not showing properly in CFU
+* Changed font for Thor menu items to "Segoe UI"
+
 ### Thor 1.47.02 - Released 2024-01-13
 * Removed call to Thor News as part of CFU (Issue #249)
 * Removed use of `Thor_Proc_MessageBox.PRG` as it had problems with positioning under some conditions (Issue #249)

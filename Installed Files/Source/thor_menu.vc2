@@ -255,7 +255,7 @@ DEFINE CLASS contextmenu AS custom
 			lnFontSize	  = Nvl(Execscript(_Screen.cThorDispatcher, 'Get Option=', 'MenuFontSize', 'Thor'), 0)
 		
 			If m.llUseFontSize And m.lnFontSize > 0
-				This.cFontSize = ' Font "Calibri", ' + Transform(m.lnFontSize)
+				This.cFontSize = ' Font "Segoe UI", ' + Transform(m.lnFontSize)
 			Else
 				This.cFontSize =  ''
 			Endif
