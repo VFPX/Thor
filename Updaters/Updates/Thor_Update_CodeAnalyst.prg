@@ -44,7 +44,7 @@ Lparameters loUpdateObject
 	Local loContextMenu As ContextMenu Of 'C:\VISUAL FOXPRO\PROGRAMS\9.0\COMMON\Thor\Source\Thor_Menu.vcx'
 	Local lcAPP, lcFolder, lcKeyword, llShowConfig, lnMsgBoxAns
 
-	lcAPP	  = ccINSTALLFOLDER + '\Analyst.APP'
+    	lcAPP	  = ccINSTALLFOLDER + '\CodeAnalyst-master\Analyst.APP' 
 
 	* --------------------------------------------------------------------------------
 	loContextMenu = Execscript(_Screen.cThorDispatcher, 'Class= ContextMenu')
