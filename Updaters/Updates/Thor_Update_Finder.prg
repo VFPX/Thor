@@ -7,7 +7,7 @@ EndText
 
 With loUpdateObject
     .ApplicationName      = 'Finder'
-    .ToolName             = 'Thor_Tool_ThorInternalRepository'
+	.InstallInTools	      = .T.
     .VersionNumber        = '1.1.19'
     .VersionDate          = Date(2014, 11, 26)
     .SourceFileUrl        = 'https://raw.githubusercontent.com/VFPX/Finder/master/Finder.zip'
