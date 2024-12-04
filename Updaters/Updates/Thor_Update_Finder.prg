@@ -8,8 +8,8 @@ EndText
 With loUpdateObject
     .ApplicationName      = 'Finder'
 	.InstallInTools	      = .T.
-    .VersionNumber        = '1.1.19'
-    .VersionDate          = Date(2014, 11, 26)
+    .VersionNumber        = '1.1.20'
+    .VersionDate          = Date(2024, 12, 01)
     .SourceFileUrl        = 'https://raw.githubusercontent.com/VFPX/Finder/master/Finder.zip'
     .LinkPrompt           = 'Finder Home Page'
     .Link                 = 'https://github.com/VFPX/Finder'
