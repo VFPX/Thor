@@ -1,5 +1,8 @@
 # Thor Change Log
 
+### Thor 1.47.04 - Released 2024-12-04
+* Fix broken link in "Manage Plug-Ins" (#276)
+
 ### Thor 1.47.03 - Released 2024-10-12
 * "Never Update" items not showing properly in CFU
 * Changed font for Thor menu items to "Segoe UI"
