@@ -15,7 +15,7 @@ With loUpdateObject
     .VersionLocalFilename = 'GitUtilitiesVersionFile.txt'
     .RegisterWithThor     = lcRegisterWithThor
     
-    .VersionFileURL       = 'https://bitbucket.org/mikepotjer/vfp-git-utils/downloads/GitUtilitiesVersionFile.txt'
+    .VersionFileURL       = 'https://raw.githubusercontent.com/mikepotjer/vfp-git-utils/master/ThorUpdater/GitUtilitiesVersionFile.txt'
 Endwith
 
 Return loUpdateObject
